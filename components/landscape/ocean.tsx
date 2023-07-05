@@ -5,7 +5,7 @@ interface OceanProps {
 }
 
 const Ocean: FC<OceanProps> = ({ children }) => (
-    <div className="bg-ocean h-ocean">
+    <div className="bg-ocean_night h-ocean text-white">
         {children}
     </div>
 );

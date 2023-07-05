@@ -6,7 +6,7 @@ interface SkyProps {
 
 const Sky: FC<SkyProps> = ({ children }) => {
     return (
-        <div className="bg-sky h-sky">
+        <div className="bg-sky_night_fair h-sky">
             {children}
         </div>
     )
