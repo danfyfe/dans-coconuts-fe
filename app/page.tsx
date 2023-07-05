@@ -1,5 +1,6 @@
 export default function HomePage() {
   return (
-    <div>idk</div>
+    <></>
+    // <Heading type="h1" text="Woah from somewhere else?!"/>
     )
   };

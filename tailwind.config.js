@@ -8,10 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        sky: '#DEFAF8',
+        sky_day_fair: '#DEFAF8',
+        sky_night_fair: '#25587C',
+        sky_day_rain: '#3f5957',
+        sky_night_rain: '',
         sun: '#FDB813',
-        ocean: '#2DB8C2',
-        sand: '#EDD793'
+        moon: '#FCFEDA',
+        ocean_day: '#2DB8C2',
+        ocean_night: '#1b4e52',
+        sand_day: '#EDD793',
+        sand_night: '#736b53'
       },
       height: {
         sky: '40vh',
@@ -26,3 +32,22 @@ module.exports = {
   },
   plugins: [],
 }
+
+/**
+ * Weather
+ * 
+ * sky
+ *  good - blue
+ *  rain - grey
+ *  
+ * water
+ *  good - blue
+ *  rain - darker
+ * 
+ * 
+ * 
+ * night
+ * 
+ * 
+ * 
+ */

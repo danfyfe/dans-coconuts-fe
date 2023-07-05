@@ -5,7 +5,7 @@ interface SandProps {
 }
 
 const Sand: FC<SandProps> = ({ children }) => (
-    <div className="bg-sand h-sand">
+    <div className="bg-sand_night h-sand">
         {children}
     </div>
 );
