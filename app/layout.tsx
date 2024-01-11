@@ -13,29 +13,35 @@ interface RootLayout {
     children: React.ReactNode
 }
 
-const RootLayout: FC<RootLayout> = ({ children }) => (
+const RootLayout: FC<RootLayout> = ({ children }) => {
+	const day = true;
+	return (
     <html lang="en">
         <body>
-            <main id="main-content relative">
-                <Sky>
-                    <Sun/>
+            <main id="main-content" className="overflow-hidden">
+                <Sky day={day}>
+                    <Sun day={day}/>
                 </Sky>
-                <Ocean>
-                    <div className='ml-[25vw]'>
+                <Ocean day={day}>
+										<div className='-ml-[2vw] underline decoration-wavy'>
                     ~~~~~~~~~~~~
                     </div>
-                    <div className='ml-[50vw]'>
+                    <div className='ml-[45vw] underline decoration-wavy'>
+                    ~~~~~~~~~~~~
+                    </div>
+                    <div className='ml-[95vw] underline decoration-wavy'>
                     ~~~~~~~~~~~~
                     </div>
                     {/* fish, etc */}
                 </Ocean>
-                <Sand>
-                    <Tide />
+                <Sand day={day}>
+                    <Tide day={day} />
                     {children}
                 </Sand>
             </main>
         </body>
     </html>
-);
+	)
+};
 
 export default RootLayout;
