@@ -16,7 +16,6 @@
 }
 
 @keyframes tide {
-
   0% {
     height: 0px;
     border-bottom: none;
@@ -37,5 +36,4 @@
     height: 0px;
     opacity: 0;
   }
-
 }

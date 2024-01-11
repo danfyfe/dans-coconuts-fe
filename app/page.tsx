@@ -1,6 +1,8 @@
+import Weather from "./weather/page"
 export default function HomePage() {
   return (
-    <></>
-    // <Heading type="h1" text="Woah from somewhere else?!"/>
+      <>
+        {/* <Weather /> */}
+      </>
     )
   };

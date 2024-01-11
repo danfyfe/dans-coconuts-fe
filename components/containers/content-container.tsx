@@ -1,16 +1,16 @@
 import { FC } from 'react';
 
 interface ContentContainerProps {
-    children: React.ReactNode
+    children: React.ReactNode,
+    className?: string
 };
 
-const ContentContainer: FC<ContentContainerProps> = ({ children }) => {
+const ContentContainer: FC<ContentContainerProps> = ({ children, className }) => {
     return(
-        <section className="
+        <section 
+            className={`
                 absolute
-                top-[10%]
-                left-[10%]
-                bg-sand
+                bg-sand_night
                 border-black
                 border-solid
                 rounded
@@ -18,7 +18,9 @@ const ContentContainer: FC<ContentContainerProps> = ({ children }) => {
                 min-h-[75%]
                 min-w-[75%]
                 p-[5%]
-        ">
+                ${className ?? ''}
+            `}
+        >
             {children}
         </section>
     )
