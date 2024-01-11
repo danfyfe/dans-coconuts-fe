@@ -1,8 +1,9 @@
-import Weather from "./weather/page"
+import LandscapeContainer from '@/components/containers/landscape-container';
+
 export default function HomePage() {
   return (
       <>
-        {/* <Weather /> */}
+        <LandscapeContainer />
       </>
     )
   };
