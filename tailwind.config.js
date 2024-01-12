@@ -17,7 +17,8 @@ module.exports = {
         ocean_day: '#2DB8C2',
         ocean_night: '#1b4e52',
         sand_day: '#EDD793',
-        sand_night: '#736b53'
+        sand_night: '#736b53',
+        rain: "#B0C4DE"
       },
       height: {
         sky: '40vh',

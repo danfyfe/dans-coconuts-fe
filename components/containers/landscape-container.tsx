@@ -3,7 +3,8 @@ import {
     Sky,
     Sun,
     Ocean,
-    Sand
+    Sand,
+		Rain
 } from '@/components/landscape'
 import Tide from '@/components/landscape/tide';
 
@@ -22,9 +23,12 @@ const LandscapeContainer:FC<LandscapeContainerProps> = async () => {
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
 	const periods = data.properties.periods;
 	const currentPeriod = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
+	const precipitation = currentPeriod?.probabilityOfPrecipitation?.value;
+	const raining = precipitation > 40;
 	const day = currentPeriod?.isDaytime ?? true;
     return (
 			<>
+				{ raining && <Rain precipitation={precipitation} /> }
 				<Sky day={day}>
 					<Sun day={day}/>
 				</Sky>
