@@ -1,11 +1,10 @@
-import { FC } from 'react';
 
 interface ContentContainerProps {
     children: React.ReactNode,
     className?: string
 };
 
-const ContentContainer: FC<ContentContainerProps> = ({ children, className }) => {
+const ContentContainer = ({ children, className }: ContentContainerProps) => {
     return(
         <section 
             className={`

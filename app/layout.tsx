@@ -8,7 +8,7 @@ interface RootLayout {
 const RootLayout: FC<RootLayout> = ({ children }) => (
 	<html lang="en">
 			<body>
-					<main id="main-content" className="overflow-hidden">
+					<main id="main-content" className="overflow-hidden h-screen">
 						{children}
 					</main>
 			</body>

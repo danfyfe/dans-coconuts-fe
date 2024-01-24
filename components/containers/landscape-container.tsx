@@ -28,7 +28,7 @@ const LandscapeContainer = async () => {
 	const periods = data.properties.periods;
 	const currentPeriod:Period = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation: number = currentPeriod?.probabilityOfPrecipitation?.value;
-	const raining = precipitation >= 40;
+	const raining = precipitation >= 50;
 	const day = currentPeriod?.isDaytime ?? true;
     return (
 			<>
