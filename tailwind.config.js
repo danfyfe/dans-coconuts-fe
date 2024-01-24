@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'rain-drop': 'url("/images/forward-slash.svg")'
-      },
       colors: {
         sky_day_fair: '#DEFAF8',
         sky_night_fair: '#25587C',
@@ -28,6 +25,21 @@ module.exports = {
         sun: '20vh',
         ocean: '15vh',
         sand: '200vh'
+      },
+      keyframes: {
+        'rain': {
+          '0%': {
+            transform: 'translate(0, 0)',
+            opacity: 0.5
+          },
+          '100%': {
+            transform: 'translate(-0.5rem, 0.5rem)',
+            opacity: 0
+          }
+        }
+      },
+      backgroundImage: {
+        'rain-drop': 'url("/images/forward-slash.svg")'
       },
       width: {
         sun: '20vh'

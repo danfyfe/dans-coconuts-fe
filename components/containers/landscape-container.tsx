@@ -13,8 +13,12 @@ interface LandscapeContainerProps {
 }
 
 interface Period {
-	startTime: string,
+	startTime: string
 	endTime: string
+	probabilityOfPrecipitation: {
+		value: number
+	}
+	isDaytime: boolean
 }
 
 const LandscapeContainer = async () => {
@@ -22,9 +26,9 @@ const LandscapeContainer = async () => {
 	const currentDateTime = new Date();
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
 	const periods = data.properties.periods;
-	const currentPeriod = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
-	const precipitation = currentPeriod?.probabilityOfPrecipitation?.value;
-	const raining = true;
+	const currentPeriod:Period = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
+	const precipitation: number = currentPeriod?.probabilityOfPrecipitation?.value;
+	const raining = precipitation >= 40;
 	const day = currentPeriod?.isDaytime ?? true;
     return (
 			<>
