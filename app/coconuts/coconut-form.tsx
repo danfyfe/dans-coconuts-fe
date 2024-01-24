@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { clearLine } from "readline";
 
@@ -13,7 +13,7 @@ const CoconutForm = () => {
     const [slug, setSlug] = useState('');
     console.log(slug)
 
-    const handleSubmit = async (e, { slug }: FormData) => {
+    const handleSubmit = async (e: FormEvent, { slug }: FormData) => {
         e.preventDefault();
         await fetch('/api/coconuts', {
             method: 'POST',
