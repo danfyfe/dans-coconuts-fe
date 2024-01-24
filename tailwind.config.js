@@ -27,6 +27,23 @@ module.exports = {
         sand: '200vh'
       },
       keyframes: {
+        'fade-in-out': {
+          '0%': {
+            opacity: 0.5
+          },
+          '25%': {
+            opacity: 0.75
+          },
+          '50%': {
+            opacity: 0.5
+          },
+          '75%': {
+            opacity: 0
+          },
+          '100%': {
+            opacity: 0.5
+          }
+        },
         'spin': {
           '0%': {
             transform: 'rotate(0)'
