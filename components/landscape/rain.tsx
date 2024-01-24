@@ -1,16 +1,19 @@
 'use client';
-import { FC } from 'react';
 
 interface RainDropProps {
     className: string
 }
 
-const RainDrops:FC<RainDropProps> = ({ className }) => (
-    <span className={`${className} block whitespace-nowrap`}>/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /</span>
+const RainDrop = () => 	<div className="bg-rain-drop w-full h-screen bg-repeat" />
+
+const RainDrops = ({ className }: RainDropProps) => (
+	<>
+		<RainDrop />
+	</>
 );
 
 interface RainProps {
-    precipitation: number
+	precipitation: number
 }
 
 /**
@@ -22,11 +25,11 @@ interface RainProps {
  * 
  */
 
-const Rain:FC<RainProps> = ({ precipitation }) => {
+const Rain = ({ precipitation }: RainProps) => {
     return (
-			<div className={`absolute overflow-hidden text-rain h-full w-full ${precipitation >= 80 ? 'opacity-100' : 'opacity-30'}`}>
+			<div className={`absolute z-50 overflow-hidden text-rain h-full w-full ${precipitation >= 80 ? 'opacity-100' : 'opacity-30'}`}>
 				<RainDrops className="" />
-				<RainDrops className="mr-1" />
+				{/* <RainDrops className="mr-1" /> */}
 			</div>
     )
 };

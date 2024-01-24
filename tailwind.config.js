@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'rain-drop': 'url("/images/forward-slash.svg")'
+      },
       colors: {
         sky_day_fair: '#DEFAF8',
         sky_night_fair: '#25587C',

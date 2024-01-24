@@ -17,14 +17,14 @@ interface Period {
 	endTime: string
 }
 
-const LandscapeContainer:FC<LandscapeContainerProps> = async () => {
+const LandscapeContainer = async () => {
 	const data = await fetch('https://api.weather.gov/gridpoints/MFL/112,52/forecast/hourly').then((r => r.json()));
 	const currentDateTime = new Date();
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
 	const periods = data.properties.periods;
 	const currentPeriod = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation = currentPeriod?.probabilityOfPrecipitation?.value;
-	const raining = precipitation > 40;
+	const raining = true;
 	const day = currentPeriod?.isDaytime ?? true;
     return (
 			<>
