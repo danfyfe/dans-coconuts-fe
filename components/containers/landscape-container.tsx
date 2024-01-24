@@ -21,7 +21,7 @@ interface Period {
 	isDaytime: boolean
 }
 
-const LandscapeContainer = async () => {
+const LandscapeContainer:any = async () => {
 	const data = await fetch('https://api.weather.gov/gridpoints/MFL/112,52/forecast/hourly').then((r => r.json()));
 	const currentDateTime = new Date();
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
