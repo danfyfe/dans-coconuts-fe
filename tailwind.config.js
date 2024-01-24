@@ -27,6 +27,14 @@ module.exports = {
         sand: '200vh'
       },
       keyframes: {
+        'spin': {
+          '0%': {
+            transform: 'rotate(0)'
+          },
+          '100%': {
+            transform: 'rotate(360deg)'
+          }
+        },
         'rain': {
           '0%': {
             transform: 'translate(0, 0)',
