@@ -9,11 +9,13 @@ function getWeather(url: string): Promise<WeatherResponse> {
 
 const useWeather = () => {
   const [weatherData, seWeatherData] = useState<WeatherResponse | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getWeather('https://api.weather.gov/gridpoints/MFL/112,52/forecast/hourly');
       seWeatherData(data);
+      setLoading(false);
     };
     fetchData();
   },[]);
@@ -30,7 +32,8 @@ const useWeather = () => {
   return {
     day,
     raining,
-    precipitation
+    precipitation,
+    loading
   }
 };
 
