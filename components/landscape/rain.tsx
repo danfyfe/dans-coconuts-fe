@@ -16,7 +16,7 @@ const RainDrops = () => (
 );
 
 interface RainProps {
-	precipitation: number
+	precipitation: number | undefined
 }
 
 /**
