@@ -4,8 +4,9 @@ import Image from "next/image"
 
 export default function Loading() {
     return(
-        <div className="w-full h-screen flex justify-center items-center bg-sand_day">
+        <div className="relative w-full h-screen flex justify-center items-center bg-sand_day z-[1000]">
 					<Image
+						priority
 						src="/images/coconut.png"
 						alt="An image of a coconut - Loading"
 						height={200}

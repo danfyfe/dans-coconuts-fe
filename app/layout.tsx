@@ -8,8 +8,8 @@ interface RootLayout {
 const RootLayout = ({ children }: RootLayout) => (
 	<html lang="en">
 			<body>
-					<main id="main-content" className="overflow-hidden h-screen">
-						<Navigation />
+					<main id="main-content" className="relative overflow-hidden h-screen">
+						{/* <Navigation /> */}
 						{children}
 					</main>
 			</body>
