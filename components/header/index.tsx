@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 interface HeaderProps {
     children: React.ReactNode
 }
 
-const Header: FC<HeaderProps> = ({ children }) => {
+const Header = ({ children }: HeaderProps) => {
     return(
         <section className="flex flex-col relative">
             {children}
