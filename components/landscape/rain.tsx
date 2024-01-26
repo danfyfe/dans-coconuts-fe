@@ -30,7 +30,7 @@ interface RainProps {
 
 const Rain = ({ precipitation }: RainProps) => {
     return (
-			<div className={`absolute z-50 overflow-hidden text-rain h-full w-full ${precipitation >= 80 ? 'opacity-100' : 'opacity-30'}`}>
+			<div className={`absolute z-50 overflow-hidden text-rain h-full w-full ${(!!precipitation && precipitation >= 80) ? 'opacity-100' : 'opacity-30'}`}>
 				<RainDrops />
 			</div>
     )
