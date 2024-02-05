@@ -11,7 +11,7 @@ export default function Loading() {
 						alt="An image of a coconut - Loading"
 						height={200}
 						width={200}
-						className="h-28 w-28 animate-[spin_2s_infinite]"
+						className="h-28 w-28 animate-[spin_1.5s_infinite]"
 					/>
         </div>
     )

@@ -10,12 +10,12 @@ const Hamburger = ({ onClick, open }: HamburgerProps) => {
           flex justify-center items-center
           text-2xl z-50
         `}>
-        <span>|</span>
-        <span>|</span>
-        <span>|</span>
+        <span className={`${open ? 'rotate-45' : ''}`}>|</span>
+        <span className={`${open ? 'hidden' : 'block'}`}>|</span>
+        <span className={`${open ? '-rotate-45': ''}`}>|</span>
       </button>
     </div>
   )
 };
 
-export default Hamburger
+export default Hamburger;
