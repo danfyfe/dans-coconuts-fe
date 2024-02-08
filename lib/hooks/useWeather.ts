@@ -1,14 +1,14 @@
 'use client'
 import { useState, useEffect } from "react";
-import { Period, WeatherResponse } from "@/interfaces/weather";
+import { IPeriod, IWeatherResponse } from "@/interfaces/weather";
 
-function getWeather(url: string): Promise<WeatherResponse> {
+function getWeather(url: string): Promise<IWeatherResponse> {
   return fetch(url).then((r) => r.json());
 }
 
 
 const useWeather = () => {
-  const [weatherData, seWeatherData] = useState<WeatherResponse | null>(null);
+  const [weatherData, seWeatherData] = useState<IWeatherResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const useWeather = () => {
 	const currentDateTime = new Date();
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
 	const periods = weatherData?.properties?.periods;
-	const currentPeriod:Period | undefined = periods?.find((p: Period) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
+	const currentPeriod:IPeriod | undefined = periods?.find((p: IPeriod) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation: number | undefined = currentPeriod?.probabilityOfPrecipitation?.value;
 	const raining = !!precipitation && precipitation >= 50;
 	const day = currentPeriod?.isDaytime ?? true;
