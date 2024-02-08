@@ -1,14 +1,22 @@
-interface ContentContainerProps {
+'use client'
+import useWeather from "@/lib/hooks/useWeather";
+interface IContentContainerProps {
     children: React.ReactNode,
     className?: string
 };
 
-const ContentContainer = ({ children, className }: ContentContainerProps) => {
+const ContentContainer = ({ children, className }: IContentContainerProps) => {
+    const { day } = useWeather();
     return(
         <section 
             className={`
                 absolute
-                bg-sand_night
+                shadow-lg
+                top-1/2
+                left-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+                ${day ? 'bg-sand_day text-black' : 'bg-sand_night text-yellow-500'}
                 border-black
                 border-solid
                 rounded

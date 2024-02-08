@@ -3,14 +3,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Dan's Coconuts",
-  description: '...',
+  description: 'Just a beach...'
 }
  
 
-export default function HomePage() {
-  return (
-      <>
-        <LandscapeContainer />
-      </>
-    )
-  };
+const HomePage = () => (
+  <LandscapeContainer />
+);
+
+export default HomePage;

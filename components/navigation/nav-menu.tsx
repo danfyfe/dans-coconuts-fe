@@ -1,7 +1,7 @@
 
-import { NavProps } from "@/interfaces/navigation";
+import { INavProps } from "@/interfaces/navigation";
 
-const NavMenu = ({ open }: NavProps) => {
+const NavMenu = ({ open }: INavProps) => {
   return (
     <div className={`relative w-full bg-inherit`}>
       {

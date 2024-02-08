@@ -1,7 +1,8 @@
-"use client"
+'use client'
+import ErrorNotFound from '@/components/error-not-found';
 
-export default function Error(){
-    return(
-        <div>ERROR!</div>
-    )
-};
+const Error = () => (
+	<ErrorNotFound type="error" />
+);
+
+export default Error;

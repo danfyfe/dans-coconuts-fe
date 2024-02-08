@@ -1,4 +1,4 @@
-export interface Period {
+export interface IPeriod {
 	startTime: string
 	endTime: string
 	probabilityOfPrecipitation: {
@@ -7,13 +7,13 @@ export interface Period {
 	isDaytime: boolean
 }
 
-export interface WeatherResponse {
+export interface IWeatherResponse {
   properties?: {
-    periods?: Period[]
+    periods?: IPeriod[]
   }
 }
 
-export interface WeatherHookData {
+export interface IWeatherHookData {
   day: boolean;
   raining: boolean;
   precipitation: number | undefined;

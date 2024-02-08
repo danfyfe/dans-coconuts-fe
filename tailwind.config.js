@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        tide: 'tide 10s infinite',
+        'roll-left': 'roll-left 1s',
+        'roll-right': 'roll-right 1s'
+      },
       colors: {
         sky_day_fair: '#DEFAF8',
         sky_night_fair: '#25587C',
@@ -19,6 +24,10 @@ module.exports = {
         sand_day: '#EDD793',
         sand_night: '#736b53',
         rain: "#B0C4DE"
+      },
+      fontFamily: {
+        'gilligan': ['Gilligan', 'Arial', 'sans-serif'],
+        'roboto': ['RobotoCondensed', 'Arial', 'sans-serif']
       },
       height: {
         sky: '40vh',
@@ -44,6 +53,25 @@ module.exports = {
             opacity: 0.5
           }
         },
+        'tide': {
+          "0%": {
+            height: '0px',
+            borderBottom: 'none',
+            borderBottom: '1px solid transparent',
+          },
+          "50%": {
+            height: '25px',
+            opacity: 1,
+            borderBottom: '1px solid white',
+          },
+          "75%": {
+            borderBottom: '10px solid white',
+          },
+          "100%": {
+            height: '0px',
+            opacity: 0,
+          }
+        },
         'spin': {
           '0%': {
             transform: 'rotate(0)'
@@ -61,6 +89,28 @@ module.exports = {
             transform: 'translate(-0.5rem, 0.5rem)',
             opacity: 0
           }
+        },
+        'roll-left': {
+          '0%': {
+            transform: 'rotate(30deg)'
+          },
+          '25%': {
+            transform: 'rotate(0deg)'
+          },
+          '50%': {
+            transform: 'rotate(5deg)'
+          }
+        },
+        'roll-right': {
+          '0%': {
+            transform: 'rotate(-130deg)'
+          },
+          '25%': {
+            transform: 'rotate(-90deg)'
+          },
+          '50%': {
+            transform: 'rotate(-100deg)'
+          }
         }
       },
       backgroundImage: {
@@ -73,22 +123,3 @@ module.exports = {
   },
   plugins: [],
 }
-
-/**
- * Weather
- * 
- * sky
- *  good - blue
- *  rain - grey
- *  
- * water
- *  good - blue
- *  rain - darker
- * 
- * 
- * 
- * night
- * 
- * 
- * 
- */

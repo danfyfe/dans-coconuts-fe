@@ -9,8 +9,9 @@ import {
 import Tide from '@/components/landscape/tide';
 import useWeather from '@/lib/hooks/useWeather';
 import Loading from '../loaders/loading';
+import { ILandscapeProps } from '@/interfaces/landscape';
 
-const LandscapeContainer = () => {
+const LandscapeContainer = ({ children }: ILandscapeProps) => {
 	const { day, raining, precipitation, loading } = useWeather();
 	return (
 			<>
@@ -38,6 +39,7 @@ const LandscapeContainer = () => {
 					<Sand day={day}>
 						<Tide day={day} />
 					</Sand>
+					{children}
 					</>
 				)
 			}

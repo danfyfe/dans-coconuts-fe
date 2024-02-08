@@ -1,6 +1,6 @@
-import { HamburgerProps } from "@/interfaces/navigation";
+import { IHamburgerProps } from "@/interfaces/navigation";
 
-const Hamburger = ({ onClick, open }: HamburgerProps) => {
+const Hamburger = ({ onClick, open }: IHamburgerProps) => {
   return (
     <div className={`w-full flex justify-end`}>
       <button
