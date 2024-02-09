@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const checkCookie = ({ cookieName, cookieValue }: { cookieName: String; cookieValue: String}): boolean => {
+const checkCookie = ({ cookieName, cookieValue }: { cookieName: String | undefined; cookieValue: String | undefined}): boolean => {
   const cookies = document.cookie.split('; ');
   for (const cookie of cookies) {
     const [name, value] = cookie.split('=');
@@ -11,7 +11,7 @@ const checkCookie = ({ cookieName, cookieValue }: { cookieName: String; cookieVa
   return false;
 };
 
-const useCookieCheck = ({ cookieName, cookieValue }: { cookieName: String; cookieValue: String}) => {
+const useCookieCheck = ({ cookieName, cookieValue }: { cookieName: String | undefined; cookieValue: String | undefined}) => {
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {

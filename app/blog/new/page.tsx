@@ -64,9 +64,17 @@ const PasswordCheck = ({ }) => {
   )
 }
 
+const VerifyDan = () => {
+  return (
+    <div>hi</div>
+  )
+};
+
 const NewBlog = () => {
-  // make ENV variables
-  const [isDan] = useCookieCheck({ cookieName:"verified-dan", cookieValue:"yup-thats-dan"});
+  const [isDan] = useCookieCheck({
+    cookieName: process.env.NEXT_PUBLIC_VERIFIED_DAN_COOKIE_NAME,
+    cookieValue: process.env.NEXT_PUBLIC_VERIFIED_DAN_COOKIE_VALUE 
+  });
   const [saysIsDan, setSaysIsDan] = useState(false);
   const [verifiedDan, setVerifiedDan] = useState(isDan);
 
@@ -75,18 +83,10 @@ const NewBlog = () => {
     <LandscapeContainer>
       <ContentContainer>
         {
-          verifiedDan ? (
+          isDan ? (
             <div>hi dan..this will be a form eventually</div>
           ) : (
-            <>
-              {
-                saysIsDan ? (
-                  <PasswordCheck />
-                ): (
-                  <DanCheck setSaysIsDan={setSaysIsDan}/>
-                )
-              }
-            </>
+            <VerifyDan />
           )
         }
       </ContentContainer>
