@@ -4,11 +4,7 @@ import H1 from "@/components/core/typography/H1";
 
 const BlogIndex = () => {
   return (
-    <LandscapeContainer>
-      <ContentContainer>
-        <H1>Here are some thoughts</H1>
-      </ContentContainer>
-    </LandscapeContainer>
+    <H1 className="self-start">Here are some thoughts</H1>
   )
 };
 

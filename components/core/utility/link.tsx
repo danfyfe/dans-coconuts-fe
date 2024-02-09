@@ -8,6 +8,7 @@ const NextLink = ({ children, href, className, asButton, ariaLabel }: ILinkProps
     href={href}
     className={`
       underline
+      font-roboto
       ${asButton ? `
         flex
         justify-center

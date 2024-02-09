@@ -21,7 +21,7 @@ export interface ILinkProps extends LinkProps {
 };
 
 export interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  
+  label?: string
 }
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -33,4 +33,11 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export interface IErrorNotFoundProps {
   type: "error" | "not-found"
+};
+
+
+export interface IPostSlugProps {
+  params: {
+    slug: string
+  }
 };

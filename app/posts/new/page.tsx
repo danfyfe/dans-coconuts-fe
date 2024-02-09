@@ -12,11 +12,7 @@ const NewBlog = () => {
   if (!verifiedDan) redirect('/posts/new/verify');
 
   return (
-    <LandscapeContainer>
-      <ContentContainer>
-        <div>hi dan..this will be a form eventually</div>
-      </ContentContainer>
-    </LandscapeContainer>
+    <div>hi dan..this will be a form eventually</div>
   )
 };
 

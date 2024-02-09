@@ -13,11 +13,7 @@ const NewPostVerification = () => {
   if (verifiedDan) redirect('/posts/new');
 
   return (
-    <LandscapeContainer>
-      <ContentContainer className="flex justify-center items-center">
-        <VerifyDan />
-      </ContentContainer>
-    </LandscapeContainer>
+    <VerifyDan />
   )
 };
 

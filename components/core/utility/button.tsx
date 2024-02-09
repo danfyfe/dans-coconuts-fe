@@ -10,6 +10,7 @@ const Button = ({ type="button", children, className, inverted=false, onClick }:
         border-black
         min-w-[4rem]
         min-h-[3rem]
+        font-roboto
         ${inverted ? '' : ''}
         ${className ? className : ''}
       `}

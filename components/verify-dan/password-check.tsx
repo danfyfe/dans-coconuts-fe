@@ -3,29 +3,9 @@ import { ReactEventHandler, useCallback, useState } from "react";
 import FlexContainer from "../core/containers/flex-container";
 import Button from "../core/utility/button";
 import H2 from "../core/typography/h2";
-import { ITextInputProps } from "@/interfaces/content";
+import TextInput from "../core/forms/inputs/text-input";
 import { useRouter } from "next/navigation";
 import setCookie from "@/lib/setCookie";
-
-const TextInput = ({ type, name, className, value, onChange }: ITextInputProps) => {
-  return (
-    <input
-      className={`
-        rounded
-        px-10
-        border-2
-        border-black
-        min-w-[4rem]
-        min-h-[3rem]
-        ${className ? className : ''}
-      `}
-      type={type}
-      name={name}
-      value={value}
-      onChange={onChange}
-    />
-  )
-}
 
 const PasswordCheck = ({ setRejected } : {
   setRejected: React.Dispatch<React.SetStateAction<boolean>>
@@ -57,7 +37,7 @@ const PasswordCheck = ({ setRejected } : {
   return (
     <FlexContainer>
       <H2>Prove it!</H2>
-      <TextInput className="mt-10" type="password" onChange={handleInputChange} />
+      <TextInput label="Password" className="mt-10" type="password" onChange={handleInputChange} />
       <FlexContainer className="md:flex-row mt-10">
         <Button
           className="mr-0 md:mr-10 mb-5 md:mb-0"

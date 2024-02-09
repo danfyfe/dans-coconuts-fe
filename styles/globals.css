@@ -11,3 +11,11 @@
   font-family: 'RobotoCondensed';
   src: url("/fonts/RobotoCondensed-Medium.ttf") format("opentype");
 }
+
+*::-webkit-scrollbar-track {
+  background: '#EDD793'
+}
+
+*::-webkit-scrollbar-thumb {
+  background: '#000';
+}
