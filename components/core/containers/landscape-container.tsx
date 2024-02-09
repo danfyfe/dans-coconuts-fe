@@ -5,8 +5,8 @@ import {
     Ocean,
     Sand,
 		Rain
-} from '@/components/landscape'
-import Tide from '@/components/landscape/tide';
+} from '@/components/core/landscape'
+import Tide from '@/components/core/landscape/tide';
 import useWeather from '@/lib/hooks/useWeather';
 import Loading from '../loaders/loading';
 import { ILandscapeProps } from '@/interfaces/landscape';

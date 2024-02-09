@@ -1,4 +1,4 @@
-import LandscapeContainer from '@/components/containers/landscape-container';
+import LandscapeContainer from '@/components/core/containers/landscape-container';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
