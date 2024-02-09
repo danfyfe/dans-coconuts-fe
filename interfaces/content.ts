@@ -16,6 +16,7 @@ export interface IPProps extends IContentProps {};
 export interface ILinkProps extends LinkProps {
   children: React.ReactNode
   className?: string
+  asButton?: boolean | undefined
 };
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
