@@ -6,7 +6,7 @@ const BlogIndex = () => {
   return (
     <LandscapeContainer>
       <ContentContainer>
-        <H1>Here are some things I wrote</H1>
+        <H1>Here are some thoughts</H1>
       </ContentContainer>
     </LandscapeContainer>
   )

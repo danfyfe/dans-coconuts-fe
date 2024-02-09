@@ -1,8 +1,10 @@
 import { ILinkProps } from "@/interfaces/content";
 import Link from "next/link";
 
-const NextLink = ({ children, href, className, asButton }: ILinkProps) => (
+const NextLink = ({ children, href, className, asButton, ariaLabel }: ILinkProps) => (
   <Link
+    title={ariaLabel ? ariaLabel : undefined}
+    aria-label={ariaLabel ? ariaLabel : undefined}
     href={href}
     className={`
       underline

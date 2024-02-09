@@ -1,6 +1,6 @@
-import { VerifiedDanProvider } from '@/context/VerifiedDanProvider';
 import '../styles/globals.css';
-import Navigation from '@/components/core/navigation';
+// import { VerifiedDanProvider } from '@/context/VerifiedDanProvider';
+// import Navigation from '@/components/core/navigation';
 
 interface RootLayout {
     children: React.ReactNode
@@ -10,10 +10,10 @@ const RootLayout = ({ children }: RootLayout) => (
 	<html lang="en">
 		<body>
 			<main id="main-content" className="relative overflow-hidden h-screen">
-				<VerifiedDanProvider>
+				{/* <VerifiedDanProvider> */}
 					{/* <Navigation /> */}
 					{children}
-				</VerifiedDanProvider>
+				{/* </VerifiedDanProvider> */}
 			</main>
 		</body>
 	</html>

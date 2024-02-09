@@ -9,7 +9,7 @@ export const VerifiedDanProvider = ({ children }: { children: React.ReactNode })
     cookieName: process.env.NEXT_PUBLIC_VERIFIED_DAN_COOKIE_NAME,
     cookieValue: process.env.NEXT_PUBLIC_VERIFIED_DAN_COOKIE_VALUE 
   });
-  console.log('inside verifid provider', verifiedDan)
+
   return (
     <VerifiedDanContext.Provider value={{ verifiedDan }}>
       {children}

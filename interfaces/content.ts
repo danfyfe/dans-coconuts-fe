@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, InputHTMLAttributes, SelectHTMLAttributes } from 
 
 export interface IContentProps {
   children?: React.ReactNode
-  className?: String
+  className?: string
 };
 
 export interface IFlexProps extends IContentProps {};
@@ -16,8 +16,13 @@ export interface IPProps extends IContentProps {};
 export interface ILinkProps extends LinkProps {
   children: React.ReactNode
   className?: string
-  asButton?: boolean | undefined
+  asButton?: boolean | undefined,
+  ariaLabel?: string
 };
+
+export interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  
+}
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
