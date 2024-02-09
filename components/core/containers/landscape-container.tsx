@@ -11,7 +11,7 @@ import useWeather from '@/lib/hooks/useWeather';
 import Loading from '../loaders/loading';
 import { ILandscapeProps } from '@/interfaces/landscape';
 
-const LandscapeContainer = ({ children }: ILandscapeProps) => {
+const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 	const { day, raining, precipitation, loading } = useWeather();
 	return (
 			<>
