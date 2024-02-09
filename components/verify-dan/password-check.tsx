@@ -34,7 +34,6 @@ const PasswordCheck = ({ setRejected } : {
   const [passInput, setPassInput] = useState('');
 
   const handleDanCheck = () => {
-    console.log(passInput, process.env.NEXT_PUBLIC_VERIFIED_DAN_PASS)
     if (passInput === process.env.NEXT_PUBLIC_VERIFIED_DAN_PASS) {
       setCookie(
         process.env.NEXT_PUBLIC_VERIFIED_DAN_COOKIE_NAME ?? '',
