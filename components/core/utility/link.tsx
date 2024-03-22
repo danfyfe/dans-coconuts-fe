@@ -6,7 +6,8 @@ const NextLink = ({ children, href, className, asButton, ariaLabel, onClick=() =
     title={ariaLabel ? ariaLabel : undefined}
     aria-label={ariaLabel ? ariaLabel : undefined}
     href={href}
-    shallow
+    shallow={true}
+    prefetch={false}
     onClick={onClick}
     className={`
       font-roboto
