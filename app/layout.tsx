@@ -9,20 +9,20 @@ interface RootLayout {
 }
 
 const RootLayout = ({ children }: RootLayout) => (
-	<html lang="en">
-		<body>
-			<WeatherProvider>
-				<CoconutProvider>
-					<main id="main-content" className="relative overflow-hidden h-screen">
-						{/* <VerifiedDanProvider> */}
-							<Navigation />
-							{children}
-						{/* </VerifiedDanProvider> */}
-					</main>
-				</CoconutProvider>
-			</WeatherProvider>
-		</body>
-	</html>
+	<WeatherProvider>
+		<CoconutProvider>
+				<html lang="en">
+					<body>
+						<main id="main-content" className="relative overflow-hidden h-screen">
+							{/* <VerifiedDanProvider> */}
+								<Navigation />
+								{children}
+							{/* </VerifiedDanProvider> */}
+						</main>
+					</body>
+				</html>
+		</CoconutProvider>
+	</WeatherProvider>
 );
 
 export default RootLayout;

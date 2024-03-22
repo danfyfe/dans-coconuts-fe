@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 const CoconutsPage = () => (
   <LandscapeContainer>
     <CoconutContainer />
-    
   </LandscapeContainer>
 );
 
