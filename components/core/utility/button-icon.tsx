@@ -4,9 +4,9 @@ const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel } :
   return (
     <button
       className={`
-        self-center h-12 w-12 m-3
+        self-center h-[40px] w-[40px] m-3
         flex items-center justify-center shadow-sm
-        text-4xl bg-white bg-opacity-50 rounded-full
+        text-3xl bg-white bg-opacity-50 rounded-full
         ${className ? className : ''}
       `}
       type={type}
