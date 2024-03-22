@@ -10,7 +10,7 @@ const NavTrigger = ({ onClick, open }: INavTriggerProps) => {
         className={`
           h-10 w-10
           flex justify-center items-center
-          text-2xl z-50 m-3
+          text-2xl z-50 m-3 hover:rotate-12
         `}>
           {
             open ? (
