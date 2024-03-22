@@ -1,6 +1,5 @@
-import { WeatherProvider } from '@/context/WeatherProvider';
 import '../styles/globals.css';
-// import { VerifiedDanProvider } from '@/context/VerifiedDanProvider';
+import { WeatherProvider } from '@/context/WeatherProvider';
 import Navigation from '@/components/core/navigation';
 import { CoconutProvider } from '@/context/CoconutProvider';
 
@@ -14,10 +13,8 @@ const RootLayout = ({ children }: RootLayout) => (
 				<html lang="en">
 					<body>
 						<main id="main-content" className="relative overflow-hidden h-screen">
-							{/* <VerifiedDanProvider> */}
-								<Navigation />
-								{children}
-							{/* </VerifiedDanProvider> */}
+							<Navigation />
+							{children}
 						</main>
 					</body>
 				</html>

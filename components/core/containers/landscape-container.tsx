@@ -16,7 +16,6 @@ import { WeatherContext } from '@/context/WeatherProvider';
 const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 	const { day, raining, precipitation, loading } = useWeather();
 	const { displayWeather, setRaining } = useContext(WeatherContext);
-	console.log('display: ', displayWeather)
 
 	useEffect(() => {
 		setRaining(raining)

@@ -23,7 +23,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
         ">
             <NextLink
               href="/"
-              // onClick={handleLinkClick}
+              onClick={handleLinkClick}
               className="
                 md:hover:underline
                 text-5xl
@@ -33,7 +33,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
             </NextLink>
             <NextLink
               href="/coconuts"
-              // onClick={handleLinkClick}
+              onClick={handleLinkClick}
               className="
                 text-5xl
                 md:hover:underline
