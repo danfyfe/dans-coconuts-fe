@@ -1,12 +1,13 @@
 
 'use client'
 import { INavProps } from "@/interfaces/navigation";
-import Button from "../utility/button";
-import { useContext } from "react";
-import { WeatherContext } from "@/context/WeatherProvider";
+import NextLink from "../utility/link";
 
-const NavMenu = ({ open }: INavProps) => {
-  const { displayWeather, setDisplayWeather } = useContext(WeatherContext);
+const NavMenu = ({ open, setOpen }: INavProps) => {
+  const handleLinkClick = () => {
+    setOpen(false)
+  };
+
   return (
     <div
       className={`
@@ -17,9 +18,29 @@ const NavMenu = ({ open }: INavProps) => {
       {
         open ? (
         <div className="
-          w-full flex justify-end
-          px-5 py-2 bg-inherit flex-col items-end
+          w-full flex justify-start
+          px-5 py-5 bg-inherit flex-col items-end
         ">
+            <NextLink
+              href="/"
+              onClick={handleLinkClick}
+              className="
+                md:hover:underline
+                text-5xl
+              "
+            >
+              Home
+            </NextLink>
+            <NextLink
+              href="/coconuts"
+              onClick={handleLinkClick}
+              className="
+                text-5xl
+                md:hover:underline
+              "
+            >
+              Coconuts
+            </NextLink>
           
         </div>
         ) : null

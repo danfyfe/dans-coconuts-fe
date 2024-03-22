@@ -1,13 +1,13 @@
 import { ILinkProps } from "@/interfaces/content";
 import Link from "next/link";
 
-const NextLink = ({ children, href, className, asButton, ariaLabel }: ILinkProps) => (
+const NextLink = ({ children, href, className, asButton, ariaLabel, onClick=() => {} }: ILinkProps) => (
   <Link
     title={ariaLabel ? ariaLabel : undefined}
     aria-label={ariaLabel ? ariaLabel : undefined}
     href={href}
+    onClick={onClick}
     className={`
-      underline
       font-roboto
       ${asButton ? `
         flex

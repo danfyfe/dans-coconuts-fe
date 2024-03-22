@@ -19,7 +19,7 @@ const Navigation = () => {
     `}>
       <NavTrigger onClick={handleOpen} open={open} />
       <WeatherToggle />
-      <NavMenu open={open} />
+      <NavMenu open={open} setOpen={setOpen} />
     </nav>
   )
 };

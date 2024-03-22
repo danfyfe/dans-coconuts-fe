@@ -25,6 +25,7 @@ const ContentContainer = ({ children, className }: IContentContainerProps) => {
                 min-w-[75%]
                 max-h-[calc(100vh-5rem)]
                 p-[5%]
+                z-[500]
                 overflow-y-scroll
                 ${className ?? ''}
             `}

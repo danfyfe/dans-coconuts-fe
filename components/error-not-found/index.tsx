@@ -18,7 +18,7 @@ const ErrorNotFound = ({ type }: IErrorNotFoundProps) => (
           <P className="text-lg lg:text-2xl text-center mb-5"> Looks like this page doesn&apos;t exist</P>
         )
       }
-      <P className="text-lg lg:text-2xl text-center">Click here to go back <NextLink href="/">home</NextLink></P>
+      <P className="text-lg lg:text-2xl text-center"><NextLink href="/">Click here to go back home</NextLink></P>
     </ContentContainer>
   </LandscapeContainer>
 );

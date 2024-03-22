@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react"
+import { Dispatch, MouseEventHandler } from "react"
 
 export interface INavTriggerProps {
   onClick: MouseEventHandler<HTMLButtonElement>,
@@ -7,4 +7,5 @@ export interface INavTriggerProps {
 
 export interface INavProps {
   open: boolean;
+  setOpen: Dispatch<React.SetStateAction<boolean>>
 }
