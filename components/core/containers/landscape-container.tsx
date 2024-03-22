@@ -1,5 +1,5 @@
 'use client'
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {
     Sky,
     Sun,
@@ -15,7 +15,12 @@ import { WeatherContext } from '@/context/WeatherProvider';
 
 const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 	const { day, raining, precipitation, loading } = useWeather();
-	const { displayWeather } = useContext(WeatherContext);
+	const { displayWeather, setRaining } = useContext(WeatherContext);
+
+	useEffect(() => {
+		setRaining(raining)
+	}, [raining, setRaining]);
+
 	return (
 			<>
 			{

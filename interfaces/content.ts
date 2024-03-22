@@ -31,6 +31,11 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
 };
 
+export interface IButtonIconProps extends IButtonProps {
+  icon?: string;
+  ariaLabel: string;
+}
+
 export interface IErrorNotFoundProps {
   type: "error" | "not-found"
 };

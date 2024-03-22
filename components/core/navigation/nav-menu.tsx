@@ -20,12 +20,7 @@ const NavMenu = ({ open }: INavProps) => {
           w-full flex justify-end
           px-5 py-2 bg-inherit flex-col items-end
         ">
-          <Button
-            className="self-center"
-            onClick={() => setDisplayWeather(!displayWeather)}
-          >
-            Toggle weather effects
-          </Button>
+          
         </div>
         ) : null
       }

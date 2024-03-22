@@ -2,6 +2,7 @@
 import { useCallback, useState } from "react";
 import NavTrigger from "./nav-trigger";
 import NavMenu from "./nav-menu";
+import WeatherToggle from "@/components/weather/weather-toggle";
 
 const Navigation = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -17,6 +18,7 @@ const Navigation = () => {
       transition-all
     `}>
       <NavTrigger onClick={handleOpen} open={open} />
+      <WeatherToggle />
       <NavMenu open={open} />
     </nav>
   )
