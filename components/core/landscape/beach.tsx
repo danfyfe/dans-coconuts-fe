@@ -1,7 +1,7 @@
 
 interface SandProps {
     children: React.ReactNode,
-    day: Boolean
+    day?: Boolean
 }
 
 const Sand = ({ children, day }: SandProps) => (

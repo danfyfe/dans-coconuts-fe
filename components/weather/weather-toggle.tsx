@@ -14,10 +14,7 @@ const WeatherToggle = () => {
           <ButtonIcon
             ariaLabel="Toggle weather"
             className={`
-              absolute self-center h-12 w-12 right-16 m-3
-              flex items-center justify-center
               ${displayWeather ? ' text-sun' : 'text-slate-500'}
-              text-4xl bg-white bg-opacity-50 rounded-full
             `}
             onClick={() => setDisplayWeather(!displayWeather)}
           >

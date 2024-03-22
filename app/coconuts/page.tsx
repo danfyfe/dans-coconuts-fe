@@ -8,7 +8,9 @@ export const metadata: Metadata = {
  
 
 const CoconutsPage = () => (
-  <LandscapeContainer></LandscapeContainer>
+  <LandscapeContainer>
+    
+  </LandscapeContainer>
 );
 
 export default CoconutsPage;

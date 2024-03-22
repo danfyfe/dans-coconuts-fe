@@ -27,7 +27,7 @@ const useWeather = () => {
 	const currentPeriod:IPeriod | undefined = periods?.find((p: IPeriod) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation: number | undefined = currentPeriod?.probabilityOfPrecipitation?.value;
 	const raining = !!precipitation && precipitation >= 50;
-	const day = currentPeriod?.isDaytime ?? true;
+	const day = true;
 
   return {
     day,

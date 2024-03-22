@@ -23,7 +23,8 @@ module.exports = {
         ocean_night: '#1b4e52',
         sand_day: '#EDD793',
         sand_night: '#736b53',
-        rain: "#B0C4DE"
+        rain: "#B0C4DE",
+        coconut_brown: "#73492e"
       },
       fontFamily: {
         'gilligan': ['Gilligan', 'Arial', 'sans-serif'],
