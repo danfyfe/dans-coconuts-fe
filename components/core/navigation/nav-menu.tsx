@@ -15,12 +15,12 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
         ${ open ? 'md:border-l-2 md:border-l-black' : ''}
       `}
     >
-      {
-        open ? (
-        <div className="
-          w-full flex justify-start
-          px-5 py-5 bg-inherit flex-col items-end
-        ">
+      <div className="
+        w-full flex justify-start
+        px-5 py-5 bg-inherit flex-col items-end
+      ">
+        <ul>
+          <li>
             <NextLink
               href="/"
               onClick={handleLinkClick}
@@ -31,6 +31,8 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
             >
               Home
             </NextLink>
+          </li>
+          <li>
             <NextLink
               href="/coconuts"
               onClick={handleLinkClick}
@@ -41,10 +43,9 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
             >
               Coconuts
             </NextLink>
-          
-        </div>
-        ) : null
-      }
+          </li>
+        </ul>
+      </div>
     </div>
   )
 };

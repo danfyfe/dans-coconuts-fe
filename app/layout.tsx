@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { WeatherProvider } from '@/context/WeatherProvider';
-import Navigation from '@/components/core/navigation';
 import { CoconutProvider } from '@/context/CoconutProvider';
+import Navigation from '@/components/core/navigation';
 
 interface RootLayout {
     children: React.ReactNode
