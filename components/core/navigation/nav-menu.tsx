@@ -20,7 +20,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
         flex justify-start text-right
         w-auto
         ${open ? 'max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
-        p-4 bg-inherit flex-col items-end bg-white bg-opacity-40 rounded
+        p-4 bg-inherit flex-col items-end bg-white bg-opacity-40 rounded shadow-sm
       `}>
         <ul>
           <li>
