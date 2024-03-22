@@ -6,7 +6,7 @@ const NavTrigger = ({ onClick, open }: INavTriggerProps) => {
     <div className={`w-full flex justify-end ${ open ? 'md:border-l-2 md:border-l-black' : ''}`}>
       <button
         type="button"
-        // onClick={onClick}
+        onClick={onClick}
         className={`
           h-10 w-10
           flex justify-center items-center
