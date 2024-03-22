@@ -3,7 +3,7 @@ import { INavTriggerProps } from "@/interfaces/navigation";
 
 const NavTrigger = ({ onClick, open }: INavTriggerProps) => {
   return (
-    <div className={`w-full flex justify-end ${ open ? 'md:border-l-2 md:border-l-black' : ''}`}>
+    <div className={`w-full flex justify-end`}>
       <button
         type="button"
         onClick={onClick}

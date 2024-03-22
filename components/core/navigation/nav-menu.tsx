@@ -11,23 +11,28 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
   return (
     <div
       className={`
-        relative w-full bg-inherit h-[calc(100vh-64px)] flex
-        ${ open ? 'md:border-l-2 md:border-l-black' : ''}
+        relative w-full bg-inherit flex justify-end
+        ${ open ? 'opacity-100' : 'opacity-0'}
+        transition-all ease-in-out
       `}
     >
-      <div className="
-        w-full flex justify-start
-        px-5 py-5 bg-inherit flex-col items-end
-      ">
+      <div className={`
+        flex justify-start text-right
+        w-auto
+        ${open ? 'max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
+        p-4 bg-inherit flex-col items-end bg-white bg-opacity-40 rounded
+      `}>
         <ul>
           <li>
             <NextLink
               href="/"
               onClick={handleLinkClick}
-              className="
+              className={`
                 md:hover:underline
                 text-5xl
-              "
+                transition-all delay-75 ease-in-out
+                ${open ? 'visible' : 'invisible'}
+              `}
             >
               Home
             </NextLink>
@@ -36,10 +41,12 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
             <NextLink
               href="/coconuts"
               onClick={handleLinkClick}
-              className="
-                text-5xl
+              className={`
                 md:hover:underline
-              "
+                text-5xl
+                transition-all delay-75 ease-in-out
+                ${open ? 'visible' : 'invisible'}
+              `}
             >
               Coconuts
             </NextLink>
