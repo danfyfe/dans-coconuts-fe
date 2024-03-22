@@ -1,8 +1,7 @@
-import { LayoutProps } from "@/.next/types/app/layout";
 import ContentContainer from "@/components/core/containers/content-container";
 import LandscapeContainer from "@/components/core/containers/landscape-container";
 
-const PostLayout = ({ children }: LayoutProps) => {
+const PostLayout = ({ children }: { children: React.ReactNode}) => {
   return (
     <LandscapeContainer>
       <ContentContainer className="flex justify-center items-center">

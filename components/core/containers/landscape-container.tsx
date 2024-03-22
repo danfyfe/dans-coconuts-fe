@@ -1,4 +1,5 @@
 'use client'
+import { useContext } from 'react';
 import {
     Sky,
     Sun,
@@ -10,9 +11,11 @@ import Tide from '@/components/core/landscape/tide';
 import useWeather from '@/lib/hooks/useWeather';
 import Loading from '../loaders/loading';
 import { ILandscapeProps } from '@/interfaces/landscape';
+import { WeatherContext } from '@/context/WeatherProvider';
 
 const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 	const { day, raining, precipitation, loading } = useWeather();
+	const { displayWeather } = useContext(WeatherContext);
 	return (
 			<>
 			{
@@ -20,7 +23,7 @@ const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 					<Loading />
 				) : (
 					<>
-					{ raining && <Rain precipitation={precipitation} /> }
+					{ displayWeather && raining && <Rain precipitation={precipitation} /> }
 					<Sky day={day}>
 						<Sun day={day}/>
 					</Sky>

@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react"
 
-export interface IHamburgerProps {
+export interface INavTriggerProps {
   onClick: MouseEventHandler<HTMLButtonElement>,
   open: boolean
 }

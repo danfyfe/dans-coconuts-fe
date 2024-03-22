@@ -1,6 +1,7 @@
+import { WeatherProvider } from '@/context/WeatherProvider';
 import '../styles/globals.css';
 // import { VerifiedDanProvider } from '@/context/VerifiedDanProvider';
-// import Navigation from '@/components/core/navigation';
+import Navigation from '@/components/core/navigation';
 
 interface RootLayout {
     children: React.ReactNode
@@ -9,12 +10,14 @@ interface RootLayout {
 const RootLayout = ({ children }: RootLayout) => (
 	<html lang="en">
 		<body>
-			<main id="main-content" className="relative overflow-hidden h-screen">
-				{/* <VerifiedDanProvider> */}
-					{/* <Navigation /> */}
-					{children}
-				{/* </VerifiedDanProvider> */}
-			</main>
+			<WeatherProvider>
+				<main id="main-content" className="relative overflow-hidden h-screen">
+					{/* <VerifiedDanProvider> */}
+						<Navigation />
+						{children}
+					{/* </VerifiedDanProvider> */}
+				</main>
+			</WeatherProvider>
 		</body>
 	</html>
 );
