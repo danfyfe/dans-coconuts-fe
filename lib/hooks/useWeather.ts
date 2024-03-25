@@ -26,14 +26,15 @@ const useWeather = () => {
 	const periods = weatherData?.properties?.periods;
 	const currentPeriod:IPeriod | undefined = periods?.find((p: IPeriod) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation: number | undefined = currentPeriod?.probabilityOfPrecipitation?.value;
-	const raining = !!precipitation && precipitation >= 50;
+	// const raining = !!precipitation && precipitation >= 50;
+  const raining = true;
 	const day = true;
 
   return {
     day,
     raining,
     precipitation,
-    loading
+    loading,
   }
 };
 

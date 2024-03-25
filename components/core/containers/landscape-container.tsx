@@ -28,7 +28,7 @@ const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
 					<Loading />
 				) : (
 					<>
-					{ displayWeather && raining && <Rain precipitation={precipitation} /> }
+					{ !!displayWeather && raining && <Rain precipitation={precipitation} /> }
 					<Sky day={day}>
 						<Sun day={day}/>
 					</Sky>

@@ -1,6 +1,6 @@
 'use client'
 import { createContext } from "react";
-import useCookieCheck from "@/lib/hooks/useCookieCheck";
+import { useCookieCheck } from "@/lib/hooks/useCookieCheck";
 
 export const VerifiedDanContext = createContext({ verifiedDan: false });
 
