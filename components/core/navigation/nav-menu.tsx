@@ -26,6 +26,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
           <li>
             <NextLink
               href="/"
+              prefetch
               onClick={handleLinkClick}
               className={`
                 md:hover:underline
@@ -40,6 +41,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
           <li>
             <NextLink
               href="/coconuts"
+              prefetch
               onClick={handleLinkClick}
               className={`
                 md:hover:underline

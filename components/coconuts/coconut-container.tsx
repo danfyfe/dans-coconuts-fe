@@ -2,18 +2,10 @@
 
 import { CoconutContext } from "@/context/CoconutProvider";
 import Image from "next/image";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext } from "react";
 
 const CoconutContainer = () => {
   const { coconuts } = useContext(CoconutContext);
-  const [nextX, setNextX] = useState([0]);
-
-  useEffect(() => {
-    const windowWidth = global.window.innerWidth;
-    const randomPosition = Math.floor(Math.random() * windowWidth);
-    const newPositions = [...nextX, randomPosition];
-    setNextX(newPositions);
-  }, [coconuts, setNextX, nextX]);
 
   return (
     <section
@@ -24,11 +16,11 @@ const CoconutContainer = () => {
     >
       <div className="relative h-full w-full">
         {
-          coconuts.map((_, index) => {
+          coconuts.map((coconut, index) => {
             return (
               <Image
                 style={{
-                  left: nextX[index]
+                  left: coconut.xPosition
                 }}
                 priority
                 src="/images/coconut.png"
