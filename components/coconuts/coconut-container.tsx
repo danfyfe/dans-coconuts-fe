@@ -35,7 +35,7 @@ const CoconutContainer = () => {
                 alt="An image of a coconut - navigation trigger"
                 height={200}
                 width={200}
-                className="absolute animate-fall ease-in-out h-20 w-20"
+                className="absolute animate-fall ease-in-out h-20 w-20 drop-shadow-coconut"
                 key={`coconut-${index}`}
               />
             )

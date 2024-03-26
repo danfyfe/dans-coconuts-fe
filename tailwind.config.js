@@ -27,6 +27,9 @@ module.exports = {
         rain: "#B0C4DE",
         coconut_brown: "#73492e"
       },
+      dropShadow: {
+        'coconut': '0 1px 1px rgb(0 0 0 / 1)'
+      },
       fontFamily: {
         'gilligan': ['Gilligan', 'Arial', 'sans-serif'],
         'roboto': ['RobotoCondensed', 'Arial', 'sans-serif']
