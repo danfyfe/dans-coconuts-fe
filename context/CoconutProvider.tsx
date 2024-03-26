@@ -1,4 +1,5 @@
 'use client'
+import { getRandomNumberInRange } from "@/lib/randoms";
 import { createContext, useState } from "react";
 
 interface ICoconutProvider {
@@ -21,7 +22,7 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
 
   const addCoconut = () => {
     const windowWidth = global.window.innerWidth;
-    const randomPosition = Math.floor(Math.random() * windowWidth);
+    const randomPosition = getRandomNumberInRange(-40, windowWidth);
     const randomTiming = `${(Math.random() + 1)}s`;
     const coconut = {
       xPosition: randomPosition,
