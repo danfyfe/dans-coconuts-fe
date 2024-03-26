@@ -20,7 +20,8 @@ const CoconutContainer = () => {
             return (
               <Image
                 style={{
-                  left: coconut.xPosition
+                  left: coconut.xPosition,
+                  animationDuration: coconut.animationDuration
                 }}
                 priority
                 src="/images/coconut.png"

@@ -8,6 +8,7 @@ interface ICoconutProvider {
 
 interface ICoconut {
   xPosition: number;
+  animationDuration: string;
 }
 
 export const CoconutContext = createContext<ICoconutProvider>({
@@ -21,8 +22,10 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
   const addCoconut = () => {
     const windowWidth = global.window.innerWidth;
     const randomPosition = Math.floor(Math.random() * windowWidth);
+    const randomTiming = `${(Math.random() + 1)}s`;
     const coconut = {
-      xPosition: randomPosition
+      xPosition: randomPosition,
+      animationDuration: randomTiming
     };
     const newCoconuts = [...coconuts, coconut];
     setCoconuts(newCoconuts)
