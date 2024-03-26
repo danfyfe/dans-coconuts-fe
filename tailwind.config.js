@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
+        fall: 'fall 2s forwards',
         tide: 'tide 10s infinite',
         'roll-left': 'roll-left 1s',
         'roll-right': 'roll-right 1s'
@@ -52,6 +53,31 @@ module.exports = {
           },
           '100%': {
             opacity: 0.5
+          }
+        },
+        'fall': {
+          '0%': {
+            top: '0%',
+            transform: 'rotate(0)'
+          },
+          '5%': {
+            transform: 'rotate(-5deg)'
+          },
+          '10%': {
+            transform: 'rotate(0deg)'
+          },
+          '15%': {
+            transform: 'rotate(5deg)'
+          },
+          '25%': {
+            top: '90%',
+            transform: 'rotate(0)'
+          },
+          '75%': {
+            top: '90%',
+          },
+          '100%': {
+            top: '90%',
           }
         },
         'tide': {

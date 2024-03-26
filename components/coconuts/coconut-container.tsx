@@ -1,14 +1,19 @@
 'use client'
 
 import { CoconutContext } from "@/context/CoconutProvider";
-import { useContext, useEffect } from "react";
+import Image from "next/image";
+import { useContext, useEffect, useState, useRef } from "react";
 
 const CoconutContainer = () => {
   const { coconuts } = useContext(CoconutContext);
-  useEffect(() => {
-    console.log(coconuts)
+  const [nextX, setNextX] = useState([0]);
 
-  }, [coconuts]);
+  useEffect(() => {
+    const windowWidth = global.window.innerWidth;
+    const randomPosition = Math.floor(Math.random() * windowWidth);
+    const newPositions = [...nextX, randomPosition];
+    setNextX(newPositions);
+  }, [coconuts, setNextX, nextX]);
 
   return (
     <section
@@ -17,7 +22,26 @@ const CoconutContainer = () => {
         h-full w-full
       '
     >
-
+      <div className="relative h-full w-full">
+        {
+          coconuts.map((_, index) => {
+            return (
+              <Image
+                style={{
+                  left: nextX[index]
+                }}
+                priority
+                src="/images/coconut.png"
+                alt="An image of a coconut - navigation trigger"
+                height={200}
+                width={200}
+                className="absolute animate-fall ease-in-out h-20 w-20"
+                key={`coconut-${index}`}
+              />
+            )
+          })
+        }
+      </div>
     </section>
   )
 };
