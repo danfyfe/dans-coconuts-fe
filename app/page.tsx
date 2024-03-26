@@ -1,4 +1,4 @@
-import LandscapeContainer from '@/components/core/containers/landscape-container';
+import CoconutContainer from '@/components/coconuts/coconut-container';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
  
 
 const HomePage = () => (
-  <LandscapeContainer />
+  <CoconutContainer />
 );
 
 export default HomePage;

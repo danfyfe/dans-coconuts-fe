@@ -1,6 +1,7 @@
 import Providers from '@/context';
 import '../styles/globals.css';
 import Navigation from '@/components/core/navigation';
+import LandscapeContainer from '@/components/core/containers/landscape-container';
 
 interface RootLayout {
     children: React.ReactNode;
@@ -12,7 +13,9 @@ const RootLayout = ({ children }: RootLayout) => (
 			<body>
 				<main id="main-content" className="relative overflow-hidden h-screen">
 					<Navigation />
-					{children}
+					<LandscapeContainer>
+						{children}
+					</LandscapeContainer>
 				</main>
 			</body>
 		</html>
