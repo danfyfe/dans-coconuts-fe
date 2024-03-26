@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import Navigation from '@/components/core/navigation';
 
 interface RootLayout {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 const RootLayout = ({ children }: RootLayout) => (
