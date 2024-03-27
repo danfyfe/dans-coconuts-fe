@@ -27,11 +27,15 @@ const AuthForm = ({ type }: IAuthForm) => {
       <form className="flex flex-col justify-center items-center">
         <TextInput
           label="username"
+          name="username"
+          id="auth-username"
           onChange={handleSetUsername}
         />
         <TextInput
           type="password"
           label="password"
+          name="password"
+          id="auth-password"
           onChange={handleSetPassword}
         />
         <Button

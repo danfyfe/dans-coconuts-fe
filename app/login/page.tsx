@@ -1,13 +1,16 @@
 import ContentContainer from "@/components/core/containers/content-container";
-import H1 from "@/components/core/typography/H1";
 import LoginForm from "./login-form";
+import { Metadata } from 'next';
 
-const LoginPage = () => {
-  return (
-    <ContentContainer className="flex flex-col w-3/4 md:w-1/4">
-      <LoginForm />
-    </ContentContainer>
-  )
-};
+export const metadata: Metadata = {
+  title: "Dan's Coconuts | Login",
+  description: 'Just a beach...'
+}
+
+const LoginPage = () => (
+  <ContentContainer className="flex flex-col w-3/4 md:w-1/4">
+    <LoginForm />
+  </ContentContainer>
+);
 
 export default LoginPage;

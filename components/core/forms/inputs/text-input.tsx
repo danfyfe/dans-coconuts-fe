@@ -1,11 +1,14 @@
 import { ITextInputProps } from "@/interfaces/content";
 
-const TextInput = ({ type="text", name, className, value, onChange, label='' }: ITextInputProps) => {
+const TextInput = ({ type="text", name, className, value, onChange, label='', id }: ITextInputProps) => {
   return (
     <fieldset className={`${className ? className : ''}`}>
       {
         label ? (
-          <legend className="font-roboto">{label}</legend>
+          <>
+            <legend className="font-roboto">{label}</legend>
+            <label className="hidden" htmlFor={id}>{label}</label>
+          </>
         ) : null
       }
       <input
@@ -18,6 +21,7 @@ const TextInput = ({ type="text", name, className, value, onChange, label='' }: 
           min-h-[3rem]
           mb-2
         `}
+        aria-label={`${name}`}
         type={type}
         name={name}
         value={value}
