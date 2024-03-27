@@ -1,8 +1,6 @@
 import { ITextInputProps } from "@/interfaces/content";
-import { useRouter } from "next/navigation";
-import setCookie from "@/lib/setCookie";
 
-const TextInput = ({ type, name, className, value, onChange, label='' }: ITextInputProps) => {
+const TextInput = ({ type="text", name, className, value, onChange, label='' }: ITextInputProps) => {
   return (
     <fieldset className={`${className ? className : ''}`}>
       {
@@ -13,11 +11,12 @@ const TextInput = ({ type, name, className, value, onChange, label='' }: ITextIn
       <input
         className={`
           rounded
-          px-10
+          px-2
           border-2
-          border-black
-          min-w-[4rem]
+          border-coconut_brown
+          w-full
           min-h-[3rem]
+          mb-2
         `}
         type={type}
         name={name}

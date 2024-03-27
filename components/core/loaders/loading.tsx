@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function Loading() {
     return(
-        <div className="relative w-full h-screen flex justify-center items-center bg-sand_day z-[1000]">
+        <div className="absolute w-full h-screen flex justify-center items-center bg-sand_day z-[1000]">
 					<Image
 						priority
 						src="/images/coconut.png"

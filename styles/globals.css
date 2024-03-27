@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Gilligan';
-  src: url("/fonts/Gilligan.ttf") format("opentype");
-}
-
-@font-face {
   font-family: 'RobotoCondensed';
   src: url("/fonts/RobotoCondensed-Medium.ttf") format("opentype");
+}
+
+html {
+  font-family: 'RobotoCondensed';
+  color: #73492e /* global coconut color */;
 }
 
 *::-webkit-scrollbar-track {

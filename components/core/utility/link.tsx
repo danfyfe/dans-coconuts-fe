@@ -18,7 +18,7 @@ const NextLink = ({ children, href, className, asButton, ariaLabel, onClick=() =
         rounded
         px-10
         border-2
-        border-black
+        border-coconut_brown
         min-w-[4rem]
         min-h-[3rem]
         !no-underline

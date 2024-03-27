@@ -16,8 +16,8 @@ const ContentContainer = ({ children, className }: IContentContainerProps) => {
                 left-1/2
                 -translate-x-1/2
                 -translate-y-1/2
-                ${day ? 'bg-sand_day text-black' : 'bg-sand_night text-yellow-500'}
-                border-black
+                ${day ? 'bg-sand_day' : 'bg-sand_night'}
+                border-coconut_brown
                 border-solid
                 rounded
                 border-2

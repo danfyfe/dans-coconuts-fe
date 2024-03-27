@@ -7,7 +7,7 @@ const Button = ({ type="button", children, className, inverted=false, onClick }:
         rounded
         px-10
         border-2
-        border-black
+        border-coconut_brown
         min-w-[4rem]
         min-h-[3rem]
         font-roboto
