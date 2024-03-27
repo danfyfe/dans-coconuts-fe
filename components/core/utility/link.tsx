@@ -1,3 +1,4 @@
+'use client'
 import { ILinkProps } from "@/interfaces/content";
 import Link from "next/link";
 
