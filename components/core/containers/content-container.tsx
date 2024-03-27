@@ -21,10 +21,10 @@ const ContentContainer = ({ children, className }: IContentContainerProps) => {
                 border-solid
                 rounded
                 border-2
-                min-h-[75%]
-                min-w-[75%]
+                min-h-fit
+                min-w-fit
                 max-h-[calc(100vh-5rem)]
-                p-[5%]
+                p-5 md:p-10
                 z-[500]
                 overflow-y-scroll
                 ${className ?? ''}

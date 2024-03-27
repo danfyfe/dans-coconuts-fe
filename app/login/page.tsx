@@ -2,7 +2,7 @@ import ContentContainer from "@/components/core/containers/content-container";
 
 const LoginPage = () => {
   return (
-    <ContentContainer>
+    <ContentContainer className="flex flex-col">
       LOGIN
     </ContentContainer>
   )
