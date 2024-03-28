@@ -7,6 +7,7 @@ const AddCoconut = () => {
   const { addCoconut } = useContext(CoconutContext);
   return (
     <ButtonIcon
+      id="add-coconut-btn"
       onClick={addCoconut}
       ariaLabel='Add coconut'
       className='

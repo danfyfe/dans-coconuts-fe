@@ -1,8 +1,9 @@
 import { IButtonIconProps } from "@/interfaces/content";
 
-const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel } : IButtonIconProps) => {
+const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel, id } : IButtonIconProps) => {
   return (
     <button
+      id={id}
       className={`
         self-center h-[40px] w-[40px] m-3
         flex items-center justify-center shadow-sm
