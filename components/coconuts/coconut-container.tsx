@@ -25,7 +25,8 @@ const CoconutContainer = () => {
                 }}
                 priority
                 src="/images/coconut.png"
-                alt="An image of a coconut - navigation trigger"
+                id={`coconut-${index}`}
+                alt="An image of a coconut"
                 height={200}
                 width={200}
                 className="absolute animate-fall ease-in-out h-20 w-20 drop-shadow-coconut"
