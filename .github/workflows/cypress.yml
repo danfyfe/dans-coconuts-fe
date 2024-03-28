@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build and Start App
-        run: npm run build && npm run start
+        run: npm run build && npm run start && npm run tests
       - name: Checkout cypress repo
         uses: actions/checkout@v4
         with:
