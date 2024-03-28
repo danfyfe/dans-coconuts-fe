@@ -13,7 +13,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build and Start App
-        run: npm run build && npm run start && npm run tests
+        run: npm run build && npm run start
+      - name: Run local tests
+        run: npm run tests
       - name: Checkout cypress repo
         uses: actions/checkout@v4
         with:
