@@ -13,7 +13,12 @@ import Loading from '../loaders/loading';
 import { ILandscapeProps } from '@/interfaces/landscape';
 import { WeatherContext } from '@/context/WeatherProvider';
 
-const LandscapeContainer = ({ children, ...rest }: ILandscapeProps) => {
+const LandscapeContainer = ({ children }: ILandscapeProps) => {
+	/**
+	 * This component is used as the main layout of the site.
+	 * It contains all of the beach/sky elements, and the weather.
+	 * @params children - the main elements of the page
+	 */
 	const { day, raining, precipitation, loading } = useWeather();
 	const { displayWeather, setRaining } = useContext(WeatherContext);
 

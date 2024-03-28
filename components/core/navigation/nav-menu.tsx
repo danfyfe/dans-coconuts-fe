@@ -10,19 +10,22 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
 
   return (
     <div
+      id="nav-link-menu-outer"
       className={`
         relative w-full bg-inherit flex justify-end
         ${ open ? 'opacity-100' : 'opacity-0'}
         transition-all ease-in-out
       `}
     >
-      <div className={`
-        flex justify-start text-right
-        w-auto
-        ${open ? 'max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
-        p-4 bg-inherit flex-col items-end bg-white bg-opacity-40 rounded shadow-sm
+      <div
+        id="nav-link-menu-inner"
+        className={`
+          flex justify-start text-right
+          w-auto
+          ${open ? 'max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
+          p-4 bg-inherit flex-col items-end bg-white bg-opacity-40 rounded shadow-sm
       `}>
-        <ul>
+        <ul id="nav-link-menu-ul">
           <li>
             <NextLink
               href="/"

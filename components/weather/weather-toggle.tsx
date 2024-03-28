@@ -18,6 +18,7 @@ const WeatherToggle = () => {
       {
         raining ? (
           <ButtonIcon
+            id="weather-btn"
             ariaLabel="Toggle weather"
             className={`
               ${!!displayWeather ? ' text-sun' : 'text-slate-500'}

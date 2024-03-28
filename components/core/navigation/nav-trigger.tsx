@@ -5,6 +5,7 @@ const NavTrigger = ({ onClick, open }: INavTriggerProps) => {
   return (
     <div className={`w-full flex justify-end`}>
       <button
+        id="nav-trigger"
         type="button"
         onClick={onClick}
         className={`
