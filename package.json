@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prod_start": "NODE_ENV=production next start"
+    "tests": "jest --watch"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.4",
@@ -26,7 +26,14 @@
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
     "tailwindcss": "3.3.1",
+    "ts-jest": "^29.1.2",
     "typescript": "5.0.4",
     "utf-8-validate": "^6.0.3"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.24.1",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0"
   }
 }
