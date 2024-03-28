@@ -8,12 +8,17 @@ jobs:
       matrix:
         containers: [1, 2] # Uses 2 parallel instances
     steps:
-      - name: Checkout
+      - name: Checkout frontend
         uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
       - name: Build and Start App
         run: npm run build && npm run start
+      - name: Checkout cypress repo
+        uses: actions/checkout@v4
+        with:
+          repository: danfyfe/danscoconuts-cypress
+          path: ./e2e-tests
   # cypress-run:
   #   runs-on: ubuntu-latest
   #   # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
