@@ -25,6 +25,16 @@ jobs:
         with:
           repository: danfyfe/dans-coconuts-cypress
           path: ./cypress-tests
+      - name: Upload Cypress Config
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-config
+          path: ./cypress-tests/cypress.config.js
+      - name: Download Cypress Config
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-config
+          path: ./
       - name: Install Cypress decpendencies
         run: |
           cd cypress-tests
