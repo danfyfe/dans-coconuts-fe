@@ -47,10 +47,13 @@ jobs:
         run: npm install
         working-directory: ./cypress-tests
 
+      - name: Start frontend
+        run: npm start
+        working-directory: ./
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
           browser: chrome
           wait-on: "http://localhost:3000"
           record: true
