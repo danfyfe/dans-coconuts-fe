@@ -23,7 +23,7 @@ jobs:
       - name: Checkout cypress repo
         uses: actions/checkout@v4
         with:
-          repository: danfyfe/danscoconuts-cypress
+          repository: danfyfe/dans-coconuts-cypress
           path: ./e2e-tests
       - name: Run Cypress tests
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
