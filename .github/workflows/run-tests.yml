@@ -44,9 +44,8 @@ jobs:
           path: ./
 
       - name: Install Cypress decpendencies
-        run: |
-          cd cypress-tests
-          npm install
+        run: npm install
+        working-directory: ./cypress-tests
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
