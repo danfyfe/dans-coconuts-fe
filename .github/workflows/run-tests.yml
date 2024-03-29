@@ -49,6 +49,8 @@ jobs:
 
       - name: Start frontend
         run: npm start
+        timeout-minutes: 1
+        continue-on-error: true
         working-directory: ./
 
       - name: Run Cypress tests
