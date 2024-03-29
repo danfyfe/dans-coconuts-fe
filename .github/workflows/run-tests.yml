@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: danfyfe/danscoconuts-cypress
-          path: ./e2e-tests
+          path: /e2e-tests
 
   # cypress-run:
   #   runs-on: ubuntu-latest
