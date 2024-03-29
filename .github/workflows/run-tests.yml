@@ -35,6 +35,8 @@ jobs:
         with:
           name: cypress-config
           path: ./
+      - name: Display contents of the directory after copying cypress.config.js
+        run: ls -l
       - name: Install Cypress decpendencies
         run: |
           cd cypress-tests
