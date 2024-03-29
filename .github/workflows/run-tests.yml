@@ -20,16 +20,17 @@ jobs:
         run: npm run build
       - name: Run local tests
         run: npm run test
-      - name: Checkout cypress repo
+      - name: Checkout Cypress repo
         uses: actions/checkout@v4
         with:
           repository: danfyfe/dans-coconuts-cypress
           path: ./e2e-tests
+
       - name: Run Cypress tests
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start
+          start: npm run start && cd e2e-tests
           browser: chrome
           wait-on: "http://localhost:3000" # Waits for above
           # Records to Cypress Cloud
