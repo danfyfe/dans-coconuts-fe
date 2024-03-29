@@ -10,35 +10,44 @@ jobs:
     steps:
       - name: Checkout frontend
         uses: actions/checkout@v4
+
       - name: Install dependencies
         run: npm install
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
+
       - name: Build frontend
         run: npm run build
+
       - name: Run local tests
         run: npm run test
+
       - name: Checkout Cypress repo
         uses: actions/checkout@v4
         with:
           repository: danfyfe/dans-coconuts-cypress
           path: ./cypress-tests
+
       - name: Upload Cypress Config
         uses: actions/upload-artifact@v4
         with:
           name: cypress-config
           path: ./cypress-tests/cypress.config.js
+
       - name: Download Cypress Config
         uses: actions/download-artifact@v4
         with:
           name: cypress-config
           path: ./
+
       - name: Install Cypress decpendencies
         run: |
           cd cypress-tests
           npm install
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
