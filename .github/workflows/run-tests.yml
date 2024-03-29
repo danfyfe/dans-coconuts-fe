@@ -47,6 +47,8 @@ jobs:
         run: npm install
         working-directory: ./cypress-tests
 
+      # this step will not complete itself, so a timout is needed
+      # it will start the app, then wait, moving on as if it was canceled
       - name: Start frontend
         run: npm start
         timeout-minutes: 1
