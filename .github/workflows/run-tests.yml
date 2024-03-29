@@ -35,28 +35,20 @@ jobs:
         with:
           name: cypress-config
           path: ./
-      - name: Display contents of the directory after copying cypress.config.js
-        run: ls -l
       - name: Install Cypress decpendencies
         run: |
           cd cypress-tests
           npm install
       - name: Run Cypress tests
-        # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
           start: npm start
           browser: chrome
-          wait-on: "http://localhost:3000" # Waits for above
-          # Records to Cypress Cloud
-          # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
+          wait-on: "http://localhost:3000"
           record: true
-          parallel: true # Runs test in parallel using settings above
+          parallel: true
         env:
-          # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
-          # in GitHub repo → Settings → Secrets → Actions
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # cypress-run:
