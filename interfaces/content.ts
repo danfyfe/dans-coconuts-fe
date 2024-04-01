@@ -1,5 +1,5 @@
 import { LinkProps } from "next/link"
-import { ButtonHTMLAttributes, InputHTMLAttributes, SelectHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, InputHTMLAttributes } from "react";
 
 
 export interface IContentProps {
