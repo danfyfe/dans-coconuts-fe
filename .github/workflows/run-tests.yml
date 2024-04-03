@@ -4,6 +4,7 @@ env:
   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   BASE_URL: ${{ secrets.BASE_URL }}
+  CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
   GRAPHQL_TOKEN_GITHUB: ${{ secrets.GRAPHQL_TOKEN_GITHUB }}
   GRAPHQL_URL_GITHUB: ${{ secrets.GRAPHQL_URL_GITHUB }}
 jobs:
@@ -19,6 +20,7 @@ jobs:
           echo "BASE_URL=${BASE_URL}" >> .env
           echo "GRAPHQL_TOKEN_GITHUB=${GRAPHQL_TOKEN_GITHUB}" >> .env
           echo "GRAPHQL_URL_GITHUB=${GRAPHQL_URL_GITHUB}" >> .env
+          echo "CYPRESS_BASE_URL=${CYPRESS_BASE_URL}" >> .env
       - name: Checkout frontend
         uses: actions/checkout@v4
 
@@ -70,39 +72,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          wait-on: $BASE_URL
+          wait-on: $CYPRESS_BASE_URL
           record: true
           parallel: true
           working-directory: ./cypress-tests
-
-  # cypress-run:
-  #   runs-on: ubuntu-latest
-  #   # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
-  #   # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
-  #   # Also see warning here https://github.com/cypress-io/github-action#parallel
-  #   strategy:
-  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-  #     matrix:
-  #       containers: [1, 2] # Uses 2 parallel instances
-  #   steps:
-  #     - name: Checkout e2e tests
-  #       uses: actions/checkout@v4
-  #       with:
-  #         repository: danfyfe/danscoconuts-cypress
-  #         path: ./e2e-tests
-  # - name: Cypress run
-  #   # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
-  #   uses: cypress-io/github-action@v6
-  #   with:
-  #     browser: chrome
-  #     wait-on: "http://localhost:3000" # Waits for above
-  #     # Records to Cypress Cloud
-  #     # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
-  #     record: true
-  #     parallel: true # Runs test in parallel using settings above
-  #   env:
-  #     # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
-  #     # in GitHub repo → Settings → Secrets → Actions
-  #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-  #     # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
