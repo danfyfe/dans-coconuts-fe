@@ -20,8 +20,8 @@ const GitHubPage = async () => {
             {
               repos.map((repo, index) => (
                 <li key={`${index}-repo-name`}>
-                  <a href={repo.url} className="underline" target="_blank">
-                    {repo.name}
+                  <a href={repo?.url} className="underline" target="_blank">
+                    {repo?.name}
                   </a>
                 </li>
               ))
