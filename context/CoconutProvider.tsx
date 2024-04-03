@@ -1,6 +1,5 @@
 'use client'
 import { getRandomNumberInRange } from "@/lib/randoms";
-import setCookie from "@/lib/setCookie";
 import { createContext, useState } from "react";
 
 interface ICoconutProvider {
