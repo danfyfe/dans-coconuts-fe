@@ -22,7 +22,7 @@ export async function GET() {
   const { status } = response;
   const { message } = jsonRespData;
   if (status === 200) {
-    return NextResponse.json({ data: jsonRespData, status })
+    return NextResponse.json({ ...jsonRespData, status })
   }
   return NextResponse.json({ error: message, status })
 }
