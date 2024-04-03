@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: Setup ENV Variables
         run: |
-          echo "BASE_URL=${BASE_URL} >> .env"
-          echo "GRAPHQL_TOKEN_GITHUB=${GRAPHQL_TOKEN_GITHUB} >> .env"
-          echo "GRAPHQL_URL_GITHUB=${GRAPHQL_URL_GITHUB} >> .env"
+          echo "BASE_URL=${BASE_URL}" >> .env
+          echo "GRAPHQL_TOKEN_GITHUB=${GRAPHQL_TOKEN_GITHUB}" >> .env
+          echo "GRAPHQL_URL_GITHUB=${GRAPHQL_URL_GITHUB}" >> .env
       - name: Checkout frontend
         uses: actions/checkout@v4
 
