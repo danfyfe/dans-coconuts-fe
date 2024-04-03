@@ -25,7 +25,8 @@ module.exports = {
         sand_day: '#EDD793',
         sand_night: '#736b53',
         rain: "#B0C4DE",
-        coconut_brown: "#73492e"
+        coconut_brown: "#73492e",
+        error: "#d12806"
       },
       dropShadow: {
         'coconut': '0 1px 1px rgb(0 0 0 / 1)'

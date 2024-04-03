@@ -56,6 +56,21 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
               Coconuts
             </NextLink>
           </li>
+          <li>
+            <NextLink
+              href="/github"
+              prefetch
+              onClick={handleLinkClick}
+              className={`
+                md:hover:underline
+                text-5xl
+                transition-all delay-75 ease-in-out
+                ${open ? 'visible' : 'invisible'}
+              `}
+            >
+              Github
+            </NextLink>
+          </li>
         </ul>
       </div>
     </div>

@@ -6,7 +6,9 @@ interface GitHubResponse {
         nodes: GitHubRepo[]
       }
     }
-  }
+  },
+  status: number;
+  error?: string;
 };
 
 interface GitHubRepo {
