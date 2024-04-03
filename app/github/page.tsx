@@ -10,7 +10,7 @@ const GitHubPage = async () => {
   const gitHubRepos: GitHubResponse = await gitHubRepoResp.json();
   const { status, error } = gitHubRepos;
   const repos: GitHubRepo[] = gitHubRepos?.data?.user?.pinnedItems?.nodes;
-
+  console.log('inside github page')
   return (
     <>
       <CoconutContainer />
@@ -21,7 +21,7 @@ const GitHubPage = async () => {
           status === 200 ? (
             <ul className="flex flex-col gap-3">
               {
-                repos.map((repo, index) => (
+                repos?.map((repo, index) => (
                   <li key={`${index}-repo-name`}>
                     <a href={repo?.url} className="underline" target="_blank">
                       {repo?.name}
