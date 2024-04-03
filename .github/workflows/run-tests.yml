@@ -4,7 +4,7 @@ env:
   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   BASE_URL: ${{ secrets.BASE_URL }}
-  GRAPHQL_TOKEN_GITHUB: ${{ secrets.GRAPHQL_TOKEN_GIHUB }}
+  GRAPHQL_TOKEN_GITHUB: ${{ secrets.GRAPHQL_TOKEN_GITHUB }}
   GRAPHQL_URL_GITHUB: ${{ secrets.GRAPHQL_URL_GITHUB }}
 jobs:
   build-frontend-run-tests:
