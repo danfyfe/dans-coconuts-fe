@@ -72,7 +72,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          wait-on: $CYPRESS_BASE_URL
+          wait-on: "http://localhost:3001"
           record: true
           parallel: true
           working-directory: ./cypress-tests
