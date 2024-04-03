@@ -6,7 +6,7 @@ import ErrorSpan from "@/components/core/errors/error-span";
 import CoconutContainer from "@/components/coconuts/coconut-container";
 
 const GitHubPage = async () => {
-  const gitHubRepoResp = await fetch(`${process.env.BASE_URL}/api/graphql/github`, { next: { revalidate: 60 }});
+  const gitHubRepoResp = await fetch(`http://localhost:3000/api/graphql/github`, { next: { revalidate: 60 }});
   const gitHubRepos: GitHubResponse = await gitHubRepoResp.json();
   const { status, error } = gitHubRepos;
   const repos: GitHubRepo[] = gitHubRepos?.data?.user?.pinnedItems?.nodes;
