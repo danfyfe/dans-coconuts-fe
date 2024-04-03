@@ -56,6 +56,11 @@ jobs:
           name: cypress-config
           path: ./
 
+      - name: Setup Cypress ENV Variables
+        run: |
+          echo "CYPRESS_BASE_URL=${CYPRESS_BASE_URL}" >> .env
+        working-directory: ./cypress-tests
+
       - name: Install Cypress decpendencies
         run: npm install
         working-directory: ./cypress-tests
@@ -72,7 +77,6 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          wait-on: "http://localhost:3000"
           record: true
           parallel: true
           working-directory: ./cypress-tests
