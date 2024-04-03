@@ -68,7 +68,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
                 ${open ? 'visible' : 'invisible'}
               `}
             >
-              Github
+              GitHub
             </NextLink>
           </li>
         </ul>
