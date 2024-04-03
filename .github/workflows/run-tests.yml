@@ -3,7 +3,6 @@ on: [push]
 env:
   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  BASE_URL: ${{ secrets.BASE_URL }}
   GRAPHQL_TOKEN_GITHUB: ${{ secrets.GRAPHQL_TOKEN_GITHUB }}
   GRAPHQL_URL_GITHUB: ${{ secrets.GRAPHQL_URL_GITHUB }}
 jobs:
@@ -16,7 +15,6 @@ jobs:
     steps:
       - name: Setup FE ENV Variables
         run: |
-          echo "BASE_URL=${BASE_URL}" >> .env
           echo "GRAPHQL_TOKEN_GITHUB=${GRAPHQL_TOKEN_GITHUB}" >> .env
           echo "GRAPHQL_URL_GITHUB=${GRAPHQL_URL_GITHUB}" >> .env
       - name: Checkout frontend
