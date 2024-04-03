@@ -20,6 +20,7 @@
     "autoprefixer": "10.4.14",
     "bufferutil": "^4.0.8",
     "dans-coconuts-components-v1": "0.1.4",
+    "dotenv": "^16.4.5",
     "eslint": "8.37.0",
     "eslint-config-next": "13.3.0",
     "graphql": "^15.8.0",
