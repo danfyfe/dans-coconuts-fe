@@ -4,7 +4,6 @@ env:
   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   BASE_URL: ${{ secrets.BASE_URL }}
-  CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
   GRAPHQL_TOKEN_GITHUB: ${{ secrets.GRAPHQL_TOKEN_GITHUB }}
   GRAPHQL_URL_GITHUB: ${{ secrets.GRAPHQL_URL_GITHUB }}
 jobs:
@@ -20,7 +19,6 @@ jobs:
           echo "BASE_URL=${BASE_URL}" >> .env
           echo "GRAPHQL_TOKEN_GITHUB=${GRAPHQL_TOKEN_GITHUB}" >> .env
           echo "GRAPHQL_URL_GITHUB=${GRAPHQL_URL_GITHUB}" >> .env
-          echo "CYPRESS_BASE_URL=${CYPRESS_BASE_URL}" >> .env
       - name: Checkout frontend
         uses: actions/checkout@v4
 
@@ -74,5 +72,4 @@ jobs:
           browser: chrome
           wait-on: "http://localhost:3001"
           record: true
-          parallel: true
           working-directory: ./cypress-tests
