@@ -8,7 +8,7 @@ import { IErrorNotFoundProps } from "@/interfaces/content";
 
 const ErrorNotFound = ({ type }: IErrorNotFoundProps) => (
   <LandscapeContainer>
-    <ContentContainer className='flex flex-col justify-center items-center w-3/4 md:w-1/2'>
+    <ContentContainer className='justify-center items-center'>
       <H1 className="text-7xl lg:text-8xl">Oh no!</H1>
       <CoconutBreak />
       {

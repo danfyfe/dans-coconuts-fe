@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const LoginPage = () => (
   <>
     <CoconutContainer />
-    <ContentContainer className="flex flex-col w-3/4 md:w-1/4">
+    <ContentContainer className="">
       <LoginForm />
     </ContentContainer>
   </>

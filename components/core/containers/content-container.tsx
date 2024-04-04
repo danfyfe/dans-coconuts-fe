@@ -11,6 +11,7 @@ const ContentContainer = ({ children, className }: IContentContainerProps) => {
         <section 
             className={`
                 absolute
+                flex flex-col
                 shadow-lg
                 top-1/2
                 left-1/2
@@ -21,11 +22,10 @@ const ContentContainer = ({ children, className }: IContentContainerProps) => {
                 border-solid
                 rounded
                 border-2
-                min-h-fit
-                min-w-fit
                 max-h-[calc(100vh-5rem)]
                 p-5 md:p-10
                 z-[500]
+                w-3/4 md:w-1/2
                 ${className ?? ''}
             `}
         >
