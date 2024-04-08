@@ -13,7 +13,7 @@ const GitHubRepos = async () => {
     <>
       {
         status === 200 ? (
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-3" id="github-repo-links">
             {
               repos?.map((repo, index) => (
                 <li key={`${index}-repo-name`}>

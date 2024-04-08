@@ -1,14 +1,16 @@
 'use client'
 import useWeather from "@/lib/hooks/useWeather";
 interface IContentContainerProps {
-    children: React.ReactNode,
-    className?: string
+    children: React.ReactNode;
+    className?: string;
+    id?: string | undefined;
 };
 
-const ContentContainer = ({ children, className }: IContentContainerProps) => {
+const ContentContainer = ({ children, className, id }: IContentContainerProps) => {
     const { day } = useWeather();
     return(
-        <section 
+        <section
+            id={id}
             className={`
                 absolute
                 flex flex-col
