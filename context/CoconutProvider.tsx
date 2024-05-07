@@ -29,8 +29,8 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
     const randomTiming = `${(Math.random() + 1)}s`;
     const count = coconuts.length;
-    const message = `${count < 5 ? ((count > 0) ? 'another coconut!' : 'a coconut!') : 'they just keep coming!'}`
-    const designation = `Oh man, ${message}`
+    const message = `${count < 5 ? ((count > 0) ? 'another coconut!' : 'a coconut!') : 'they just keep coming!'}`;
+    const designation = `Oh man, ${message}`;
     const coconut: ICoconut = {
       xPosition: randomPosition,
       animationDuration: randomTiming,

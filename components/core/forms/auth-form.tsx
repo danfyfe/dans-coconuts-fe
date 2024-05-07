@@ -40,6 +40,7 @@ const AuthForm = ({ type }: IAuthForm) => {
         />
         <Button
           className="mt-2"
+          type="button"
         >
           Submit
         </Button>
