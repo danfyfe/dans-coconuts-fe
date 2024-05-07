@@ -1,6 +1,6 @@
 'use client'
 import { getRandomNumberInRange } from "@/lib/randoms";
-import { createContext, useState } from "react";
+import { createContext, useState, useId } from "react";
 
 interface ICoconutProvider {
   coconuts: ICoconut[];
@@ -10,6 +10,10 @@ interface ICoconutProvider {
 interface ICoconut {
   xPosition: number;
   animationDuration: string;
+  id: number;
+  name: string;
+  designation?: string;
+  image: string;
 }
 
 export const CoconutContext = createContext<ICoconutProvider>({
@@ -24,9 +28,16 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
     const windowWidth = global.window.innerWidth;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
     const randomTiming = `${(Math.random() + 1)}s`;
-    const coconut = {
+    const count = coconuts.length;
+    const message = `${count < 5 ? ((count > 0) ? 'another coconut!' : 'a coconut!') : 'they just keep coming!'}`
+    const designation = `Oh man, ${message}`
+    const coconut: ICoconut = {
       xPosition: randomPosition,
-      animationDuration: randomTiming
+      animationDuration: randomTiming,
+      id: randomPosition,
+      name: 'Coconut',
+      designation,
+      image: '/images/coconut.png'
     };
     const newCoconuts = [...coconuts, coconut];
     setCoconuts(newCoconuts)

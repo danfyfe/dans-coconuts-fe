@@ -3,6 +3,7 @@
 import { CoconutContext } from "@/context/CoconutProvider";
 import Image from "next/image";
 import { useContext } from "react";
+import { AnimatedTooltip } from "../tool-tip";
 
 const CoconutContainer = () => {
   const { coconuts } = useContext(CoconutContext);
@@ -15,7 +16,8 @@ const CoconutContainer = () => {
       '
     >
       <div className="relative h-full w-full">
-        {
+        <AnimatedTooltip items={coconuts} />
+        {/* {
           coconuts.map((coconut, index) => {
             return (
               <Image
@@ -34,7 +36,7 @@ const CoconutContainer = () => {
               />
             )
           })
-        }
+        } */}
       </div>
     </section>
   )
