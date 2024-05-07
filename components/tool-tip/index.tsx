@@ -45,6 +45,7 @@ export const AnimatedTooltip = ({
         <div
           className="absolute animate-fall ease-in-out h-16 w-16 drop-shadow-coconut"
           style={{ left: item.xPosition, animationDuration: item.animationDuration }}
+          id={`coconut-${idx}`}
           key={`${item.xPosition}-${item.animationDuration}-${item.name}`}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}

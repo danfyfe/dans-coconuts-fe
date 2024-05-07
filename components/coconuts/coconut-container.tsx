@@ -17,26 +17,6 @@ const CoconutContainer = () => {
     >
       <div className="relative h-full w-full">
         <AnimatedTooltip items={coconuts} />
-        {/* {
-          coconuts.map((coconut, index) => {
-            return (
-              <Image
-                style={{
-                  left: coconut.xPosition,
-                  animationDuration: coconut.animationDuration
-                }}
-                priority
-                src="/images/coconut.png"
-                id={`coconut-${index}`}
-                alt="An image of a coconut"
-                height={200}
-                width={200}
-                className="absolute animate-fall ease-in-out h-20 w-20 drop-shadow-coconut"
-                key={`coconut-${index}`}
-              />
-            )
-          })
-        } */}
       </div>
     </section>
   )
