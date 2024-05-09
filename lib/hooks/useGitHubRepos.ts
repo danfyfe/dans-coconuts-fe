@@ -2,6 +2,12 @@
 import { GetRepos } from "@/app/api/graphql/github";
 import { useState, useEffect } from "react";
 
+/**
+ * 
+ * DO NOT USE - github component is a server component, so this isn't needed 
+ * 
+ * 
+ */
 
 const useGitHubRepos = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>();
@@ -18,6 +24,7 @@ const useGitHubRepos = () => {
       setError(error);
       const repos: GitHubRepo[] = gitHubRepos?.data?.user?.pinnedItems?.nodes;
       setRepos(repos);
+      console.log(repos)
       setLoading(false);
     };
     fetchData();
