@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -164,5 +166,15 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.scrollbar-styles': {
+          '&::-webkit-scrollbar': {
+            'display': 'none'
+          }
+        }
+      })
+    })
+  ],
 }

@@ -12,10 +12,24 @@ html {
   color: #73492e /* global coconut color */;
 }
 
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #73492e var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
 *::-webkit-scrollbar-track {
-  background: '#EDD793'
+  background: var(--primary);
+  border-radius: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: '#000';
+  background-color: #73492e;
+  border-radius: 14px;
+  border: 3px solid var(--primary);
 }

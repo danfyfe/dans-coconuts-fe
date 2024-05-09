@@ -17,7 +17,7 @@ const MenuWrapper = ({ children, open, id }: IMenuWrapperProps) => (
         flex justify-start text-right
         w-auto absolute
         ${open ? 'max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
-        p-4 bg-inherit flex-col items-end bg-white bg-opacity-80 rounded shadow-sm
+        p-4 bg-inherit flex-col items-end bg-white bg-opacity-90 rounded shadow-sm
     `}>
       {children}
     </div>
