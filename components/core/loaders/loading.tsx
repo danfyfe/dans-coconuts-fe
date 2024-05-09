@@ -2,9 +2,15 @@
 
 import Image from "next/image"
 
-export default function Loading() {
+export default function Loading({ className }: { className: string}) {
     return(
-        <div className="relative w-full h-full m-2 flex flex-col justify-center items-center bg-sand_day z-[1000]">
+        <div className={`
+					relative w-full h-full m-2 flex flex-col
+					justify-center items-center bg-sand_day
+					z-[1000]
+					${className ? className : ''}
+				`}
+				>
 					<Image
 						priority
 						src="/images/coconut.png"

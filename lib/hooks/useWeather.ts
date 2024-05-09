@@ -20,20 +20,22 @@ const useWeather = () => {
     fetchData();
   },[]);
 
-
 	const currentDateTime = new Date();
 	const parsedCurrentDateTime = Date.parse(currentDateTime.toISOString());
 	const periods = weatherData?.properties?.periods;
 	const currentPeriod:IPeriod | undefined = periods?.find((p: IPeriod) => (Date.parse(p.startTime) <= parsedCurrentDateTime) && Date.parse(p.endTime) >= parsedCurrentDateTime);
 	const precipitation: number | undefined = currentPeriod?.probabilityOfPrecipitation?.value;
-	// const raining = !!precipitation && precipitation >= 50;
-  const raining = true;
-	const day = true;
+  const day: boolean | undefined = currentPeriod?.isDaytime;
+	const raining = !!precipitation && precipitation >= 50;
+  const temperature: number | undefined = currentPeriod?.temperature;
+  const forecast: string | undefined = currentPeriod?.shortForecast;
 
   return {
     day,
     raining,
     precipitation,
+    temperature,
+    forecast,
     loading,
   }
 };

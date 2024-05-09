@@ -2,7 +2,7 @@
 import { ReactEventHandler, useCallback, useState } from "react";
 import FlexContainer from "../core/containers/flex-container";
 import Button from "../core/utility/button";
-import H2 from "../core/typography/h2";
+import H2 from "../core/typography/H2";
 import TextInput from "../core/forms/inputs/text-input";
 import { useRouter } from "next/navigation";
 import setCookie from "@/lib/setCookie";

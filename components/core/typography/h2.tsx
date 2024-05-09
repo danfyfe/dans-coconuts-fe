@@ -3,7 +3,7 @@ import { IH1Props } from "@/interfaces/content";
 const H2 = ({ children, className }: IH1Props) => (
   <h2
     className={`
-      font-gilligan
+      font-roboto
       text-3xl
       text-center
       ${className ? className : ''}

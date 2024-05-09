@@ -5,6 +5,8 @@ export interface IPeriod {
 		value: number
 	}
 	isDaytime: boolean
+  temperature: number
+  shortForecast: string
 }
 
 export interface IWeatherResponse {

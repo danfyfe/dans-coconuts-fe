@@ -21,7 +21,7 @@ const Navigation = () => {
             <AddCoconut />
           ): null
         }
-        {/* <WeatherWidgetTrigger /> */}
+        <WeatherWidgetTrigger />
       </div>
       <LinkNavMenu />
       <WeatherWidget />

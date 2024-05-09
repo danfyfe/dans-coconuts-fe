@@ -1,6 +1,6 @@
 'use client'
 import FlexContainer from "../core/containers/flex-container";
-import H2 from "../core/typography/h2";
+import H2 from "../core/typography/H2";
 import NextLink from "../core/utility/link";
 
 const YouAreNot = () => (

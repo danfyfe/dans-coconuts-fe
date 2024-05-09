@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { WeatherContext } from "@/context/WeatherProvider";
 import { FaCloud, FaSun } from "react-icons/fa";
 import setCookie from "@/lib/setCookie";
+import P from "../core/typography/P";
 
 const WeatherToggle = () => {
   const { displayWeather, setDisplayWeather, raining } = useContext(WeatherContext);
@@ -13,29 +14,29 @@ const WeatherToggle = () => {
     setDisplayWeather(newValue);
   };
 
+  const toggleText = displayWeather ? 'Bring back the Sun!' : 'We could use some rain!';
+
   return (
-    <>
-      {
-        raining ? (
-          <ButtonIcon
-            id="weather-btn"
-            ariaLabel="Toggle weather"
-            className={`
-              ${!!displayWeather ? ' text-sun' : 'text-slate-500'}
-            `}
-            onClick={handleToggleClick}
-          >
-            {
-              !!displayWeather ? (
-                <FaSun />
-              ) : (
-                <FaCloud />
-              )
-            }
-          </ButtonIcon>
-        ) : null
-      }
-    </>
+    <div className="flex justify-end items-center">
+      <P>{toggleText}</P>
+      <ButtonIcon
+        id="weather-btn"
+        ariaLabel={toggleText}
+        className={`
+          m-0 ml-1
+          ${!!displayWeather ? ' text-sun' : 'text-slate-500'}
+        `}
+        onClick={handleToggleClick}
+      >
+        {
+          !!displayWeather ? (
+            <FaSun />
+          ) : (
+            <FaCloud />
+          )
+        }
+      </ButtonIcon>
+    </div>
   )
 };
 
