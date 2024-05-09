@@ -11,7 +11,8 @@ module.exports = {
         fall: 'fall 2s forwards',
         tide: 'tide 10s infinite',
         'roll-left': 'roll-left 1s',
-        'roll-right': 'roll-right 1s'
+        'roll-right': 'roll-right 1s',
+        'left-to-right': 'left-to-right 1.5s infinite'
       },
       colors: {
         sky_day_fair: '#DEFAF8',
@@ -82,6 +83,17 @@ module.exports = {
           },
           '100%': {
             top: '90%',
+          }
+        },
+        'left-to-right': {
+          "0%": {
+            left: '100%'
+          },
+          "50%": {
+            left: '0'
+          },
+          "100%": {
+            left: '-100%'
           }
         },
         'tide': {
