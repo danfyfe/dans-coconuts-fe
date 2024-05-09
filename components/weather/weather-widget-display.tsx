@@ -37,6 +37,7 @@ const WeatherWidgetDisplay = () => {
               }
             </div>
             <WeatherToggle />
+            <P className="text-xs">*Hourly forecast from the National Weather Service API</P>
           </>
         )
       }
