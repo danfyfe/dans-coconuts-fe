@@ -7,7 +7,9 @@ interface IContentContainerProps {
 };
 
 const ContentContainer = ({ children, className, id }: IContentContainerProps) => {
-    const { day } = useWeather();
+    // const { day } = useWeather();
+    // TODO: refactor to use actual value from useWeather once day/night mode is in
+    const day = true;
     return(
         <section
             id={id}

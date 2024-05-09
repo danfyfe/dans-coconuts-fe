@@ -19,21 +19,22 @@ const LandscapeContainer = ({ children }: ILandscapeProps) => {
 	 * It contains all of the beach/sky elements, and the weather.
 	 * @params children - the main elements of the page
 	 */
-	const { day, raining, precipitation, loading } = useWeather();
+	  
+	// TODO: refactor below to use actual value from useWeather once day/night mode is in
+	const day = true;
+	// const { raining, precipitation, loading } = useWeather();
 	const { displayWeather, setRaining } = useContext(WeatherContext);
 
-	useEffect(() => {
-		setRaining(raining)
-	}, [raining, setRaining]);
+	// useEffect(() => {
+	// 	setRaining(raining)
+	// }, [raining, setRaining]);
 
 	return (
 			<>
 			{
-				loading ? (
-					<Loading />
-				) : (
-					<>
-					{ !!displayWeather && raining && <Rain precipitation={precipitation} /> }
+				<>
+					{/* { !!displayWeather && raining && <Rain precipitation={precipitation} /> } */}
+					{ !!displayWeather && <Rain /> }
 					<Sky day={day}>
 						<Sun day={day}/>
 					</Sky>
@@ -53,8 +54,7 @@ const LandscapeContainer = ({ children }: ILandscapeProps) => {
 						<Tide day={day} />
 					</Sand>
 					{children}
-					</>
-				)
+				</>
 			}
 			</>
 	)

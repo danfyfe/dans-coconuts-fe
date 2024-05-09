@@ -15,20 +15,11 @@ const RainDrops = () => (
 	</div>
 );
 
-interface RainProps {
-	precipitation: number | undefined
-}
+// interface RainProps {
+// 	precipitation: number | undefined
+// }
 
-/**
- * 
- * 
- * 
- * 
- * 
- * 
- */
-
-const Rain = ({ precipitation }: RainProps) => {
+const Rain = () => {
     return (
 			<div id="rain" className={`absolute z-50 overflow-hidden text-rain h-full w-full opacity-30`}>
 				<RainDrops />
