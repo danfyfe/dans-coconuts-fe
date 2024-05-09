@@ -167,14 +167,6 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        '.scrollbar-styles': {
-          '&::-webkit-scrollbar': {
-            'display': 'none'
-          }
-        }
-      })
-    })
+    require('tailwind-scrollbar')
   ],
 }

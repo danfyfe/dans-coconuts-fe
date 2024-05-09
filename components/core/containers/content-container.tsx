@@ -30,6 +30,7 @@ const ContentContainer = ({ children, className, id }: IContentContainerProps) =
                 p-5 md:p-10
                 z-[500]
                 w-3/4 md:w-1/2
+                scrollbar
                 ${className ?? ''}
             `}
         >

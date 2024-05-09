@@ -11,7 +11,13 @@ const RootLayout = ({ children }: RootLayout) => (
 	<Providers>
 		<html lang="en">
 			<body>
-				<main id="main-content" className="relative overflow-hidden h-screen">
+				<main
+					id="main-content"
+					className="
+						relative overflow-hidden h-screen
+						scrollbar-thumb-coconut_brown scrollbar-track-sand_day
+					"
+				>
 					<Navigation />
 					<LandscapeContainer>
 						{children}
