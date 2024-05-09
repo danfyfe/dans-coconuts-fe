@@ -13,7 +13,7 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
   };
 
   return (
-    <MenuWrapper open={linkNavOpen}>
+    <MenuWrapper open={linkNavOpen} id="nav-link-menu">
       <ul id="nav-link-menu-ul">
         <li>
           <NextLink
