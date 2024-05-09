@@ -1,15 +1,15 @@
 import { IHProps } from "@/interfaces/content";
 
-const H1 = ({ children, className }: IHProps) => (
-  <h1
+const H3 = ({ children, className }: IHProps) => (
+  <h3
     className={`
-      text-5xl
-      text-center
+      font-roboto
+      text-2xl
       ${className ? className : ''}
     `}
   >
     {children}
-  </h1>
+  </h3>
 );
 
-export default H1;
+export default H3;

@@ -9,7 +9,7 @@ export interface IContentProps {
 
 export interface IFlexProps extends IContentProps {};
 
-export interface IH1Props extends IContentProps {};
+export interface IHProps extends IContentProps {};
 
 export interface IPProps extends IContentProps {};
 

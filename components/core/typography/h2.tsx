@@ -1,6 +1,6 @@
-import { IH1Props } from "@/interfaces/content";
+import { IHProps } from "@/interfaces/content";
 
-const H2 = ({ children, className }: IH1Props) => (
+const H2 = ({ children, className }: IHProps) => (
   <h2
     className={`
       font-roboto
