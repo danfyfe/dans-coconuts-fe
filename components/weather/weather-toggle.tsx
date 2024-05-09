@@ -18,12 +18,12 @@ const WeatherToggle = () => {
 
   return (
     <div className="flex justify-end items-center">
-      <P>{toggleText}</P>
+      <P className="mr-1">{toggleText}</P>
       <ButtonIcon
         id="weather-btn"
         ariaLabel={toggleText}
         className={`
-          m-0 ml-1
+          !m-0
           ${!!displayWeather ? ' text-sun' : 'text-slate-500'}
         `}
         onClick={handleToggleClick}
