@@ -11,7 +11,7 @@ export default function Loading() {
 						alt="An image of a coconut - Loading"
 						height={100}
 						width={100}
-						className="h-20 w-20 animate-[spin_1.5s_infinite]"
+						className="h-16 w-16 animate-[spin_1.5s_infinite]"
 					/>
 					<div className="overflow-hidden w-max mt-3">
 						<span className=" animate-left-to-right relative">
