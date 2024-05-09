@@ -1,0 +1,45 @@
+'use client'
+import ErrorContainer from "@/components/core/errors/error-container";
+import ErrorSpan from "@/components/core/errors/error-span";
+import P from "@/components/core/typography/P";
+import useGitHubRepos from "@/lib/hooks/useGitHubRepos";
+import Loading from "../core/loaders/loading";
+
+const GitHubRepos = () => {
+  const { loading, repos, status, error } = useGitHubRepos();
+
+  return (
+    <>
+    { loading ? (
+      <Loading />
+    ) : (
+      <>
+        {
+          status === 200 ? (
+            <ul className="flex flex-col gap-3" id="github-repo-links">
+              {
+                repos?.map((repo, index) => (
+                  <li key={`${index}-repo-name`}>
+                    <a href={repo?.url} className="underline" target="_blank">
+                      {repo?.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          ) : (
+            <ErrorContainer>
+              <P className="text-xl text-center mb-3">Oh No!</P>
+              <P className="mb-1">It looks like something went wrong when loading the data</P>
+              <P>Error from server: <ErrorSpan>{error}</ErrorSpan></P>
+            </ErrorContainer>
+          )
+        }
+      </>
+    )
+  }
+    </> 
+  )
+};
+
+export default GitHubRepos;
