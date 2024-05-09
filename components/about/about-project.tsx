@@ -25,7 +25,7 @@ const AboutProject = () => {
       </P>
 
       <P>
-        Error page, 404 page
+        Error page, 404 page <NextLink href="not-a-page" className="underline">non-existent page</NextLink>
       </P>
       <Button
         onClick={throwError}
