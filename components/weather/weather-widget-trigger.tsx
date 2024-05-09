@@ -13,11 +13,14 @@ const WeatherWidgetTrigger = () => {
           id="weather-widget-btn"
           ariaLabel="Toggle weather widget"
           className={`
+             md:hover:scale-105
           `}
           onClick={handleToggleWeatherWidget}
         >
-          <FaCloud className="text-slate-500"/>
-          <FaSun className="text-sun" />
+          <div className="-rotate-45 relative h-full w-full">
+            <FaSun aria-label="sun icon" className="rotate-45 text-sun text-xl absolute right-[25%] bottom-[10%]"/>
+            <FaCloud aria-label="cloud icon" className="rotate-45 text-slate-500 text-xl absolute left-[25%] top-[8%]"/>
+          </div>
         </ButtonIcon>
     </section>
   )
