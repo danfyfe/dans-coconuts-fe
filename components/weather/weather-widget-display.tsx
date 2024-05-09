@@ -2,13 +2,10 @@ import useWeather from "@/lib/hooks/useWeather";
 import Loading from "../core/loaders/loading";
 import H2 from "../core/typography/H2";
 import P from "../core/typography/P";
-import { useContext } from "react";
-import { WeatherContext } from "@/context/WeatherProvider";
 import WeatherToggle from "./weather-toggle";
 
 const WeatherWidgetDisplay = () => {
   const { loading, forecast, temperature, day } = useWeather();
-  const { displayWeather } = useContext(WeatherContext);
 
   return (
     <>
