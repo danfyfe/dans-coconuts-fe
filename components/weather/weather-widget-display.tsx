@@ -14,7 +14,7 @@ const WeatherWidgetDisplay = () => {
           <Loading className="bg-transparent" />
         ) : (
           <>
-            <H2 className="text-base text-left">Current weather in Miami Beach</H2>
+            <H2 className="text-base text-right">Current weather in Miami Beach</H2>
             <hr />
             <ul>
               <li>
