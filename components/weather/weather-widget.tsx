@@ -4,7 +4,7 @@ import MenuWrapper from "../core/containers/menu-container";
 
 const WeatherWidget = () => {
   const { weatherWidgetOpen } = useContext(MenusContext);
-  console.log('open?', weatherWidgetOpen)
+
   return (
     <MenuWrapper open={weatherWidgetOpen} id="weather-widget-menu">
       <div

@@ -6,7 +6,7 @@ import { MenusContext } from "@/context/MenusProvider";
 
 const WeatherWidgetTrigger = () => {
   const { handleToggleWeatherWidget } = useContext(MenusContext);
-  console.log()
+
   return (
     <section>
         <ButtonIcon

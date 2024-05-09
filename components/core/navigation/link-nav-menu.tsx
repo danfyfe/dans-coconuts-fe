@@ -1,12 +1,11 @@
 
 'use client'
-import { INavProps } from "@/interfaces/navigation";
 import NextLink from "../utility/link";
 import MenuWrapper from "../containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
 
-const NavMenu = ({ open, setOpen }: INavProps) => {
+const LinkNavMenu = () => {
   const { linkNavOpen, setLinkNavOpen } = useContext(MenusContext);
   const handleLinkClick = () => {
     setLinkNavOpen(false)
@@ -65,4 +64,4 @@ const NavMenu = ({ open, setOpen }: INavProps) => {
   )
 };
 
-export default NavMenu;
+export default LinkNavMenu;

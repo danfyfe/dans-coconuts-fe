@@ -1,16 +1,17 @@
-import { Dispatch, MouseEventHandler } from "react"
+import { Dispatch, MouseEventHandler, ReactNode } from "react"
 
 export interface INavTriggerProps {
   onClick: MouseEventHandler<HTMLButtonElement>,
   open: boolean
 }
 
-export interface INavWrapperProps {
+export interface IMenuWrapperProps {
   open: boolean;
-  setOpen: Dispatch<React.SetStateAction<boolean>>
+  children: ReactNode;
+  id: string;
 }
 
-export interface IMenuProps {
+export interface ILinkNavMenuProps {
   open: boolean;
   setOpen: Dispatch<React.SetStateAction<boolean>>
 }
