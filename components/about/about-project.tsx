@@ -1,9 +1,7 @@
 import H2 from "../core/typography/H2";
 import H3 from "../core/typography/H3";
 import P from "../core/typography/P";
-import Button from "../core/utility/button";
 import NextLink from "../core/utility/link";
-import throwError from "@/lib/throwError";
 
 const AboutProject = () => {
   return (
@@ -12,8 +10,8 @@ const AboutProject = () => {
         
       <H3 className="mt-3">How it&apos;s built</H3>
       <P>
-        This site is built with React, Next, TypeScript, and Tailwind CSS. It utilizes GraphQL as well as REST APIs for data.
-        Most sections that feature data fetching will have call-outs explaining where everything comes from.
+        This site is built with React, NextJS (app router), TypeScript, and TailwindCSS. It utilizes GraphQL as well as REST APIs for data.
+        Most sections that feature data fetching have call-outs explaining where everything comes from.
       </P>
 
       <H3 className="mt-3">Features</H3>
@@ -33,18 +31,6 @@ const AboutProject = () => {
 
 
       <H3 className="mt-3">Testing</H3>
-      <P>
-        Testing for this project is handled by Cypress. The test
-        repo can be found on the <NextLink href="/github" className="underline">GitHub page</NextLink>.
-        The approach to testing is pretty simple - I am using e2e testing that goes through the various
-        features on the site and has some simple assertions to make sure everything continues to work as
-        more is added.
-      </P>
-      <P>
-        The main GitHub repo for the frontend utilizes GitHub actions to run the Cypress tests when anything
-        is pushed to the main branch. The yml file for the action checkouts out and builds the frontend app,
-        runs the unit tests in the repo, then grabs the Cypress repo and runs all of the e2e tests.
-      </P>
       <P>
         Testing for this project is handled by Cypress. The test
         repo can be found on the <NextLink href="/github" className="underline">GitHub page</NextLink>.
