@@ -1,18 +1,19 @@
 'use client';
-import { MouseEventHandler, useCallback, useEffect, useRef, useState } from 'react';
+import { MouseEventHandler, useCallback, useEffect, useId, useRef, useState } from 'react';
 import { ICoconut } from "@/context/CoconutProvider";
 import Image from "next/image";
 
 
 const Coconut = ({ coconut }: { coconut: ICoconut }) => {
   // TODO: refactor logic into custom hook
+  const ID = useId();
   const coconutRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: coconut.xPosition, y: 0 });
 
-  const handleDragStart = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+    event.dataTransfer.setData("text/plain", event.currentTarget.id);
     event.preventDefault();
-    console.log('drag start')
     setDragging(true);
   };
 
@@ -25,12 +26,14 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
   }, [dragging, setPosition]);
   
   const handleDragEnd = () => {
-    console.log('drag end')
     setDragging(false);
+    if (coconutRef?.current) {
+      const { current } = coconutRef;
+      current.classList.add('animate-bottom');
+    }
   };
 
   const handleDragStartTouch = (event: React.TouchEvent<HTMLDivElement>) => {
-    console.log('drag start')
     setDragging(true);
   };
 
@@ -44,15 +47,18 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
   }, [dragging, setPosition]);
 
   useEffect(() => {
-    if (coconutRef?.current && dragging) {
+    if (coconutRef?.current) {
       const { current } = coconutRef;
-      current.style.left = `${position.x}px`;
-      current.style.top = `${position.y}px`;
+      if (dragging) {
+        current.style.left = `${position.x}px`;
+        current.style.top = `${position.y}px`;
+        current.classList.remove('animate-fall');
+        current.classList.remove('animate-bottom');
+      }
     }
   }, [position, dragging]);
 
   useEffect(() => {
-
     document.addEventListener("mousemove", (event) => handleDrag(event));
     document.addEventListener("touchmove", (event) => handleDragTouch(event));
     document.addEventListener("mouseup", handleDragEnd);
@@ -66,19 +72,20 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
     };
   }, [handleDrag, handleDragTouch]);
 
-  console.log('dragging: ', dragging)
-
   return (
     <div
+      id={`coconut-${ID}`}
+      draggable="true"
       ref={coconutRef}
       className={`
-        absolute ${dragging ? '' : 'animate-bottom'} ease-in-out h-16 w-16 drop-shadow-coconut cursor-grab
+        absolute ease-in-out h-16 w-16 md:drop-shadow-coconut cursor-grab z-[999]
+        animate-fall
       `}
       style={{
         left: coconut.xPosition,
         animationDuration: coconut.animationDuration
       }}
-      onMouseDown={handleDragStart}
+      onDragStart={handleDragStart}
       onTouchStart={handleDragStartTouch}
     >
       <Image
