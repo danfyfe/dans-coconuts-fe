@@ -26,10 +26,11 @@ const ContentContainer = ({ children, className, id }: IContentContainerProps) =
                 border-solid
                 rounded
                 border-2
-                max-h-[calc(100vh-5rem)]
+                max-h-[calc(100vh-10rem)]
+                md:max-h-[calc(100vh-5rem)]
                 p-5 md:p-10
-                z-[500]
-                w-3/4 md:w-1/2
+                z-[1000]
+                w-5/6 md:w-1/2
                 scrollbar
                 ${className ?? ''}
             `}
