@@ -1,9 +1,9 @@
 'use client'
 
 import { CoconutContext } from "@/context/CoconutProvider";
-import Image from "next/image";
 import { useContext } from "react";
-import { AnimatedTooltip } from "../tool-tip";
+import CoconutTrashCan from "./coconut-trash-can";
+import Coconut from "./coconut";
 
 const CoconutContainer = () => {
   const { coconuts } = useContext(CoconutContext);
@@ -16,7 +16,13 @@ const CoconutContainer = () => {
       '
     >
       <div className="relative h-full w-full">
-        <AnimatedTooltip items={coconuts} />
+        {/* <AnimatedTooltip items={coconuts} /> */}
+        {
+          coconuts.map((coconut, index) => {
+            return <Coconut key={`coconut-${index}`} coconut={coconut} />
+          })
+        }
+        <CoconutTrashCan />
       </div>
     </section>
   )

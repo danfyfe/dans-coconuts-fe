@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
+        bottom: 'bottom 2s forwards',
         fall: 'fall 2s forwards',
         tide: 'tide 10s infinite',
         'roll-left': 'roll-left 1s',
@@ -47,6 +48,30 @@ module.exports = {
         sand: '200vh'
       },
       keyframes: {
+        'bottom': {
+          '0%': {
+            transform: 'rotate(0)'
+          },
+          '5%': {
+            transform: 'rotate(-5deg)'
+          },
+          '10%': {
+            transform: 'rotate(0deg)'
+          },
+          '15%': {
+            transform: 'rotate(5deg)'
+          },
+          '30%': {
+            top: '90%',
+            transform: 'rotate(0)'
+          },
+          '75%': {
+            top: '90%',
+          },
+          '100%': {
+            top: '90%',
+          }
+        },
         'fade-in-out': {
           '0%': {
             opacity: 0.5

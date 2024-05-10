@@ -7,13 +7,14 @@ interface ICoconutProvider {
   addCoconut: () => void
 }
 
-interface ICoconut {
+export interface ICoconut {
   xPosition: number;
   animationDuration: string;
   id: number;
   name: string;
   designation?: string;
   image: string;
+  alt: string;
 }
 
 export const CoconutContext = createContext<ICoconutProvider>({
@@ -37,7 +38,8 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
       id: randomPosition,
       name: 'Coconut',
       designation,
-      image: '/images/coconut.png'
+      image: '/images/coconut.png',
+      alt: 'Image of a coconut'
     };
     const newCoconuts = [...coconuts, coconut];
     setCoconuts(newCoconuts)
