@@ -1,4 +1,3 @@
-'use client';
 import H2 from "../core/typography/H2";
 import H3 from "../core/typography/H3";
 import P from "../core/typography/P";
@@ -25,13 +24,13 @@ const AboutProject = () => {
       </P>
 
       <P>
+        weather uses localstorage to save preference between visits
+      </P>
+
+      <P>
         Error page, 404 page <NextLink href="not-a-page" className="underline">non-existent page</NextLink>
       </P>
-      <Button
-        onClick={throwError}
-      >
-        Throw error
-      </Button>
+
 
       <H3 className="mt-3">Testing</H3>
       <P>

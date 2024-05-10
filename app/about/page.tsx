@@ -6,8 +6,8 @@ import H1 from "@/components/core/typography/H1";
 const AboutPage = () => {
   return (
     <ContentContainer className="overflow-y-auto scrollbar-styles">
-      <H1>About - WIP</H1>
-      <AboutMe />
+      <H1>About</H1>
+      {/* <AboutMe /> */}
       <AboutProject />
     </ContentContainer>
   )

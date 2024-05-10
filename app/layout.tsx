@@ -2,6 +2,7 @@ import Providers from '@/context';
 import '../styles/globals.css';
 import Navigation from '@/components/core/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
+import CoconutDan from '@/components/coconut-dan';
 
 interface RootLayout {
     children: React.ReactNode;
@@ -19,6 +20,7 @@ const RootLayout = ({ children }: RootLayout) => (
 					"
 				>
 					<Navigation />
+					{/* <CoconutDan /> */}
 					<LandscapeContainer>
 						{children}
 					</LandscapeContainer>
