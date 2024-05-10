@@ -1,10 +1,8 @@
-import React, { FC } from 'react';
-
-interface SunProps {
+interface ISunProps {
     day: Boolean
 };
 
-const Sun: FC<SunProps> = ({ day }) => (
+const Sun = ({ day }: ISunProps) => (
     <div className={`${day ? 'bg-sun' : 'bg-moon'} h-sun w-sun rounded-full absolute top-[2%] left-[2%]`} />
 );
 

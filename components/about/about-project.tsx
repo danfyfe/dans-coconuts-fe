@@ -24,7 +24,7 @@ const AboutProject = () => {
       </P>
 
       <P>
-        weather uses localstorage to save preference between visits
+        weather uses cookies to save preference between visits
       </P>
 
       <P>

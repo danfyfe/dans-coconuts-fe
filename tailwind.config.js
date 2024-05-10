@@ -14,12 +14,14 @@ module.exports = {
         tide: 'tide 10s infinite',
         'roll-left': 'roll-left 1s',
         'roll-right': 'roll-right 1s',
-        'left-to-right': 'left-to-right 1.5s infinite'
+        'left-to-right': 'left-to-right 1.5s infinite',
+        'lightning': 'lightning 20s infinite 1s',
       },
       colors: {
         sky_day_fair: '#DEFAF8',
         sky_night_fair: '#25587C',
-        sky_day_rain: '#3f5957',
+        // sky_day_rain: '#3f5957',
+        sky_day_rain: '#74b0ab',
         sky_night_rain: '',
         sun: '#FDB813',
         moon: '#FCFEDA',
@@ -96,6 +98,23 @@ module.exports = {
           },
           "100%": {
             left: '-100%'
+          }
+        },
+        'lightning': {
+          '49%': {
+            'background-color': '#74b0ab'
+          },
+          '50%': {
+            'background-color': '#8dccc7'
+          },
+          '51%': {
+            'background-color': '#82bfba'
+          },
+          '52%': {
+            'background-color': '#8dccc7'
+          },
+          '53%': {
+            'background-color': '#74b0ab'
           }
         },
         'tide': {

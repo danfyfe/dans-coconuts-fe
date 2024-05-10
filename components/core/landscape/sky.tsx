@@ -1,13 +1,15 @@
-import { FC } from 'react';
-
-interface SkyProps {
+interface ISkyProps {
     children: React.ReactNode,
-    day: Boolean
+    day?: Boolean
+    raining?: number
 };
 
-const Sky: FC<SkyProps> = ({ children, day }) => {
+const Sky = ({ children, day, raining }: ISkyProps) => {
     return (
-        <div className={`${day ? 'bg-sky_day_fair' : 'bg-sky_night_fair'} h-sky`}>
+        <div className={`
+            ${!!raining ? 'bg-sky_day_rain' : 'bg-sky_day_fair'} h-sky
+            duration-1000 transition-colors
+        `}>
             {children}
         </div>
     )

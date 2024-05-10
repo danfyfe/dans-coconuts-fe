@@ -1,15 +1,16 @@
 'use client'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import {
     Sky,
     Sun,
     Ocean,
     Sand,
-		Rain
+		Rain,
+		Clouds
 } from '@/components/core/landscape'
 import Tide from '@/components/core/landscape/tide';
-import useWeather from '@/lib/hooks/useWeather';
-import Loading from '../loaders/loading';
+// import useWeather from '@/lib/hooks/useWeather';
+// import Loading from '../loaders/loading';
 import { ILandscapeProps } from '@/interfaces/landscape';
 import { WeatherContext } from '@/context/WeatherProvider';
 
@@ -34,8 +35,9 @@ const LandscapeContainer = ({ children }: ILandscapeProps) => {
 			{
 				<>
 					{/* { !!displayWeather && raining && <Rain precipitation={precipitation} /> } */}
-					{ !!displayWeather && <Rain /> }
-					<Sky day={day}>
+					<Rain raining={displayWeather} />
+					<Sky day={day} raining={displayWeather}>
+						<Clouds raining={displayWeather} />
 						<Sun day={day}/>
 					</Sky>
 					<Ocean day={day}>
