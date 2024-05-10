@@ -6,10 +6,10 @@ interface RainDropProps {
 
 const RainDrop = ({ className }: RainDropProps) => 	<div className={`${className ? className : ''} absolute bg-rain-drop w-[calc(100%+2rem)] h-[calc(100vh+2rem)] bg-repeat`} />
 
-const RainDrops = ({ raining }) => (
+const RainDrops = ({ raining }: { raining?: number }) => (
 	<div className={`
-		relative ${raining ? 'opacity-100' : 'opacity-0'}
-		transition-opacity duration-200 delay-1000 ease-in
+		relative ${!!raining ? 'opacity-100' : 'opacity-0'}
+		transition-opacity 
 	`}>
 		<RainDrop className="animate-[rain_1.5s_ease-out_infinite]" />
 		<RainDrop className="animate-[rain_1.5s_ease-out_infinite_0.5s] top-[-2rem]" />
