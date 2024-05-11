@@ -10,9 +10,6 @@ const WeatherWidgetDisplay = () => {
   return (
     <>
       {
-        loading ? (
-          <Loading className="bg-transparent" />
-        ) : (
           <>
             <H2 className="text-base text-right">Current weather in Miami Beach</H2>
             <hr />
@@ -36,7 +33,6 @@ const WeatherWidgetDisplay = () => {
             <WeatherToggle />
             <P className="text-xs">*Hourly forecast from the National Weather Service API</P>
           </>
-        )
       }
     </>
   )
