@@ -9,7 +9,7 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
   const ID = useId();
   const coconutRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
-  const [position, setPosition] = useState({ x: coconut.xPosition, y: 0 });
+  const [position, setPosition] = useState({ x: coconut.xPosition, y: coconut.yPosition });
 
   const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     event.dataTransfer.setData("text/plain", event.currentTarget.id);
@@ -21,7 +21,7 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
     if (dragging) {
       const x: number = event.clientX - 32;
       const y: number = event.clientY -32;
-      setPosition({ x, y});
+      setPosition({ x, y });
     }
   }, [dragging, setPosition]);
   

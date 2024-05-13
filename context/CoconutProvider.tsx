@@ -11,6 +11,7 @@ interface ICoconutProvider {
 
 export interface ICoconut {
   xPosition: number;
+  yPosition: number;
   animationDuration: string;
   id: number;
   name: string;
@@ -30,6 +31,7 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
 
   const addCoconut = useCallback(() => {
     const windowWidth = global.window.innerWidth;
+    const windowHeight = global.window.innerHeight;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
     const randomTiming = `${(Math.random() + 1)}s`;
     const count = coconuts.length;
@@ -37,6 +39,7 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
     const designation = `Oh man, ${message}`;
     const coconut: ICoconut = {
       xPosition: randomPosition,
+      yPosition: windowHeight,
       animationDuration: randomTiming,
       id: randomPosition,
       name: 'Coconut',

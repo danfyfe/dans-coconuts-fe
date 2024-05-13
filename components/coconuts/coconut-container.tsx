@@ -12,7 +12,7 @@ const CoconutContainer = () => {
     <section
       className='
         absolute top-0 left-0
-        h-full w-full
+        h-[100dvh] w-[calc(100dvw)]
       '
     >
       <div className="relative h-full w-full">
