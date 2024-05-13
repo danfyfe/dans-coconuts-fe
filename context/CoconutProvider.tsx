@@ -1,6 +1,8 @@
 'use client'
+import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
-import { createContext, useState, useId } from "react";
+import setCookie from "@/lib/setCookie";
+import { createContext, useState, useId, useEffect, useCallback } from "react";
 
 interface ICoconutProvider {
   coconuts: ICoconut[];
@@ -24,8 +26,9 @@ export const CoconutContext = createContext<ICoconutProvider>({
 
 export const CoconutProvider = ({ children }: { children: React.ReactNode }) => {
   const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
+  const coconutCountCookie = useGetCookie('dc-coconut-count');
 
-  const addCoconut = () => {
+  const addCoconut = useCallback(() => {
     const windowWidth = global.window.innerWidth;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
     const randomTiming = `${(Math.random() + 1)}s`;
@@ -42,8 +45,23 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
       alt: 'Image of a coconut'
     };
     const newCoconuts = [...coconuts, coconut];
-    setCoconuts(newCoconuts)
-  };
+    setCoconuts(newCoconuts);
+    setCookie('dc-coconut-count', newCoconuts.length);
+  }, [coconuts]);
+
+  // useEffect(() => {
+  //   console.log('count', coconutCountCookie);
+  //   if (coconutCountCookie && coconuts.length === 0) {
+  //     const recreatedSavedCoconuts = (() => {
+  //       let count = +coconutCountCookie;
+  //       while (count > 0) {
+  //         addCoconut();
+  //         count --;
+  //       }
+  //     });
+  //     recreatedSavedCoconuts();
+  //   }
+  // }, [coconutCountCookie, addCoconut, coconuts]);
 
   return (
     <CoconutContext.Provider value={{ coconuts, addCoconut }}>

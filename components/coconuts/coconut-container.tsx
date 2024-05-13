@@ -16,7 +16,7 @@ const CoconutContainer = () => {
       '
     >
       <div className="relative h-full w-full">
-        <CoconutTrashCan />
+        {/* <CoconutTrashCan /> */}
         {
           coconuts.map((coconut, index) => {
             return <Coconut key={`coconut-${index}`} coconut={coconut} />
