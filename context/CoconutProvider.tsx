@@ -29,7 +29,7 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
   const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
   const coconutCountCookie = useGetCookie('dc-coconut-count');
 
-  const addCoconut = useCallback(() => {
+  const createNewCoconut = useCallback(() => {
     const windowWidth = global.window.innerWidth;
     const windowHeight = global.window.innerHeight;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
@@ -47,24 +47,29 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
       image: '/images/coconut.png',
       alt: 'Image of a coconut'
     };
-    const newCoconuts = [...coconuts, coconut];
-    setCoconuts(newCoconuts);
-    setCookie('dc-coconut-count', newCoconuts.length);
+    return coconut;
   }, [coconuts]);
 
-  // useEffect(() => {
-  //   console.log('count', coconutCountCookie);
-  //   if (coconutCountCookie && coconuts.length === 0) {
-  //     const recreatedSavedCoconuts = (() => {
-  //       let count = +coconutCountCookie;
-  //       while (count > 0) {
-  //         addCoconut();
-  //         count --;
-  //       }
-  //     });
-  //     recreatedSavedCoconuts();
-  //   }
-  // }, [coconutCountCookie, addCoconut, coconuts]);
+  const addCoconut = useCallback(() => {
+    const newCoconut = createNewCoconut();
+    const newCoconuts = [...coconuts, newCoconut];
+    setCoconuts(newCoconuts);
+    setCookie('dc-coconut-count', newCoconuts.length);
+  }, [coconuts, createNewCoconut]);
+
+  useEffect(() => {
+    console.log('count', coconutCountCookie);
+    if (coconutCountCookie && coconuts.length === 0) {
+      let count = +coconutCountCookie;
+      let newCoconuts: ICoconut[] = [];
+      while (count > 0) {
+        const newCoconut = createNewCoconut();
+        newCoconuts = [...newCoconuts, newCoconut];
+        count --;
+      }
+      setCoconuts(newCoconuts);
+    }
+  }, [coconutCountCookie, createNewCoconut, coconuts]);
 
   return (
     <CoconutContext.Provider value={{ coconuts, addCoconut }}>
