@@ -4,7 +4,7 @@ import { ICoconut } from "@/context/CoconutProvider";
 import Image from "next/image";
 
 
-const Coconut = ({ coconut }: { coconut: ICoconut }) => {
+const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
   // TODO: refactor logic into custom hook
   const ID = useId();
   const coconutRef = useRef<HTMLDivElement>(null);
@@ -74,7 +74,7 @@ const Coconut = ({ coconut }: { coconut: ICoconut }) => {
 
   return (
     <div
-      id={`coconut-${ID}`}
+      id={`coconut-${index}`}
       draggable="true"
       ref={coconutRef}
       className={`

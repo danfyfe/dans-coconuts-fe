@@ -19,7 +19,7 @@ const CoconutContainer = () => {
         {/* <CoconutTrashCan /> */}
         {
           coconuts.map((coconut, index) => {
-            return <Coconut key={`coconut-${index}`} coconut={coconut} />
+            return <Coconut key={`coconut-${index}`} index={index} coconut={coconut} />
           })
         }
       </div>

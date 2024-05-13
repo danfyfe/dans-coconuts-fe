@@ -58,7 +58,7 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
   }, [coconuts, createNewCoconut]);
 
   useEffect(() => {
-    console.log('count', coconutCountCookie);
+    // re-create amount of coconuts from cookie on load
     if (coconutCountCookie && coconuts.length === 0) {
       let count = +coconutCountCookie;
       let newCoconuts: ICoconut[] = [];
