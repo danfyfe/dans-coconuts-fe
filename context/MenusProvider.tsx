@@ -6,6 +6,7 @@ interface IMenusContext {
   linkNavOpen: boolean;
   handleToggleLinkNav: () => void;
   setLinkNavOpen: Dispatch<SetStateAction<boolean>>;
+  setWeatherWidgetOpen: Dispatch<SetStateAction<boolean>>;
   weatherWidgetOpen: boolean;
   handleToggleWeatherWidget:  () => void
 }
@@ -14,6 +15,7 @@ export const MenusContext = createContext<IMenusContext>({
   linkNavOpen: false,
   handleToggleLinkNav: () => {},
   setLinkNavOpen: () => {},
+  setWeatherWidgetOpen: () => {},
   weatherWidgetOpen: false,
   handleToggleWeatherWidget: () => {}
 });
@@ -39,6 +41,7 @@ export const MenusProvider = ({ children }: { children: React.ReactNode }) => {
         weatherWidgetOpen,
         handleToggleLinkNav,
         setLinkNavOpen,
+        setWeatherWidgetOpen,
         handleToggleWeatherWidget
       }}
     >

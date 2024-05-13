@@ -9,6 +9,7 @@ export interface IMenuWrapperProps {
   open: boolean;
   children: ReactNode;
   id: string;
+  setOpen: Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ILinkNavMenuProps {

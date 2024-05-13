@@ -12,7 +12,7 @@ const LinkNavMenu = () => {
   };
 
   return (
-    <MenuWrapper open={linkNavOpen} id="nav-link-menu">
+    <MenuWrapper open={linkNavOpen} setOpen={setLinkNavOpen} id="nav-link-menu">
       <ul id="nav-link-menu-ul">
         <li>
           <NextLink
