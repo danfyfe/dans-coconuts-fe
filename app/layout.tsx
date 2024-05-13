@@ -15,7 +15,7 @@ const RootLayout = ({ children }: RootLayout) => (
 				<main
 					id="main-content"
 					className="
-						relative overflow-hidden h-screen
+						relative overflow-hidden h-[100dvh]
 						scrollbar-thumb-coconut_brown scrollbar-track-sand_day
 					"
 				>

@@ -25,7 +25,7 @@ const RainDrops = ({ raining }: { raining?: number }) => (
 const Rain = ({ raining }: { raining?: number }) => {
     return (
 			<div id="rain" className={`
-				absolute z-50 overflow-hidden text-rain h-full w-full
+				absolute z-50 overflow-hidden text-rain h-rain w-full
 				${ !!raining ? 
 					'visible opacity-30' :
 					'collapse opacity-0'

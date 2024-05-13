@@ -50,11 +50,9 @@ const LandscapeContainer = ({ children }: ILandscapeProps) => {
 						<div className='ml-[95vw] underline decoration-wavy opacity-50 animate-[fade-in-out_10s_ease-in-out_infinite_1.5s]'>
 						~~~~~~~~~~~~
 						</div>
-						{/* fish, etc */}
 					</Ocean>
-					<Sand day={day}>
-						<Tide day={day} />
-					</Sand>
+					<Tide day={day} />
+					<Sand day={day} />
 					{children}
 				</>
 			}

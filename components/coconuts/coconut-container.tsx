@@ -10,6 +10,7 @@ const CoconutContainer = () => {
 
   return (
     <section
+      id="coconut-container"
       className='
         absolute top-0 left-0
         h-[100dvh] w-[calc(100dvw)]

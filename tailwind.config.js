@@ -42,10 +42,11 @@ module.exports = {
         'roboto': ['RobotoCondensed', 'Arial', 'sans-serif']
       },
       height: {
-        sky: '40vh',
-        sun: '20vh',
-        ocean: '15vh',
-        sand: '200vh'
+        sky: '40dvh',
+        sun: '20dvh',
+        ocean: '15dvh',
+        sand: '60dvh',
+        rain: '100dvh'
       },
       keyframes: {
         'bottom': {

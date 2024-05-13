@@ -1,13 +1,13 @@
 
 interface SandProps {
-    children: React.ReactNode,
+    children?: React.ReactNode,
     day?: Boolean
 }
 
 const Sand = ({ children, day }: SandProps) => (
     <div className={`${day ? 'bg-sand_day' : 'bg-sand_night'} w-full min-h-fit relative`}>
         {children}
-        <div className={`absolute w-full h-[50vh] ${day ? 'bg-sand_day' : 'bg-sand_night'}`}></div>
+        <div className={` w-full h-sand bottom-0 ${day ? 'bg-sand_day' : 'bg-sand_night'}`}></div>
     </div>
 );
 
