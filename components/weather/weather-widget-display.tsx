@@ -17,15 +17,15 @@ const WeatherWidgetDisplay = () => {
           <>
             <H2 className="text-base text-right">Current weather in Miami Beach</H2>
             <hr />
-            <ul>
-            <li className="flex justify-end items-center">
-              {
-                day ? (
-                  <FaRegSun className="text-sun"/>
-                ) : (
-                  <FaMoon className="text-slate-500" />
-                )
-              }
+            <ul className="mt-1">
+              <li className="flex justify-end items-center">
+                {
+                  day ? (
+                    <FaRegSun className="text-sun"/>
+                  ) : (
+                    <FaMoon className="text-slate-500" />
+                  )
+                }
               </li>
               <li>
                 <P>Forecast: {forecast}</P>
