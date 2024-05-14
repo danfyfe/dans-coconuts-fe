@@ -20,7 +20,7 @@ const LinkNavMenu = () => {
   };
 
   const handleSignOut = async () => {
-    signOut();
+    signOut({...(pathname && { callbackUrl: pathname })});
     handleLinkClick();
   }
 
