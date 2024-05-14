@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-export default function Loading({ className }: { className: string}) {
+export default function Loading({ className }: { className?: string}) {
     return(
         <div className={`
 					relative w-full h-full m-2 flex flex-col

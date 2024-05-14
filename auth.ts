@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-// import { signIn } from "next-auth/react"
+import { signIn, signOut } from "next-auth/react"
 import GitHub from "next-auth/providers/github"
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
@@ -20,17 +20,18 @@ const providers: Provider[] = [
   //   },
   // }),
 ]
- 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+
+export const { handlers, auth } = NextAuth({
   providers,
   pages: {
     signIn: "/signin"
   }
 });
 
-// export {
-//   signIn
-// };
+export {
+  signIn,
+  signOut
+};
 
 export const providerMap = providers.map((provider) => {
   if (typeof provider === "function") {

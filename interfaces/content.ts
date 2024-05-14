@@ -28,7 +28,8 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
   inverted?: boolean;
   children: string | React.ReactNode;
-  className?: string
+  className?: string;
+  asLink?: boolean;
 };
 
 export interface IButtonIconProps extends IButtonProps {
