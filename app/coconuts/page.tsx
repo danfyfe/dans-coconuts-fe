@@ -1,5 +1,4 @@
 import CoconutContainer from '@/components/coconuts/coconut-container';
-import CoconutTrashCan from '@/components/coconuts/coconut-trash-can';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
