@@ -4,7 +4,7 @@ import NextLink from "../utility/link";
 import MenuWrapper from "../containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
-import { SignIn } from "@/components/auth/provider-auth";
+import useAuth from "@/lib/hooks/useAuth";
 
 const LinkNavMenu = () => {
   const { linkNavOpen, setLinkNavOpen } = useContext(MenusContext);
@@ -72,7 +72,7 @@ const LinkNavMenu = () => {
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
           >
-            SignIn
+            Sign In
           </NextLink>
         </li>
       </ul>
