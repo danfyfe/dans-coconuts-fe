@@ -23,6 +23,7 @@ const providers: Provider[] = [
 
 export const { handlers, auth } = NextAuth({
   providers,
+  trustHost: true,
   pages: {
     signIn: "/signin"
   }
