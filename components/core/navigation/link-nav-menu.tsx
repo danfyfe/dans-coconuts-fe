@@ -4,6 +4,7 @@ import NextLink from "../utility/link";
 import MenuWrapper from "../containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
+import { SignIn } from "@/components/auth/provider-auth";
 
 const LinkNavMenu = () => {
   const { linkNavOpen, setLinkNavOpen } = useContext(MenusContext);
@@ -57,6 +58,21 @@ const LinkNavMenu = () => {
             `}
           >
             GitHub
+          </NextLink>
+        </li>
+        <li>
+          <NextLink
+            href="/signin"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline
+              text-5xl
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            SignIn
           </NextLink>
         </li>
       </ul>
