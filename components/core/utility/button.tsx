@@ -1,15 +1,19 @@
 import { IButtonProps } from "@/interfaces/content";
 
-const Button = ({ type="button", children, className, inverted=false, onClick }: IButtonProps) => {
+const Button = ({ type="button", children, className, inverted=false, onClick, asLink=false, id }: IButtonProps) => {
   return (
     <button
+      id={id}
       className={`
-        rounded
-        px-10
-        border-2
-        border-coconut_brown
-        min-w-[4rem]
-        min-h-[3rem]
+        ${!asLink ? `
+          rounded
+          px-10
+          border-2
+          border-coconut_brown
+          min-w-[4rem]
+          min-h-[3rem]
+        ` : ``
+        }
         font-roboto
         ${inverted ? '' : ''}
         ${className ? className : ''}
