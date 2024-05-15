@@ -8,7 +8,7 @@ import ProviderLogo from "@/lib/getProviderLogo"
 
 const SignInModal = ({ refererPath }: { refererPath: string }) => {
   return (
-    <ContentContainer className="md:w-1/4  j">
+    <ContentContainer className="lg:w-1/4">
         <H1 className="mb-5">Sign In</H1>
         {Object.values(providerMap).map((provider, idx) => (
             <Button
