@@ -27,7 +27,7 @@ const LinkNavMenu = () => {
 
   return (
     <MenuWrapper open={linkNavOpen} setOpen={setLinkNavOpen} id="nav-link-menu">
-      <ul id="nav-link-menu-ul">
+      <ul id="nav-link-menu-ul" className="text-3xl">
         <li>
           <NextLink
             href="/"
@@ -35,7 +35,6 @@ const LinkNavMenu = () => {
             onClick={handleLinkClick}
             className={`
               md:hover:underline
-              text-4xl
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
@@ -50,7 +49,6 @@ const LinkNavMenu = () => {
             onClick={handleLinkClick}
             className={`
               md:hover:underline
-              text-4xl
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
@@ -65,7 +63,6 @@ const LinkNavMenu = () => {
             onClick={handleLinkClick}
             className={`
               md:hover:underline
-              text-4xl
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
@@ -80,7 +77,6 @@ const LinkNavMenu = () => {
             onClick={handleLinkClick}
             className={`
               md:hover:underline
-              text-4xl
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
@@ -98,9 +94,7 @@ const LinkNavMenu = () => {
                   onClick={handleSignOut}
                   className={`
                     md:hover:underline
-                    text-4xl
                     transition-all delay-75 ease-in-out
-                    
                     ${linkNavOpen ? 'visible' : 'invisible'}
                   `}
                 >
@@ -124,7 +118,6 @@ const LinkNavMenu = () => {
                 onClick={handleLinkClick}
                 className={`
                   md:hover:underline
-                  text-4xl
                   transition-all delay-75 ease-in-out
                   ${linkNavOpen ? 'visible' : 'invisible'}
                 `}

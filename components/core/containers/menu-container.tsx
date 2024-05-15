@@ -3,7 +3,7 @@
 import { IMenuWrapperProps } from "@/interfaces/navigation";
 import { useRef, useEffect, useCallback } from "react";
 
-const MenuWrapper = ({ children, open, setOpen, id }: IMenuWrapperProps) => {
+const MenuWrapper = ({ children, open, setOpen, id, className }: IMenuWrapperProps) => {
   //  TODO: create custom hook for this logic
   const menuWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -28,6 +28,7 @@ const MenuWrapper = ({ children, open, setOpen, id }: IMenuWrapperProps) => {
         relative w-max bg-inherit flex justify-end
         ${ open ? 'opacity-100' : 'opacity-0'}
         transition-all ease-in-out z-[1000]
+        ${className ? className : ''}
       `}
     >
       <div
