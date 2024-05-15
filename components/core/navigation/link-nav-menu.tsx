@@ -21,7 +21,7 @@ const LinkNavMenu = () => {
 
   const handleSignOut = async () => {
     // NEXT_PUBLIC_AUTH_NEXT_AUTH_URL addresses redirect issue of Netlify using wrong URI
-    signOut({...(pathname && { callbackUrl: `${process.env.NEXT_PUBLIC_AUTH_NEXT_AUTH_URL}${pathname}` })});
+    await signOut({...(pathname && { callbackUrl: `${process.env.NEXT_PUBLIC_AUTH_NEXT_AUTH_URL}${pathname}` })});
     handleLinkClick();
   }
 
