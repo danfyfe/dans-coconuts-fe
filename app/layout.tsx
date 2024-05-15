@@ -2,15 +2,22 @@ import Providers from '@/context';
 import '../styles/globals.css';
 import Navigation from '@/components/core/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
+import { Roboto_Condensed } from 'next/font/google'
 import CoconutDan from '@/components/coconut-dan';
 
 interface RootLayout {
-    children: React.ReactNode;
+	children: React.ReactNode;
 }
+
+const roboto = Roboto_Condensed({
+	weight: ['400'],
+	subsets: ['latin'],
+	display: 'swap',
+})
 
 const RootLayout = ({ children }: RootLayout) => (
 	<Providers>
-		<html lang="en">
+		<html lang="en" className={roboto.className}>
 			<body>
 				<main
 					id="main-content"
