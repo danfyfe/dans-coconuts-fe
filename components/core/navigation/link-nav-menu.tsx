@@ -74,6 +74,22 @@ const LinkNavMenu = () => {
           </NextLink>
         </li>
         <li>
+          <NextLink
+            href="/contact"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline
+              text-4xl
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Contact
+          </NextLink>
+        </li>
+        <hr className="my-2"/>
+        <li>
           {
             status === 'authenticated' ? (
               <div>
