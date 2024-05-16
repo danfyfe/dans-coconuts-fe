@@ -1,48 +1,40 @@
 'use client'
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
+export type ActiveMenu = 'link-nav' | 'weather-widget' | 'help-menu' | null;
+
 interface IMenusContext {
-  linkNavOpen: boolean;
-  handleToggleLinkNav: () => void;
-  setLinkNavOpen: Dispatch<SetStateAction<boolean>>;
-  setWeatherWidgetOpen: Dispatch<SetStateAction<boolean>>;
-  weatherWidgetOpen: boolean;
-  handleToggleWeatherWidget:  () => void
+  activeMenu: ActiveMenu;
+  setActiveMenu: Dispatch<SetStateAction<ActiveMenu>>;
+  toggleMenu: (menu: ActiveMenu) => void
 }
 
+
 export const MenusContext = createContext<IMenusContext>({
-  linkNavOpen: false,
-  handleToggleLinkNav: () => {},
-  setLinkNavOpen: () => {},
-  setWeatherWidgetOpen: () => {},
-  weatherWidgetOpen: false,
-  handleToggleWeatherWidget: () => {}
+  activeMenu: null,
+  setActiveMenu: () => {},
+  toggleMenu: () => {}
 });
 
 export const MenusProvider = ({ children }: { children: React.ReactNode }) => {
-  const [linkNavOpen, setLinkNavOpen] = useState<boolean>(false);
-  const [weatherWidgetOpen, setWeatherWidgetOpen] = useState<boolean>(false);
-  
-  const handleToggleLinkNav = () => {
-    if (weatherWidgetOpen) setWeatherWidgetOpen(false);
-    setLinkNavOpen(!linkNavOpen);
-  };
+  const [activeMenu, setActiveMenu] = useState<ActiveMenu>(null);
 
-  const handleToggleWeatherWidget = () => {
-    if (linkNavOpen) setLinkNavOpen(false);
-    setWeatherWidgetOpen(!weatherWidgetOpen);
-  };
+  const toggleMenu = useCallback((menu: ActiveMenu) => {
+    if (activeMenu === menu) {
+      setActiveMenu(null)
+    } else {
+      setActiveMenu(menu)
+    }
+  }, [activeMenu]);
+
 
   return (
     <MenusContext.Provider
       value={{
-        linkNavOpen,
-        weatherWidgetOpen,
-        handleToggleLinkNav,
-        setLinkNavOpen,
-        setWeatherWidgetOpen,
-        handleToggleWeatherWidget
+        activeMenu,
+        setActiveMenu,
+        toggleMenu
       }}
     >
       {children}

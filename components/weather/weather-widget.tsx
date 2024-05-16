@@ -4,10 +4,11 @@ import MenuWrapper from "../core/containers/menu-container";
 import WeatherWidgetDisplay from "./weather-widget-display";
 
 const WeatherWidget = () => {
-  const { weatherWidgetOpen, setWeatherWidgetOpen } = useContext(MenusContext);
+  const { activeMenu, toggleMenu } = useContext(MenusContext);
+  const weatherWidgetOpen = activeMenu === 'weather-widget';
 
   return (
-    <MenuWrapper open={weatherWidgetOpen} setOpen={setWeatherWidgetOpen} id="weather-widget-menu">
+    <MenuWrapper open={weatherWidgetOpen} setOpen={() => toggleMenu('weather-widget')} id="weather-widget-menu">
       <div
         className={`
           ${weatherWidgetOpen ? 'visible' : 'invisible'}

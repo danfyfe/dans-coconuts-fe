@@ -9,7 +9,7 @@ const MenuWrapper = ({ children, open, setOpen, id, className }: IMenuWrapperPro
 
   const handleClickOutside = useCallback((event: any) => {
     if (open && menuWrapperRef.current && !menuWrapperRef.current.contains(event.target as Node)) {
-      setOpen(false);
+      setOpen(null);
     }
   }, [open, setOpen]);
 
