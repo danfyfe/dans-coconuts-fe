@@ -1,7 +1,11 @@
+import MenuWrapper from "../core/containers/menu-container";
+
 const HelpMenu = () => {
   return (
     <>
-      help
+      <MenuWrapper id="help-menu-">
+        menu
+      </MenuWrapper>
     </>
   )
 };

@@ -23,7 +23,7 @@ export const MenusContext = createContext<IMenusContext>({
 export const MenusProvider = ({ children }: { children: React.ReactNode }) => {
   const [linkNavOpen, setLinkNavOpen] = useState<boolean>(false);
   const [weatherWidgetOpen, setWeatherWidgetOpen] = useState<boolean>(false);
-
+  
   const handleToggleLinkNav = () => {
     if (weatherWidgetOpen) setWeatherWidgetOpen(false);
     setLinkNavOpen(!linkNavOpen);
