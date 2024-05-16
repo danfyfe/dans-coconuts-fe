@@ -6,7 +6,7 @@ import P from "@/components/core/typography/P"
 import Button from "@/components/core/utility/button"
 import ProviderLogo from "@/lib/getProviderLogo"
 
-const SignInModal = ({ refererPath }: { refererPath: string }) => {
+const SignInModal = ({ refererPath }: { refererPath?: string }) => {
   return (
     <ContentContainer className="lg:w-1/4">
         <H1 className="mb-5">Sign In</H1>
@@ -21,8 +21,7 @@ const SignInModal = ({ refererPath }: { refererPath: string }) => {
                 <span>Sign in with {provider.name}</span>
             </Button>
         ))}
-        <P className="text-sm">What do you get for signing in?</P>
-        <P className="text-sm">...nothing at the moment, just trying out OAuth 😁</P>
+        <P className="text-sm">Sign in to access your task management board</P>
       </ContentContainer>
   )
 }
