@@ -27,7 +27,7 @@ const LinkNavMenu = () => {
   }
 
   return (
-    <MenuWrapper open={linkNavOpen} setOpen={() => toggleMenu('link-nav')} id="nav-link-menu">
+    <MenuWrapper id="link-nav">
       <ul id="nav-link-menu-ul" className="text-3xl">
         <li>
           <NextLink

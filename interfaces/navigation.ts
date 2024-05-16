@@ -7,14 +7,7 @@ export interface INavTriggerProps {
 }
 
 export interface IMenuWrapperProps {
-  open: boolean;
   children: ReactNode;
-  id: string;
-  setOpen: Dispatch<React.SetStateAction<ActiveMenu>>;
+  id: ActiveMenu;
   className?: string;
-}
-
-export interface ILinkNavMenuProps {
-  open: boolean;
-  setOpen: Dispatch<React.SetStateAction<boolean>>
 }

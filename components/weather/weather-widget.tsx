@@ -8,7 +8,7 @@ const WeatherWidget = () => {
   const weatherWidgetOpen = activeMenu === 'weather-widget';
 
   return (
-    <MenuWrapper open={weatherWidgetOpen} setOpen={() => toggleMenu('weather-widget')} id="weather-widget-menu">
+    <MenuWrapper id="weather-widget">
       <div
         className={`
           ${weatherWidgetOpen ? 'visible' : 'invisible'}

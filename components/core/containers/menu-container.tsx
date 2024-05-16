@@ -1,17 +1,20 @@
 
 'use client'
+import { MenusContext } from "@/context/MenusProvider";
 import { IMenuWrapperProps } from "@/interfaces/navigation";
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useContext } from "react";
 
-const MenuWrapper = ({ children, open, setOpen, id, className }: IMenuWrapperProps) => {
+const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
+  const { activeMenu, toggleMenu } = useContext(MenusContext);
+  const menuActive = activeMenu === id;
   //  TODO: create custom hook for this logic
   const menuWrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useCallback((event: any) => {
-    if (open && menuWrapperRef.current && !menuWrapperRef.current.contains(event.target as Node)) {
-      setOpen(null);
+    if (menuActive && menuWrapperRef.current && !menuWrapperRef.current.contains(event.target as Node)) {
+      toggleMenu(id);
     }
-  }, [open, setOpen]);
+  }, [menuActive, toggleMenu, id]);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -23,20 +26,20 @@ const MenuWrapper = ({ children, open, setOpen, id, className }: IMenuWrapperPro
   return (
     <div
       ref={menuWrapperRef}
-      id={`${id}-outer`}
+      id={`${id}-menu-outer`}
       className={`
         relative w-max bg-inherit flex justify-end
-        ${ open ? 'opacity-100' : 'opacity-0'}
+        ${ menuActive ? 'opacity-100' : 'opacity-0'}
         transition-all ease-in-out z-[1000]
         ${className ? className : ''}
       `}
     >
       <div
-        id={`${id}-inner`}
+        id={`${id}-menu-inner`}
         className={`
           flex justify-start text-right
           absolute w-max
-          ${open ? ' max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
+          ${menuActive ? ' max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
           p-4 bg-inherit flex-col items-end bg-white bg-opacity-90 rounded shadow-sm z-[1000]
       `}>
         {children}
