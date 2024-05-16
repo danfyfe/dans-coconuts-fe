@@ -30,6 +30,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string | React.ReactNode;
   className?: string;
   asLink?: boolean;
+  ariaLabel?: string
 };
 
 export interface IButtonIconProps extends IButtonProps {

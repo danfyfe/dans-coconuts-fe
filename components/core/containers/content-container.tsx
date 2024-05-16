@@ -29,7 +29,7 @@ const ContentContainer = ({ children, className, id }: IContentContainerProps) =
                 max-h-[calc(100vh-10rem)]
                 md:max-h-[calc(100vh-5rem)]
                 p-5 md:p-10
-                z-[999]
+                z-[997]
                 w-5/6 md:w-1/2
                 scrollbar
                 ${className ?? ''}

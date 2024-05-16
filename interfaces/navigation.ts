@@ -1,3 +1,4 @@
+import { ActiveMenu } from "@/context/MenusProvider";
 import { Dispatch, MouseEventHandler, ReactNode } from "react"
 
 export interface INavTriggerProps {
@@ -6,14 +7,7 @@ export interface INavTriggerProps {
 }
 
 export interface IMenuWrapperProps {
-  open: boolean;
   children: ReactNode;
-  id: string;
-  setOpen: Dispatch<React.SetStateAction<boolean>>;
+  id: ActiveMenu;
   className?: string;
-}
-
-export interface ILinkNavMenuProps {
-  open: boolean;
-  setOpen: Dispatch<React.SetStateAction<boolean>>
 }

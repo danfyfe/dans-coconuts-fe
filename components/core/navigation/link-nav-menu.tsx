@@ -11,12 +11,13 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const LinkNavMenu = () => {
-  const { linkNavOpen, setLinkNavOpen } = useContext(MenusContext);
+  const { activeMenu, setActiveMenu } = useContext(MenusContext);
+  const linkNavOpen = activeMenu === 'link-nav';
   const pathname = usePathname();
   const { data: session, status } = useSession();
 
   const handleLinkClick = () => {
-    setLinkNavOpen(false);
+    setActiveMenu(null);
   };
 
   const handleSignOut = async () => {
@@ -26,7 +27,7 @@ const LinkNavMenu = () => {
   }
 
   return (
-    <MenuWrapper open={linkNavOpen} setOpen={setLinkNavOpen} id="nav-link-menu">
+    <MenuWrapper id="link-nav">
       <ul id="nav-link-menu-ul" className="text-3xl">
         <li>
           <NextLink

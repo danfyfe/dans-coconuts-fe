@@ -3,14 +3,14 @@ import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
 
 const NavTrigger = () => {
-  const { handleToggleLinkNav } = useContext(MenusContext);
+  const { toggleMenu } = useContext(MenusContext);
 
   return (
     <div className={`w-full flex justify-end`}>
       <button
         id="nav-trigger"
         type="button"
-        onClick={handleToggleLinkNav}
+        onClick={() => toggleMenu('link-nav')}
         className={`
           h-10 w-10
           flex justify-center items-center

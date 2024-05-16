@@ -5,7 +5,7 @@ import { FaCloud, FaSun } from "react-icons/fa";
 import { MenusContext } from "@/context/MenusProvider";
 
 const WeatherWidgetTrigger = () => {
-  const { handleToggleWeatherWidget } = useContext(MenusContext);
+  const { toggleMenu } = useContext(MenusContext);
 
   return (
     <section>
@@ -15,7 +15,7 @@ const WeatherWidgetTrigger = () => {
           className={`
              md:hover:scale-105
           `}
-          onClick={handleToggleWeatherWidget}
+          onClick={() => toggleMenu('weather-widget')}
         >
           <div className="-rotate-45 relative h-full w-full">
             <FaSun aria-label="sun icon" className="rotate-45 text-sun text-xl absolute right-[25%] bottom-[10%]"/>
