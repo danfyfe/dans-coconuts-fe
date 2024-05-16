@@ -1,5 +1,5 @@
 import CoconutContainer from "@/components/coconuts/coconut-container";
-import TaskManager from "@/components/task-manager";
+import TaskManager from "@/components/task-management";
 
 const TaskManagerPage = () => {
   return (

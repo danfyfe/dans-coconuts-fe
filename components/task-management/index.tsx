@@ -15,7 +15,7 @@ const TaskManager = () => {
     // uses GitHub name or string of 1 for user in routing
     const name = session?.user?.name ?? '1';
     const nameSlug = slugifyString(name);
-    router.push(`/task-management/${nameSlug}/organizations-list`);
+    router.push(`/task-management/${nameSlug}/organizations`);
   }
 
   return (
