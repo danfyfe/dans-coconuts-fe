@@ -17,7 +17,7 @@ const Clouds = ({ raining }: { raining?:number }) => {
 
   return (
     <div className={`
-      relative z-[999]
+      relative z-[997]
       h-sun w-sun top-[2%] left-[2%] transition-opacity ease-in delay-1000 duration-300
     `}>
         <Cloud className={`
