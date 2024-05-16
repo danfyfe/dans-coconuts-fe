@@ -29,8 +29,8 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
       id={`${id}-menu-outer`}
       className={`
         relative w-max bg-inherit flex justify-end
-        ${ menuActive ? 'opacity-100' : 'opacity-0'}
-        transition-all ease-in-out z-[1000]
+        ${ menuActive ? 'opacity-100 visible' : 'opacity-0 invisible'}
+        transition-all ease-in-out z-[1000] duration-75
         ${className ? className : ''}
       `}
     >
@@ -39,7 +39,6 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
         className={`
           flex justify-start text-right
           absolute w-max
-          ${menuActive ? ' max-w-none' : 'max-w-0'} transition-all ease-in-out duration-100
           p-4 bg-inherit flex-col items-end bg-white bg-opacity-90 rounded shadow-sm z-[1000]
       `}>
         {children}
