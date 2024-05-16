@@ -1,14 +1,14 @@
 import NextLink from "@/components/core/utility/link";
 import { IOrganization } from "@/interfaces/task-management";
-import slugifyString from "@/lib/slugify-string";
+import encodeString from "@/lib/encodeString";
 
 const OrganizationItem = ({ organization, userSlug }: { organization: IOrganization, userSlug: string }) => {
-  const slugifiedTitle = slugifyString(organization.title);
+  const encodedTitle = encodeString(organization.title);
   return (
     <li>
       <NextLink
         prefetch
-        href={`/task-management/${userSlug}/organizations/${slugifiedTitle}`}
+        href={`/task-management/${userSlug}/organizations/${encodedTitle}`}
       >
         {organization.title}
       </NextLink>
