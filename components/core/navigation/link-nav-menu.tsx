@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const LinkNavMenu = () => {
-  const { activeMenu, setActiveMenu, toggleMenu } = useContext(MenusContext);
+  const { activeMenu, setActiveMenu } = useContext(MenusContext);
   const linkNavOpen = activeMenu === 'link-nav';
   const pathname = usePathname();
   const { data: session, status } = useSession();

@@ -1,13 +1,10 @@
-'use client'
 import MenuWrapper from "../core/containers/menu-container";
 
 const HelpMenu = () => {
   return (
-    <>
-      <MenuWrapper id="help-menu">
-        menu
-      </MenuWrapper>
-    </>
+    <MenuWrapper id="help-menu">
+      menu
+    </MenuWrapper>
   )
 };
 
