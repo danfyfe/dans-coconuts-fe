@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import AddCoconut from "@/components/coconuts/add-coconut";
 import WeatherWidgetTrigger from "@/components/weather/weather-widget-trigger";
 import WeatherWidget from "@/components/weather/weather-widget";
+import HelpMenu from "@/components/help/help-menu";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -25,6 +26,7 @@ const Navigation = () => {
       </div>
       <LinkNavMenu />
       <WeatherWidget />
+      <HelpMenu />
     </nav>
   )
 };
