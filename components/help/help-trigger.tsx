@@ -1,13 +1,12 @@
 'use client'
+import { FaQuestion } from "react-icons/fa";
 import Button from "../core/utility/button";
 
-const HelpTrigger = () => {
+const HelpTrigger = ({ className }: { className?: string }) => {
   return (
-    <div className="absolute right-0 bottom-5 lg:top-16 md:bottom-none z-[999]">
-      <Button className="bg-sand_day px-2 py-1">
-        Need Help?
-      </Button>
-    </div>
+    <Button asLink className={`bg-sand_day px-0 ${className ? className : ''}`} ariaLabel="open help menu" >
+      <FaQuestion />
+    </Button>
   )
 };
 

@@ -11,40 +11,13 @@ const OrganizationsList = () => {
   const user = session?.user;
 
   return (
-    <ContentContainer className="md:w-5/6">
-      <div className="relative overflow-auto max-h-[90%]">
+    <ContentContainer className="md:w-5/6 md:py-2 md:px-4">
+      <div className="flex justify-center">
         <H1 className="!text-2xl">Task Management</H1>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
+        <HelpTrigger className="text-xs mb-4" />
+      </div>
+      <div className="relative overflow-auto max-h-[90%]">
 
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
-        <P>asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf asdfasdfasdfasdfasdf</P>
       </div>
     </ContentContainer>
   )  
