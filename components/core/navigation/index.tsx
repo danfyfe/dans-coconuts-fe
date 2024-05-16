@@ -26,7 +26,7 @@ const Navigation = () => {
       </div>
       <LinkNavMenu />
       <WeatherWidget />
-      <HelpMenu />
+      {/* <HelpMenu /> */}
     </nav>
   )
 };
