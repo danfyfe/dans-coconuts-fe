@@ -1,11 +1,11 @@
 'use client'
 import { useCallback, useState } from 'react';
-import TextInput from "@/components/core/forms/inputs/text-input";
+import TextInput from "@/components/core/form-elements/inputs/text-input";
 import Button from "@/components/core/utility/button";
 import { IAuthForm } from '@/interfaces/forms';
-import H1 from '../typography/H1';
-import P from '../typography/P';
-import NextLink from '../utility/link';
+import H1 from '../core/typography/H1';
+import P from '../core/typography/P';
+import NextLink from '../core/utility/link';
 
 const AuthForm = ({ type }: IAuthForm) => {
   const [username, setUsername] = useState('');
