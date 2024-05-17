@@ -7,18 +7,29 @@ import { useContext } from "react";
 import { FaPlus } from "react-icons/fa";
 
 const OrganizationsListHeading = () => {
-  const { activeForm, setActiveForm } = useContext(TaskManagementContext);
+  const { state, dispatch } = useContext(TaskManagementContext);
+  const openToggle = state.activeForm === 'organization' ? null : 'organization';
+
   return (
     <>
       <div className="flex justify-between items-center">
         <H2 className="!text-left text-xl">Your Organizations</H2>
         <Button
           asLink
-          onClick={() => setActiveForm('organization')}
-          disabled={activeForm === 'organization' ?? undefined}
-          className="disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={() => {            
+            dispatch({
+            type: 'SET_ACTIVE_FORM',
+            payload: openToggle
+          })}}
         >
-          <FaPlus />
+          {
+            openToggle ?   (
+              <>Add</>
+            ) : (
+              <>Cancel</>
+
+            )
+          }
         </Button>
       </div>
     <HR />

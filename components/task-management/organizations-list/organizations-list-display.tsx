@@ -8,12 +8,12 @@ import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
 
 const OrganizationsListDisplay = ({ organizations, userSlug } : { organizations: IOrganization[], userSlug: string }) => {
-  const { activeForm } = useContext(TaskManagementContext);
+  const { state } = useContext(TaskManagementContext);
   return (
     <div className="relative overflow-auto max-h-[90%]">
       <OrganizationsListHeading />
       {
-        activeForm === 'organization'
+        state.activeForm === 'organization'
         ? (
           <OrganizationForm />
         ) : (
