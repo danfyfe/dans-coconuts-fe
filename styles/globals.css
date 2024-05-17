@@ -12,6 +12,8 @@ html {
   color: #73492e /* global coconut color */;
 }
 
+/* Scroll bar styling */
+
 /* Firefox */
 * {
   scrollbar-width: thin;
@@ -33,3 +35,12 @@ html {
   border-radius: 14px;
   border: 3px solid var(--primary);
 }
+
+/* Scroll bar styling end */
+
+/* Global input styling */
+::-webkit-input-placeholder, :placeholder-shown {
+    color: rgba(115, 73, 46, 0.5) !important; /* same color as #73492e, with less opacity */
+    opacity: 1;
+  }
+/* Global input styling end */
