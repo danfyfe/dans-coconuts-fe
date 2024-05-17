@@ -28,7 +28,7 @@ const LinkNavMenu = () => {
 
   return (
     <MenuWrapper id="link-nav">
-      <ul id="nav-link-menu-ul" className="text-3xl">
+      <ul id="nav-link-menu-ul" className="text-3xl flex flex-col justify-center items-end">
         <li>
           <NextLink
             href="/"
@@ -55,6 +55,20 @@ const LinkNavMenu = () => {
             `}
           >
             Coconuts
+          </NextLink>
+        </li>
+        <li className="flex">
+          <NextLink
+            href="/task-management"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline text-lg
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Task Management (WIP)
           </NextLink>
         </li>
         <li>
