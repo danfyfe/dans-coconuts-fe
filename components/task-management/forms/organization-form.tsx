@@ -12,13 +12,13 @@ import P from "@/components/core/typography/P";
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { execute, result } = useAction(createOrganization);
-  console.log(result)
+  // console.log(result)
   return (
     <>
       <form className="p-2">
         <H3 className="text-lg">Create a new Organization</H3>
         <div className="p-2">
-          {result.data?.success ? <P>{result.data.success}</P> : null}
+          {/* {result.data?.success ? <P>{result.data.success}</P> : null} */}
           <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
           <Button className="w-full lg:w-auto" onClick={() => execute({ title} )}>
             Create Organization

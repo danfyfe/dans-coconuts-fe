@@ -4,7 +4,7 @@ import OrganizationListItem from "./organization-list-item";
 import NoOrganizations from "./no-organizations";
 import OrganizationsListHeading from "./organizations-list-heading";
 import { useContext } from "react";
-import { TaskManagementContext } from "@/context/TaskMangementProvider";
+import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
 
 const OrganizationsListDisplay = ({ organizations, userSlug } : { organizations: IOrganization[], userSlug: string }) => {

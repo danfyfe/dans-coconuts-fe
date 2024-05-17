@@ -3,7 +3,7 @@ import { CoconutProvider } from "./CoconutProvider"
 import { WeatherProvider } from "./WeatherProvider"
 import { MenusProvider } from "./MenusProvider"
 import { SessionProvider } from "next-auth/react"
-import { TaskManagementProvider } from "./TaskMangementProvider"
+import { TaskManagementProvider } from "./TaskManagementProvider"
 
 const Providers = ({ children }: { children: ReactNode }) => (
   <SessionProvider>
