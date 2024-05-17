@@ -1,4 +1,6 @@
-export const TASK_MANAGEMENT_HELP = {
+import { ActiveHelpCategoryContent } from "@/context/HelpProvider"
+
+export const TASK_MANAGEMENT_HELP: ActiveHelpCategoryContent = {
   'topic-title': 'Task Management',
   'topic-titles': [
     'organizations'

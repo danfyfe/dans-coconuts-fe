@@ -1,13 +1,25 @@
 'use client'
 import { HELP_CATEGORIES } from "@/data/help";
-import { createContext, useCallback, useReducer, useState } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { createContext, useReducer, ReactNode, Dispatch, ReactElement } from "react";
 
 export type ActiveHelpCategory = 'task-management' | null;
+
+// type for hardcoded HELP_CATEGORIES
+export type HelpCategoriesType = {
+  [key in NonNullable<ActiveHelpCategory>]: ActiveHelpCategoryContent;
+};
+
+export type TopicContent = {
+  [key: string]: {
+    title: string;
+    content: ReactElement;
+  }
+}
+
 export type ActiveHelpCategoryContent = {
   'topic-title': string;
   'topic-titles': string[];
-  'topic-content': {}
+  'topic-content': TopicContent
 } | null
 
 type HelpProviderReducerTypes = 'SET_HELP_CATEGORY';
@@ -33,7 +45,7 @@ export const HelpContext = createContext<IHelpContext>({
   dispatch: (action: IHelpReducerAction) => {}
 });
 
-const reducer = (state: IHelpReducerState, action: IHelpReducerAction) => {
+const reducer = (state: IHelpReducerState, action: IHelpReducerAction): IHelpReducerState => {
   switch(action.type) {
     case 'SET_HELP_CATEGORY': {
       const activeHelpCategory = action.payload;
@@ -50,10 +62,11 @@ const reducer = (state: IHelpReducerState, action: IHelpReducerAction) => {
 };
 
 const initialState: IHelpReducerState = {
-  activeHelpCategory: null
+  activeHelpCategory: null,
+  activeHelpContent: null
 }
 
-export const HelpProvider = ({ children }: { children: React.ReactNode }) => {
+export const HelpProvider = ({ children }: { children: ReactNode }) => {
   const [ state, dispatch ] = useReducer(reducer, initialState);
 
   return (
