@@ -4,17 +4,20 @@ import { WeatherProvider } from "./WeatherProvider"
 import { MenusProvider } from "./MenusProvider"
 import { SessionProvider } from "next-auth/react"
 import { TaskManagementProvider } from "./TaskManagementProvider"
+import { HelpProvider } from "./HelpProvider"
 
 const Providers = ({ children }: { children: ReactNode }) => (
   <SessionProvider>
     <MenusProvider>
-      <WeatherProvider>
-        <CoconutProvider>
-          <TaskManagementProvider>
-            {children}
-          </TaskManagementProvider>
-        </CoconutProvider>
-      </WeatherProvider>
+      <HelpProvider>
+        <WeatherProvider>
+          <CoconutProvider>
+            <TaskManagementProvider>
+              {children}
+            </TaskManagementProvider>
+          </CoconutProvider>
+        </WeatherProvider>
+      </HelpProvider>
     </MenusProvider>
   </SessionProvider>
 );

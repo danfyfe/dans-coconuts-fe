@@ -16,7 +16,7 @@ const HelpTrigger = ({ className }: { className?: string, category: ActiveHelpCa
         dispatch({
           type: 'SET_HELP_CATEGORY',
           payload: 'task-management'
-        })
+        });
         toggleMenu('help-menu')
       }}
       className={`bg-sand_day px-0 ${className ? className : ''}`}

@@ -1,4 +1,5 @@
 'use client'
+import { HELP_CATEGORIES } from "@/data/help";
 import { createContext, useCallback, useReducer, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
@@ -29,9 +30,12 @@ export const HelpContext = createContext<IHelpContext>({
 const reducer = (state: IHelpReducerState, action: IHelpReducerAction) => {
   switch(action.type) {
     case 'SET_HELP_CATEGORY': {
+      const activeHelpCategory = action.payload;
+      const activeHelpContent = activeHelpCategory ? HELP_CATEGORIES[activeHelpCategory] : null;
       return {
         ...state,
-        activeHelpCategory: action.payload
+        activeHelpCategory,
+        activeHelpContent
       }
     }
     default:

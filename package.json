@@ -12,12 +12,14 @@
     "tests": "jest --watch"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
     "apollo-server-micro": "^3.13.0",
     "autoprefixer": "10.4.14",
     "bufferutil": "^4.0.8",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dans-coconuts-components-v1": "0.1.4",
     "eslint": "8.37.0",
@@ -25,6 +27,7 @@
     "framer-motion": "^11.1.9",
     "graphql": "^15.8.0",
     "graphql-scalars": "^1.23.0",
+    "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "next-auth": "^5.0.0-beta.18",
     "next-safe-action": "^6.2.0",
@@ -35,6 +38,7 @@
     "reflect-metadata": "^0.2.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "3.4.3",
+    "tailwindcss-animate": "^1.0.7",
     "type-graphql": "^1.1.1",
     "utf-8-validate": "^6.0.3"
   },

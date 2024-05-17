@@ -1,7 +1,8 @@
 const plugin = require('tailwindcss')
+import type { Config } from "tailwindcss"
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -10,6 +11,8 @@ module.exports = {
   theme: {
     extend: {
       animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
         bottom: 'bottom 2s forwards',
         fall: 'fall 2s forwards',
         tide: 'tide 10s infinite',
@@ -49,6 +52,14 @@ module.exports = {
         rain: '100dvh'
       },
       keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
         'bottom': {
           '0%': {
             transform: 'rotate(0)'
@@ -75,19 +86,19 @@ module.exports = {
         },
         'fade-in-out': {
           '0%': {
-            opacity: 0.5
+            opacity: '0.5'
           },
           '25%': {
-            opacity: 0.75
+            opacity: '0.75'
           },
           '50%': {
-            opacity: 0.5
+            opacity: '0.5'
           },
           '75%': {
-            opacity: 0
+            opacity: '0'
           },
           '100%': {
-            opacity: 0.5
+            opacity: '0.5'
           }
         },
         'fall': {
@@ -146,12 +157,11 @@ module.exports = {
         'tide': {
           "0%": {
             height: '0px',
-            borderBottom: 'none',
             borderBottom: '1px solid transparent',
           },
           "50%": {
             height: '25px',
-            opacity: 1,
+            opacity: '1',
             borderBottom: '1px solid white',
           },
           "75%": {
@@ -159,7 +169,7 @@ module.exports = {
           },
           "100%": {
             height: '0px',
-            opacity: 0,
+            opacity: '0',
           }
         },
         'spin': {
@@ -173,11 +183,11 @@ module.exports = {
         'rain': {
           '0%': {
             transform: 'translate(0, 0)',
-            opacity: 0.5
+            opacity: '0.5'
           },
           '100%': {
             transform: 'translate(-0.5rem, 0.5rem)',
-            opacity: 0
+            opacity: '0'
           }
         },
         'roll-left': {
@@ -214,4 +224,6 @@ module.exports = {
   plugins: [
     require('tailwind-scrollbar')
   ],
-}
+} satisfies Config
+
+export default config;
