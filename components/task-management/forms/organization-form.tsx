@@ -11,7 +11,7 @@ import P from "@/components/core/typography/P";
 
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
-  const { execute, result } = useAction(createOrganization);
+  // const { execute, result } = useAction(createOrganization);
   // console.log(result)
   return (
     <>
@@ -20,7 +20,10 @@ const CreateOrganization = () => {
         <div className="p-2">
           {/* {result.data?.success ? <P>{result.data.success}</P> : null} */}
           <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-          <Button className="w-full lg:w-auto" onClick={() => execute({ title} )}>
+          <Button
+            className="w-full lg:w-auto"
+            // onClick={() => execute({ title} )}
+          >
             Create Organization
           </Button>
         </div>
@@ -32,7 +35,7 @@ const CreateOrganization = () => {
 const JoinOrganization = () => {
   return (
     <>
-      <form action={addOrganization} className="p-2">
+      <form className="p-2">
         <H3 className="text-lg">Join existing Organization</H3>
         <div className="p-2">
           <TextInput name="title-search" label="Organization" placeholder="Start typing to search" />

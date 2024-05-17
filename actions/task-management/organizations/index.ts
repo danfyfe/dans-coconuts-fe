@@ -8,9 +8,7 @@ const organizationSchema = z.object({
 });
 
 
-export const createOrganization = action(organizationSchema, async ({ title } : { title: string }) => {
-  return { success: title }
-});
+export const createOrganization = () => {}
 
 export async function addOrganization(formData: FormData) {
 
