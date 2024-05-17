@@ -1,17 +1,17 @@
 'use server'
+import { z } from "zod";
+import { action } from "@/lib/safe-actions";
 
-export async function createOrganization(formData: FormData) {
-  'use server'
-  const rawFormData = {
-    title: formData.get('title')
-  }
-  console.log(rawFormData)
-};
+// schemas
+const organizationSchema = z.object({
+  title: z.string().min(3).max(100)
+});
+
+
+export const createOrganization = action(organizationSchema, async ({ title }) => {
+  return { success: title }
+});
 
 export async function addOrganization(formData: FormData) {
-  'use server'
-  const rawFormData = {
-    title: formData.get('title')
-  }
-  console.log(rawFormData)
+
 }
