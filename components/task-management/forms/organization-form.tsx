@@ -21,7 +21,7 @@ const CreateOrganization = () => {
           {/* {result.data?.success ? <P>{result.data.success}</P> : null} */}
           <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
           <Button
-            className="w-full lg:w-auto"
+            className="px-3 w-full lg:w-40 block lg:ml-auto"
             // onClick={() => execute({ title} )}
           >
             Create Organization
@@ -33,13 +33,23 @@ const CreateOrganization = () => {
 };
 
 const JoinOrganization = () => {
+  const [organization, setOrganization] = useState<string>('');
+  const [searching, setSearching] = useState<boolean>(true);
+
   return (
     <>
       <form className="p-2">
         <H3 className="text-lg">Join existing Organization</H3>
         <div className="p-2">
-          <TextInput name="title-search" label="Organization" placeholder="Start typing to search" />
-          <Button type="submit" className="w-full lg:w-auto">
+          <TextInput
+            type="search"
+            name="title-search"
+            label="Organization"
+            placeholder="Start typing to search"
+          />
+          <Button
+            className="px-3 w-full lg:w-40 block lg:ml-auto"
+          >
             Join Organization
           </Button>
         </div>
