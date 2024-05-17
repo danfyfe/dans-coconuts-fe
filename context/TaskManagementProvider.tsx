@@ -1,32 +1,61 @@
 'use client'
-import { createContext, useState,  useEffect, useCallback, Dispatch, SetStateAction } from "react";
+import { createContext, useReducer, Dispatch } from "react";
 
-interface IOrganization {
+type Organization = {
   title: string
-}
+};
 
 type ActiveTaskManagementForm = 'organization' | 'project' | 'task' | null;
 
-interface ITaskManagementProvider {
-  organizations: IOrganization[];
-  setOrganizations: Dispatch<SetStateAction<IOrganization[]>>;
+type TaskManagementProvider = {
+  state: TaskManagementState;
+  dispatch: Dispatch<TaskManagementAction>;
+};
+
+type TaskManagementState = {
   activeForm: ActiveTaskManagementForm;
-  setActiveForm: Dispatch<SetStateAction<ActiveTaskManagementForm>>;
 }
 
-export const TaskManagementContext = createContext<ITaskManagementProvider>({
-  organizations: [],
-  setOrganizations: () => {},
-  activeForm: null,
-  setActiveForm: () => {}
+type TaskManagementReducerType = 'SET_ACTIVE_FORM';
+
+type TaskManagementReducer = {};
+
+type TaskManagementAction = {
+  type:TaskManagementReducerType;
+  payload: ActiveTaskManagementForm;
+};
+
+export const TaskManagementContext = createContext<TaskManagementProvider>({
+  state: { activeForm: null },
+  dispatch: (action: TaskManagementAction) => {}
 });
 
+const taskManagementReducer = (state: TaskManagementState, action: TaskManagementAction) => {
+  switch(action.type) {
+    case 'SET_ACTIVE_FORM': {
+      return {
+        ...state,
+        activeForm: action.payload
+      }
+    }
+    default:
+      return state;
+  }
+};
+
+const initialState: TaskManagementState = {
+  activeForm: null
+};
+
 export const TaskManagementProvider = ({ children }: { children: React.ReactNode }) => {
-  const [organizations, setOrganizations] = useState<IOrganization[]>([]);
-  const [activeForm, setActiveForm] = useState<ActiveTaskManagementForm>(null);
+  const [state, dispatch] = useReducer(taskManagementReducer, initialState)
+
 
   return (
-    <TaskManagementContext.Provider value={{ organizations, setOrganizations, activeForm, setActiveForm }}>
+    <TaskManagementContext.Provider value={{
+      state,
+      dispatch
+    }}>
       {children}
     </TaskManagementContext.Provider>
   )

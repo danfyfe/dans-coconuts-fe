@@ -22,30 +22,29 @@ export type ActiveHelpCategoryContent = {
   'topic-content': TopicContent
 } | null
 
-type HelpProviderReducerTypes = 'SET_HELP_CATEGORY';
+type HelpProviderReducerType = 'SET_HELP_CATEGORY';
 
-interface IHelpReducerState {
+type HelpReducerState = {
   activeHelpCategory: ActiveHelpCategory;
   activeHelpContent: ActiveHelpCategoryContent;
 }
 
-interface IHelpReducerAction {
-  type: HelpProviderReducerTypes;
+type HelpReducerAction = {
+  type: HelpProviderReducerType;
   payload: ActiveHelpCategory;
 }
 
-
-interface IHelpContext {
-  state: IHelpReducerState;
-  dispatch: Dispatch<IHelpReducerAction>;
+type HelpContext = {
+  state: HelpReducerState;
+  dispatch: Dispatch<HelpReducerAction>;
 }
 
-export const HelpContext = createContext<IHelpContext>({
+export const HelpContext = createContext<HelpContext>({
   state: { activeHelpCategory: null, activeHelpContent: null },
-  dispatch: (action: IHelpReducerAction) => {}
+  dispatch: (action: HelpReducerAction) => {}
 });
 
-const reducer = (state: IHelpReducerState, action: IHelpReducerAction): IHelpReducerState => {
+const helpReducer = (state: HelpReducerState, action: HelpReducerAction): HelpReducerState => {
   switch(action.type) {
     case 'SET_HELP_CATEGORY': {
       const activeHelpCategory = action.payload;
@@ -61,13 +60,13 @@ const reducer = (state: IHelpReducerState, action: IHelpReducerAction): IHelpRed
   }
 };
 
-const initialState: IHelpReducerState = {
+const initialState: HelpReducerState = {
   activeHelpCategory: null,
   activeHelpContent: null
 }
 
 export const HelpProvider = ({ children }: { children: ReactNode }) => {
-  const [ state, dispatch ] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(helpReducer, initialState);
 
   return (
     <HelpContext.Provider
