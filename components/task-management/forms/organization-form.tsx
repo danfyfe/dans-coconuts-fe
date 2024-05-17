@@ -1,9 +1,9 @@
 // 'use client'
-import { createOrganization } from "@/actions/task-management/organizations";
+import { addOrganization, createOrganization } from "@/actions/task-management/organizations";
 import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
-import HR from "@/components/core/presentation/HR";
+import HR from "@/components/core/presentational/HR";
 
 
 const CreateOrganization = () => {
@@ -25,7 +25,7 @@ const CreateOrganization = () => {
 const JoinOrganization = () => {
   return (
     <>
-      <form action={createOrganization} className="p-2">
+      <form action={addOrganization} className="p-2">
         <H3 className="text-lg">Join existing Organization</H3>
         <div className="p-2">
           <TextInput name="title-search" label="Organization" placeholder="Start typing to search" />
@@ -42,7 +42,7 @@ const OrganizationForm = () => {
   return (
     <>
       <CreateOrganization />
-      <HR text="OR" className="" />
+      <HR text="OR" />
       <JoinOrganization />
     </>
   )

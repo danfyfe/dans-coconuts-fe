@@ -1,5 +1,5 @@
 'use client'
-import HR from "@/components/core/presentation/HR";
+import HR from "@/components/core/presentational/HR";
 import H2 from "@/components/core/typography/H2";
 import Button from "@/components/core/utility/button";
 import { TaskManagementContext } from "@/context/TaskMangementProvider";
