@@ -4,11 +4,17 @@ import { createContext, useCallback, useReducer, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
 export type ActiveHelpCategory = 'task-management' | null;
+export type ActiveHelpCategoryContent = {
+  'topic-title': string;
+  'topic-titles': string[];
+  'topic-content': {}
+} | null
 
 type HelpProviderReducerTypes = 'SET_HELP_CATEGORY';
 
 interface IHelpReducerState {
   activeHelpCategory: ActiveHelpCategory;
+  activeHelpContent: ActiveHelpCategoryContent;
 }
 
 interface IHelpReducerAction {
@@ -23,7 +29,7 @@ interface IHelpContext {
 }
 
 export const HelpContext = createContext<IHelpContext>({
-  state: { activeHelpCategory: null },
+  state: { activeHelpCategory: null, activeHelpContent: null },
   dispatch: (action: IHelpReducerAction) => {}
 });
 

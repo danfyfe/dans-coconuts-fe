@@ -1,4 +1,5 @@
 export const TASK_MANAGEMENT_HELP = {
+  'topic-title': 'Task Management',
   'topic-titles': [
     'organizations'
   ],
