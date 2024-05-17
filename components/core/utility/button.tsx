@@ -1,8 +1,9 @@
 import { IButtonProps } from "@/interfaces/content";
 
-const Button = ({ type="button", children, className, inverted=false, onClick, asLink=false, id, ariaLabel }: IButtonProps) => {
+const Button = ({ type="button", children, className, inverted=false, onClick, asLink=false, id, ariaLabel, disabled }: IButtonProps) => {
   return (
     <button
+      disabled={disabled}
       id={id}
       className={`
         ${!asLink ? `
