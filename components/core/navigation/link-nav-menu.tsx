@@ -28,7 +28,7 @@ const LinkNavMenu = () => {
 
   return (
     <MenuWrapper id="link-nav">
-      <ul id="nav-link-menu-ul" className="text-3xl flex flex-col justify-center items-end">
+      <ul id="nav-link-menu-ul" className="text-3xl">
         <li>
           <NextLink
             href="/"
