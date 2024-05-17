@@ -7,7 +7,7 @@ import WeatherWidgetTrigger from "@/components/weather/weather-widget-trigger";
 import WeatherWidget from "@/components/weather/weather-widget";
 import HelpMenu from "@/components/help/help-menu";
 
-const Navigation = () => {
+const Menus = () => {
   const pathname = usePathname();
 
   return (
@@ -26,9 +26,9 @@ const Navigation = () => {
       </div>
       <LinkNavMenu />
       <WeatherWidget />
-      {/* <HelpMenu /> */}
+      <HelpMenu />
     </nav>
   )
 };
 
-export default Navigation;
+export default Menus;

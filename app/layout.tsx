@@ -1,6 +1,6 @@
 import Providers from '@/context';
 import '../styles/globals.css';
-import Navigation from '@/components/core/navigation';
+import Menus from '@/components/core/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
 import { Roboto_Condensed } from 'next/font/google'
 import CoconutDan from '@/components/coconut-dan';
@@ -26,7 +26,7 @@ const RootLayout = ({ children }: RootLayout) => (
 						scrollbar-thumb-coconut_brown scrollbar-track-sand_day
 					"
 				>
-					<Navigation />
+					<Menus />
 					{/* <CoconutDan /> */}
 					<LandscapeContainer>
 						{children}

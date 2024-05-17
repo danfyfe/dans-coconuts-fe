@@ -2,15 +2,9 @@
 import { createContext, useCallback, useReducer, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
-type ActiveHelpCategory = 'task-management' | null;
+export type ActiveHelpCategory = 'task-management' | null;
 
-enum HelpProviderReducerTypes {
-  SET_HELP_CATEGORY = 'SET_HELP_CATEGORY'
-}
-
-interface IHelpContext {
-
-}
+type HelpProviderReducerTypes = 'SET_HELP_CATEGORY';
 
 interface IHelpReducerState {
   activeHelpCategory: ActiveHelpCategory;
@@ -21,8 +15,15 @@ interface IHelpReducerAction {
   payload: ActiveHelpCategory;
 }
 
-export const HelpContext = createContext<IHelpContext>({
 
+interface IHelpContext {
+  state: IHelpReducerState;
+  dispatch: Dispatch<IHelpReducerAction>;
+}
+
+export const HelpContext = createContext<IHelpContext>({
+  state: { activeHelpCategory: null },
+  dispatch: (action: IHelpReducerAction) => {}
 });
 
 const reducer = (state: IHelpReducerState, action: IHelpReducerAction) => {
@@ -48,7 +49,8 @@ export const HelpProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <HelpContext.Provider
       value={{
-
+        state,
+        dispatch
       }}
     >
       {children}
