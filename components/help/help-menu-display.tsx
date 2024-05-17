@@ -11,7 +11,7 @@ const HelpMenuDisplay = () => {
   const heading = activeHelpContent?.['topic-title'] ?? '';
   const titles = activeHelpContent?.['topic-titles'] ?? [];
   const content = activeHelpContent?.['topic-content'] ?? {}
-  console.log(titles, content)
+
   return (
     <>
     {

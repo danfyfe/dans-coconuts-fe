@@ -6,12 +6,12 @@ const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: Top
     <>
     {
       titles.length > 0 && content ? (
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible className="w-full">
           {
             titles.map((title, index) => {
               const data = content?.[title];
               return (
-                <AccordionItem key={`${title}-${index}`} value={`${title}-${index}`}>
+                <AccordionItem key={`${title}-${index}`} value={`${title}-${index}`} className="no-underline">
                   <AccordionTrigger>{content[title].title}</AccordionTrigger>
                   <AccordionContent>{content[title].content}</AccordionContent>
                 </AccordionItem>

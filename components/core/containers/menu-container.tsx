@@ -28,7 +28,7 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
       ref={menuWrapperRef}
       id={`${id}-menu-outer`}
       className={`
-        relative w-max bg-inherit flex justify-end
+        absolute w-max bg-inherit flex justify-end top-20
         ${ menuActive ? 'opacity-100 visible' : 'opacity-0 invisible'}
         transition-all ease-in-out z-[1000] duration-75
         ${className ? className : ''}
@@ -38,7 +38,7 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
         id={`${id}-menu-inner`}
         className={`
           flex justify-start text-right
-          absolute w-max
+          w-full
           p-4 bg-inherit flex-col items-end bg-white bg-opacity-90 rounded shadow-sm z-[1000]
       `}>
         {children}
