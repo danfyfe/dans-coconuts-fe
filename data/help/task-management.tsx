@@ -23,9 +23,11 @@ export const TASK_MANAGEMENT_HELP: ActiveHelpCategoryContent = {
                 <dt><P><b>Title</b></P></dt>
                 <dd className="pl-2"><P className="pl-2">A name to identify the Organization. The title attribute is unique and cannot be used by other Organizations.</P></dd>
 
-                <dt><P><b>WIP</b></P></dt>
-                <dd className="pl-2"><P className="pl-2"></P></dd>
+                <dt><P><b>Users</b></P></dt>
+                <dd className="pl-2"><P className="pl-2">List of users that belong to the organization</P></dd>
 
+                <dt><P><b>Password</b></P></dt>
+                <dd className="pl-2"><P className="pl-2">Password used to allow others to join the organization.</P></dd>
               </dl>
             </li>
           </ul>
@@ -41,7 +43,31 @@ export const TASK_MANAGEMENT_HELP: ActiveHelpCategoryContent = {
           <ul className="my-2">
             <li className="px-2">
               <dl>
-                <dt><P><b>WIP</b></P></dt>
+                <dt><P><b>Organization</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Users</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Tasks</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Title</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Description</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Start Date</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>End Date</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Percent Done</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Completed</b></P></dt>
                 <dd className="pl-2"><P className="pl-2"></P></dd>
               </dl>
             </li>
@@ -58,7 +84,19 @@ export const TASK_MANAGEMENT_HELP: ActiveHelpCategoryContent = {
           <ul className="my-2">
             <li className="px-2">
               <dl>
-                <dt><P><b>WIP</b></P></dt>
+                <dt><P><b>Project</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Title</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Description</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Due Date</b></P></dt>
+                <dd className="pl-2"><P className="pl-2"></P></dd>
+
+                <dt><P><b>Status</b></P></dt>
                 <dd className="pl-2"><P className="pl-2"></P></dd>
               </dl>
             </li>
