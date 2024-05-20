@@ -1,18 +1,24 @@
 'use client'
-import { addOrganization, createOrganization } from "@/actions/task-management/organizations";
-import { useAction } from "next-safe-action/hooks";
 import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import HR from "@/components/core/presentational/HR";
 import { useState } from "react";
 import P from "@/components/core/typography/P";
+import { useSession } from "next-auth/react";
+
+const handleCreateOrganization = async ({ title, user}) => {
+  const body = JSON.stringify({title, user});
+  const response = await fetch('/api/organizations', { method: 'POST', body });
+  console.log('response', response)
+};
+
 
 
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
-  // const { execute, result } = useAction(createOrganization);
-  // console.log(result)
+  const { data: session } = useSession();
+
   return (
     <>
       <form className="p-2">
@@ -22,7 +28,9 @@ const CreateOrganization = () => {
           <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
-            // onClick={() => execute({ title} )}
+            onClick={() => {
+              handleCreateOrganization({ title, user: session.user })
+            }}
           >
             Create Organization
           </Button>

@@ -1,9 +1,11 @@
-// WIP
-const standardFetch = ({ url } : {
+const standardFetch = ({ url, options } : {
   url: string;
-
+  options: {
+    method: string;
+    body: string;
+  }
 }) => {
-  return fetch(url)
+  return fetch(url, options)
 };
 
 export default standardFetch;
