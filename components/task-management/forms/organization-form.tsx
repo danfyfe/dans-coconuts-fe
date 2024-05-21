@@ -1,23 +1,24 @@
 'use client'
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import HR from "@/components/core/presentational/HR";
-import { useState } from "react";
 import P from "@/components/core/typography/P";
-import { useSession } from "next-auth/react";
-
-const handleCreateOrganization = async ({ title, user}) => {
-  const body = JSON.stringify({title, user});
-  const response = await fetch('/api/organizations', { method: 'POST', body });
-  console.log('response', response)
-};
-
+import { User } from "@/lib/models/User";
 
 
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { data: session } = useSession();
+  const user: Partial<User> = session?.user ?? {};
+  
+  const handleCreateOrganization = async ({ title, user }: { title: string; user?: { name:string ; email:string; }}) => {
+    const body = JSON.stringify({title, user});
+    const response = await fetch('/api/organizations', { method: 'POST', body });
+    console.log('response', response)
+  };
 
   return (
     <>
@@ -29,7 +30,7 @@ const CreateOrganization = () => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
-              handleCreateOrganization({ title, user: session.user })
+              handleCreateOrganization({ title, user })
             }}
           >
             Create Organization
@@ -70,8 +71,8 @@ const OrganizationForm = () => {
   return (
     <>
       <CreateOrganization />
-      <HR text="OR" />
-      <JoinOrganization />
+      {/* <HR text="OR" />
+      <JoinOrganization /> */}
     </>
   )
 };
