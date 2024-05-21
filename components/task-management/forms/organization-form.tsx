@@ -7,18 +7,18 @@ import TextInput from "@/components/core/form-elements/inputs/text-input";
 import HR from "@/components/core/presentational/HR";
 import P from "@/components/core/typography/P";
 import { User } from "@/lib/models/User";
+import { createOrganization } from "@/app/actions/organizations";
+import { useMutation } from '@tanstack/react-query';
 
 
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { data: session } = useSession();
-  const user: Partial<User> = session?.user ?? {};
-  
-  const handleCreateOrganization = async ({ title, user }: { title: string; user?: { name:string ; email:string; }}) => {
-    const body = JSON.stringify({title, user});
-    const response = await fetch('/api/organizations', { method: 'POST', body });
-    console.log('response', response)
-  };
+  const user = session?.user ?? {};
+
+  const { mutate: server_createOrganization } = useMutation({
+    mutationFn: createOrganization
+  });
 
   return (
     <>
@@ -30,7 +30,7 @@ const CreateOrganization = () => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
-              handleCreateOrganization({ title, user })
+              server_createOrganization({ title, user })
             }}
           >
             Create Organization

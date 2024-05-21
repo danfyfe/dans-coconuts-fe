@@ -5,21 +5,25 @@ import { MenusProvider } from "./MenusProvider"
 import { SessionProvider } from "next-auth/react"
 import { TaskManagementProvider } from "./TaskManagementProvider"
 import { HelpProvider } from "./HelpProvider"
+import { ReactQueryProvider } from "./ReactQueryProvider"
+
 
 const Providers = ({ children }: { children: ReactNode }) => (
-  <SessionProvider>
-    <MenusProvider>
-      <HelpProvider>
-        <WeatherProvider>
-          <CoconutProvider>
-            <TaskManagementProvider>
-              {children}
-            </TaskManagementProvider>
-          </CoconutProvider>
-        </WeatherProvider>
-      </HelpProvider>
-    </MenusProvider>
-  </SessionProvider>
+  <ReactQueryProvider>
+    <SessionProvider>
+      <MenusProvider>
+        <HelpProvider>
+          <WeatherProvider>
+            <CoconutProvider>
+              <TaskManagementProvider>
+                {children}
+              </TaskManagementProvider>
+            </CoconutProvider>
+          </WeatherProvider>
+        </HelpProvider>
+      </MenusProvider>
+    </SessionProvider>
+  </ReactQueryProvider>
 );
 
 export default Providers;
