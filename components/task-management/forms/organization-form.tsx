@@ -6,7 +6,6 @@ import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import HR from "@/components/core/presentational/HR";
 import P from "@/components/core/typography/P";
-import { User } from "@/lib/models/User";
 import { createOrganization } from "@/app/actions/organizations";
 import { useMutation } from '@tanstack/react-query';
 
@@ -14,9 +13,12 @@ import { useMutation } from '@tanstack/react-query';
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { data: session } = useSession();
-  const user = session?.user ?? {};
+  const user = session?.user;
 
-  const { mutate: server_createOrganization } = useMutation({
+  const { 
+    data,
+    mutate: server_createOrganization
+  } = useMutation({
     mutationFn: createOrganization
   });
 
@@ -30,7 +32,7 @@ const CreateOrganization = () => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
-              server_createOrganization({ title, user })
+              server_createOrganization({ title, ...(!!user && { user }) })
             }}
           >
             Create Organization
