@@ -7,4 +7,5 @@ export interface IUser extends Document {
 export type User = {
   email?: string;
   name?: string;
+  admin?: boolean;
 }

@@ -4,6 +4,7 @@ import { HelpContext } from "@/context/HelpProvider";
 import HelpMenuHeading from "./help-menu-heading";
 import Loading from "../core/loaders/loading";
 import HelpMenuAccordion from "./help-menu-accordion";
+import P from "../core/typography/P";
 
 const HelpMenuDisplay = () => {
   const { state } = useContext(HelpContext);
@@ -18,6 +19,7 @@ const HelpMenuDisplay = () => {
       activeHelpContent ? (
         <>
           <HelpMenuHeading heading={heading} />
+          <P className="text-xs text-left">*All data stored in Context only until MongoDB x PROD issue is sorted out</P>
           <HelpMenuAccordion titles={titles} content={content} />
         </>
       ) : (

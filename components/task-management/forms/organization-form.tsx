@@ -1,9 +1,10 @@
 'use client'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useSession } from "next-auth/react";
 import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
+import { TaskManagementContext } from "@/context/TaskManagementProvider";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
@@ -13,6 +14,7 @@ import TextInput from "@/components/core/form-elements/inputs/text-input";
 const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { data: session } = useSession();
+  const { state, dispatch } = useContext(TaskManagementContext);
   const user = session?.user;
 
   // TODO: handle issues connecting to MongoDB when deployed
@@ -34,6 +36,17 @@ const CreateOrganization = () => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
+              dispatch({
+                type: 'ADD_ORGANIZATION',
+                payload: {
+                  title,
+                  user
+                }
+              });
+              dispatch({
+                type: 'SET_ACTIVE_FORM',
+                payload: null
+              })
               // server_createOrganization({ title, ...(!!user && { user }) })
             }}
           >

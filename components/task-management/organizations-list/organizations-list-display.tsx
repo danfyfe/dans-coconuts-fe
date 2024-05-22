@@ -7,8 +7,10 @@ import { useContext } from "react";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
 
-const OrganizationsListDisplay = ({ organizations, userSlug } : { organizations: IOrganization[], userSlug: string }) => {
+const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
   const { state } = useContext(TaskManagementContext);
+  const organizations: IOrganization[] = state.organizations;
+  console.log(organizations)
   return (
     <div className="relative overflow-auto max-h-[90%]">
       <OrganizationsListHeading />
