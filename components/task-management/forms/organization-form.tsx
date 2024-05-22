@@ -4,10 +4,10 @@ import { useSession } from "next-auth/react";
 import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
-import HR from "@/components/core/presentational/HR";
-import P from "@/components/core/typography/P";
-import { createOrganization } from "@/app/actions/organizations";
-import { useMutation } from '@tanstack/react-query';
+// import HR from "@/components/core/presentational/HR";
+// import P from "@/components/core/typography/P";
+// import { createOrganization } from "@/app/actions/organizations";
+// import { useMutation } from '@tanstack/react-query';
 
 
 const CreateOrganization = () => {
@@ -15,12 +15,14 @@ const CreateOrganization = () => {
   const { data: session } = useSession();
   const user = session?.user;
 
-  const { 
-    data,
-    mutate: server_createOrganization
-  } = useMutation({
-    mutationFn: createOrganization
-  });
+  // TODO: handle issues connecting to MongoDB when deployed
+  // const { 
+  //   data,
+  //   mutate: server_createOrganization
+  // } = useMutation({
+  //   mutationFn: createOrganization
+  // });
+  // console.log(data)
 
   return (
     <>
@@ -32,7 +34,7 @@ const CreateOrganization = () => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
-              server_createOrganization({ title, ...(!!user && { user }) })
+              // server_createOrganization({ title, ...(!!user && { user }) })
             }}
           >
             Create Organization
