@@ -1,22 +1,43 @@
 'use client'
-import { User } from "@/lib/models/User";
+import { IUser } from "@/lib/models/User";
+import { User } from "next-auth";
 import { createContext, useReducer, Dispatch } from "react";
 
 type NewOrganization = {
   title: string;
-  user: User;
+  user?: IUser;
 };
 
 type Organization = {
   title: string;
-  users: User[];
+  users: IUser[];
 };
+
+// type TaskManagementAction = {
+//   type: TaskManagementReducerType;
+//   payload: ActiveTaskManagementForm;
+// };
+
+// type OrganizationAction = {
+//   type: TaskManagementReducerType;
+//   payload: NewOrganization;
+// }
+
+type Action = 
+{
+  type: 'SET_ACTIVE_FORM';
+  payload: ActiveTaskManagementForm
+} |
+{
+  type: 'ADD_ORGANIZATION';
+  payload: NewOrganization
+}
 
 type ActiveTaskManagementForm = 'organization' | 'project' | 'task' | null;
 
 type TaskManagementProvider = {
   state: TaskManagementState;
-  dispatch: Dispatch<TaskManagementAction>;
+  dispatch: Dispatch<Action>;
 };
 
 type TaskManagementState = {
@@ -24,26 +45,17 @@ type TaskManagementState = {
   organizations: Organization[];
 }
 
-type TaskManagementReducerType = 'SET_ACTIVE_FORM' | 'ADD_ORGANIZATION';
+// type TaskManagementReducerType = 'SET_ACTIVE_FORM' | 'ADD_ORGANIZATION';
 
 type TaskManagementReducer = {};
 
-type TaskManagementAction = {
-  type: TaskManagementReducerType;
-  payload: ActiveTaskManagementForm;
-};
-
-type OrganizationAction = {
-  type: TaskManagementReducerType;
-  payload: NewOrganization;
-}
 
 export const TaskManagementContext = createContext<TaskManagementProvider>({
   state: { activeForm: null, organizations: [] },
-  dispatch: (action: TaskManagementAction | OrganizationAction) => {}
+  dispatch: (action: Action) => {}
 });
 
-const taskManagementReducer = (state: TaskManagementState, action: TaskManagementAction) => {
+const taskManagementReducer = (state: TaskManagementState, action: Action) => {
   switch(action.type) {
     case 'SET_ACTIVE_FORM': {
       return {

@@ -10,7 +10,7 @@ import OrganizationForm from "../forms/organization-form";
 const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
   const { state } = useContext(TaskManagementContext);
   const organizations: IOrganization[] = state.organizations;
-  console.log(organizations)
+
   return (
     <div className="relative overflow-auto max-h-[90%]">
       <OrganizationsListHeading />
@@ -19,21 +19,23 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
         ? (
           <OrganizationForm />
         ) : (
-          <ul className="px-1">
-            {
-              organizations.length > 0 ? (
-                <>
-                  {
-                    organizations.map((organization, index) => {
-                      return <OrganizationListItem key={`organization-${index}`} organization={organization} userSlug={userSlug} />
-                    })
-                  }
-                </>
-              ) : (
-                <NoOrganizations />
-              )
-            }
-          </ul>
+          <>
+            <ul className="px-1">
+              {
+                organizations.length > 0 ? (
+                  <>
+                    {
+                      organizations.map((organization, index) => {
+                        return <OrganizationListItem key={`organization-${index}`} organization={organization} userSlug={userSlug} />
+                      })
+                    }
+                  </>
+                ) : (
+                  <NoOrganizations />
+                )
+              }
+            </ul>
+          </>
         )
       }
     </div>

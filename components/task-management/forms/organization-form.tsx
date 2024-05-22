@@ -5,6 +5,8 @@ import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
+import { User } from "next-auth";
+import { IUser } from "@/lib/models/User";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
@@ -15,7 +17,8 @@ const CreateOrganization = () => {
   const [title, setTitle] = useState("");
   const { data: session } = useSession();
   const { state, dispatch } = useContext(TaskManagementContext);
-  const user = session?.user;
+  const user: User | undefined = session?.user;
+  const payloadUser = { user }
 
   // TODO: handle issues connecting to MongoDB when deployed
   // const { 
@@ -40,7 +43,7 @@ const CreateOrganization = () => {
                 type: 'ADD_ORGANIZATION',
                 payload: {
                   title,
-                  user
+                  ...(user && { payloadUser })
                 }
               });
               dispatch({

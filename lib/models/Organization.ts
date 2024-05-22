@@ -1,9 +1,9 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { User } from './User';
+import { IUser } from './User';
 
 export interface IOrganization extends Document {
   title: string;
-  users: User[]
+  users: IUser[]
 }
 
 const organizationSchema: Schema = new mongoose.Schema({
