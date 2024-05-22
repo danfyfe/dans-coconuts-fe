@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import TaskManagementHeader from "../shared/task-management-header";
 import ProjectListDisplay from "./project-list-display";
 
-const ProductsList = ({ userSlug }: { userSlug: string }) => {
+const ProjectsList = ({ userSlug }: { userSlug: string }) => {
   // TODO: refacter logic out of component and make HOC
   return (
     <ContentContainer className="md:py-5">
@@ -14,4 +14,4 @@ const ProductsList = ({ userSlug }: { userSlug: string }) => {
   )  
 };
 
-export default ProductsList;
+export default ProjectsList;
