@@ -16,9 +16,9 @@ const Organization = ({ orgTitle }: { orgTitle: string }) => {
     }
   
   return (
-    <ContentContainer className="md:w-5/6 md:py-2 md:px-4">
+    <ContentContainer className="md:w-5/6 md:py-2 md:px-4 min-h-[calc(100vh-25rem)]">
       <TaskManagementHeader />
-      <H2 className="!text-left text-2xl">{organization.title}</H2>
+      <H2 className="!text-left text-2xl">Organization: {organization.title}</H2>
     </ContentContainer>
   )
 };

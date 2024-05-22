@@ -1,7 +1,7 @@
 'use client'
 import HR from "@/components/core/presentational/HR";
-import H1 from "@/components/core/typography/H1";
-// import H2 from "@/components/core/typography/H2";
+// import H1 from "@/components/core/typography/H1";
+import H2 from "@/components/core/typography/H2";
 import Button from "@/components/core/utility/button";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { useContext } from "react";
@@ -13,7 +13,7 @@ const OrganizationsListHeading = () => {
   return (
     <>
       <div className="flex justify-between items-center">
-        <H1 className="!text-left text-xl">Your Organizations</H1>
+        <H2 className="!text-left text-xl">Your Organizations</H2>
         <Button
           asLink
           onClick={() => {
