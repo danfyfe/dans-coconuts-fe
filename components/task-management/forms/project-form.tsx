@@ -74,7 +74,7 @@ const JoinProject = () => {
             type="search"
             name="title-search"
             label="Organization"
-            placeholder="Start typing to search"
+            placeholder="Start typing title to search"
           />
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
