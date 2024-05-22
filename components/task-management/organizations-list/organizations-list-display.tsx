@@ -19,7 +19,7 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
         ? (
           <OrganizationForm />
         ) : (
-          <ul>
+          <ul className="px-1">
             {
               organizations.length > 0 ? (
                 <>
