@@ -39,7 +39,7 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
         className={`
           flex justify-start text-right
           w-full
-          p-4 bg-inherit flex-col items-end bg-white bg-opacity-90 rounded shadow-sm z-[1000]
+          p-4 bg-inherit flex-col items-end bg-white rounded shadow-sm z-[1000]
       `}>
         {children}
       </div>

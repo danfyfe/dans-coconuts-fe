@@ -1,8 +1,8 @@
 'use client'
 import { IOrganization } from "@/interfaces/task-management";
 import OrganizationListItem from "./organization-list-item";
-import NoOrganizations from "./no-organizations";
-import OrganizationsListHeading from "./organizations-list-heading";
+import NoOrganizations from "../shared/no-entity";
+import ActiveFormSelectorHeading from "../shared/active-form-selector-heading";
 import { useContext } from "react";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
@@ -13,7 +13,7 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
 
   return (
     <div className="relative overflow-auto max-h-[90%]">
-      <OrganizationsListHeading />
+      <ActiveFormSelectorHeading type="organization" />
       {
         state.activeForm === 'organization'
         ? (
@@ -31,7 +31,7 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
                     }
                   </>
                 ) : (
-                  <NoOrganizations />
+                  <NoOrganizations type="organization" />
                 )
               }
             </ul>

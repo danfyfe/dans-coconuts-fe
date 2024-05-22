@@ -1,6 +1,5 @@
 'use client'
 import { IUser } from "@/lib/models/User";
-import { User } from "next-auth";
 import { createContext, useReducer, Dispatch } from "react";
 
 type NewOrganization = {
@@ -8,20 +7,15 @@ type NewOrganization = {
   user?: IUser;
 };
 
+type Project = {
+  title: string;
+}
+
 type Organization = {
   title: string;
   users: IUser[];
+  projects: Project[]
 };
-
-// type TaskManagementAction = {
-//   type: TaskManagementReducerType;
-//   payload: ActiveTaskManagementForm;
-// };
-
-// type OrganizationAction = {
-//   type: TaskManagementReducerType;
-//   payload: NewOrganization;
-// }
 
 type Action = 
 {
@@ -33,7 +27,9 @@ type Action =
   payload: NewOrganization
 }
 
-type ActiveTaskManagementForm = 'organization' | 'project' | 'task' | null;
+export type ActiveTaskManagementForm = 'organization' | 'project' | 'task' | null;
+
+export type TaskManagementTypes = 'organization' | 'project' | 'task';
 
 type TaskManagementProvider = {
   state: TaskManagementState;
@@ -44,11 +40,6 @@ type TaskManagementState = {
   activeForm: ActiveTaskManagementForm;
   organizations: Organization[];
 }
-
-// type TaskManagementReducerType = 'SET_ACTIVE_FORM' | 'ADD_ORGANIZATION';
-
-type TaskManagementReducer = {};
-
 
 export const TaskManagementContext = createContext<TaskManagementProvider>({
   state: { activeForm: null, organizations: [] },
@@ -65,7 +56,7 @@ const taskManagementReducer = (state: TaskManagementState, action: Action) => {
     }
     case 'ADD_ORGANIZATION': {
       const user = { ...action.payload.user, admin: true }
-      const newOrg = { title: action.payload.title, users: [user] }
+      const newOrg = { title: action.payload.title, users: [user], projects: [] }
       return {
         ...state,
         organizations: [...state.organizations, newOrg ]
@@ -83,7 +74,6 @@ const initialState: TaskManagementState = {
 
 export const TaskManagementProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(taskManagementReducer, initialState)
-
 
   return (
     <TaskManagementContext.Provider value={{

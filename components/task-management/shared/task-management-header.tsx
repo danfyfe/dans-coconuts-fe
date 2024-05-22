@@ -1,6 +1,6 @@
 import H1 from "@/components/core/typography/H1";
 import HelpTrigger from "@/components/help/help-trigger";
-import BreadCrumbs from "../core/utility/bread-crumbs";
+import BreadCrumbs from "../../core/utility/bread-crumbs";
 
 const TaskManagementHeader = () => {
   return (

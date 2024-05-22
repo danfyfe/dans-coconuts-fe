@@ -7,7 +7,7 @@ const OrganizationItem = ({ organization, userSlug }: { organization: IOrganizat
   return (
     <li>
       <NextLink
-        className="text-xl"
+        className="text-xl hover:underline"
         prefetch
         href={`/task-management/${userSlug}/organizations/${encodedTitle}`}
       >

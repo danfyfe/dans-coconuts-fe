@@ -2,7 +2,7 @@
 import ContentContainer from "@/components/core/containers/content-container";
 import OrganizationsListDisplay from "./organizations-list-display";
 import { useSession } from "next-auth/react";
-import TaskManagementHeader from "../task-management-header";
+import TaskManagementHeader from "../shared/task-management-header";
 
 const OrganizationsList = ({ userSlug }: { userSlug: string }) => {
   // TODO: refacter logic out of component and make HOC

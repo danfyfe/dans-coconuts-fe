@@ -37,7 +37,7 @@ const BreadCrumb = ({ href, param, caret }: { href: string; param: string; caret
           ) : (
             <NextLink
               href={href ?? ''}
-              className="underline"
+              className="hover:underline"
             >
               {text}
             </NextLink>
