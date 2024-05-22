@@ -1,5 +1,5 @@
 'use client'
-import HR from "@/components/core/presentational/HR";
+import HR from "@/components/core/utility/HR";
 // import H1 from "@/components/core/typography/H1";
 import H2 from "@/components/core/typography/H2";
 import Button from "@/components/core/utility/button";

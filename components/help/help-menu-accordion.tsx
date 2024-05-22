@@ -1,5 +1,5 @@
 import { TopicContent } from "@/context/HelpProvider";
-import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from "../core/presentational/accordion";
+import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from "../core/utility/accordion";
 
 const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: TopicContent }) => {
   return (
