@@ -14,7 +14,7 @@ const WeatherToggle = () => {
     setDisplayWeather(newValue);
   };
 
-  const toggleText = displayWeather ? 'Bring back the Sun!' : 'We could use some rain!';
+  const toggleText = `Click to ${displayWeather ? 'bring back the Sun!' : 'get some rain!'}`;
 
   return (
     <div className="flex justify-end items-center">

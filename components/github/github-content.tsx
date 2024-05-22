@@ -7,6 +7,7 @@ const GitHubContent = ({ children }: { children: ReactNode }) => (
   <ContentContainer className="" id="github-content-container">
     <H1 className="mb-4">GitHub Links</H1>
     <P className="text-lg mb-1">Check out the repositories for this project</P>
+    <P className="text-sm mb-1 underline"><a href="https://github.com/danfyfe" target="_blank">Click here for the main profile page</a></P>
     <hr className="mb-4 border-coconut_brown rounded"/>
       { children }
     <P className="text-xs mt-4">*This page is built using the GitHub GraphQL endpoint</P>
