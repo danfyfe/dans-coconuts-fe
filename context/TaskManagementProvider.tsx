@@ -1,7 +1,6 @@
 'use client'
 import { createContext, useReducer } from "react";
 import {
-  ITaskManagementResources,
   ITaskManagementActions,
   ITaskManagementState,
   ITaskManagementProvider
