@@ -21,7 +21,7 @@ const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
               id={`provider-${provider.id}-${idx}`}
               onClick={() => {
                 signIn(provider.id, { callbackUrl: refererPath }).then(() => {
-                  console.log('sign up successful', session)
+
                 })
               }}
               className="flex justify-center items-center w-full mb-3 px-2"
@@ -31,7 +31,7 @@ const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
             </Button>
         ))}
         <HR text="OR" />
-        <AuthForm type="signup" />
+        <AuthForm type="signup" refererPath={refererPath} />
         <P className="text-xs text-center">Sign up to create a task management board</P>
       </ContentContainer>
   )

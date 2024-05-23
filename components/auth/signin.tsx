@@ -25,7 +25,7 @@ const SignInModal = ({ refererPath }: { refererPath?: string }) => {
             </Button>
         ))}
         <HR text="OR" />
-        <AuthForm type="signin" />
+        <AuthForm type="signin" refererPath={refererPath}/>
         <P className="text-xs text-center">Sign in to access your task management board</P>
       </ContentContainer>
   )

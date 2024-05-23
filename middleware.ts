@@ -11,12 +11,12 @@ export function middleware(request: NextRequest) {
 
   if (isAuthPath && token) {
     // user is trying to visit page to login/signup while logged in
-    return NextResponse.redirect('/');
+    return NextResponse.redirect(new URL('/', request.nextUrl));
   }
 
   if (!isAuthPath && !token) {
     // user needs to be logged in to access page
-    return NextResponse.redirect('/signin');
+    return NextResponse.redirect(new URL('/signin', request.nextUrl));
   }
 }
 

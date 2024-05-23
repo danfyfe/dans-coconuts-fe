@@ -1,3 +1,4 @@
 export interface IAuthForm {
-  type: 'signin' | 'signup'
+  type: 'signin' | 'signup';
+  refererPath?: string | undefined;
 }
