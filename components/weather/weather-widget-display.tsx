@@ -1,3 +1,4 @@
+'use client'
 import useWeather from "@/lib/hooks/useWeather";
 import Loading from "../core/loaders/loading";
 import H2 from "../core/typography/H2";

@@ -1,8 +1,9 @@
+'use client'
 import Image from "next/image";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
 
-const NavTrigger = () => {
+const LinkNavTrigger = () => {
   const { toggleMenu } = useContext(MenusContext);
 
   return (
@@ -29,4 +30,4 @@ const NavTrigger = () => {
   )
 };
 
-export default NavTrigger;
+export default LinkNavTrigger;
