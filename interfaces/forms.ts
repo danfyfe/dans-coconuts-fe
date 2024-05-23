@@ -1,3 +1,3 @@
 export interface IAuthForm {
-  type: 'login' | 'signup'
+  type: 'signin' | 'signup'
 }

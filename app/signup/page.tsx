@@ -1,20 +1,21 @@
-import ContentContainer from "@/components/core/containers/content-container";
-import SignUpForm from "./signup-form";
+import SignUpModal from "@/components/auth/signup"
+import CoconutContainer from "@/components/coconuts/coconut-container"
 import { Metadata } from 'next';
-import CoconutContainer from "@/components/coconuts/coconut-container";
 
 export const metadata: Metadata = {
   title: "Dan's Coconuts | Sign Up",
-  description: 'Just a beach...'
+  description: "Sign Up for Dan's Coconuts"
 }
+ 
+export default function SignUpPage({ searchParams }: { searchParams: { referer: string }}) {
+  const { referer } = searchParams;
+  const refererCheck = referer !== '/signup' && referer !== undefined;
+  const refererPath = refererCheck ? referer : '/'; 
 
-const SignUpPage = () => (
-  <>
-    <CoconutContainer />
-    <ContentContainer className="">
-      <SignUpForm />
-    </ContentContainer>
-  </>
-);
-
-export default SignUpPage;
+  return (
+    <>
+      <CoconutContainer />
+      <SignUpModal refererPath={refererPath} />
+    </>
+  )
+};

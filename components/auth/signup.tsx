@@ -7,28 +7,34 @@ import Button from "@/components/core/utility/button"
 import ProviderLogo from "@/lib/getProviderLogo"
 import HR from "../core/utility/HR"
 import AuthForm from "./auth-form"
+import { useSession } from "next-auth/react"
 
-const SignInModal = ({ refererPath }: { refererPath?: string }) => {
+const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
+  const { data: session } = useSession();
   return (
     <ContentContainer className="lg:w-1/4">
-        <H1 className="mb-5">Sign In</H1>
+        <H1 className="mb-5">Sign Up</H1>
         {/* OAuth with GitHub */}
         {Object.values(providerMap).map((provider, idx) => (
             <Button
               key={`provider-${provider.id}-${idx}`}
               id={`provider-${provider.id}-${idx}`}
-              onClick={() => signIn(provider.id, { callbackUrl: refererPath })}
+              onClick={() => {
+                signIn(provider.id, { callbackUrl: refererPath }).then(() => {
+                  console.log('sign up successful', session)
+                })
+              }}
               className="flex justify-center items-center w-full mb-3 px-2"
             >
                 <ProviderLogo provider={provider.name} />
-                <span>Sign in with {provider.name}</span>
+                <span>Sign up with {provider.name}</span>
             </Button>
         ))}
         <HR text="OR" />
-        <AuthForm type="signin" />
-        <P className="text-xs text-center">Sign in to access your task management board</P>
+        <AuthForm type="signup" />
+        <P className="text-xs text-center">Sign up to create a task management board</P>
       </ContentContainer>
   )
 }
 
-export default SignInModal;
+export default SignUpModal;
