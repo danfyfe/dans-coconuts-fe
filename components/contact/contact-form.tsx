@@ -5,7 +5,7 @@ import TextArea from "../core/form-elements/inputs/text-area";
 import Button from "../core/utility/button";
 import Loading from "../core/loaders/loading";
 import getErrorMessage from "@/lib/errors/getErrorMessage";
-import { IContactEmailParams, sendContactEmail } from "@/app/actions/contact";
+import { IContactEmailParams, sendContactEmail } from "@/app/api/contact/methods";
 import P from "../core/typography/P";
 import { FaThumbsUp } from "react-icons/fa";
 
@@ -35,11 +35,12 @@ const ContactForm = () => {
   const handleSubmit = async ({ email, subject, message } : IContactEmailParams) => {
     setLoading(true);
     try {
-      await sendContactEmail({
+      const mailResp = await sendContactEmail({
         email,
         subject,
         message
       });
+      console.log(mailResp)
       setSuccess(true);
     } catch(error) {
       const message = getErrorMessage(error);

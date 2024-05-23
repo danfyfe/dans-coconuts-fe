@@ -2,7 +2,9 @@ import getErrorMessage from "@/lib/errors/getErrorMessage";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function sendContactEmail({ email, subject, message }: IContactEmailParams) {
+export async function POST(req: Request) {
+  const { email, subject, message } = await req.json();
+
   try {
     const transport = nodemailer.createTransport({
       host: "sandbox.smtp.mailtrap.io",
@@ -22,21 +24,19 @@ export async function sendContactEmail({ email, subject, message }: IContactEmai
           ${message}
         </p>
       `
-    }
+    };
 
     const mailResponse = await transport.sendMail(mailOptions);
-    return mailResponse
+    return NextResponse.json({
+      success: true,
+      data: mailResponse
+    })
   } catch(error) {
     const message = getErrorMessage(error);
-    return {
+    return NextResponse.json({
       message,
       success: false
-    }
+    })
   }
 };
 
-export type IContactEmailParams = {
-  email: string;
-  subject: string;
-  message: string;
-};
