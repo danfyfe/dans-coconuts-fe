@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import { NextRequest } from 'next/server';
 import getErrorMessage from '../errors/getErrorMessage';
 import { IUser, UserModel } from '../models/User';
 

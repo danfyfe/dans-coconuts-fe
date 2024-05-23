@@ -24,6 +24,11 @@ export interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
 }
 
+export interface ITextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+  label?: string
+}
+
+
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
   inverted?: boolean;

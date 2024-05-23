@@ -6,6 +6,7 @@ const ContactPage = () => {
     <>
       <CoconutContainer />
       <ContactInfo />
+      
     </>
   )
 };
