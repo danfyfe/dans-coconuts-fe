@@ -1,11 +1,12 @@
 import WeatherWidget from "@/components/weather/weather-widget";
 import LinkNavMenu from "../core/navigation/link-nav-menu";
 import HelpMenu from "@/components/help/help-menu";
+import { IUser } from "@/lib/models/User";
 
-const Menus = () => {
+const Menus = ({ user }: { user: IUser | null }) => {
   return (
     <>
-      <LinkNavMenu />
+      <LinkNavMenu user={user}/>
       <WeatherWidget />
       <HelpMenu />
     </>

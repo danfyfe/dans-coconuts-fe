@@ -4,13 +4,17 @@ import NextLink from "../utility/link";
 import MenuWrapper from "../containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import P from "../typography/P";
 import Button from "../utility/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { IUser } from "@/lib/models/User";
+import { signOut } from "@/app/api/users/methods";
+import { useRouter } from "next/navigation";
 
-const LinkNavMenu = () => {
+const LinkNavMenu = ({ user }: { user: IUser | null }) => {
+  const router = useRouter();
   const { activeMenu, setActiveMenu } = useContext(MenusContext);
   const linkNavOpen = activeMenu === 'link-nav';
   const pathname = usePathname();
@@ -22,8 +26,10 @@ const LinkNavMenu = () => {
 
   const handleSignOut = async () => {
     // NEXT_PUBLIC_AUTH_NEXT_AUTH_URL addresses redirect issue of Netlify using wrong URI
-    await signOut({...(pathname && { callbackUrl: `${process.env.NEXT_PUBLIC_AUTH_NEXT_AUTH_URL}${pathname}` })});
+    // await signOut({...(pathname && { callbackUrl: `${process.env.NEXT_PUBLIC_AUTH_NEXT_AUTH_URL}${pathname}` })});
+    await signOut();
     handleLinkClick();
+    router.refresh();
   }
 
   return (
@@ -102,7 +108,7 @@ const LinkNavMenu = () => {
         <hr className="my-2"/>
         <li>
           {
-            status === 'authenticated' ? (
+            user ? (
               <div>
                 <Button
                   asLink
@@ -115,7 +121,7 @@ const LinkNavMenu = () => {
                 >
                   <span>Sign Out</span>
                 </Button>
-                <div className="flex items-center justify-end">
+                {/* <div className="flex items-center justify-end">
                   <P className="text-xs">*Signed in via GitHub</P>
                   <Image 
                     src={session?.user?.image ?? ''}
@@ -124,6 +130,20 @@ const LinkNavMenu = () => {
                     width={50}
                     alt={`${session?.user?.name ?? 'Friend'}'s Profile Picture`}
                   />
+                </div> */}
+                 <div className="flex items-center justify-end mt-1">
+                  <P className="text-xs">*Signed in as {user.username}</P>
+                  {
+                    user.image ? (
+                      <Image 
+                        src={session?.user?.image ?? ''}
+                        className="h-5 w-5 rounded-full ml-1"
+                        height={50}
+                        width={50}
+                        alt={`${session?.user?.name ?? 'Friend'}'s Profile Picture`}
+                      />
+                    ): null
+                  }
                 </div>
               </div>
             ) : (

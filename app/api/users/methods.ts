@@ -25,3 +25,7 @@ export const signUp = async ({ email, username, password }: ISignUpParams) => {
     body
   });
 };
+
+export const signOut = async () => {
+  await fetch('/api/users/signout');
+};

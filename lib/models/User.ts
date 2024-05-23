@@ -1,5 +1,4 @@
 import mongoose, { Document, Schema } from 'mongoose';
-// import { User } from 'next-auth';
 
 export type ISignUpParams = {
   email: string;
@@ -16,6 +15,7 @@ export type IUser = {
   email: string;
   username: string;
   image?: string;
+  id: string;
 }
 export interface IUserModel extends Document {
   email: string;

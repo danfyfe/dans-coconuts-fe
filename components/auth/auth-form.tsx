@@ -67,6 +67,7 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
       } else {
         router.push('/')
       }
+      router.refresh();
     }
   };
 
