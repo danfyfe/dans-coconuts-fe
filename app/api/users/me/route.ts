@@ -5,7 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const userId = await getDataFromToken(request);
+    const JWTtoken = request.cookies.get('token')?.value || '';
+    const userId = await getDataFromToken(JWTtoken);
 
     const user = await UserModel.findOne({
       _id: userId

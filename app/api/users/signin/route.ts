@@ -12,7 +12,6 @@ export async function POST(req: Request) {
     const user = await UserModel.findOne({ 
       email
     });
-
     if (!user) {
       return NextResponse.json({
         success: false,
@@ -53,7 +52,7 @@ export async function POST(req: Request) {
       httpOnly: true
     });
 
-    
+    return response;
   } catch (error) {
     const message = getErrorMessage(error);
     console.log("Error in get user: ", message)

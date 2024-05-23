@@ -7,8 +7,10 @@ export const metadata: Metadata = {
 }
  
 
-const HomePage = () => (
-  <CoconutContainer />
-);
+const HomePage = async () => {
+  return (
+    <CoconutContainer />
+  )
+};
 
 export default HomePage;

@@ -6,23 +6,26 @@ import { SessionProvider } from "next-auth/react"
 import { TaskManagementProvider } from "./TaskManagementProvider"
 import { HelpProvider } from "./HelpProvider"
 import { ReactQueryProvider } from "./ReactQueryProvider"
+import { UserProvider } from "./UserProvider"
 
 
 const Providers = ({ children }: { children: ReactNode }) => (
   <ReactQueryProvider>
-    <SessionProvider>
-      <MenusProvider>
-        <HelpProvider>
-          <WeatherProvider>
-            <CoconutProvider>
-              <TaskManagementProvider>
-                {children}
-              </TaskManagementProvider>
-            </CoconutProvider>
-          </WeatherProvider>
-        </HelpProvider>
-      </MenusProvider>
-    </SessionProvider>
+    <UserProvider>
+      <SessionProvider>
+        <MenusProvider>
+          <HelpProvider>
+            <WeatherProvider>
+              <CoconutProvider>
+                <TaskManagementProvider>
+                  {children}
+                </TaskManagementProvider>
+              </CoconutProvider>
+            </WeatherProvider>
+          </HelpProvider>
+        </MenusProvider>
+      </SessionProvider>
+    </UserProvider>
   </ReactQueryProvider>
 );
 

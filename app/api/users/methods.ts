@@ -6,13 +6,10 @@ export const signIn = async ({ email, password }: ISignInParams) => {
     password
   });
 
-  const response = await fetch('/api/users/signin', {
-    method: 'GET',
+  await fetch('/api/users/signin', {
+    method: 'POST',
     body
   });
-
-  // const user = await response.json();
-  // console.log('user?', response, user);
 };
 
 
@@ -23,7 +20,7 @@ export const signUp = async ({ email, username, password }: ISignUpParams) => {
     password
   });
 
-  const response = await fetch('/api/users/signup', {
+  await fetch('/api/users/signup', {
     method: 'POST',
     body
   });

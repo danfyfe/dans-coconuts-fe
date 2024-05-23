@@ -13,7 +13,7 @@ const roboto = Roboto_Condensed({
 	weight: ['400'],
 	subsets: ['latin'],
 	display: 'swap',
-})
+});
 
 const RootLayout = ({ children }: RootLayout) => (
 	<Providers>

@@ -1,0 +1,11 @@
+import { getDataFromToken } from "@/lib/auth";
+import { cookies } from "next/headers";
+
+export async function getUserData() {
+  const JWTtoken = cookies().get('token')?.value;
+  if (JWTtoken) {
+    const userData = await getDataFromToken(JWTtoken);
+    return userData;
+  }
+  return null
+}

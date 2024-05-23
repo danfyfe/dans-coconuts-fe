@@ -1,17 +1,23 @@
 import mongoose, { Document, Schema } from 'mongoose';
 // import { User } from 'next-auth';
 
-export interface ISignUpParams {
+export type ISignUpParams = {
   email: string;
   username: string;
   password: string;
 }
 
-export interface ISignInParams {
+export type ISignInParams = {
   email: string;
   password: string;
 }
-export interface IUser extends Document {
+
+export type IUser = {
+  email: string;
+  username: string;
+  image?: string;
+}
+export interface IUserModel extends Document {
   email: string;
   username: string;
   image?: string;
