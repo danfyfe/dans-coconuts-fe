@@ -10,7 +10,7 @@ import AuthForm from "./auth-form"
 
 const SignInModal = ({ refererPath }: { refererPath?: string }) => {
   return (
-    <ContentContainer className="lg:w-1/4">
+    <ContentContainer className="xl:w-1/4">
         <H1 className="mb-5">Sign In</H1>
         {/* OAuth with GitHub */}
         {Object.values(providerMap).map((provider, idx) => (
