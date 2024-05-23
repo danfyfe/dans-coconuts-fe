@@ -57,8 +57,8 @@ const ContactForm = () => {
           {
             success ? (
               <div className="text-center mb-2 flex flex-col justify-center items-center">
-                <P>Thanks! This goes straight to my email.</P>
-                <P>I'll get back to you as soon as I can.</P>
+                <P>Thanks!</P>
+                <P>I&apos;ll get back to you as soon as I can.</P>
                 <FaThumbsUp className="mt-2" />
               </div>
             ) : (
