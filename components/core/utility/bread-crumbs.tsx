@@ -62,17 +62,17 @@ const BreadCrumbs = () => {
             <ul className="absolute w-full -top-[4.25rem] md:-top-[3.5rem] flex gap-4">
               {
                 organization_title ? (
-                  <BreadCrumb param={organization_title} />
+                  <BreadCrumb param={organization_title} href="/" />
                 ) : null
               }
               {
                 project_title ? (
-                  <BreadCrumb param={project_title} caret />
+                  <BreadCrumb param={project_title} href="/" caret />
                 ) : null
               }
               {
                 task_title ? (
-                  <BreadCrumb param={task_title} caret />
+                  <BreadCrumb param={task_title} href="/" caret />
                 ) : null
               }
             </ul>

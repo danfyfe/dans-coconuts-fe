@@ -15,7 +15,7 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
     <div className="relative overflow-auto max-h-[90%]">
       <ActiveFormSelectorHeading type="organization" />
       {
-        state.activeForm === 'organization'
+        state.activeResource === 'organization'
         ? (
           <OrganizationForm />
         ) : (

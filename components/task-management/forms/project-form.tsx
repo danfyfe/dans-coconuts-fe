@@ -47,7 +47,7 @@ const CreateProject = () => {
                 }
               });
               dispatch({
-                type: 'SET_ACTIVE_FORM',
+                type: 'SET_ACTIVE_RESOURCE',
                 payload: null
               })
               // server_createOrganization({ title, ...(!!user && { user }) })

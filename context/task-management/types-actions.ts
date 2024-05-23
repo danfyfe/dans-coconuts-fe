@@ -25,7 +25,7 @@ export type ITaskManagementResources = 'organization' | 'project' | 'task';
 export type ITaskManagementActions = 
 {
   type: ActionTypes;
-  payload: ITaskManagementResources
+  payload: ITaskManagementResources | null
 } |
 {
   type: ActionTypes;

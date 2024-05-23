@@ -3,12 +3,13 @@ import HR from "@/components/core/utility/HR";
 // import H1 from "@/components/core/typography/H1";
 import H2 from "@/components/core/typography/H2";
 import Button from "@/components/core/utility/button";
-import { ActiveTaskManagementForm, TaskManagementContext } from "@/context/TaskManagementProvider";
+import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { useContext } from "react";
+import { ITaskManagementResources } from "@/context/task-management/types-actions";
 
-const ActiveFormSelector = ({ type }: { type: ActiveTaskManagementForm }) => {
+const ActiveFormSelector = ({ type }: { type: ITaskManagementResources }) => {
   const { state, dispatch } = useContext(TaskManagementContext);
-  const openToggle = state.activeForm === type ? null : type;
+  const openToggle = state.activeResource === type ? null : type;
 
   return (
     <>
@@ -18,7 +19,7 @@ const ActiveFormSelector = ({ type }: { type: ActiveTaskManagementForm }) => {
           asLink
           onClick={() => {
             dispatch({
-            type: 'SET_ACTIVE_FORM',
+            type: 'SET_ACTIVE_RESOURCE',
             payload: openToggle
           })}}
         >

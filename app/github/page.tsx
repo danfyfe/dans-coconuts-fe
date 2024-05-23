@@ -12,7 +12,6 @@ const GitHubPage = () => (
   <>
     <CoconutContainer />
     <GitHubContent>
-      {/* @ts-expect-error */}
       <GitHubRepos />
     </GitHubContent>
   </>

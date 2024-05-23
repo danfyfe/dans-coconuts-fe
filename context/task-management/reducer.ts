@@ -19,11 +19,11 @@ export const taskManagementReducer = (state: ITaskManagementState, action: ITask
       }
     }
     case Actions.ADD_ORGANIZATION: {
-      const user = { ...action.payload.user, admin: true }
-      const newOrg = { title: action.payload.title, users: [user], projects: [] }
+      // const user = { ...action.payload.user, admin: true }
+      // const newOrg = { title: action.payload.title, users: [user], projects: [] }
       return {
         ...state,
-        organizations: [...state.organizations, newOrg ]
+        // organizations: [...state.organizations, newOrg ]
       }
     }
     case Actions.ADD_PROJECT: {

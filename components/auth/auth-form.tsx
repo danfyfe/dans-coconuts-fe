@@ -18,7 +18,7 @@ const getAuthUrl = ({ type, refererPath }: IAuthForm) => {
 }
 
 const AuthForm = ({ type, refererPath }: IAuthForm) => {
-  const authUrl = useMemo(() => getAuthUrl({type, refererPath }), [type]);
+  const authUrl = useMemo(() => getAuthUrl({type, refererPath }), [type, refererPath]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');

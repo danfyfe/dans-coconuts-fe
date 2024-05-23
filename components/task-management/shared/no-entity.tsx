@@ -1,8 +1,8 @@
-import { TaskManagementTypes } from "@/context/TaskManagementProvider";
+import { ITaskManagementResources } from "@/context/task-management/types-actions";
 import { NO_ENTITY } from "@/data/task-management";
 
 
-const NoEntity = ({ type }: { type: TaskManagementTypes }) => {
+const NoEntity = ({ type }: { type: ITaskManagementResources }) => {
   const { content } = NO_ENTITY[type];
   return (
     <>
