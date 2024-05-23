@@ -1,6 +1,5 @@
 import { ISignUpParams } from "@/lib/models/User";
 
-
 export const getUser = async ({ email, password }: ISignUpParams) => {
   const body = JSON.stringify({
     email,
@@ -18,6 +17,7 @@ export const getUser = async ({ email, password }: ISignUpParams) => {
 
 
 export const createUser = async ({ email, username, password }: ISignUpParams) => {
+
   const body = JSON.stringify({
     email,
     username,
@@ -30,6 +30,4 @@ export const createUser = async ({ email, username, password }: ISignUpParams) =
   });
 
   const user = await response.json();
-
-  console.log('user?', response, user)
 };
