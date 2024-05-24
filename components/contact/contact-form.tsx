@@ -40,7 +40,6 @@ const ContactForm = () => {
         subject,
         message
       });
-      console.log(mailResp)
       setSuccess(true);
     } catch(error) {
       const message = getErrorMessage(error);

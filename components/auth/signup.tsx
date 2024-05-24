@@ -10,7 +10,7 @@ import AuthForm from "./auth-form"
 import { useSession } from "next-auth/react"
 
 const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   return (
     <ContentContainer className="xl:w-1/4">
         <H1 className="mb-5">Sign Up</H1>
