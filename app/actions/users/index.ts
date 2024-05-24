@@ -7,5 +7,8 @@ export async function getUserData() {
     const userData = getDataFromToken(JWTtoken);
     return userData;
   }
-  return null;
-}
+  return {
+    success: false,
+    message: 'No JWT Token found.'
+  };
+};

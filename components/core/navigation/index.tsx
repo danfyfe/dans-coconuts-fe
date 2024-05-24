@@ -3,7 +3,8 @@ import Menus from "../../menus/menus";
 import { getUserData } from "@/app/actions/users";
 
 const Navigation = async () => {
-  const user = await getUserData();
+  const userResp = await getUserData();
+  const user = userResp.success ? userResp.user! : null;
   return (
     <nav className={`
       absolute w-full top-0 md:right-0 flex flex-col justify-start items-end z-[1000]

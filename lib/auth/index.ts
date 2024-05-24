@@ -1,23 +1,42 @@
 import jwt from 'jsonwebtoken';
 import getErrorMessage from '../errors/getErrorMessage';
 import { IUser, UserModel } from '../models/User';
+import connectMongoDB from '../mongodb';
 
-export const getDataFromToken = async (JWTtoken: string) => {
+export const getDataFromToken = async (JWTtoken: string): Promise<{ success: boolean; message?: string; user?:IUser; }> => {
   try {
     const tokenData = jwt.verify(JWTtoken, process.env.JWT_SECRET!) as { email: string };
-    const userData = await UserModel.findOne({
-      email: tokenData.email
-    }).select('-password');
+    await connectMongoDB();
+    if (tokenData.email) {
+      const userData = await UserModel.findOne({
+        email: tokenData.email
+      }).select('-password');
 
-    const user: IUser = {
-      email: userData.email,
-      id: userData.id,
-      username: userData.username,
-      image: userData.image
-    };
+      
+      if (userData) {
+        const user = {
+          email: userData.email,
+          id: userData.id,
+          username: userData.username,
+          image: userData.image
+        };
+    
+        return {
+          success: true,
+          user
+        }
+      }
+    }
 
-    return user
+
+    return {
+      success: false,
+      message: 'User not found.'
+    }
   } catch(error) {
-    throw new Error(getErrorMessage(error));
+    return {
+      success: false,
+      message: getErrorMessage(error)
+    }
   }
 };
