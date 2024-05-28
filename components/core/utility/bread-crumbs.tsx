@@ -22,7 +22,7 @@ const BreadCrumb = ({ href, param, caret }: { href: string; param: string; caret
   return (
     <li className="
       relative flex items-center
-      bg-white rounded shadow-sm
+      bg-white rounded shadow-sm border-coconut_brown border-solid border-[1px]
       p-2 text-ellipsis max-w-[calc(33%-10px)] md:max-w-[calc(33%-8px)]
     ">
       {
