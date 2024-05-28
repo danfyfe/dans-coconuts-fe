@@ -52,7 +52,6 @@ const CreateOrganization = ({ user }: { user: IUser | null }) => {
                   }
                 } catch(error) {
                   const message = getErrorMessage(error);
-                  console.log(message)
                 } finally {
                   setLoading(false);
                 }
