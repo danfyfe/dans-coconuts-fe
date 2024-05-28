@@ -1,5 +1,5 @@
 'use client'
-import { IOrganization } from "@/interfaces/task-management";
+import { IProject } from "@/interfaces/task-management";
 import NoEntity from "../shared/no-entity";
 import ActiveFormSelectorHeading from "../shared/active-form-selector-heading";
 import { useContext } from "react";
@@ -9,7 +9,7 @@ import ProjectForm from "../forms/project-form";
 
 const ProjectListDisplay = ({ userSlug } : { userSlug: string }) => {
   const { state } = useContext(TaskManagementContext);
-  const organizations: IOrganization[] = state.organizations;
+  const projects: IProject[] = [];
 
   return (
     <div className="relative overflow-auto max-h-[90%]">
@@ -22,11 +22,11 @@ const ProjectListDisplay = ({ userSlug } : { userSlug: string }) => {
           <>
             <ul className="px-1">
               {
-                organizations.length > 0 ? (
+                projects.length > 0 ? (
                   <>
                     {
-                      organizations.map((organization, index) => {
-                        return <ProjectListItem key={`organization-${index}`} organization={organization} userSlug={userSlug} />
+                      projects.map((project, index) => {
+                        return <ProjectListItem key={`project-${index}`} project={project} userSlug={userSlug} />
                       })
                     }
                   </>

@@ -8,7 +8,7 @@ import { useContext } from "react";
 import ProjectsList from "../project-list";
 import { getOrganizationByTitle } from "@/app/actions/organizations";
 
-const Organization = async ({ orgTitle }: { orgTitle: string }) => {
+const Organization = async ({ orgTitle, userSlug }: { orgTitle: string; userSlug: string; }) => {
   const decodedTitle = decodeURIComponent(orgTitle);
   const organization = await getOrganizationByTitle({ title: decodedTitle});
   // const { state } = useContext(TaskManagementContext);
@@ -22,8 +22,7 @@ const Organization = async ({ orgTitle }: { orgTitle: string }) => {
   
   return (
     <>
-      <TaskManagementHeader />
-      <ProjectsList />
+      <ProjectsList userSlug={userSlug} />
     </>
   )
 };

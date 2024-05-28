@@ -59,7 +59,7 @@ const BreadCrumbs = () => {
       {
         organization_title ? (
           <div className="relative w-full">
-            <ul className="absolute w-full -top-[4.25rem] md:-top-[3.5rem] flex gap-4">
+            <ul className="absolute w-full -top-[4.25rem] flex gap-4">
               {
                 organization_title ? (
                   <BreadCrumb param={organization_title} href="/" />

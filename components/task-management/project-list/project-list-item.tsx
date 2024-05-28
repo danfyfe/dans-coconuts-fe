@@ -1,9 +1,9 @@
 import NextLink from "@/components/core/utility/link";
-import { IOrganization } from "@/interfaces/task-management";
+import { IProject } from "@/interfaces/task-management";
 import encodeString from "@/lib/encodeString";
 
-const ProjectListItem = ({ organization, userSlug }: { organization: IOrganization, userSlug: string }) => {
-  const encodedTitle = encodeString(organization.title);
+const ProjectListItem = ({ project, userSlug }: { project: IProject, userSlug: string }) => {
+  const encodedTitle = encodeString(project.title);
   return (
     <li>
       <NextLink
@@ -11,7 +11,7 @@ const ProjectListItem = ({ organization, userSlug }: { organization: IOrganizati
         prefetch
         href={`/task-management/${userSlug}/organizations/${encodedTitle}`}
       >
-        {organization.title}
+        {project.title}
       </NextLink>
     </li>
   )

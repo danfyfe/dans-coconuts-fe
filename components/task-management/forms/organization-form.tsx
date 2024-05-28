@@ -26,7 +26,7 @@ const CreateOrganization = ({ user }: { user: IUser | null }) => {
     <>
     {
       loading ? (
-        <Loading className="w-auto" />
+        <Loading className="!w-auto" />
       ) : 
         <form className="p-2">
           <H3 className="text-lg">Create a new Organization</H3>
