@@ -1,7 +1,7 @@
 import P from "@/components/core/typography/P";
 import getErrorMessage from "@/lib/errors/getErrorMessage";
 import Organization from "@/lib/models/Organization";
-import dbConnect from "@/lib/mongodb";
+import connectMongoDB from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -10,7 +10,7 @@ export async function GET() {
 
 
 export async function POST(req: Request) {
-  await dbConnect();
+  await connectMongoDB();
   try {
     const { title, user } = await req.json();
     const { name, email } = user;

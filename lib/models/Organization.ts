@@ -15,6 +15,9 @@ const organizationSchema: Schema = new mongoose.Schema({
   users: {
     type: Array
   }
+}, {
+  timestamps: true,
+  collections: 'Organizations'
 });
 
 const Organization = mongoose.model<IOrganization>("Organization", organizationSchema);

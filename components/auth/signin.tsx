@@ -13,7 +13,7 @@ const SignInModal = ({ refererPath }: { refererPath?: string }) => {
     <ContentContainer className="xl:w-1/4">
         <H1 className="mb-5">Sign In</H1>
         {/* OAuth with GitHub */}
-        {Object.values(providerMap).map((provider, idx) => (
+        {/* {Object.values(providerMap).map((provider, idx) => (
             <Button
               key={`provider-${provider.id}-${idx}`}
               id={`provider-${provider.id}-${idx}`}
@@ -24,7 +24,7 @@ const SignInModal = ({ refererPath }: { refererPath?: string }) => {
                 <span>Sign in with {provider.name}</span>
             </Button>
         ))}
-        <HR text="OR" />
+        <HR text="OR" /> */}
         <AuthForm type="signin" refererPath={refererPath}/>
         <P className="text-xs text-center">Sign in to access your task management board</P>
       </ContentContainer>
