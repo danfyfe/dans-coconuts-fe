@@ -1,24 +1,24 @@
-import { Actions, ITaskManagementActions, ITaskManagementState } from "./types-actions";
+import { TaskManagementActions, ITaskManagementActions, ITaskManagementState } from "./types-actions";
 
 export const taskManagementReducer = (state: ITaskManagementState, action: ITaskManagementActions) => {
   switch(action.type) {
-    case Actions.ADD_USER: {
+    case TaskManagementActions.ADD_USER: {
       return {
         ...state
       }
     }
-    case Actions.SET_USER: {
+    case TaskManagementActions.SET_USER: {
       return {
         ...state
       }
     }
-    case Actions.SET_ACTIVE_RESOURCE: {
+    case TaskManagementActions.SET_ACTIVE_RESOURCE: {
       return {
         ...state,
         activeForm: action.payload
       }
     }
-    case Actions.ADD_ORGANIZATION: {
+    case TaskManagementActions.ADD_ORGANIZATION: {
       // const user = { ...action.payload.user, admin: true }
       // const newOrg = { title: action.payload.title, users: [user], projects: [] }
       return {
@@ -26,17 +26,17 @@ export const taskManagementReducer = (state: ITaskManagementState, action: ITask
         // organizations: [...state.organizations, newOrg ]
       }
     }
-    case Actions.ADD_PROJECT: {
+    case TaskManagementActions.ADD_PROJECT: {
       return {
         ...state
       }
     }
-    case Actions.ADD_PROJECT: {
+    case TaskManagementActions.ADD_PROJECT: {
       return {
         ...state
       }
     }
-    case Actions.ADD_TASK: {
+    case TaskManagementActions.ADD_TASK: {
       return {
         ...state
       }

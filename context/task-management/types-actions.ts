@@ -3,13 +3,13 @@ import { Dispatch } from "react";
 
 // Be sure to update the types and actions when adding!
 // Task Management Types and Actions
-export const Actions = {
-  ADD_USER: 'ADD_USER',
-  SET_USER: 'SET_USER',
-  SET_ACTIVE_RESOURCE: 'SET_ACTIVE_RESOURCE',
-  ADD_ORGANIZATION: 'ADD_ORGANIZATION',
-  ADD_PROJECT: 'ADD_PROJECT',
-  ADD_TASK: 'ADD_TASK'
+export const TaskManagementActions = {
+  ADD_USER: 'ADD_USER' as ActionTypes,
+  SET_USER: 'SET_USER' as ActionTypes,
+  SET_ACTIVE_RESOURCE: 'SET_ACTIVE_RESOURCE' as ActionTypes,
+  ADD_ORGANIZATION: 'ADD_ORGANIZATION' as ActionTypes,
+  ADD_PROJECT: 'ADD_PROJECT' as ActionTypes,
+  ADD_TASK: 'ADD_TASK' as ActionTypes
 };
 
 export type ActionTypes = 

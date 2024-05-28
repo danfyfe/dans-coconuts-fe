@@ -8,6 +8,7 @@ import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { User } from "next-auth";
 import { IUser } from "@/lib/models/User";
 import { createOrganization } from "@/app/api/organizations/methods";
+import { TaskManagementActions } from "@/context/task-management/types-actions";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
@@ -33,7 +34,7 @@ const CreateOrganization = ({ user }: { user: IUser | null }) => {
             onClick={async () => {
               const newOrg = await createOrganization({ title, user });
               dispatch({
-                type: 'ADD_ORGANIZATION',
+                type: TaskManagementActions.ADD_ORGANIZATION,
                 payload: newOrg
               });
               dispatch({
