@@ -1,6 +1,6 @@
 'use client'
 import { IOrganization } from "@/interfaces/task-management";
-import NoOrganizations from "../shared/no-entity";
+import NoEntity from "../shared/no-entity";
 import ActiveFormSelectorHeading from "../shared/active-form-selector-heading";
 import { useContext } from "react";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
@@ -13,7 +13,7 @@ const ProjectListDisplay = ({ userSlug } : { userSlug: string }) => {
 
   return (
     <div className="relative overflow-auto max-h-[90%]">
-      <ActiveFormSelectorHeading type="organization" />
+      <ActiveFormSelectorHeading type="project" />
       {
         state.activeResource === 'project'
         ? (
@@ -31,7 +31,7 @@ const ProjectListDisplay = ({ userSlug } : { userSlug: string }) => {
                     }
                   </>
                 ) : (
-                  <NoOrganizations type="project" />
+                  <NoEntity type="project" />
                 )
               }
             </ul>

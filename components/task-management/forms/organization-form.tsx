@@ -9,6 +9,8 @@ import { User } from "next-auth";
 import { IUser } from "@/lib/models/User";
 import { createOrganization } from "@/app/api/organizations/methods";
 import { NewOrganization, TaskManagementActions } from "@/context/task-management/types-actions";
+import Loading from "@/components/core/loaders/loading";
+import getErrorMessage from "@/lib/errors/getErrorMessage";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
@@ -17,37 +19,50 @@ import { NewOrganization, TaskManagementActions } from "@/context/task-managemen
 
 const CreateOrganization = ({ user }: { user: IUser | null }) => {
   const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(TaskManagementContext);
-  const payloadUser = { user }
 
   return (
     <>
-      <form className="p-2">
-        <H3 className="text-lg">Create a new Organization</H3>
-        <div className="p-2">
-          {/* {result.data?.success ? <P>{result.data.success}</P> : null} */}
-          <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-          <Button
-            className="px-3 w-full lg:w-40 block lg:ml-auto"
-            onClick={async () => {
-              const newOrgResp = await createOrganization({ title, user });
-              if (newOrgResp.success) {
-                const organization: NewOrganization = newOrgResp.organization;
-                dispatch({
-                  type: TaskManagementActions.ADD_ORGANIZATION,
-                  payload: organization
-                });
-                dispatch({
-                  type: TaskManagementActions.SET_ACTIVE_RESOURCE,
-                  payload: null
-                })
-              }
-            }}
-          >
-            Create Organization
-          </Button>
-        </div>
-      </form>
+    {
+      loading ? (
+        <Loading className="w-auto" />
+      ) : 
+        <form className="p-2">
+          <H3 className="text-lg">Create a new Organization</H3>
+          <div className="p-2">
+            {/* {result.data?.success ? <P>{result.data.success}</P> : null} */}
+            <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+            <Button
+              className="px-3 w-full lg:w-40 block lg:ml-auto"
+              onClick={async () => {
+                setLoading(true);
+                try {
+                  const newOrgResp = await createOrganization({ title, user });
+                  if (newOrgResp.success) {
+                    const organization: NewOrganization = newOrgResp.organization;
+                    dispatch({
+                      type: TaskManagementActions.ADD_ORGANIZATION,
+                      payload: organization
+                    });
+                    dispatch({
+                      type: TaskManagementActions.SET_ACTIVE_RESOURCE,
+                      payload: null
+                    })
+                  }
+                } catch(error) {
+                  const message = getErrorMessage(error);
+                  console.log(message)
+                } finally {
+                  setLoading(false);
+                }
+              }}
+            >
+              Create Organization
+            </Button>
+          </div>
+        </form>
+    }
     </>
   )
 };

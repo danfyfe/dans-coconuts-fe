@@ -1,4 +1,3 @@
-'use client'
 import ContentContainer from "@/components/core/containers/content-container";
 import { useSession } from "next-auth/react";
 import TaskManagementHeader from "../shared/task-management-header";

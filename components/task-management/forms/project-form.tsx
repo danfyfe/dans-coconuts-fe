@@ -53,7 +53,7 @@ const CreateProject = () => {
               // server_createOrganization({ title, ...(!!user && { user }) })
             }}
           >
-            Create Organization
+            Create Project
           </Button>
         </div>
       </form>
