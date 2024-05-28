@@ -1,23 +1,13 @@
 'use client'
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
+import { ICoconut } from "@/models/Coconut";
 import setCookie from "@/lib/setCookie";
 import { createContext, useState, useId, useEffect, useCallback } from "react";
 
 interface ICoconutProvider {
   coconuts: ICoconut[];
   addCoconut: () => void
-}
-
-export interface ICoconut {
-  xPosition: number;
-  yPosition: number;
-  animationDuration: string;
-  id: number;
-  name: string;
-  designation?: string;
-  image: string;
-  alt: string;
 }
 
 export const CoconutContext = createContext<ICoconutProvider>({

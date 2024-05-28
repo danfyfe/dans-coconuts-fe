@@ -9,10 +9,33 @@ const CoconutSchema: Schema = new mongoose.Schema({
     type: String,
     required: true
   },
+  xPosition: {
+    type: Number,
+    required: true
+  },
+  yPosition: {
+    type: Number,
+    required: true
+  },
+  animationDuration: {
+    type: String,
+    required: true
+  },
   users: {
     type: Array,
     default: []
   }
 });
 
-export const Coconut = mongoose.models.Coconut || mongoose.model("Project", CoconutSchema);
+export const Coconut = mongoose.models.Coconut || mongoose.model("Coconut", CoconutSchema);
+
+export interface ICoconut {
+  xPosition: number;
+  yPosition: number;
+  animationDuration: string;
+  designation?: string;
+  image: string;
+  alt: string;
+  id: number;
+  name: string;
+};
