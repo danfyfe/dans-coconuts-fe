@@ -5,6 +5,10 @@ const ProjectSchema: Schema = new mongoose.Schema({
     type: String,
     required: true
   },
+  percent_completed: {
+    type: Number,
+    default: 0
+  },
   organization: {
     type: String,
     required: true

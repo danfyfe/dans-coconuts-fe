@@ -56,6 +56,10 @@ const UserSchema = new Schema({
   tasks: {
     type: Array,
     default: []
+  },
+  coconuts: {
+    type: Array,
+    default: []
   }
 }, {
   timestamps: true,
