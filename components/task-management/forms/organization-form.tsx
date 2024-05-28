@@ -7,27 +7,19 @@ import TextInput from "@/components/core/form-elements/inputs/text-input";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { User } from "next-auth";
 import { IUser } from "@/lib/models/User";
+import { createOrganization } from "@/app/api/organizations/methods";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
 // import { useMutation } from '@tanstack/react-query';
 
 
-const CreateOrganization = () => {
+const CreateOrganization = ({ user }: { user: IUser | null }) => {
   const [title, setTitle] = useState("");
-  const { data: session } = useSession();
   const { state, dispatch } = useContext(TaskManagementContext);
-  const user: User | undefined = session?.user;
+  // const { data: session } = useSession();
+  // const user: User | undefined = session?.user;
   const payloadUser = { user }
-
-  // TODO: handle issues connecting to MongoDB when deployed
-  // const { 
-  //   data,
-  //   mutate: server_createOrganization
-  // } = useMutation({
-  //   mutationFn: createOrganization
-  // });
-  // console.log(data)
 
   return (
     <>
@@ -38,13 +30,11 @@ const CreateOrganization = () => {
           <TextInput name="title" label="Title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
-            onClick={() => {
+            onClick={async () => {
+              const newOrg = await createOrganization({ title, user });
               dispatch({
                 type: 'ADD_ORGANIZATION',
-                payload: {
-                  title,
-                  ...(user && { payloadUser })
-                }
+                payload: newOrg
               });
               dispatch({
                 type: 'SET_ACTIVE_RESOURCE',
@@ -87,10 +77,10 @@ const JoinOrganization = () => {
   )
 }
 
-const OrganizationForm = () => {
+const OrganizationForm = ({ user }: { user: IUser | null }) => {
   return (
     <>
-      <CreateOrganization />
+      <CreateOrganization user={user} />
       {/* <HR text="OR" />
       <JoinOrganization /> */}
     </>

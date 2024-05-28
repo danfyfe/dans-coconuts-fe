@@ -1,9 +1,12 @@
 import TaskManager from "@/components/task-management";
+import { getUserData } from "../actions/users";
 
-const TaskManagerPage = () => {
+const TaskManagerPage = async () => {
+  const userResp = await getUserData();
+  const user = userResp.success ? userResp.user! : null;
   return (
     <>
-      <TaskManager />
+      <TaskManager user={user} />
     </>
   )
 };

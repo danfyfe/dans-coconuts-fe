@@ -6,7 +6,7 @@ export interface IOrganization extends Document {
   users: IUser[]
 }
 
-const organizationSchema: Schema = new mongoose.Schema({
+const OrganizationSchema: Schema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -20,6 +20,5 @@ const organizationSchema: Schema = new mongoose.Schema({
   collections: 'Organizations'
 });
 
-const Organization = mongoose.model<IOrganization>("Organization", organizationSchema);
+export const Organization = mongoose.models.Organization || mongoose.model("Organization", OrganizationSchema);
 
-export default Organization;

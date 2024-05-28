@@ -6,8 +6,9 @@ import ActiveFormSelectorHeading from "../shared/active-form-selector-heading";
 import { useContext } from "react";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
+import { IUser } from "@/lib/models/User";
 
-const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
+const OrganizationsListDisplay = ({ userSlug, user } : { userSlug: string, user: IUser | null }) => {
   const { state } = useContext(TaskManagementContext);
   const organizations: IOrganization[] = state.organizations;
 
@@ -17,7 +18,7 @@ const OrganizationsListDisplay = ({ userSlug } : { userSlug: string }) => {
       {
         state.activeResource === 'organization'
         ? (
-          <OrganizationForm />
+          <OrganizationForm user={user} />
         ) : (
           <>
             <ul className="px-1">

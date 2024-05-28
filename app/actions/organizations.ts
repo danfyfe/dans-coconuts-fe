@@ -1,6 +1,6 @@
 'use server'
 import getErrorMessage from "@/lib/errors/getErrorMessage";
-import Organization from "@/lib/models/Organization";
+import { Organization } from "@/lib/models/Organization";
 import { User } from "next-auth";
 import dbConnect from "@/lib/mongodb";
 
