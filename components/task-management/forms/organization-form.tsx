@@ -8,7 +8,7 @@ import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { User } from "next-auth";
 import { IUser } from "@/lib/models/User";
 import { createOrganization } from "@/app/api/organizations/methods";
-import { TaskManagementActions } from "@/context/task-management/types-actions";
+import { NewOrganization, TaskManagementActions } from "@/context/task-management/types-actions";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createOrganization } from "@/app/actions/organizations";
@@ -18,8 +18,6 @@ import { TaskManagementActions } from "@/context/task-management/types-actions";
 const CreateOrganization = ({ user }: { user: IUser | null }) => {
   const [title, setTitle] = useState("");
   const { state, dispatch } = useContext(TaskManagementContext);
-  // const { data: session } = useSession();
-  // const user: User | undefined = session?.user;
   const payloadUser = { user }
 
   return (
@@ -32,16 +30,18 @@ const CreateOrganization = ({ user }: { user: IUser | null }) => {
           <Button
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={async () => {
-              const newOrg = await createOrganization({ title, user });
-              dispatch({
-                type: TaskManagementActions.ADD_ORGANIZATION,
-                payload: newOrg
-              });
-              dispatch({
-                type: 'SET_ACTIVE_RESOURCE',
-                payload: null
-              })
-              // server_createOrganization({ title, ...(!!user && { user }) })
+              const newOrgResp = await createOrganization({ title, user });
+              if (newOrgResp.success) {
+                const organization: NewOrganization = newOrgResp.organization;
+                dispatch({
+                  type: TaskManagementActions.ADD_ORGANIZATION,
+                  payload: organization
+                });
+                dispatch({
+                  type: TaskManagementActions.SET_ACTIVE_RESOURCE,
+                  payload: null
+                })
+              }
             }}
           >
             Create Organization

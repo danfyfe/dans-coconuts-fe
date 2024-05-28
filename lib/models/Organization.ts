@@ -17,7 +17,7 @@ const OrganizationSchema: Schema = new mongoose.Schema({
   }
 }, {
   timestamps: true,
-  collections: 'Organizations'
+  collection: 'Organizations'
 });
 
 export const Organization = mongoose.models.Organization || mongoose.model("Organization", OrganizationSchema);

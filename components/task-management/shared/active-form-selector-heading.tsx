@@ -5,7 +5,7 @@ import H2 from "@/components/core/typography/H2";
 import Button from "@/components/core/utility/button";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { useContext } from "react";
-import { ITaskManagementResources } from "@/context/task-management/types-actions";
+import { ITaskManagementResources, TaskManagementActions } from "@/context/task-management/types-actions";
 
 const ActiveFormSelector = ({ type }: { type: ITaskManagementResources }) => {
   const { state, dispatch } = useContext(TaskManagementContext);
@@ -19,7 +19,7 @@ const ActiveFormSelector = ({ type }: { type: ITaskManagementResources }) => {
           asLink
           onClick={() => {
             dispatch({
-            type: 'SET_ACTIVE_RESOURCE',
+            type: TaskManagementActions.SET_ACTIVE_RESOURCE,
             payload: openToggle
           })}}
         >

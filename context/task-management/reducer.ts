@@ -15,15 +15,14 @@ export const taskManagementReducer = (state: ITaskManagementState, action: ITask
     case TaskManagementActions.SET_ACTIVE_RESOURCE: {
       return {
         ...state,
-        activeForm: action.payload
+        activeResource: action.payload
       }
     }
     case TaskManagementActions.ADD_ORGANIZATION: {
-      // const user = { ...action.payload.user, admin: true }
-      // const newOrg = { title: action.payload.title, users: [user], projects: [] }
+      const newOrg = action.payload;
       return {
         ...state,
-        // organizations: [...state.organizations, newOrg ]
+        organizations: [...state.organizations, newOrg ]
       }
     }
     case TaskManagementActions.ADD_PROJECT: {
