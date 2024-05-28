@@ -12,7 +12,7 @@ const AddCoconutForm = () => {
     <>
       {
         formActive ? (
-          <ContentContainer>
+          <ContentContainer className="max-w-[95%] md:max-w-[45%]">
             <AddCoconutHeader />
           </ContentContainer>
         ) : null
