@@ -20,7 +20,7 @@ export type ActionTypes =
   'ADD_PROJECT' |
   'ADD_TASK';
 
-export type ITaskManagementResources = 'organization' | 'project' | 'task';
+export type ITaskManagementResources = 'organization' | 'project' | 'task' | null;
 
 export type ITaskManagementActions = 
 {

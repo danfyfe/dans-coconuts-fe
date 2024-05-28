@@ -14,7 +14,7 @@ export const TaskManagementContext = createContext<ITaskManagementProvider>({
 });
 
 const initialState: ITaskManagementState = {
-  activeResource: 'organization',
+  activeResource: null,
   organizations: []
 };
 
