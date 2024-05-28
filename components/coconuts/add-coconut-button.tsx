@@ -4,11 +4,11 @@ import { useContext } from 'react';
 import { CoconutContext } from '@/context/CoconutsProvider';
 
 const AddCoconut = () => {
-  const { addCoconut } = useContext(CoconutContext);
+  const { toggleCoconutForm } = useContext(CoconutContext);
   return (
     <ButtonIcon
       id="add-coconut-btn"
-      onClick={addCoconut}
+      onClick={toggleCoconutForm}
       ariaLabel='Add coconut'
       className='
         bg-white bg-opacity-50 rounded-full text-coconut_brown shadow-sm

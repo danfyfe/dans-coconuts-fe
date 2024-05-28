@@ -9,7 +9,7 @@ export const TaskManagementActions = {
   SET_ACTIVE_RESOURCE: 'SET_ACTIVE_RESOURCE' as ActionTypes,
   ADD_ORGANIZATION: 'ADD_ORGANIZATION' as ActionTypes,
   ADD_PROJECT: 'ADD_PROJECT' as ActionTypes,
-  ADD_TASK: 'ADD_TASK' as ActionTypes
+  ADD_TASK: 'ADD_TASK' as ActionTypes,
 };
 
 export type ActionTypes = 

@@ -2,7 +2,7 @@
 import { HELP_CATEGORIES } from "@/data/help";
 import { createContext, useReducer, ReactNode, Dispatch, ReactElement } from "react";
 
-export type ActiveHelpCategory = 'task-management' | null;
+export type ActiveHelpCategory = 'task-management' | 'coconuts' | null;
 
 // type for hardcoded HELP_CATEGORIES
 export type HelpCategoriesType = {

@@ -5,7 +5,7 @@ import Button from "../core/utility/button";
 import { MenusContext } from "@/context/MenusProvider";
 import { ActiveHelpCategory, HelpContext } from "@/context/HelpProvider";
 
-const HelpTrigger = ({ className }: { className?: string, category: ActiveHelpCategory }) => {
+const HelpTrigger = ({ className, category }: { className?: string, category: ActiveHelpCategory }) => {
   const { toggleMenu } = useContext(MenusContext);
   const { dispatch } = useContext(HelpContext);
 
@@ -15,7 +15,7 @@ const HelpTrigger = ({ className }: { className?: string, category: ActiveHelpCa
       onClick={() => {
         dispatch({
           type: 'SET_HELP_CATEGORY',
-          payload: 'task-management'
+          payload: category
         });
         toggleMenu('help-menu')
       }}
