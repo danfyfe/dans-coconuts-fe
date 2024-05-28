@@ -1,6 +1,6 @@
 'use client';
 import { MouseEventHandler, useCallback, useEffect, useId, useRef, useState } from 'react';
-import { ICoconut } from "@/context/CoconutProvider";
+import { ICoconut } from "@/context/CoconutsProvider";
 import Image from "next/image";
 
 

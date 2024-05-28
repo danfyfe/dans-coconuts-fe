@@ -1,7 +1,7 @@
 import { FaPlus } from 'react-icons/fa'
 import ButtonIcon from '../core/utility/button-icon';
 import { useContext } from 'react';
-import { CoconutContext } from '@/context/CoconutProvider';
+import { CoconutContext } from '@/context/CoconutsProvider';
 
 const AddCoconut = () => {
   const { addCoconut } = useContext(CoconutContext);

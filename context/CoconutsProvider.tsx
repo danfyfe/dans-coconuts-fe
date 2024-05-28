@@ -25,11 +25,11 @@ export const CoconutContext = createContext<ICoconutProvider>({
   addCoconut: () => {}
 });
 
-export const CoconutProvider = ({ children }: { children: React.ReactNode }) => {
+export const CoconutsProvider = ({ children }: { children: React.ReactNode }) => {
   const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
   const coconutCountCookie = useGetCookie('dc-coconut-count');
 
-  const createNewCoconut = useCallback(() => {
+  const createNewCoconut = useCallback(({ title, content, users }) => {
     const windowWidth = global.window.innerWidth;
     const windowHeight = global.window.innerHeight;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
@@ -50,26 +50,26 @@ export const CoconutProvider = ({ children }: { children: React.ReactNode }) => 
     return coconut;
   }, [coconuts]);
 
-  const addCoconut = useCallback(() => {
-    const newCoconut = createNewCoconut();
+  const addCoconut = useCallback(({ title, content, users }) => {
+    const newCoconut = createNewCoconut({ title, content, users });
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
     setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 
-  useEffect(() => {
-    // re-create amount of coconuts from cookie on load
-    if (coconutCountCookie && coconuts.length === 0) {
-      let count = +coconutCountCookie;
-      let newCoconuts: ICoconut[] = [];
-      while (count > 0) {
-        const newCoconut = createNewCoconut();
-        newCoconuts = [...newCoconuts, newCoconut];
-        count --;
-      }
-      setCoconuts(newCoconuts);
-    }
-  }, [coconutCountCookie, createNewCoconut, coconuts]);
+  // useEffect(() => {
+  //   // re-create amount of coconuts from cookie on load
+  //   if (coconutCountCookie && coconuts.length === 0) {
+  //     let count = +coconutCountCookie;
+  //     let newCoconuts: ICoconut[] = [];
+  //     while (count > 0) {
+  //       const newCoconut = createNewCoconut();
+  //       newCoconuts = [...newCoconuts, newCoconut];
+  //       count --;
+  //     }
+  //     setCoconuts(newCoconuts);
+  //   }
+  // }, [coconutCountCookie, createNewCoconut, coconuts]);
 
   return (
     <CoconutContext.Provider value={{ coconuts, addCoconut }}>

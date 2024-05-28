@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { CoconutProvider } from "./CoconutProvider"
+import { CoconutsProvider } from "./CoconutsProvider"
 import { WeatherProvider } from "./WeatherProvider"
 import { MenusProvider } from "./MenusProvider"
 import { SessionProvider } from "next-auth/react"
@@ -16,11 +16,11 @@ const Providers = ({ children }: { children: ReactNode }) => (
         <MenusProvider>
           <HelpProvider>
             <WeatherProvider>
-              <CoconutProvider>
+              <CoconutsProvider>
                 <TaskManagementProvider>
                   {children}
                 </TaskManagementProvider>
-              </CoconutProvider>
+              </CoconutsProvider>
             </WeatherProvider>
           </HelpProvider>
         </MenusProvider>

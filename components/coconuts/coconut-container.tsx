@@ -1,6 +1,6 @@
 'use client'
 
-import { CoconutContext } from "@/context/CoconutProvider";
+import { CoconutContext } from "@/context/CoconutsProvider";
 import { useContext } from "react";
 import CoconutTrashCan from "./coconut-trash-can";
 import Coconut from "./coconut";
