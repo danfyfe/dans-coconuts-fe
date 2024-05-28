@@ -1,4 +1,4 @@
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 
 export const createOrganization = async ({ title, user }: IOrganizationParams) => {
   const body = JSON.stringify({

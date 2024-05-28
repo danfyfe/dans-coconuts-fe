@@ -9,7 +9,7 @@ import P from "../typography/P";
 import Button from "../utility/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 import { signOut } from "@/app/api/users/methods";
 import { useRouter } from "next/navigation";
 

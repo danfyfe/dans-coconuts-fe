@@ -6,7 +6,7 @@ import ActiveFormSelectorHeading from "../shared/active-form-selector-heading";
 import { useContext } from "react";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import OrganizationForm from "../forms/organization-form";
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 
 const OrganizationsListDisplay = ({ userSlug, user } : { userSlug: string, user: IUser | null }) => {
   const { state } = useContext(TaskManagementContext);

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import getErrorMessage from '../errors/getErrorMessage';
-import { IUser, UserModel } from '../models/User';
+import { IUser, UserModel } from '../../models/User';
 import connectMongoDB from '../mongodb';
 
 export const getDataFromToken = async (JWTtoken: string): Promise<{ success: boolean; message?: string; user?:IUser; }> => {

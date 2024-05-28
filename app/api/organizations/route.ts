@@ -1,6 +1,6 @@
 import P from "@/components/core/typography/P";
 import getErrorMessage from "@/lib/errors/getErrorMessage";
-import { Organization } from "@/lib/models/Organization";
+import { Organization } from "@/models/task-management/Organization";
 import connectMongoDB from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 

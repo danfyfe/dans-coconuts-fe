@@ -5,7 +5,7 @@ import ContentContainer from "../core/containers/content-container";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import encodeString from "@/lib/encodeString";
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 
 const TaskManager = ({ user }: { user: IUser | null }) => {
   // const { data: session, status } = useSession();

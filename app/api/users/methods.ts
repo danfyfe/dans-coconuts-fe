@@ -1,4 +1,4 @@
-import { ISignInParams, ISignUpParams } from "@/lib/models/User";
+import { ISignInParams, ISignUpParams } from "@/models/User";
 
 export const signIn = async ({ email, password }: ISignInParams) => {
   const body = JSON.stringify({

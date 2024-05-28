@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { IUser } from './User';
+import { IUser } from '../User';
 
 export interface IOrganization extends Document {
   title: string;
@@ -13,7 +13,8 @@ const OrganizationSchema: Schema = new mongoose.Schema({
     unique: true
   },
   users: {
-    type: Array
+    type: Array,
+    default: []
   }
 }, {
   timestamps: true,

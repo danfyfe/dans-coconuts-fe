@@ -1,5 +1,5 @@
 import getErrorMessage from "@/lib/errors/getErrorMessage";
-import { UserModel } from "@/lib/models/User";
+import { UserModel } from "@/models/User";
 import connectMongoDB from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";

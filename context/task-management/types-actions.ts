@@ -1,4 +1,4 @@
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 import { Dispatch } from "react";
 
 // Be sure to update the types and actions when adding!

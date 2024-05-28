@@ -8,7 +8,7 @@ import NextLink from '../core/utility/link';
 import { signUp, signIn } from '@/app/api/users/methods';
 import Loading from '../core/loaders/loading';
 import getErrorMessage from '@/lib/errors/getErrorMessage';
-import { ISignInParams, ISignUpParams } from '@/lib/models/User';
+import { ISignInParams, ISignUpParams } from '@/models/User';
 import { useRouter } from 'next/navigation';
 
 const getAuthUrl = ({ type, refererPath }: IAuthForm) => {

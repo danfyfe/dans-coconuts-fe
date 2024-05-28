@@ -6,7 +6,7 @@ import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
 import { User } from "next-auth";
-import { IUser } from "@/lib/models/User";
+import { IUser } from "@/models/User";
 // import HR from "@/components/core/presentational/HR";
 // import P from "@/components/core/typography/P";
 // import { createProject } from "@/app/actions/project";
