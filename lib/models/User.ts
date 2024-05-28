@@ -1,4 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { composeWithMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from 'graphql-compose';
 
 export type ISignUpParams = {
   email: string;
@@ -42,6 +44,18 @@ const UserSchema = new Schema({
   password: {
     type: String,
     trim: true,
+  },
+  organizations: {
+    type: Array,
+    default: []
+  },
+  projects: {
+    type: Array,
+    default: []
+  },
+  tasks: {
+    type: Array,
+    default: []
   }
 }, {
   timestamps: true,
@@ -49,3 +63,21 @@ const UserSchema = new Schema({
 });
 
 export const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
+
+//graphql
+const UserTC = composeWithMongoose(UserModel, {});
+
+schemaComposer.Query.addFields({
+  userById: UserTC.getResolver('findById'),
+  userOne: UserTC.getResolver('findOne'),
+  userMany: UserTC.getResolver('findMany'),
+  userCount: UserTC.getResolver('count')
+});
+
+schemaComposer.Mutation.addFields({
+  userCreateOne: UserTC.getResolver('createOne'),
+  userUpdateById: UserTC.getResolver('updateById'),
+  userUpdateOne: UserTC.getResolver('updateOne')
+});
+
+export const graphqlSchema = schemaComposer.buildSchema();
