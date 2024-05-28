@@ -1,9 +1,12 @@
 import MenuTriggers from "../../menus/menus-triggers";
 import Menus from "../../menus/menus";
-import { getUserData } from "@/app/actions/users";
+import { getUserByUsername, getUserData } from "@/app/actions/users";
 
 const Navigation = async () => {
   const userResp = await getUserData();
+  const userByUsername = await getUserByUsername('danfyfe');
+  const data = await userByUsername.json()
+  console.log('user?', data)
   const user = userResp.success ? userResp.user! : null;
   return (
     <nav className={`
