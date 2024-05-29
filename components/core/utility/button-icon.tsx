@@ -1,6 +1,6 @@
 import { IButtonIconProps } from "@/interfaces/content";
 
-const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel, id } : IButtonIconProps) => {
+const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel, id, disabled } : IButtonIconProps) => {
   return (
     <button
       id={id}
@@ -10,6 +10,7 @@ const ButtonIcon = ({ type="button", children, className, onClick, ariaLabel, id
         text-3xl bg-white bg-opacity-50 rounded-full
         ${className ? className : ''}
       `}
+      disabled={disabled}
       type={type}
       onClick={onClick}
       aria-label={ariaLabel}

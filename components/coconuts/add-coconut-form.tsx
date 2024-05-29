@@ -10,7 +10,7 @@ import Button from '../core/utility/button';
 
 const AddCoconutForm = () => {
   const {
-    formActive,
+    formActive, toggleCoconutForm,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,
     handleReceiverID, setMessageReceiverID
     } = useContext(CoconutContext);
@@ -39,9 +39,17 @@ const AddCoconutForm = () => {
                 placeholder="Send a user a message..."
                 onChange={handleMessageContent}
               ></TextArea>
-              <Button className="block ml-auto">
-                Send
-              </Button>
+              <div className="flex">
+                <Button className="block ml-auto mr-2 max-w-20 !p-0">
+                  Send
+                </Button>
+                <Button
+                  className="max-w-20 !p-0"
+                  onClick={toggleCoconutForm}
+                >
+                  Cancel
+                </Button>
+              </div>
             </form>
           </ContentContainer>
         ) : null
