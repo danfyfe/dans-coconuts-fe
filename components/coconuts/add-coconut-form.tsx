@@ -9,7 +9,11 @@ import Button from '../core/utility/button';
 
 
 const AddCoconutForm = () => {
-  const { formActive } = useContext(CoconutContext);
+  const {
+    formActive,
+    messageTitle, handleMessageTitle, messageContent, handleMessageContent,
+    handleReceiverID, setMessageReceiverID
+    } = useContext(CoconutContext);
 
   return (
     <>
@@ -27,11 +31,13 @@ const AddCoconutForm = () => {
                 label="Title:"
                 name="message-title"
                 placeholder='Message title...'
+                onChange={handleMessageTitle}
               />
               <TextArea
                 label="Message:"
                 name="message"
                 placeholder="Send a user a message..."
+                onChange={handleMessageContent}
               ></TextArea>
               <Button className="block ml-auto">
                 Send

@@ -21,6 +21,9 @@ export const CoconutContext = createContext<ICoconutProvider>({
 
 export const CoconutsProvider = ({ children }: { children: React.ReactNode }) => {
   const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
+  const [messageTitle, setMessageTitle] = useState<string>('');
+  const [messageContent, setMessageContent] = useState<string>('');
+  const [messageReceiverID, setMessageReceiverID] = useState<string>('');
   const [formActive, setFormActive] = useState<boolean>(false);
   const coconutCountCookie = useGetCookie('dc-coconut-count');
 
@@ -55,6 +58,18 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 
+  const handleReceiverID = () => {
+
+  };
+
+  const handleMessageTitle = (e) => {
+    setMessageTitle(e.target.value);
+  };
+
+  const handleMessageContent = (e) => {
+    setMessageContent(e.target.value);
+  };
+
   // useEffect(() => {
   //   // re-create amount of coconuts from cookie on load
   //   if (coconutCountCookie && coconuts.length === 0) {
@@ -70,7 +85,12 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
   // }, [coconutCountCookie, createNewCoconut, coconuts]);
 
   return (
-    <CoconutContext.Provider value={{ coconuts, addCoconut, formActive, toggleCoconutForm }}>
+    <CoconutContext.Provider
+    value={{
+      coconuts, addCoconut, formActive, toggleCoconutForm,
+      messageTitle, handleMessageTitle, messageContent, handleMessageContent,
+      messageReceiverID, handleReceiverID
+    }}>
       {children}
     </CoconutContext.Provider>
   )
