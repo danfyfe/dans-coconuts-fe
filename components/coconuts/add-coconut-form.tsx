@@ -6,14 +6,15 @@ import AddCoconutHeader from './add-coconut-header';
 import TextArea from '../core/form-elements/inputs/text-area';
 import TextInput from '../core/form-elements/inputs/text-input';
 import Button from '../core/utility/button';
+import getErrorMessage from '@/lib/errors/getErrorMessage';
 
 
 const AddCoconutForm = () => {
   const {
-    formActive, toggleCoconutForm,
+    formActive, toggleCoconutForm, addCoconut,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-    handleReceiverID, setMessageReceiverID
-    } = useContext(CoconutContext);
+    handleReceiverID, receiverID
+  } = useContext(CoconutContext);
 
   return (
     <>
@@ -32,15 +33,33 @@ const AddCoconutForm = () => {
                 name="message-title"
                 placeholder='Message title...'
                 onChange={handleMessageTitle}
+                value={messageTitle}
               />
               <TextArea
                 label="Message:"
                 name="message"
                 placeholder="Send a user a message..."
                 onChange={handleMessageContent}
+                value={messageContent}
               ></TextArea>
               <div className="flex">
-                <Button className="block ml-auto mr-2 max-w-20 !p-0">
+                <Button
+                  className="block ml-auto mr-2 max-w-20 !p-0"
+                  onClick={(e) => {
+                    try {
+                      addCoconut({
+                        title: messageTitle,
+                        content: messageContent,
+                        users: [receiverID, 'userId']
+                      });
+                    } catch(error) {
+                      const message = getErrorMessage(error);
+                      console.log('Error creating coconut! ', message);
+                    } finally {
+                      toggleCoconutForm(e);
+                    }
+                  }}
+                >
                   Send
                 </Button>
                 <Button

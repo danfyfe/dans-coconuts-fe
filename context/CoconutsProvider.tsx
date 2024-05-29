@@ -5,9 +5,15 @@ import { ICoconut } from "@/models/Coconut";
 import setCookie from "@/lib/setCookie";
 import { createContext, useState, useCallback, MouseEventHandler } from "react";
 
+type ICoconutAttributes = {
+  title: string;
+  content: string;
+  users: string[];
+}
+
 interface ICoconutProvider {
   coconuts: ICoconut[];
-  addCoconut: () => void;
+  addCoconut: (coconut: ICoconutAttributes) => void;
   formActive: boolean;
   toggleCoconutForm: MouseEventHandler<HTMLButtonElement>,
 }
@@ -55,7 +61,8 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     const newCoconut = createNewCoconut({ title, content, users });
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
-    setCookie('dc-coconut-count', newCoconuts.length);
+    console.log('coconuts', coconuts, newCoconut)
+    // setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 
   const handleReceiverID = () => {
@@ -86,11 +93,11 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
 
   return (
     <CoconutContext.Provider
-    value={{
-      coconuts, addCoconut, formActive, toggleCoconutForm,
-      messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-      messageReceiverID, handleReceiverID
-    }}>
+      value={{
+        coconuts, addCoconut, formActive, toggleCoconutForm,
+        messageTitle, handleMessageTitle, messageContent, handleMessageContent,
+        messageReceiverID, handleReceiverID
+      }}>
       {children}
     </CoconutContext.Provider>
   )
