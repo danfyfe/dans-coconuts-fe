@@ -9,6 +9,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/popover";
+import { PopoverClose } from '@radix-ui/react-popover';
+import { FaPlus } from 'react-icons/fa';
 
 
 const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
@@ -108,7 +110,10 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
               />
             </PopoverTrigger>
             <PopoverContent>
-              <div className="">
+              <div className="relative">
+                <PopoverClose className="absolute -top-2 -right-2">
+                  <FaPlus className="rotate-45" />
+                </PopoverClose>
                 <H2 className="text-base text-left">{coconut.title}</H2>
                 <div>
                   <div>
