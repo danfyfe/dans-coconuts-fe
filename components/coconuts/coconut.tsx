@@ -3,6 +3,7 @@ import { MouseEventHandler, useCallback, useEffect, useId, useRef, useState } fr
 import { ICoconut } from '@/models/Coconut';
 import Image from "next/image";
 import H2 from '../core/typography/H2';
+import P from '../core/typography/P';
 import {
   Popover,
   PopoverContent,
@@ -17,7 +18,7 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
   const [dragging, setDragging] = useState(false);
   const [position, setPosition] = useState({ x: coconut.xPosition, y: coconut.yPosition });
 
-  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+  const handleDragStart = (event: React.DragEvent<HTMLButtonElement>) => {
     event.dataTransfer.setData("text/plain", event.currentTarget.id);
     event.preventDefault();
     setDragging(true);
@@ -39,7 +40,7 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
     }
   };
 
-  const handleDragStartTouch = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleDragStartTouch = (event: React.TouchEvent<HTMLButtonElement>) => {
     setDragging(true);
   };
 
@@ -90,16 +91,13 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
       style={{
         left: coconut.xPosition,
         animationDuration: coconut.animationDuration
-        }}
-      onDragStart={handleDragStart}
-      onTouchStart={handleDragStartTouch}
-      onClick={(e) => {
-        const button = e.currentTarget.querySelector('button');
-        if (button) button.click();
       }}
-    >
+        >
           <Popover>
-            <PopoverTrigger>
+            <PopoverTrigger
+              onDragStart={handleDragStart}
+              onTouchStart={handleDragStartTouch}
+            >
               <Image
                 priority
                 height={100}
@@ -112,6 +110,11 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
             <PopoverContent>
               <div className="">
                 <H2 className="text-base text-left">{coconut.title}</H2>
+                <div>
+                  <div>
+                    <P>{coconut.content}</P>
+                  </div>
+                </div>
               </div>
             </PopoverContent>
           </Popover>
