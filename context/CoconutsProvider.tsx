@@ -61,7 +61,6 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       yPosition: windowHeight,
       animationDuration: randomTiming,
       id: randomPosition,
-      name: 'Coconut',
       content,
       title,
       users
