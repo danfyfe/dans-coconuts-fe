@@ -22,6 +22,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/task-management/:path*'
+    '/task-management/:path*',
+    '/coconuts'
   ]
 }
