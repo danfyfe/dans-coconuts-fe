@@ -19,10 +19,8 @@ export const taskManagementReducer = (state: ITaskManagementState, action: ITask
       }
     }
     case TaskManagementActions.ADD_ORGANIZATION: {
-      const newOrg = action.payload;
       return {
-        ...state,
-        organizations: [...state.organizations, newOrg ]
+        ...state
       }
     }
     case TaskManagementActions.ADD_PROJECT: {

@@ -5,6 +5,7 @@ import H3 from "@/components/core/typography/H3";
 import Button from "@/components/core/utility/button";
 import TextInput from "@/components/core/form-elements/inputs/text-input";
 import { TaskManagementContext } from "@/context/TaskManagementProvider";
+import { TaskManagementActions } from "@/context/task-management/types-actions";
 import { User } from "next-auth";
 import { IUser } from "@/models/User";
 // import HR from "@/components/core/presentational/HR";
@@ -20,15 +21,6 @@ const CreateProject = () => {
   const user: User | undefined = session?.user;
   const payloadUser = { user }
 
-  // TODO: handle issues connecting to MongoDB when deployed
-  // const { 
-  //   data,
-  //   mutate: server_createProject
-  // } = useMutation({
-  //   mutationFn: createProject
-  // });
-  // console.log(data)
-
   return (
     <>
       <form className="p-2">
@@ -40,17 +32,16 @@ const CreateProject = () => {
             className="px-3 w-full lg:w-40 block lg:ml-auto"
             onClick={() => {
               dispatch({
-                type: 'ADD_PROJECT',
+                type: TaskManagementActions.ADD_PROJECT,
                 payload: {
                   title,
                   ...(user && { payloadUser })
                 }
               });
               dispatch({
-                type: 'SET_ACTIVE_RESOURCE',
+                type: TaskManagementActions.SET_ACTIVE_RESOURCE,
                 payload: null
               })
-              // server_createOrganization({ title, ...(!!user && { user }) })
             }}
           >
             Create Project

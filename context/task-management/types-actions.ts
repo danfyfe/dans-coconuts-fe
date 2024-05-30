@@ -4,42 +4,38 @@ import { Dispatch } from "react";
 // Be sure to update the types and actions when adding!
 // Task Management Types and Actions
 export const TaskManagementActions = {
-  ADD_USER: 'ADD_USER' as ActionTypes,
-  SET_USER: 'SET_USER' as ActionTypes,
-  SET_ACTIVE_RESOURCE: 'SET_ACTIVE_RESOURCE' as ActionTypes,
-  ADD_ORGANIZATION: 'ADD_ORGANIZATION' as ActionTypes,
-  ADD_PROJECT: 'ADD_PROJECT' as ActionTypes,
-  ADD_TASK: 'ADD_TASK' as ActionTypes,
+  ADD_USER: 'ADD_USER' as const,
+  SET_USER: 'SET_USER' as const,
+  SET_ACTIVE_RESOURCE: 'SET_ACTIVE_RESOURCE' as const,
+  ADD_ORGANIZATION: 'ADD_ORGANIZATION' as const,
+  ADD_PROJECT: 'ADD_PROJECT' as const,
+  ADD_TASK: 'ADD_TASK' as const,
 };
 
-export type ActionTypes = 
-  'ADD_USER' |
-  'SET_USER' |
-  'SET_ACTIVE_RESOURCE' |
-  'ADD_ORGANIZATION' |
-  'ADD_PROJECT' |
-  'ADD_TASK';
+export type TaskManagementActionTypes =
+  | typeof TaskManagementActions.ADD_USER
+  | typeof TaskManagementActions.SET_USER
+  | typeof TaskManagementActions.SET_ACTIVE_RESOURCE
+  | typeof TaskManagementActions.ADD_ORGANIZATION
+  | typeof TaskManagementActions.ADD_PROJECT
+  | typeof TaskManagementActions.ADD_TASK;
+
+export type TaskManagementPayloads =
+  | ITaskManagementResources
+  | NewOrganization
+  | NewProject
+  | NewTask
+  | IUser;
 
 export type ITaskManagementResources = 'organization' | 'project' | 'task' | null;
 
-export type ITaskManagementActions = 
-{
-  type: ActionTypes;
-  payload: ITaskManagementResources | null
-} |
-{
-  type: ActionTypes;
-  payload: NewOrganization
-} |
-{
-  type: ActionTypes;
-  payload: NewProject;
-} |
-{
-  type: ActionTypes;
-  payload: NewTask;
-};
-
+export type ITaskManagementActions =
+  | { type: typeof TaskManagementActions.ADD_USER; payload: IUser }
+  | { type: typeof TaskManagementActions.SET_USER; payload: IUser }
+  | { type: typeof TaskManagementActions.SET_ACTIVE_RESOURCE; payload: ITaskManagementResources }
+  | { type: typeof TaskManagementActions.ADD_ORGANIZATION; payload: NewOrganization }
+  | { type: typeof TaskManagementActions.ADD_PROJECT; payload: NewProject }
+  | { type: typeof TaskManagementActions.ADD_TASK; payload: NewTask };
 
 export type NewOrganization = {
   title: string;
@@ -75,5 +71,4 @@ export type ITaskManagementProvider = {
 
 export type ITaskManagementState = {
   activeResource: ITaskManagementResources;
-  organizations: Organization[];
 }

@@ -9,13 +9,12 @@ import { taskManagementReducer } from "./task-management/reducer";
 
 
 export const TaskManagementContext = createContext<ITaskManagementProvider>({
-  state: { activeResource: 'organization', organizations: [] },
+  state: { activeResource: null },
   dispatch: (action: ITaskManagementActions) => {}
 });
 
 const initialState: ITaskManagementState = {
   activeResource: null,
-  organizations: []
 };
 
 export const TaskManagementProvider = ({ children }: { children: React.ReactNode }) => {
