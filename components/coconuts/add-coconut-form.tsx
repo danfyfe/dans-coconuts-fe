@@ -7,13 +7,14 @@ import TextArea from '../core/form-elements/inputs/text-area';
 import TextInput from '../core/form-elements/inputs/text-input';
 import Button from '../core/utility/button';
 import getErrorMessage from '@/lib/errors/getErrorMessage';
+import { IUser } from '@/models/User';
 
 
-const AddCoconutForm = () => {
+const AddCoconutForm = ({ user }: { user: IUser }) => {
   const {
     formActive, toggleCoconutForm, addCoconut,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-    handleReceiverID, receiverID
+    handleReceiverID, receiverID, resetForm
   } = useContext(CoconutContext);
 
   return (
@@ -50,13 +51,14 @@ const AddCoconutForm = () => {
                       addCoconut({
                         title: messageTitle,
                         content: messageContent,
-                        users: [receiverID, 'userId']
+                        users: [receiverID, user.id]
                       });
                     } catch(error) {
                       const message = getErrorMessage(error);
                       console.log('Error creating coconut! ', message);
                     } finally {
-                      toggleCoconutForm(e);
+                      toggleCoconutForm();
+                      resetForm();
                     }
                   }}
                 >

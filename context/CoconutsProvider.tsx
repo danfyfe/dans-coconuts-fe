@@ -77,6 +77,12 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     setMessageContent(e.target.value);
   };
 
+  const resetForm = () => {
+    setMessageContent('');
+    setMessageTitle('');
+    setMessageReceiverID('');
+  };
+
   // useEffect(() => {
   //   // re-create amount of coconuts from cookie on load
   //   if (coconutCountCookie && coconuts.length === 0) {
@@ -96,7 +102,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       value={{
         coconuts, addCoconut, formActive, toggleCoconutForm,
         messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-        messageReceiverID, handleReceiverID
+        messageReceiverID, handleReceiverID, resetForm
       }}>
       {children}
     </CoconutContext.Provider>
