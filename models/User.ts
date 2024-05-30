@@ -69,19 +69,19 @@ const UserSchema = new Schema({
 export const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
 
 //graphql
-const UserTC = composeWithMongoose(UserModel, {});
+// const UserTC = composeWithMongoose(UserModel, {});
 
-schemaComposer.Query.addFields({
-  userById: UserTC.getResolver('findById'),
-  userOne: UserTC.getResolver('findOne'),
-  userMany: UserTC.getResolver('findMany'),
-  userCount: UserTC.getResolver('count')
-});
+// schemaComposer.Query.addFields({
+//   userById: UserTC.getResolver('findById'),
+//   userOne: UserTC.getResolver('findOne'),
+//   userMany: UserTC.getResolver('findMany'),
+//   userCount: UserTC.getResolver('count')
+// });
 
-schemaComposer.Mutation.addFields({
-  userCreateOne: UserTC.getResolver('createOne'),
-  userUpdateById: UserTC.getResolver('updateById'),
-  userUpdateOne: UserTC.getResolver('updateOne')
-});
+// schemaComposer.Mutation.addFields({
+//   userCreateOne: UserTC.getResolver('createOne'),
+//   userUpdateById: UserTC.getResolver('updateById'),
+//   userUpdateOne: UserTC.getResolver('updateOne')
+// });
 
-export const graphqlSchema = schemaComposer.buildSchema();
+// export const graphqlSchema = schemaComposer.buildSchema();
