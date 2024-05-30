@@ -33,11 +33,7 @@ export interface ICoconut {
   xPosition: number;
   yPosition: number;
   animationDuration: string;
-  designation?: string;
-  image: string;
-  alt: string;
   id: number;
-  name: string;
   content: string;
   title: string;
   users: string[];

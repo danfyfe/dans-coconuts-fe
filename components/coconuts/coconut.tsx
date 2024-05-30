@@ -2,6 +2,8 @@
 import { MouseEventHandler, useCallback, useEffect, useId, useRef, useState } from 'react';
 import { ICoconut } from '@/models/Coconut';
 import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../tool-tip';
+import H2 from '../core/typography/H2';
 
 
 const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
@@ -73,30 +75,44 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
   }, [handleDrag, handleDragTouch]);
 
   return (
-    <div
-      id={`coconut-${index}`}
-      draggable="true"
-      ref={coconutRef}
-      className={`
-        absolute ease-in-out h-16 w-16 md:drop-shadow-coconut cursor-grab z-[999]
-        animate-fall
-      `}
-      style={{
-        left: coconut.xPosition,
-        animationDuration: coconut.animationDuration
-      }}
-      onDragStart={handleDragStart}
-      onTouchStart={handleDragStartTouch}
+    <TooltipProvider
+      delayDuration={0}
     >
-      <Image
-        priority
-        height={100}
-        width={100}
-        alt={coconut.alt}
-        src={coconut.image}
-        className=""
-      />
-    </div>
+      <Tooltip>
+        <TooltipTrigger
+          className={`
+            absolute ease-in-out h-16 w-16 md:drop-shadow-coconut cursor-grab z-[999]
+            animate-fall
+          `}
+          style={{
+            left: coconut.xPosition,
+            animationDuration: coconut.animationDuration
+          }}
+          draggable="true"
+        >
+          <div
+            id={`coconut-${index}`}
+            ref={coconutRef}
+            onDragStart={handleDragStart}
+            onTouchStart={handleDragStartTouch}
+          >
+            <Image
+              priority
+              height={100}
+              width={100}
+              src='/images/coconut.png'
+              alt='Image of a coconut'
+              className=""
+            />
+            <TooltipContent>
+              <div className="">
+                <H2 className="text-base text-left">{coconut.title}</H2>
+              </div>
+            </TooltipContent>
+        </div>
+      </TooltipTrigger>
+    </Tooltip>
+  </TooltipProvider>
   )
 };
 

@@ -64,9 +64,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       name: 'Coconut',
       content,
       title,
-      users,
-      image: '/images/coconut.png',
-      alt: 'Image of a coconut'
+      users
     };
     return coconut;
   }, [coconuts]);
