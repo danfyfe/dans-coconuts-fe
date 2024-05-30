@@ -38,4 +38,7 @@ export interface ICoconut {
   alt: string;
   id: number;
   name: string;
+  content: string;
+  title: string;
+  users: string[];
 };

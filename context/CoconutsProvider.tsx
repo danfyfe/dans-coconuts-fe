@@ -3,7 +3,7 @@ import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
 import { ICoconut } from "@/models/Coconut";
 import setCookie from "@/lib/setCookie";
-import { createContext, useState, useCallback, MouseEventHandler } from "react";
+import { createContext, useState, useCallback, MouseEventHandler, ChangeEventHandler } from "react";
 
 type ICoconutAttributes = {
   title: string;
@@ -15,14 +15,28 @@ interface ICoconutProvider {
   coconuts: ICoconut[];
   addCoconut: (coconut: ICoconutAttributes) => void;
   formActive: boolean;
-  toggleCoconutForm: MouseEventHandler<HTMLButtonElement>,
+  toggleCoconutForm: () => void;
+  messageTitle: string;
+  handleMessageTitle: ChangeEventHandler<HTMLInputElement>,
+  messageContent: string;
+  handleMessageContent: ChangeEventHandler<HTMLTextAreaElement>,
+  messageReceiverID: string;
+  handleMessageReceiverID: MouseEventHandler<HTMLButtonElement>,
+  resetForm: () => void
 }
 
 export const CoconutContext = createContext<ICoconutProvider>({
   coconuts: [],
   addCoconut: () => {},
   formActive: false,
-  toggleCoconutForm: () => {}
+  toggleCoconutForm: () => {},
+  messageTitle: '',
+  handleMessageTitle: () => {},
+  messageContent: '',
+  handleMessageContent: () => {},
+  messageReceiverID: '',
+  handleMessageReceiverID: () => {},
+  resetForm: () => {}
 });
 
 export const CoconutsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -37,7 +51,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     setFormActive(!formActive);
   }, [formActive]);
 
-  const createNewCoconut = useCallback(({ title, content, users }) => {
+  const createNewCoconut = useCallback(({ title, content, users } : ICoconutAttributes) => {
     const windowWidth = global.window.innerWidth;
     const windowHeight = global.window.innerHeight;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
@@ -57,7 +71,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     return coconut;
   }, [coconuts]);
 
-  const addCoconut = useCallback(({ title, content, users }) => {
+  const addCoconut = useCallback(({ title, content, users }: ICoconutAttributes) => {
     const newCoconut = createNewCoconut({ title, content, users });
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
@@ -65,15 +79,15 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     // setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 
-  const handleReceiverID = () => {
+  const handleMessageReceiverID = () => {
 
   };
 
-  const handleMessageTitle = (e) => {
+  const handleMessageTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessageTitle(e.target.value);
   };
 
-  const handleMessageContent = (e) => {
+  const handleMessageContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessageContent(e.target.value);
   };
 
@@ -102,7 +116,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       value={{
         coconuts, addCoconut, formActive, toggleCoconutForm,
         messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-        messageReceiverID, handleReceiverID, resetForm
+        messageReceiverID, handleMessageReceiverID, resetForm
       }}>
       {children}
     </CoconutContext.Provider>

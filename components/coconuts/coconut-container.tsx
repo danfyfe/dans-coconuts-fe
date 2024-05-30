@@ -1,8 +1,6 @@
 'use client'
-
 import { CoconutContext } from "@/context/CoconutsProvider";
 import { useContext } from "react";
-import CoconutTrashCan from "./coconut-trash-can";
 import Coconut from "./coconut";
 
 const CoconutContainer = () => {
@@ -17,7 +15,6 @@ const CoconutContainer = () => {
       '
     >
       <div className="relative h-full w-full">
-        {/* <CoconutTrashCan /> */}
         {
           coconuts.map((coconut, index) => {
             return <Coconut key={`coconut-${index}`} index={index} coconut={coconut} />
