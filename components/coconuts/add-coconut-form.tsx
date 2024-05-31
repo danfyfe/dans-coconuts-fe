@@ -25,21 +25,21 @@ const AddCoconutForm = ({ user }: { user: IUser | null }) => {
             <AddCoconutHeader />
             <form className='mt-4'>
               <TextInput
-                label='To:'
+                label='users'
                 name="message-receiver"
                 placeholder='Start typing to search by username'
               />
               <TextInput
-                label="Title:"
+                label="title"
                 name="message-title"
                 placeholder='Message title...'
                 onChange={handleMessageTitle}
                 value={messageTitle}
               />
               <TextArea
-                label="Message:"
+                label="message"
                 name="message"
-                placeholder="Send a user a message..."
+                placeholder="What do you want to say?"
                 onChange={handleMessageContent}
                 value={messageContent}
               ></TextArea>
