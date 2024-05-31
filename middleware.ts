@@ -18,10 +18,6 @@ export function middleware(request: NextRequest) {
     // user needs to be logged in to access page
     return NextResponse.redirect(new URL(`/signin?referrer=${path}`, request.nextUrl));
   }
-
-  if (!isAuthPath && token) {
-    console.log('LOGGED IN')
-  }
 }
 
 export const config = {
