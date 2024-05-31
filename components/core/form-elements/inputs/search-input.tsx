@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const SearchInput = ({ name, className, label='', id, placeholder, required, indexName }: ISearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<string[]>([]);
   
   useEffect(() => {
     // make call to Apollo search index
@@ -13,7 +13,7 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
       console.log('updated! ',searchTerm)
       results.push(searchTerm)
     }
-  }, [searchTerm])
+  }, [searchTerm, results]);
 
   return (
     <div className="relative">
