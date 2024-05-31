@@ -18,7 +18,8 @@ export const getDataFromToken = async (JWTtoken: string): Promise<{ success: boo
           email: userData.email,
           id: userData.id,
           username: userData.username,
-          image: userData.image
+          image: userData.image,
+          organizations: userData.organizations
         };
     
         return {

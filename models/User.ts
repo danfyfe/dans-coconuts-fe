@@ -18,6 +18,7 @@ export type IUser = {
   username: string;
   image?: string;
   id: string;
+  organizations: []
 }
 export interface IUserModel extends Document {
   email: string;

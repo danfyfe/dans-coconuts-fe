@@ -10,7 +10,7 @@ import { IUser } from "@/models/User";
 
 const OrganizationsListDisplay = ({ userSlug, user } : { userSlug: string, user: IUser | null }) => {
   const { state } = useContext(TaskManagementContext);
-  const organizations: IOrganization[] = [];
+  const organizations: IOrganization[] = user?.organizations ?? [];
 
   return (
     <div className="relative overflow-auto max-h-[90%]">

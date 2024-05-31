@@ -19,7 +19,6 @@ const HelpMenuDisplay = () => {
       activeHelpContent ? (
         <>
           <HelpMenuHeading heading={heading} />
-          <P className="text-xs text-left">*All data stored in Context only until MongoDB x PROD issue is sorted out</P>
           <HelpMenuAccordion titles={titles} content={content} />
         </>
       ) : (

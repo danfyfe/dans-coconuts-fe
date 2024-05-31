@@ -5,6 +5,7 @@ import ContentContainer from '../core/containers/content-container';
 import AddCoconutHeader from './add-coconut-header';
 import TextArea from '../core/form-elements/inputs/text-area';
 import TextInput from '../core/form-elements/inputs/text-input';
+import SearchInput from '../core/form-elements/inputs/search-input';
 import Button from '../core/utility/button';
 import getErrorMessage from '@/lib/errors/getErrorMessage';
 import { IUser } from '@/models/User';
@@ -24,7 +25,8 @@ const AddCoconutForm = ({ user }: { user: IUser | null }) => {
           <ContentContainer className="max-w-[95%] md:max-w-[30%]">
             <AddCoconutHeader />
             <form className='mt-4'>
-              <TextInput
+              <SearchInput
+                indexName="dans-coconuts.Users"
                 label='users'
                 name="message-receiver"
                 placeholder='Start typing to search by username'
