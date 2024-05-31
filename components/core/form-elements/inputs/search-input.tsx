@@ -42,15 +42,17 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
       </fieldset>
       <div className="absolute bg-sand_day w-[calc(100%+1rem)]
         left-1/2 -translate-x-1/2 border-[1px] border-coconut_brown
-        rounded p-2 overflow-auto max-h-72
+        rounded p-2 pr-1
       ">
-        {results.length > 0 ? (
-          results.map((result, index) => {
-            return (
-              <div key={`coconut-user-search-result-${index}`}>{result}</div>
-            )
-          })
-        ): null}
+        <div className="max-h-72 overflow-auto">
+          {results.length > 0 ? (
+            results.map((result, index) => {
+              return (
+                <div key={`coconut-user-search-result-${index}`}>{result}</div>
+              )
+            })
+          ): null}
+        </div>
       </div>
     </div>
   )
