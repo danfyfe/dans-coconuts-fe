@@ -8,7 +8,7 @@ import ProviderLogo from "@/lib/getProviderLogo"
 import HR from "../core/utility/HR"
 import AuthForm from "./auth-form"
 
-const SignInModal = ({ refererPath }: { refererPath?: string }) => {
+const SignInModal = ({ referrerPath }: { referrerPath?: string }) => {
   return (
     <ContentContainer className="xl:w-1/4">
         <H1 className="mb-5">Sign In</H1>
@@ -17,7 +17,7 @@ const SignInModal = ({ refererPath }: { refererPath?: string }) => {
             <Button
               key={`provider-${provider.id}-${idx}`}
               id={`provider-${provider.id}-${idx}`}
-              onClick={() => signIn(provider.id, { callbackUrl: refererPath })}
+              onClick={() => signIn(provider.id, { callbackUrl: referrerPath })}
               className="flex justify-center items-center w-full mb-3 px-2"
             >
                 <ProviderLogo provider={provider.name} />
@@ -25,7 +25,7 @@ const SignInModal = ({ refererPath }: { refererPath?: string }) => {
             </Button>
         ))}
         <HR text="OR" /> */}
-        <AuthForm type="signin" refererPath={refererPath}/>
+        <AuthForm type="signin" referrerPath={referrerPath}/>
         <P className="text-xs text-center">Sign in to access your task management board and coconuts</P>
       </ContentContainer>
   )

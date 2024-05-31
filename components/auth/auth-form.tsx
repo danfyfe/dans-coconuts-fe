@@ -11,14 +11,14 @@ import getErrorMessage from '@/lib/errors/getErrorMessage';
 import { ISignInParams, ISignUpParams } from '@/models/User';
 import { useRouter } from 'next/navigation';
 
-const getAuthUrl = ({ type, refererPath }: IAuthForm) => {
+const getAuthUrl = ({ type, referrerPath }: IAuthForm) => {
   const urlNoReferer = type === 'signin' ? '/signup' : 'signin';
-  const urlWithReferer = `${type === 'signin' ? `/signup?referer=${refererPath}` : `/signin?referer=${refererPath}`}`;
-  return refererPath ? urlWithReferer : urlNoReferer;
+  const urlWithReferer = `${type === 'signin' ? `/signup?referer=${referrerPath}` : `/signin?referer=${referrerPath}`}`;
+  return referrerPath ? urlWithReferer : urlNoReferer;
 }
 
-const AuthForm = ({ type, refererPath }: IAuthForm) => {
-  const authUrl = useMemo(() => getAuthUrl({type, refererPath }), [type, refererPath]);
+const AuthForm = ({ type, referrerPath }: IAuthForm) => {
+  const authUrl = useMemo(() => getAuthUrl({type, referrerPath }), [type, referrerPath]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -49,7 +49,7 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
       console.log('Sign Up failed: ', message);
     } finally {
       setLoading(false);
-      router.push(`/signin?referer=${refererPath}`);
+      router.push(`/signin?referer=${referrerPath}`);
     }
   };
 
@@ -62,8 +62,8 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
       console.log('Sign In failed: ', message);
     } finally {
       setLoading(false);
-      if (refererPath) {
-        router.push(refererPath);
+      if (referrerPath) {
+        router.push(referrerPath);
       } else {
         router.push('/')
       }
@@ -80,6 +80,7 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
         <>
           <form className="flex flex-col justify-center items-center">
             <TextInput
+              required
               label="email"
               name="email"
               id="auth-email"
@@ -98,6 +99,7 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
               ) : null
             }
             <TextInput
+              required
               type="password"
               label="password"
               name="password"
@@ -117,6 +119,7 @@ const AuthForm = ({ type, refererPath }: IAuthForm) => {
               ) : (
                 <Button
                   className="mt-2"
+                  disabled={!email || !password ? true : undefined}
                   type="button"
                   onClick={() => handleSignIn({ email, password })}
                 >

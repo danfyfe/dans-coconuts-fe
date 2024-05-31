@@ -16,6 +16,7 @@ const Button = ({ type="button", children, className, inverted=false, onClick, a
         ` : ``
         }
         font-roboto
+        disabled:opacity-50
         ${inverted ? '' : ''}
         ${className ? className : ''}
       `}
