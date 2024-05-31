@@ -1,7 +1,7 @@
 'use client'
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
-import { ICoconut } from "@/models/Coconut";
+import { ICoconut } from "@/models/coconuts/Coconut";
 import setCookie from "@/lib/setCookie";
 import { createContext, useState, useCallback, MouseEventHandler, ChangeEventHandler } from "react";
 
@@ -60,10 +60,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       xPosition: randomPosition,
       yPosition: windowHeight,
       animationDuration: randomTiming,
-      id: randomPosition,
-      content,
-      title,
-      users
+      id: `${randomPosition}`
     };
     return coconut;
   }, [coconuts]);

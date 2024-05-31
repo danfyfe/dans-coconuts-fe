@@ -29,12 +29,15 @@ const CoconutSchema: Schema = new mongoose.Schema({
 
 export const Coconut = mongoose.models.Coconut || mongoose.model("Coconut", CoconutSchema);
 
-export interface ICoconut {
+export interface ICoconutModel extends Document {
   xPosition: number;
   yPosition: number;
   animationDuration: string;
-  id: number;
-  content: string;
-  title: string;
-  users: string[];
+}
+
+export type ICoconut = {
+  xPosition: number;
+  yPosition: number;
+  animationDuration: string;
+  id: string;
 };
