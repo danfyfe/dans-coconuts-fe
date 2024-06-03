@@ -27,7 +27,7 @@ const AddCoconutForm = ({ user }: { user: IUser | null }) => {
             <form className='mt-4'>
               <SearchInput
                 indexName="dans-coconuts.Users"
-                label='users'
+                label='user'
                 name="message-receiver"
                 placeholder='Start typing to search by username'
               />

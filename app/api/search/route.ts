@@ -28,7 +28,8 @@ export async function GET(request: Request) {
           email: 1,
           image: 1
         }
-      }
+      };
+
       const results = await usersCollection?.aggregate([ searcher_aggregate, projection ]).limit(50).toArray();
 
       return NextResponse.json({
