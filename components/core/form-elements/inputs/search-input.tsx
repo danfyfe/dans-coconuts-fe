@@ -1,12 +1,15 @@
 'use client'
 import { ISearchInputProps } from "@/interfaces/content";
+import { IUser } from "@/models/User";
 import { useState, useEffect } from "react";
 
 
 const SearchInput = ({ name, className, label='', id, placeholder, required, indexName }: ISearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [displayResults, setDisplayResults] = useState<boolean>(false);
+  const [chosenUsers, setChosenUsers] = useState<Partial<IUser>[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [results, setResults] = useState<string[]>([]);
+  const [results, setResults] = useState<Partial<IUser>[]>([]);
   const [selectedUsers, setSelectedUsers] = useState([]);
   
   useEffect(() => {
@@ -17,10 +20,14 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
     };
 
     if (searchTerm) {
-      console.log('updated! ',searchTerm)
-      searchItUp();
+      searchItUp().then((r) => r.json()).then((resp) => {
+        if (resp.success) {
+          console.log(resp.users)
+         setResults(resp.users);
+        }
+      });
     }
-  }, [searchTerm, results]);
+  }, [searchTerm]);
 
   return (
     <div className="relative">
@@ -53,11 +60,16 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
             left-1/2 -translate-x-1/2 border-[1px] border-coconut_brown
             rounded p-2 pr-1 drop-shadow-lg
           ">
-            <div className="max-h-72 overflow-auto">
+            <div className="max-h-72 overflow-auto flex justify-around">
               {
                 results.map((result, index) => {
                   return (
-                    <div key={`coconut-user-search-result-${index}`}>{result}</div>
+                    <button
+                      key={`coconut-user-search-result-${index}`}
+                      className="p-2 rounded border-[1px] border-coconut_brown"
+                    >
+                      {result.username}
+                    </button>
                   )
                 })
               }
