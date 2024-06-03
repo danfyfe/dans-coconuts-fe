@@ -16,7 +16,7 @@ export async function GET(request: Request) {
         $search: {
           index: "users",
           text: {
-            query: "danfyfe",
+            query: searchTerm,
             path: "username"
           }
         }
