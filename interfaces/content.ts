@@ -1,3 +1,4 @@
+import { IUser } from "@/models/User";
 import { LinkProps } from "next/link"
 import { ButtonHTMLAttributes, InputHTMLAttributes } from "react";
 
@@ -30,7 +31,8 @@ export interface ITextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement>
 
 export interface ISearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  indexName: 'dans-coconuts.Users'
+  indexName: 'dans-coconuts.Users';
+  handleSelection: (user: Partial<IUser>) => void;
 }
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

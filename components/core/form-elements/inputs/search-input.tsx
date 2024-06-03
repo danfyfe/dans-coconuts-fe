@@ -3,10 +3,9 @@ import { ISearchInputProps } from "@/interfaces/content";
 import { IUser } from "@/models/User";
 import { useState, useEffect } from "react";
 import { FaMinus } from "react-icons/fa";
-import Loading from "../../loaders/loading";
 
 
-const SearchInput = ({ name, className, label='', id, placeholder, required, indexName }: ISearchInputProps) => {
+const SearchInput = ({ name, className, label='', id, placeholder, required, indexName, handleSelection }: ISearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [displayResults, setDisplayResults] = useState<boolean>(false);
   const [chosenUsers, setChosenUsers] = useState<Partial<IUser>[]>([]);
@@ -34,7 +33,7 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
       });
     }
   }, [searchTerm]);
-console.log(results)
+
   return (
     <div className="relative">
       <fieldset className={`${className ? className : ''}`}>
@@ -119,6 +118,7 @@ console.log(results)
                       className="p-2 rounded border-[1px] border-coconut_brown"
                       onClick={() => {
                         setChosenUsers([result]);
+                        handleSelection(result);
                         setDisplayResults(false);
                       }}
                     >

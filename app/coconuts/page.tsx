@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const CoconutsPage = async () => {
   const userResp = await getUserData();
-  const user = userResp.success ? userResp.user! : null;
+  const user = userResp.success ? userResp.user! : {};
 
   return (
     <>

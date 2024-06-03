@@ -2,13 +2,13 @@
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
 import { ICoconut } from "@/models/coconuts/Coconut";
-import setCookie from "@/lib/setCookie";
 import { createContext, useState, useCallback, MouseEventHandler, ChangeEventHandler } from "react";
+import { IUser } from "@/models/User";
 
 type ICoconutAttributes = {
   title: string;
   content: string;
-  users: string[];
+  users: Partial<IUser>[];
 }
 
 interface ICoconutProvider {
@@ -20,8 +20,8 @@ interface ICoconutProvider {
   handleMessageTitle: ChangeEventHandler<HTMLInputElement>,
   messageContent: string;
   handleMessageContent: ChangeEventHandler<HTMLTextAreaElement>,
-  messageReceiverID: string;
-  handleMessageReceiverID: MouseEventHandler<HTMLButtonElement>,
+  messageReceiver: Partial<IUser>;
+  handleMessageReceiver: (user: Partial<IUser>) => void,
   resetForm: () => void
 }
 
@@ -34,8 +34,8 @@ export const CoconutContext = createContext<ICoconutProvider>({
   handleMessageTitle: () => {},
   messageContent: '',
   handleMessageContent: () => {},
-  messageReceiverID: '',
-  handleMessageReceiverID: () => {},
+  messageReceiver: {},
+  handleMessageReceiver: (user: Partial<IUser>) => {},
   resetForm: () => {}
 });
 
@@ -43,7 +43,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
   const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
   const [messageTitle, setMessageTitle] = useState<string>('');
   const [messageContent, setMessageContent] = useState<string>('');
-  const [messageReceiverID, setMessageReceiverID] = useState<string>('');
+  const [messageReceiver, setMessageReceiver] = useState<Partial<IUser>>({});
   const [formActive, setFormActive] = useState<boolean>(false);
   const coconutCountCookie = useGetCookie('dc-coconut-count');
 
@@ -73,8 +73,8 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     // setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 
-  const handleMessageReceiverID = () => {
-
+  const handleMessageReceiver = (user: Partial<IUser>) => {
+    setMessageReceiver(user);
   };
 
   const handleMessageTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +88,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
   const resetForm = () => {
     setMessageContent('');
     setMessageTitle('');
-    setMessageReceiverID('');
+    setMessageReceiver({});
   };
 
   // useEffect(() => {
@@ -110,7 +110,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       value={{
         coconuts, addCoconut, formActive, toggleCoconutForm,
         messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-        messageReceiverID, handleMessageReceiverID, resetForm
+        messageReceiver, handleMessageReceiver, resetForm
       }}>
       {children}
     </CoconutContext.Provider>

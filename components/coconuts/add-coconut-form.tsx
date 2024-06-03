@@ -11,11 +11,11 @@ import getErrorMessage from '@/lib/errors/getErrorMessage';
 import { IUser } from '@/models/User';
 
 
-const AddCoconutForm = ({ user }: { user: IUser | null }) => {
+const AddCoconutForm = ({ user }: { user: IUser | {} }) => {
   const {
     formActive, toggleCoconutForm, addCoconut,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,
-    handleMessageReceiverID, messageReceiverID, resetForm
+    handleMessageReceiver, messageReceiver, resetForm
   } = useContext(CoconutContext);
 
   return (
@@ -30,6 +30,7 @@ const AddCoconutForm = ({ user }: { user: IUser | null }) => {
                 label='user'
                 name="message-receiver"
                 placeholder='Start typing to search by username'
+                handleSelection={handleMessageReceiver}
               />
               <TextInput
                 label="title"
@@ -53,7 +54,7 @@ const AddCoconutForm = ({ user }: { user: IUser | null }) => {
                       addCoconut({
                         title: messageTitle,
                         content: messageContent,
-                        users: [messageReceiverID, user?.id!]
+                        users: [messageReceiver, user]
                       });
                     } catch(error) {
                       const message = getErrorMessage(error);
