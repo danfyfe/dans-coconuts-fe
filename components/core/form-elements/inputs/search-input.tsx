@@ -3,15 +3,15 @@ import { ISearchInputProps } from "@/interfaces/content";
 import { IUser } from "@/models/User";
 import { useState, useEffect } from "react";
 import { FaMinus } from "react-icons/fa";
+import Loading from "../../loaders/loading";
 
 
 const SearchInput = ({ name, className, label='', id, placeholder, required, indexName }: ISearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [displayResults, setDisplayResults] = useState<boolean>(false);
   const [chosenUsers, setChosenUsers] = useState<Partial<IUser>[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [noneFound, setNoneFound] = useState<boolean>(false);
   const [results, setResults] = useState<Partial<IUser>[]>([]);
-  const [selectedUsers, setSelectedUsers] = useState([]);
   
   useEffect(() => {
     // make call to Apollo search index
@@ -23,13 +23,18 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
     if (searchTerm) {
       searchItUp().then((r) => r.json()).then((resp) => {
         if (resp.success) {
-         setResults(resp.users);
-         setDisplayResults(true);
+          if (resp.users.length === 0) {
+            setNoneFound(true);
+          } else {
+            setNoneFound(false);
+          }
+          setResults(resp.users);
+          setDisplayResults(true);
         }
       });
     }
   }, [searchTerm]);
-
+console.log(results)
   return (
     <div className="relative">
       <fieldset className={`${className ? className : ''}`}>
@@ -89,6 +94,16 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
             />
         </div>
       </fieldset>
+      {
+        noneFound && results.length === 0 ? (
+          <div className="absolute bg-sand_day w-[calc(100%+1rem)]
+            left-1/2 -translate-x-1/2 border-[1px] border-coconut_brown
+            rounded p-2 pr-1 drop-shadow-lg
+          ">
+            No users found
+          </div>
+        ): null
+      }
       {
         results.length > 0 && displayResults ? (
           <div className="absolute bg-sand_day w-[calc(100%+1rem)]
