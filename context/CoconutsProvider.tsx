@@ -8,7 +8,8 @@ import { IUser } from "@/models/User";
 type ICoconutAttributes = {
   title: string;
   content: string;
-  users: Partial<IUser>[];
+  sender: Partial<IUser>,
+  receiver: Partial<IUser>
 }
 
 interface ICoconutProvider {
@@ -51,7 +52,7 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
     setFormActive(!formActive);
   }, [formActive]);
 
-  const createNewCoconut = useCallback(({ title, content, users } : ICoconutAttributes) => {
+  const createNewCoconut = useCallback(({ title, content, receiver, sender } : ICoconutAttributes) => {
     const windowWidth = global.window.innerWidth;
     const windowHeight = global.window.innerHeight;
     const randomPosition = getRandomNumberInRange(-40, windowWidth);
@@ -60,16 +61,21 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       xPosition: randomPosition,
       yPosition: windowHeight,
       animationDuration: randomTiming,
-      id: `${randomPosition}`
+      id: `${randomPosition}`,
+      message: {
+        title,
+        content,
+        receiver: receiver,
+        sender: sender
+      }
     };
     return coconut;
   }, [coconuts]);
 
-  const addCoconut = useCallback(({ title, content, users }: ICoconutAttributes) => {
-    const newCoconut = createNewCoconut({ title, content, users });
+  const addCoconut = useCallback(({ title, content, sender, receiver }: ICoconutAttributes) => {
+    const newCoconut = createNewCoconut({ title, content, sender, receiver });
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
-    console.log('coconuts', coconuts, newCoconut)
     // setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 

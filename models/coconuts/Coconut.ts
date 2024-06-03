@@ -1,4 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { IUser } from '../User';
 
 const CoconutSchema: Schema = new mongoose.Schema({
   title: {
@@ -40,4 +41,10 @@ export type ICoconut = {
   yPosition: number;
   animationDuration: string;
   id: string;
+  message: {
+    sender: Partial<IUser>;
+    receiver: Partial<IUser>;
+    title: string;
+    content: string;
+  }
 };

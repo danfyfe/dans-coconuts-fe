@@ -15,7 +15,6 @@ import { FaPlus } from 'react-icons/fa';
 
 const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
   // TODO: refactor logic into custom hook
-  const ID = useId();
   const coconutRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const [position, setPosition] = useState({ x: coconut.xPosition, y: coconut.yPosition });
@@ -114,10 +113,12 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
                 <PopoverClose className="absolute -top-2 -right-2">
                   <FaPlus className="rotate-45" />
                 </PopoverClose>
-                <H2 className="text-base text-left">{coconut.title}</H2>
+                <P>From: {coconut.message.sender.username}</P>
+                <P>To: {coconut.message.receiver.username}</P>
+                <H2 className="text-base text-left">{coconut.message.title}</H2>
                 <div>
                   <div>
-                    <P>{coconut.content}</P>
+                    <P>{coconut.message.content}</P>
                   </div>
                 </div>
               </div>

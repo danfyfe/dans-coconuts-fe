@@ -54,7 +54,8 @@ const AddCoconutForm = ({ user }: { user: IUser | {} }) => {
                       addCoconut({
                         title: messageTitle,
                         content: messageContent,
-                        users: [messageReceiver, user]
+                        sender: user,
+                        receiver: messageReceiver
                       });
                     } catch(error) {
                       const message = getErrorMessage(error);
