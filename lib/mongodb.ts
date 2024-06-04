@@ -2,15 +2,14 @@
 import mongoose from "mongoose";
 import getErrorMessage from "./errors/getErrorMessage";
 
-const connection: { isConnected?: number } = {};
+const connection: { isConnected?: number; db?: typeof mongoose } = {};
 const dbURI = process.env.MONGODB_URI ?? '';
 
 async function connectMongoDB() {
-  // TODO: look into why this is causing an issue with search input for users
-  // if (connection.isConnected) {
-  //   console.log('Still connected to database.');
-  //   return
-  // };
+  if (connection.isConnected && connection.db) {
+    console.log('Still connected to database.');
+    return connection.db;
+  };
 
   try {
     const db = await mongoose.connect(dbURI, {
