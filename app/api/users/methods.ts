@@ -14,14 +14,38 @@ export const signIn = async ({ email, password }: ISignInParams) => {
 
 
 export const signUp = async ({ email, username, password }: ISignUpParams) => {
-  const body = JSON.stringify({
-    email,
-    username,
-    password
-  });
+  // const body = JSON.stringify({
+  //   email,
+  //   username,
+  //   password
+  // });
 
-  await fetch('/api/users/signup', {
+  const query = `
+    mutation CreateUser($input: NewUserInput) {
+      createUser(input: $input) {
+        username
+      }
+    }
+  `;
+
+  const body = JSON.stringify({ 
+    query,
+    variables: {
+      input: {
+        email,
+        username,
+        password
+      }
+    }
+  });
+  console.log('BODY: ', body)
+
+  await fetch('/api/users/graphql', {
     method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     body
   });
 };

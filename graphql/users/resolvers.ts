@@ -1,3 +1,5 @@
+import { ISignUpParams } from "@/models/User";
+
 const resolvers = {
   Query: {
     user: () => {
@@ -5,8 +7,19 @@ const resolvers = {
     }
   },
   Mutation: {
-    createUser: () => {
-      return 'new user created';
+    createUser: async (req: Request, { email, username, image, password }: ISignUpParams, context: any) => {
+      try {
+        const newUser = await context.dataSources.users.createUser({
+          email,
+          username,
+          image,
+          password
+        });
+        console.log('in mutation')
+        return newUser;
+      } catch(error) {
+        throw new Error('Failed to create user')
+      }
     }
   }
 };

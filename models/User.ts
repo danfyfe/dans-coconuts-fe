@@ -1,11 +1,14 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { composeWithMongoose } from 'graphql-compose-mongoose';
-import { schemaComposer } from 'graphql-compose';
+import { MongoDataSource } from "apollo-datasource-mongodb";
+import { ObjectId } from "mongodb";
+import getErrorMessage from '@/lib/errors/getErrorMessage';
+import bcryptjs from "bcryptjs";
 
 export type ISignUpParams = {
   email: string;
   username: string;
   password: string;
+  image?: string;
 }
 
 export type ISignInParams = {
@@ -21,6 +24,7 @@ export type IUser = {
   organizations: []
 }
 export interface IUserModel extends Document {
+  _id: ObjectId;
   email: string;
   username: string;
   image?: string;
@@ -69,20 +73,26 @@ const UserSchema = new Schema({
 
 export const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
 
-//graphql
-// const UserTC = composeWithMongoose(UserModel, {});
-
-// schemaComposer.Query.addFields({
-//   userById: UserTC.getResolver('findById'),
-//   userOne: UserTC.getResolver('findOne'),
-//   userMany: UserTC.getResolver('findMany'),
-//   userCount: UserTC.getResolver('count')
-// });
-
-// schemaComposer.Mutation.addFields({
-//   userCreateOne: UserTC.getResolver('createOne'),
-//   userUpdateById: UserTC.getResolver('updateById'),
-//   userUpdateOne: UserTC.getResolver('updateOne')
-// });
-
-// export const graphqlSchema = schemaComposer.buildSchema();
+export class Users extends MongoDataSource<IUserModel> {
+  async createUser({ email, username, password, image }: ISignUpParams) {
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(password, salt);
+    try {
+      return  await UserModel.create({ 
+        email,
+        username,
+        password: hashedPassword,
+        image
+      });
+      // return NextResponse.json({
+      //   success: true,
+      //   data: user
+      // });
+    } catch (error) {
+      const message = getErrorMessage(error);
+      console.log("Error in create user: ", message)
+      throw new Error("Failed to make user.")
+      // return NextResponse.json({ error: message, success: false });
+    }
+  }
+}
