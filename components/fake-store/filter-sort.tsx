@@ -6,7 +6,7 @@ const FilterSort = ({ categories }: { categories: ProductCategory[]}) => {
 
   return (
     <FilterSortProductContainer className="md:w-1/3">
-      ...side where user can filter or sort
+      filtering and sorting coming soon
     </FilterSortProductContainer>
   )
 };

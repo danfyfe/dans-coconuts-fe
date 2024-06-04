@@ -8,18 +8,24 @@ const ProductCard = ({
   title, price, category, image, rating
 }: Partial<Product>) => {
   return (
-    <article className="w-auto">
-      <H3>{title}</H3>
+    <article
+      className="
+        w-auto bg-white p-3 border-coconut_brown border-[1px]
+        rounded flex flex-col justify-center items-center
+      ">
+      <H3 className="text-center max-w-56">{title}</H3>
       <P className="capitalize">{category}</P>
       <P>{!!price ? formatUSD(price): ''}</P>
       {
         !!title && !!image ? (
           <div>
-            <Image 
+            <Image
+              className="object-contain"
               height={50}
               width={50}
               src={image}
               alt={title}
+              priority
             />
           </div>
         ): null
