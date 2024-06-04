@@ -6,7 +6,16 @@ const ProduceListing = async () => {
   const products = await response.json();
   return (
     <FilterSortProductContainer className="flex-1 md:ml-4 md:my-0 my-2">
-      ...products
+      <>
+        {
+          products.length > 0 ? (
+            <>
+            </>
+          ) : (
+            <></>
+          )
+        }
+      </>
     </FilterSortProductContainer>
   )
 };
