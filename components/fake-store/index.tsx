@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
 import ContentContainer from "../core/containers/content-container";
-import H1 from "../core/typography/H1";
-import HelpMenuHeading from "../help/help-menu-heading";
 import FakeStoreHeader from "./fake-store-header";
+import { getProducts } from "@/app/actions/fake-store";
 
 const ListingContainer = ({ children }: { children: ReactNode }) => {
   return (
@@ -12,7 +11,9 @@ const ListingContainer = ({ children }: { children: ReactNode }) => {
   )
 }
 
-const ProduceListing = () => {
+const ProduceListing = async () => {
+  const response = await getProducts();
+  const products = await response.json();
   return (
     <div>
       ...products
