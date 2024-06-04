@@ -24,3 +24,24 @@ export async function getProducts() {
   }
 };
 
+export async function getCategories() {
+  try {
+    const fakeCategoriesResponse = await fetch(`${process.env.FAKE_STORE_API}/products/categories`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Request-Headers': '*'
+      }
+    });
+    const fakeCategories = await fakeCategoriesResponse.json();
+    return NextResponse.json({
+      categories: fakeCategories,
+      success: true
+    })
+  } catch(error) {
+    const message = getErrorMessage(error);
+    return NextResponse.json({
+      message,
+      success: false
+    })
+  }
+};
