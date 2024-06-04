@@ -31,7 +31,7 @@ export async function getUserByUsername(username: string) {
       // query: GetUserByUsernameQuery(username)
       "collection": "Users",
       "database": "dans-coconuts",
-      "dataSource": "TaskManagement-1",
+      "dataSource": "dans-coconuts",
       "projection": {
           "_id": 1
       }
@@ -50,31 +50,3 @@ export async function getUserByUsername(username: string) {
   return NextResponse.json({ error: message, status })
 }
 
-// var axios = require('axios');
-// var data = JSON.stringify({
-//     "collection": "<COLLECTION_NAME>",
-//     "database": "dans-coconuts",
-//     "dataSource": "TaskManagement-1",
-//     "projection": {
-//         "_id": 1
-//     }
-// });
-
-// var config = {
-//     method: 'post',
-//     url: 'https://us-east-1.aws.data.mongodb-api.com/app/data-geungfv/endpoint/data/v1/action/findOne',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Access-Control-Request-Headers': '*',
-//       'api-key': 'vsunP9Aic9xW0dLcURwU5ielBnFq1xHZ55Wvcep8pA5cX8Zu7fptpZ2Q6TBys7Cq',
-//     },
-//     data: data
-// };
-
-// axios(config)
-//     .then(function (response) {
-//         console.log(JSON.stringify(response.data));
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
