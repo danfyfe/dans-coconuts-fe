@@ -1,7 +1,7 @@
 'use client'
-import FilterSort from "./filter-sort";
-import ProduceListing from "./product-listing";
-import { Product, ProductCategory } from "./types";
+import FilterSort from "../filter-sort/filter-sort";
+import ProduceListing from "../products/product-listing";
+import { Product, ProductCategory } from "../types";
 
 const FilterSortListingClient = ({
   products, categories }: { products: Product[]; categories: ProductCategory[] }) => {

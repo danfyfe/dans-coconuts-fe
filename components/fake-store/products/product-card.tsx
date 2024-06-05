@@ -1,7 +1,7 @@
 import { formatUSD } from "@/lib/formatting/formatUSD";
-import H3 from "../core/typography/H3";
-import P from "../core/typography/P";
-import { Product } from "./types";
+import H3 from "../../core/typography/H3";
+import P from "../../core/typography/P";
+import { Product } from "../types";
 import Image from "next/image";
 
 const ProductCard = ({
@@ -11,9 +11,9 @@ const ProductCard = ({
     <article
       className="
         w-auto bg-white p-3 border-coconut_brown border-[1px]
-        rounded flex flex-col justify-center items-center
+        rounded flex flex-col justify-center items-center shadow-sm
       ">
-      <H3 className="text-center max-w-56">{title}</H3>
+      <H3 className="text-center max-w-56 max-h-6 text-base text-ellipsis">{title}</H3>
       <P className="capitalize">{category}</P>
       <P>{!!price ? formatUSD(price): ''}</P>
       {
@@ -32,7 +32,7 @@ const ProductCard = ({
       }
         {
           !!rating?.rate && !!rating?.count ? (
-            <div>
+            <div className="text-sm">
               <P>Rating: {rating.rate}</P>
               <P>{rating.count} ratings</P>
             </div>

@@ -2,7 +2,7 @@ import ContentContainer from "../core/containers/content-container";
 import FakeStoreHeader from "./fake-store-header";
 import ListingContainer from "./listing-container";
 import { getCategories, getProducts } from "@/app/actions/fake-store";
-import FilterSortListingClient from "./filter-sort-listing-client";
+import FilterSortListingClient from "./results/filter-sort-listing-client";
 
 
 const FakeStore = async () => {

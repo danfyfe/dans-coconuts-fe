@@ -1,6 +1,6 @@
 'use client'
-import FilterSortProductContainer from "./filter-sort-products-container";
-import { ProductCategory } from "./types";
+import FilterSortProductContainer from "../filter-sort-products-container";
+import { ProductCategory } from "../types";
 
 const FilterSort = ({ categories }: { categories: ProductCategory[]}) => {
 

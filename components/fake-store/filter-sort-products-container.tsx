@@ -5,7 +5,7 @@ const FilterSortProductContainer = ({ children, className }:
 return (
   <div className={`
     border-[1px] border-coconut_brown rounded
-    p-2
+    p-2 shadow-md
     ${className ? className : ''}
   `}>
     {children}
