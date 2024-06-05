@@ -7,15 +7,15 @@ export const metadata: Metadata = {
   description: "Sign Up for Dan's Coconuts"
 }
  
-export default function SignUpPage({ searchParams }: { searchParams: { referer: string }}) {
-  const { referer } = searchParams;
-  const refererCheck = referer !== '/signup' && referer !== undefined;
-  const refererPath = refererCheck ? referer : '/'; 
+export default function SignUpPage({ searchParams }: { searchParams: { referrer: string }}) {
+  const { referrer } = searchParams;
+  const referrerCheck = referrer !== '/signup' && referrer !== undefined;
+  const referrerPath = referrerCheck ? referrer : '/'; 
 
   return (
     <>
       <CoconutContainer />
-      <SignUpModal refererPath={refererPath} />
+      <SignUpModal referrerPath={referrerPath} />
     </>
   )
 };
