@@ -1,6 +1,6 @@
 import Providers from '@/context';
 import '../styles/globals.css';
-import Menus from '@/components/core/navigation';
+import Menus from '@/components/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
 import { Roboto_Condensed } from 'next/font/google'
 import CoconutDan from '@/components/coconut-dan';

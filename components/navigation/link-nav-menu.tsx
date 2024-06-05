@@ -1,12 +1,12 @@
 
 'use client'
-import NextLink from "../utility/link";
-import MenuWrapper from "../containers/menu-container";
+import NextLink from "../core/utility/link";
+import MenuWrapper from "../core/containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
 import { useSession } from "next-auth/react";
-import P from "../typography/P";
-import Button from "../utility/button";
+import P from "../core/typography/P";
+import Button from "../core/utility/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { IUser } from "@/models/User";

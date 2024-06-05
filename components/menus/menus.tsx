@@ -1,5 +1,5 @@
 import WeatherWidget from "@/components/weather/weather-widget";
-import LinkNavMenu from "../core/navigation/link-nav-menu";
+import LinkNavMenu from "../navigation/link-nav-menu";
 import HelpMenu from "@/components/help/help-menu";
 import { IUser } from "@/models/User";
 
