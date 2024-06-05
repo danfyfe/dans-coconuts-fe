@@ -34,7 +34,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
 
   return (
     <MenuWrapper id="link-nav">
-      <ul id="nav-link-menu-ul" className="text-3xl">
+      <ul id="nav-link-menu-ul" className="text-2xl">
         <li>
           <NextLink
             href="/"
@@ -51,6 +51,20 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
         </li>
         <li>
           <NextLink
+            href="/fake-store"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Fake Store
+          </NextLink>
+        </li>
+        {/* <li>
+          <NextLink
             href="/coconuts"
             prefetch
             onClick={handleLinkClick}
@@ -62,8 +76,8 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
           >
             Coconuts
           </NextLink>
-        </li>
-        <li className="flex">
+        </li> */}
+        {/* <li className="flex">
           <NextLink
             href="/task-management"
             prefetch
@@ -76,7 +90,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
           >
             Task Management (WIP)
           </NextLink>
-        </li>
+        </li> */}
         <li>
           <NextLink
             href="/github"
