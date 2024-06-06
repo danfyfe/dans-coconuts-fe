@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import FakeStore from "@/components/fake-store";
+import { UL } from "dans-coconuts-components";
 
 export const metadata: Metadata = {
   title: "Dan's Coconuts | Fake Store",
@@ -8,7 +9,12 @@ export const metadata: Metadata = {
 
 const FakeStorePage = () => {
   return (
-    <FakeStore />
+    <>
+    <UL>
+      <li></li>
+    </UL>
+      <FakeStore />
+    </>
   )
 };
 
