@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem } from "@/components/core/ut
 import Button from "@/components/core/utility/button";
 import { FAKE_STORE_PRODUCT_FILTER_KEYS, FAKE_STORE_PRODUCT_FILTER_VALUES } from "@/context/fake-store/values";
 import { AccordionTrigger } from "@radix-ui/react-accordion";
+import AccContClient from "./accordion-cont-client";
 
 const Filter = ({ }) => {
   const filters = FAKE_STORE_PRODUCT_FILTER_KEYS;
@@ -18,29 +19,7 @@ const Filter = ({ }) => {
                   <AccordionTrigger>
                     {filter}
                   </AccordionTrigger>
-                  {
-                    FAKE_STORE_PRODUCT_FILTER_VALUES[filter] ? (
-                        <AccordionContent className="pl-2">
-                          {
-                            FAKE_STORE_PRODUCT_FILTER_VALUES[filter].map((val, index) => {
-                              return (
-                                <Button
-                                  key={`filter-value-${val}-${index}`}
-                                  asLink
-                                  className="block"
-                                >
-                                  {val} 
-                                </Button>
-                              )
-                            })
-                          }
-                        </AccordionContent>
-                    ) : (
-                      <AccordionContent className="pl-2">
-                          <P>No results</P>
-                      </AccordionContent>
-                    )
-                  }
+                  <AccContClient items={FAKE_STORE_PRODUCT_FILTER_VALUES[filter]} />
                 </AccordionItem>
             )
           })
