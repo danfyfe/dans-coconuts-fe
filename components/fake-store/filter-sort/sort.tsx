@@ -1,7 +1,9 @@
+import H3 from "@/components/core/typography/H3";
+
 const Sort = ({ }) => {
   return (
     <div>
-      Sorts
+      <H3>Sort</H3>
     </div>
   )
 };

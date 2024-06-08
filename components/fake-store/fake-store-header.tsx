@@ -5,7 +5,7 @@ const FakeStoreHeader = () => {
   return (
     <>
       <div className="flex justify-center">
-        <H1 className="!text-2xl">Welcome to the fake store</H1>
+        <H1 className="!text-2xl">Welcome to the Fake Store</H1>
         <HelpTrigger className="text-xs mb-4" category="fake-store" />
       </div>
     </>

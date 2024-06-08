@@ -1,3 +1,4 @@
+import H3 from "@/components/core/typography/H3";
 import P from "@/components/core/typography/P";
 import { Accordion, AccordionContent, AccordionItem } from "@/components/core/utility/accordion";
 import Button from "@/components/core/utility/button";
@@ -9,6 +10,7 @@ const Filter = ({ }) => {
   return (
     <div>
       <Accordion type="single" collapsible className="">
+        <H3>Filter</H3>
         {
           filters.map((filter, index) => {
             return (
