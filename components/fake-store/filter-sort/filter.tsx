@@ -15,12 +15,11 @@ const Filter = ({ }) => {
           filters.map((filter, index) => {
             return (
                 <AccordionItem className="border-coconut_brown pb-2" key={`product-filter-${index}`} value={`product-filter-${index}`}>
+                  <AccordionTrigger>
+                    {filter}
+                  </AccordionTrigger>
                   {
                     FAKE_STORE_PRODUCT_FILTER_VALUES[filter] ? (
-                      <>
-                        <AccordionTrigger>
-                          {filter}
-                        </AccordionTrigger>
                         <AccordionContent className="pl-2">
                           {
                             FAKE_STORE_PRODUCT_FILTER_VALUES[filter].map((val, index) => {
@@ -36,16 +35,10 @@ const Filter = ({ }) => {
                             })
                           }
                         </AccordionContent>
-                      </>
                     ) : (
-                      <>
-                        <AccordionTrigger>
-                          {filter}
-                        </AccordionTrigger>
-                        <AccordionContent className="pl-2">
+                      <AccordionContent className="pl-2">
                           <P>No results</P>
-                        </AccordionContent>
-                      </>
+                      </AccordionContent>
                     )
                   }
                 </AccordionItem>
