@@ -14,10 +14,13 @@ export type FakeStoreActionTypes =
 
 
 export type FakeStorePayloads =
-  | IFakeStoreResources
   | IUser;
 
-export type IFakeStoreResources = 'organization' | 'project' | 'task' | null;
+export type IFakeStoreSortTypes = '' | null;
+
+export type IFakeStoreFilterTypes = 'category' | null;
+
+export type IFakeStoreCategoryTypes = 'electronics' | 'jewelery' | "men's clothing" | "women's clothing"
 
 export type IFakeStoreActions =
   | { type: typeof FakeStoreActions.SET_FILTER; payload: IUser }
@@ -31,5 +34,6 @@ export type IFakeStoreProvider = {
 };
 
 export type IFakeStoreState = {
-  activeResource: IFakeStoreResources;
+  activeFilter: IFakeStoreFilterTypes,
+  activeSort: IFakeStoreSortTypes
 }

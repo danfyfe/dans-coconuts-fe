@@ -2,7 +2,12 @@ import { FakeStoreActions, IFakeStoreActions, IFakeStoreState } from "./types-ac
 
 export const fakeStoreReducer = (state: IFakeStoreState, action: IFakeStoreActions) => {
   switch(action.type) {
-    case FakeStoreActions.ADD_USER: {
+    case FakeStoreActions.SET_FILTER: {
+      return {
+        ...state
+      }
+    }
+    case FakeStoreActions.SET_SORT: {
       return {
         ...state
       }
