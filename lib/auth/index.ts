@@ -16,7 +16,7 @@ export const getDataFromToken = async (JWTtoken: string): Promise<{ success: boo
       if (userData) {
         const user = {
           email: userData.email,
-          id: userData.id,
+          _id: userData.id,
           username: userData.username,
           image: userData.image,
           organizations: userData.organizations

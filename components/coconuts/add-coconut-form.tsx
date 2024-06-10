@@ -26,6 +26,7 @@ const AddCoconutForm = ({ user }: { user: IUser | {} }) => {
             <AddCoconutHeader />
             <form className='mt-4'>
               <SearchInput
+                user={user}
                 indexName="dans-coconuts.Users"
                 label='user'
                 name="message-receiver"

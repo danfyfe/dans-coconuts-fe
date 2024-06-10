@@ -2,8 +2,9 @@
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
 import { ICoconut } from "@/models/coconuts/Coconut";
-import { createContext, useState, useCallback, MouseEventHandler, ChangeEventHandler } from "react";
+import { createContext, useState, useCallback, ChangeEventHandler } from "react";
 import { IUser } from "@/models/User";
+import { createCoconutDB } from "@/app/api/coconuts/methods";
 
 type ICoconutAttributes = {
   title: string;
@@ -65,15 +66,18 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
       message: {
         title,
         content,
-        receiver: receiver,
-        sender: sender
+        receiver,
+        sender
       }
     };
     return coconut;
-  }, [coconuts]);
+  }, []);
 
-  const addCoconut = useCallback(({ title, content, sender, receiver }: ICoconutAttributes) => {
+  const addCoconut = useCallback(async ({ title, content, sender, receiver }: ICoconutAttributes) => {
     const newCoconut = createNewCoconut({ title, content, sender, receiver });
+    const saveCoconutResp = await createCoconutDB(newCoconut);
+    const savedCoconut = await saveCoconutResp?.json();
+    console.log('saved', savedCoconut)
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
     // setCookie('dc-coconut-count', newCoconuts.length);

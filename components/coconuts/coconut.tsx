@@ -11,6 +11,8 @@ import {
 } from "@/components/popover";
 import { PopoverClose } from '@radix-ui/react-popover';
 import { FaPlus } from 'react-icons/fa';
+import HR from '../core/utility/HR';
+import H3 from '../core/typography/H3';
 
 
 const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
@@ -113,13 +115,15 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
                 <PopoverClose className="absolute -top-2 -right-2">
                   <FaPlus className="rotate-45" />
                 </PopoverClose>
-                <P>From: {coconut.message.sender.username}</P>
-                <P>To: {coconut.message.receiver.username}</P>
-                <H2 className="text-base text-left">{coconut.message.title}</H2>
+                <div className="mb-2">
+                  <P>From: {coconut.message.sender.username}</P>
+                  <P>To: {coconut.message.receiver.username}</P>
+                </div>
+                <HR />
                 <div>
-                  <div>
-                    <P>{coconut.message.content}</P>
-                  </div>
+                  <H3 className="text-base !text-left">Title: {coconut.message.title}</H3>
+                  <P>Message:</P>
+                  <P>{coconut.message.content}</P>
                 </div>
               </div>
             </PopoverContent>

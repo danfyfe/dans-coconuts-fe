@@ -36,7 +36,8 @@ export async function POST(req: Request) {
     // create JWT
     const tokenData = {
       id: user._id,
-      email: user.email
+      email: user.email,
+      username: user.username
     }
 
     if (!process.env.JWT_SECRET) {

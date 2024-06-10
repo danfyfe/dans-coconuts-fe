@@ -2,14 +2,6 @@ import mongoose, { Document, Schema } from 'mongoose';
 import { IUser } from '../User';
 
 const CoconutSchema: Schema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  content: {
-    type: String,
-    required: true
-  },
   xPosition: {
     type: Number,
     required: true
@@ -22,11 +14,54 @@ const CoconutSchema: Schema = new mongoose.Schema({
     type: String,
     required: true
   },
-  users: {
-    type: Array,
-    default: []
+  message: {
+    sender: {
+      _id: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      },
+      image: {
+        type: String
+      },
+      username: {
+        type: String,
+        required: true
+      }
+    },
+    receiver: {
+      _id: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      },
+      image: {
+        type: String
+      },
+      username: {
+        type: String,
+        required: true
+      }
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    }
+  }}, {
+    timestamps: true,
+    collection: 'Coconuts'
   }
-});
+);
 
 export const Coconut = mongoose.models.Coconut || mongoose.model("Coconut", CoconutSchema);
 
@@ -40,7 +75,7 @@ export type ICoconut = {
   xPosition: number;
   yPosition: number;
   animationDuration: string;
-  id: string;
+  id?: string;
   message: {
     sender: Partial<IUser>;
     receiver: Partial<IUser>;

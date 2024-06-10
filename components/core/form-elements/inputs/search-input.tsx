@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { FaMinus } from "react-icons/fa";
 
 
-const SearchInput = ({ name, className, label='', id, placeholder, required, indexName, handleSelection }: ISearchInputProps) => {
+const SearchInput = ({ name, className, label='', id, placeholder, required, indexName, handleSelection, user }: ISearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [displayResults, setDisplayResults] = useState<boolean>(false);
   const [chosenUsers, setChosenUsers] = useState<Partial<IUser>[]>([]);
@@ -14,7 +14,7 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
   
   useEffect(() => {
     // make call to Apollo search index
-    const searchItUp = async () => {
+    const searchItUp = async (): Promise<Response> => {
       const response = await fetch(`/api/search?search=${searchTerm}`);
       return response;
     };
@@ -27,7 +27,8 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
           } else {
             setNoneFound(false);
           }
-          setResults(resp.users);
+          const filtered = resp.users.filter((u: IUser) => user?._id !== u._id);
+          setResults(filtered);
           setDisplayResults(true);
         }
       });

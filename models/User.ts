@@ -20,7 +20,7 @@ export type IUser = {
   email: string;
   username: string;
   image?: string;
-  id: string;
+  _id: string;
   organizations: []
 }
 export interface IUserModel extends Document {
