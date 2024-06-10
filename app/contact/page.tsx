@@ -4,9 +4,8 @@ import ContactInfo from "@/components/contact";
 const ContactPage = () => {
   return (
     <>
-      <CoconutContainer />
+      {/* <CoconutContainer /> */}
       <ContactInfo />
-      
     </>
   )
 };

@@ -14,7 +14,7 @@ export default function SignUpPage({ searchParams }: { searchParams: { referrer:
 
   return (
     <>
-      <CoconutContainer />
+      {/* <CoconutContainer /> */}
       <SignUpModal referrerPath={referrerPath} />
     </>
   )

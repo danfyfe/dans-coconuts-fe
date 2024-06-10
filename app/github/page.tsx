@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const GitHubPage = () => (
   <>
-    <CoconutContainer />
+    {/* <CoconutContainer /> */}
     <GitHubContent>
       <GitHubRepos />
     </GitHubContent>

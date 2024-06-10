@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   return (
-    <CoconutContainer />
+    // <CoconutContainer />
+    <></>
   )
 };
 
