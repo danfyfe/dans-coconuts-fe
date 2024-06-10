@@ -40,19 +40,6 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
     setPassword(value)
   }, []);
 
-  const handleSignUp = async ({ email, username, password }: ISignUpParams) => {
-    setLoading(true);
-    try {
-      await signUp({ email, username, password });
-    } catch(error) {
-      const message = getErrorMessage(error);
-      console.log('Sign Up failed: ', message);
-    } finally {
-      setLoading(false);
-      router.push(`/signin?referer=${referrerPath}`);
-    }
-  };
-
   const handleSignIn = async ({ email, password }: ISignInParams) => {
     setLoading(true);
     try {
@@ -68,6 +55,18 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
         router.push('/')
       }
       router.refresh();
+    }
+  };
+
+  const handleSignUp = async ({ email, username, password }: ISignUpParams) => {
+    setLoading(true);
+    try {
+      await signUp({ email, username, password });
+    } catch(error) {
+      const message = getErrorMessage(error);
+      console.log('Sign Up failed: ', message);
+    } finally {
+      handleSignIn({ email, password });
     }
   };
 
