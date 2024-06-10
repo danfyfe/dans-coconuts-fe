@@ -20,14 +20,6 @@ export type IFakeStoreSortTypes = '' | null;
 
 export type IFakeStoreFilterTypes = 'category' | null;
 
-export type IFakeStoreFilterValueTypes = 
-{ 
-  "electronics",
-  "jewelery",
-  "men's clothing",
-  "women's clothing"
-}
-
 
 export type IFakeStoreCategoryTypes = 'electronics' | 'jewelery' | "men's clothing" | "women's clothing"
 
