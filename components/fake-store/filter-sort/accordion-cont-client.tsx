@@ -4,10 +4,14 @@ import { AccordionContent } from "@/components/core/utility/accordion";
 import Button from "@/components/core/utility/button";
 import P from "@/components/core/typography/P";
 import { IFakeStoreFilterValueTypes } from "@/context/fake-store/values";
+import { useRouter } from "next/navigation";
 
 const AccContClient = ({ items }: { items: IFakeStoreFilterValueTypes[]}) => {
+  const router = useRouter();
+  
   const handleClick = () => {
-
+    // add sort or filter to product listing
+    // replace URL
   };
 
   return (
