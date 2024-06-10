@@ -8,8 +8,8 @@ import TextInput from '../core/form-elements/inputs/text-input';
 import SearchInput from '../core/form-elements/inputs/search-input';
 import Button from '../core/utility/button';
 import getErrorMessage from '@/lib/errors/getErrorMessage';
-import { IUser } from '@/models/User';
 import { UserContext } from '@/context/UserProvider';
+import P from '../core/typography/P';
 
 
 const AddCoconutForm = () => {
@@ -24,7 +24,7 @@ const AddCoconutForm = () => {
   return (
     <>
       {
-        formActive ? (
+        formActive && !!user ? (
           <ContentContainer className="max-w-[95%] md:max-w-[30%]">
             <AddCoconutHeader />
             <form className='mt-4'>
@@ -81,7 +81,9 @@ const AddCoconutForm = () => {
               </div>
             </form>
           </ContentContainer>
-        ) : null
+        ) : (
+          <P>Error loading user data!</P>
+        )
       }
     </>
   )
