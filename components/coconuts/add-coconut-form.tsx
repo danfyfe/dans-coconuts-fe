@@ -9,14 +9,17 @@ import SearchInput from '../core/form-elements/inputs/search-input';
 import Button from '../core/utility/button';
 import getErrorMessage from '@/lib/errors/getErrorMessage';
 import { IUser } from '@/models/User';
+import { UserContext } from '@/context/UserProvider';
 
 
-const AddCoconutForm = ({ user }: { user: IUser }) => {
+const AddCoconutForm = () => {
   const {
     formActive, toggleCoconutForm, addCoconut,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,
     handleMessageReceiver, messageReceiver, resetForm
   } = useContext(CoconutContext);
+
+  const { user } = useContext(UserContext);
 
   return (
     <>

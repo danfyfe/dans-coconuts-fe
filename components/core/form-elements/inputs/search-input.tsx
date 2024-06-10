@@ -33,7 +33,7 @@ const SearchInput = ({ name, className, label='', id, placeholder, required, ind
         }
       });
     }
-  }, [searchTerm]);
+  }, [searchTerm, user]);
 
   return (
     <div className="relative">

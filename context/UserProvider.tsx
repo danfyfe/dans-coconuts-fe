@@ -17,8 +17,8 @@ export const UserContext = createContext<IUserContext>({
 
 
 
-export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<IUser | undefined>();
+export const UserProvider = ({ children, userData }: { children: React.ReactNode; userData: IUser }) => {
+  const [user, setUser] = useState<IUser | undefined>(userData);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

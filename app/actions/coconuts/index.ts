@@ -3,22 +3,22 @@ import connectMongoDB from "@/lib/mongodb";
 import { ICoconut } from "@/models/coconuts/Coconut";
 import { NextResponse } from "next/server";
 
-export async function getCoconuts(useId: string) {
-
-};
-
-export async function createCoconutDB(coconut: ICoconut){
-  await connectMongoDB();
+export async function getCoconuts(username: string) {
   try {
-    const { message } = coconut;
-    const payload = {
-      ...coconut,
-      ...{
-        ...message,
-        sender: message.sender._id,
-        receiver: message.sender._id
-      }
-    }
+    const db = await connectMongoDB();
+    const coconutsCollection = db?.connection.collection('Coconuts').find({
+      $or: [
+        {'message.sender.username': username},
+        {'message.receiver.username': username}
+      ]
+    },);
+
+    const coconuts = await coconutsCollection?.toArray();
+    
+    return NextResponse.json({
+      success: true,
+      coconuts
+    })
   } catch(error) {
     const message = getErrorMessage(error);
     return NextResponse.json({

@@ -1,5 +1,4 @@
 'use client'
-import { useGetCookie } from "@/lib/hooks/useGetCookie";
 import { getRandomNumberInRange } from "@/lib/randoms";
 import { ICoconut } from "@/models/coconuts/Coconut";
 import { createContext, useState, useCallback, ChangeEventHandler } from "react";
@@ -41,13 +40,13 @@ export const CoconutContext = createContext<ICoconutProvider>({
   resetForm: () => {}
 });
 
-export const CoconutsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [coconuts, setCoconuts] = useState<ICoconut[]>([]);
+export const CoconutsProvider = ({ children, coconutsData }: { children: React.ReactNode, coconutsData: ICoconut[] | [] }) => {
+  const [coconuts, setCoconuts] = useState<ICoconut[]>(coconutsData);
   const [messageTitle, setMessageTitle] = useState<string>('');
   const [messageContent, setMessageContent] = useState<string>('');
   const [messageReceiver, setMessageReceiver] = useState<Partial<IUser>>({});
   const [formActive, setFormActive] = useState<boolean>(false);
-  const coconutCountCookie = useGetCookie('dc-coconut-count');
+  // const coconutCountCookie = useGetCookie('dc-coconut-count');
 
   const toggleCoconutForm = useCallback(() => {
     setFormActive(!formActive);

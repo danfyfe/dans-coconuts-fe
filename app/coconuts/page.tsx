@@ -3,6 +3,7 @@ import CoconutContainer from '@/components/coconuts/coconut-container';
 import { getUserData } from '../actions/users';
 import { Metadata } from 'next';
 
+
 export const metadata: Metadata = {
   title: "Dan's Coconuts",
   description: 'Just a beach...with coconuts'
@@ -10,13 +11,10 @@ export const metadata: Metadata = {
  
 
 const CoconutsPage = async () => {
-  const userResp = await getUserData();
-  const user = userResp.user!;
-
   return (
     <>
       <CoconutContainer />
-      <AddCoconutForm user={user} />
+      <AddCoconutForm />
     </>
   )
 };

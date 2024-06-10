@@ -1,7 +1,8 @@
 'use client'
 import { CoconutContext } from "@/context/CoconutsProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Coconut from "./coconut";
+import { ICoconut } from "@/models/coconuts/Coconut";
 
 const CoconutContainer = () => {
   const { coconuts } = useContext(CoconutContext);

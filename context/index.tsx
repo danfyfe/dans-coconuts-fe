@@ -7,26 +7,33 @@ import { TaskManagementProvider } from "./TaskManagementProvider"
 import { HelpProvider } from "./HelpProvider"
 import { ReactQueryProvider } from "./ReactQueryProvider"
 import { UserProvider } from "./UserProvider"
+import { getCoconuts } from "@/app/actions/coconuts"
+import { getUserData } from '@/app/actions/users';
 
-
-const Providers = ({ children }: { children: ReactNode }) => (
-  <ReactQueryProvider>
-    <UserProvider>
-      <SessionProvider>
-        <MenusProvider>
-          <HelpProvider>
-            <WeatherProvider>
-              <CoconutsProvider>
-                <TaskManagementProvider>
-                  {children}
-                </TaskManagementProvider>
-              </CoconutsProvider>
-            </WeatherProvider>
-          </HelpProvider>
-        </MenusProvider>
-      </SessionProvider>
-    </UserProvider>
-  </ReactQueryProvider>
-);
+const Providers = async ({ children }: { children: ReactNode }) => {
+  const userResp = await getUserData();
+  const user = userResp.user!;
+  const coconutsResp = await getCoconuts(user.username);
+  const coconuts = await coconutsResp.json();
+  return (
+    <ReactQueryProvider>
+      <UserProvider userData={user}>
+        <SessionProvider>
+          <MenusProvider>
+            <HelpProvider>
+              <WeatherProvider>
+                <CoconutsProvider coconutsData={coconuts.success ? coconuts.coconuts : []}>
+                  <TaskManagementProvider>
+                    {children}
+                  </TaskManagementProvider>
+                </CoconutsProvider>
+              </WeatherProvider>
+            </HelpProvider>
+          </MenusProvider>
+        </SessionProvider>
+      </UserProvider>
+    </ReactQueryProvider>
+  )
+};
 
 export default Providers;
