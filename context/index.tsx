@@ -13,7 +13,7 @@ import { getUserData } from '@/app/actions/users';
 const Providers = async ({ children }: { children: ReactNode }) => {
   const userResp = await getUserData();
   const user = userResp.user!;
-  const coconutsResp = await getCoconuts(user.username);
+  const coconutsResp = await getCoconuts(user?.username ?? '');
   const coconuts = await coconutsResp.json();
   return (
     <ReactQueryProvider>
