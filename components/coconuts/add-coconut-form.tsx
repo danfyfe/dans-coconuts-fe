@@ -11,7 +11,7 @@ import getErrorMessage from '@/lib/errors/getErrorMessage';
 import { IUser } from '@/models/User';
 
 
-const AddCoconutForm = ({ user }: { user: IUser | {} }) => {
+const AddCoconutForm = ({ user }: { user: IUser }) => {
   const {
     formActive, toggleCoconutForm, addCoconut,
     messageTitle, handleMessageTitle, messageContent, handleMessageContent,

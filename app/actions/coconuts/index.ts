@@ -19,7 +19,6 @@ export async function createCoconutDB(coconut: ICoconut){
         receiver: message.sender._id
       }
     }
-    console.log('PAYLOAD', payload)
   } catch(error) {
     const message = getErrorMessage(error);
     return NextResponse.json({

@@ -76,10 +76,14 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
   const addCoconut = useCallback(async ({ title, content, sender, receiver }: ICoconutAttributes) => {
     const newCoconut = createNewCoconut({ title, content, sender, receiver });
     const saveCoconutResp = await createCoconutDB(newCoconut);
-    const savedCoconut = await saveCoconutResp?.json();
-    console.log('saved', savedCoconut)
+    const savedCoconut = await saveCoconutResp.json();
+    if (!savedCoconut.success) {
+      console.log('ERROR', savedCoconut.message);
+    }
     const newCoconuts = [...coconuts, newCoconut];
     setCoconuts(newCoconuts);
+    // cookie is old functionality where we saved the amount to be loaded next time
+    // this was before the message system
     // setCookie('dc-coconut-count', newCoconuts.length);
   }, [coconuts, createNewCoconut]);
 

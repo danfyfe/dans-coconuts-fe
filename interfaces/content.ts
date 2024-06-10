@@ -33,7 +33,7 @@ export interface ISearchInputProps extends InputHTMLAttributes<HTMLInputElement>
   label: string;
   indexName: 'dans-coconuts.Users';
   handleSelection: (user: Partial<IUser>) => void;
-  user: IUser | {};
+  user: IUser;
 }
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
