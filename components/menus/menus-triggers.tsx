@@ -1,5 +1,5 @@
 'use client'
-import LinkNavTrigger from "../core/navigation/link-nav-trigger";
+import LinkNavTrigger from "../navigation/link-nav-trigger";
 import AddCoconut from "@/components/coconuts/add-coconut-button";
 import WeatherWidgetTrigger from "@/components/weather/weather-widget-trigger";
 import { usePathname } from "next/navigation";

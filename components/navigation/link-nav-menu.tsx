@@ -1,12 +1,12 @@
 
 'use client'
-import NextLink from "../utility/link";
-import MenuWrapper from "../containers/menu-container";
+import NextLink from "../core/utility/link";
+import MenuWrapper from "../core/containers/menu-container";
 import { useContext } from "react";
 import { MenusContext } from "@/context/MenusProvider";
 import { useSession } from "next-auth/react";
-import P from "../typography/P";
-import Button from "../utility/button";
+import P from "../core/typography/P";
+import Button from "../core/utility/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { IUser } from "@/models/User";
@@ -34,7 +34,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
 
   return (
     <MenuWrapper id="link-nav">
-      <ul id="nav-link-menu-ul" className="text-3xl">
+      <ul id="nav-link-menu-ul" className="text-2xl">
         <li>
           <NextLink
             href="/"
@@ -47,6 +47,20 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
             `}
           >
             Home
+          </NextLink>
+        </li>
+        <li>
+          <NextLink
+            href="/fake-store"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Fake Store (WIP)
           </NextLink>
         </li>
         <li>

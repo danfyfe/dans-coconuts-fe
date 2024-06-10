@@ -28,7 +28,7 @@ const MenuWrapper = ({ children, id, className }: IMenuWrapperProps) => {
       ref={menuWrapperRef}
       id={`${id}-menu-outer`}
       className={`
-        absolute w-max bg-inherit flex justify-end top-20
+        absolute w-max bg-inherit flex justify-end top-16 md:top-20
         ${ menuActive ? 'opacity-100 visible' : 'opacity-0 invisible'}
         transition-all ease-in-out z-[1000] duration-75
         ${className ? className : ''}

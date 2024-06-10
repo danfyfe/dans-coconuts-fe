@@ -1,5 +1,5 @@
-import MenuTriggers from "../../menus/menus-triggers";
-import Menus from "../../menus/menus";
+import MenuTriggers from "../menus/menus-triggers";
+import Menus from "../menus/menus";
 import { getUserByUsername, getUserData } from "@/app/actions/users";
 
 const Navigation = async () => {

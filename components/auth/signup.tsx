@@ -9,7 +9,7 @@ import HR from "../core/utility/HR"
 import AuthForm from "./auth-form"
 import { useSession } from "next-auth/react"
 
-const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
+const SignUpModal = ({ referrerPath }: { referrerPath?: string }) => {
   // const { data: session } = useSession();
   return (
     <ContentContainer className="xl:w-1/4">
@@ -20,7 +20,7 @@ const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
               key={`provider-${provider.id}-${idx}`}
               id={`provider-${provider.id}-${idx}`}
               onClick={() => {
-                signIn(provider.id, { callbackUrl: refererPath }).then(() => {
+                signIn(provider.id, { callbackUrl: referrerPath }).then(() => {
 
                 })
               }}
@@ -31,7 +31,7 @@ const SignUpModal = ({ refererPath }: { refererPath?: string }) => {
             </Button>
         ))}
         <HR text="OR" /> */}
-        <AuthForm type="signup" refererPath={refererPath} />
+        <AuthForm type="signup" referrerPath={referrerPath} />
         <P className="text-xs text-center">Sign up to create a task management board</P>
       </ContentContainer>
   )
