@@ -60,10 +60,10 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
               ${linkNavOpen ? 'visible' : 'invisible'}
             `}
           >
-            Fake Store
+            Fake Store (WIP)
           </NextLink>
         </li>
-        {/* <li>
+        <li>
           <NextLink
             href="/coconuts"
             prefetch
@@ -76,8 +76,8 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
           >
             Coconuts
           </NextLink>
-        </li> */}
-        {/* <li className="flex">
+        </li>
+        <li className="flex">
           <NextLink
             href="/task-management"
             prefetch
@@ -90,7 +90,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
           >
             Task Management (WIP)
           </NextLink>
-        </li> */}
+        </li>
         <li>
           <NextLink
             href="/github"
