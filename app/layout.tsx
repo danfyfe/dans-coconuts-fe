@@ -3,12 +3,12 @@ import '../styles/globals.css';
 import Menus from '@/components/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
 import { Roboto_Condensed } from 'next/font/google'
-import CoconutDan from '@/components/coconut-dan';
 
 interface RootLayout {
 	children: React.ReactNode;
 }
 
+// font optimization from Next
 const roboto = Roboto_Condensed({
 	weight: ['400'],
 	subsets: ['latin'],
@@ -23,7 +23,8 @@ const RootLayout = ({ children }: RootLayout) => (
 					id="main-content"
 					className="
 						relative overflow-hidden h-[100dvh]
-						scrollbar-thumb-coconut_brown scrollbar-track-sand_day
+						scrollbar-thumb-coconut_brown
+						scrollbar-track-sand_day
 					"
 				>
 					<Menus />
