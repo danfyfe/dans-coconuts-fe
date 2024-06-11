@@ -1,7 +1,6 @@
 'use client'
 import { createContext, useState } from "react";
 
-
 export type IActiveTour = 'home' | null;
 
 export type IModalType = 'home';

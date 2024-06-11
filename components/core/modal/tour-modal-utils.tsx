@@ -1,23 +1,29 @@
 'use client'
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction, useContext } from "react";
 import setCookie from "@/lib/setCookie";
 import { FaPlus } from "react-icons/fa";
 import withModal from "@/hoc/display/withModal";
 import ContentContainer from "@/components/core/containers/content-container";
 import Button from "@/components/core/utility/button";
-import { IModalType } from "@/context/TourProvider";
+import { IModalType, TourContext } from "@/context/TourProvider";
 
-const ModalUtils = ({ type, setOpen, children }:
+const TourModalUtils = ({ type, setOpen, children }:
   { 
     type: IModalType;
     // setOpen is supplied by withModal
     setOpen?: Dispatch<SetStateAction<boolean>>;
     children: ReactNode;
   }) => {
+    const { setActiveTour } = useContext(TourContext);
 
   const handleSetCookie = () => {
     const cookieName = `${type}-modal-opt-out`;
     setCookie(cookieName, 1);
+    if (setOpen) setOpen(false);
+  };
+
+  const handleSetTour = () => {
+    setActiveTour(type);
     if (setOpen) setOpen(false);
   };
 
@@ -44,6 +50,7 @@ const ModalUtils = ({ type, setOpen, children }:
         </Button>
         <Button
           className=""
+          onClick={handleSetTour}
         >
           Start Tour
         </Button>
@@ -52,4 +59,4 @@ const ModalUtils = ({ type, setOpen, children }:
   )
 };
 
-export default withModal(ModalUtils);
+export default withModal(TourModalUtils);
