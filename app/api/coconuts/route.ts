@@ -10,7 +10,7 @@ export async function POST(req: Request){
     const newCoconut = await Coconut.create({
       ...coconut
     });
-    console.log('new', newCoconut, 'coc', coconut)
+
     return NextResponse.json({
       success: true,
       coconut: newCoconut

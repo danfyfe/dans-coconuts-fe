@@ -1,6 +1,7 @@
 import getErrorMessage from "@/lib/errors/getErrorMessage";
 import connectMongoDB from "@/lib/mongodb";
 import { ICoconut } from "@/models/coconuts/Coconut";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function getCoconuts(username: string) {
@@ -12,12 +13,13 @@ export async function getCoconuts(username: string) {
         {'message.receiver.username': username}
       ]
     },);
-
-    const coconuts = await coconutsCollection?.toArray();
     
+    const coconuts = await coconutsCollection?.toArray();
+    // console.log('in get coconuts,', coconuts)
+    revalidatePath('/coconuts');
     return NextResponse.json({
       success: true,
-      coconuts
+      coconuts,
     })
   } catch(error) {
     const message = getErrorMessage(error);

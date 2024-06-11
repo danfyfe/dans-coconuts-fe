@@ -1,15 +1,29 @@
 'use client'
-
 import { AccordionContent } from "@/components/core/utility/accordion";
 import Button from "@/components/core/utility/button";
 import P from "@/components/core/typography/P";
 import { IFakeStoreFilterValueTypes } from "@/context/fake-store/values";
-import { useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
 
-const AccContClient = ({ items }: { items: IFakeStoreFilterValueTypes[]}) => {
+const createParam = (type: 'filter' | 'sort', params: string[] | undefined) => {
+  if (!params) return '';
+  return params.reduce((acc, curr) => {
+    return acc + curr + '&';
+  }, `${type}=`)
+};
+
+const AccContClient = ({ items, type }: { items: IFakeStoreFilterValueTypes[]; type: 'filter' | 'sort' }) => {
   const router = useRouter();
+  const pathname = usePathname();
+  const params = useSearchParams();
   
-  const handleClick = () => {
+  const handleClick = (val: string) => {
+    const encodedVal = encodeURIComponent(val);
+    const filterParams = params?.getAll('filter');
+    const sortParams = params?.getAll('filter');
+    const filters = createParam('filter', filterParams);
+    console.log(filters)
+    // router.replace(`/fake-store?`)
     // add sort or filter to product listing
     // replace URL
   };
@@ -26,7 +40,7 @@ const AccContClient = ({ items }: { items: IFakeStoreFilterValueTypes[]}) => {
                     key={`filter-value-${val}-${index}`}
                     asLink
                     className="block"
-                    onClick={handleClick}
+                    onClick={() => handleClick(val)}
                   >
                     {val}
                   </Button>

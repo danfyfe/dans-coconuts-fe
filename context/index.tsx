@@ -15,6 +15,7 @@ const Providers = async ({ children }: { children: ReactNode }) => {
   const user = userResp.user!;
   const coconutsResp = await getCoconuts(user?.username ?? '');
   const coconuts = await coconutsResp.json();
+  // console.log('     loading?        ', user)
   return (
     <ReactQueryProvider>
       <UserProvider userData={user}>

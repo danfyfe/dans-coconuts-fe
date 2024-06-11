@@ -13,7 +13,7 @@ export const FAKE_STORE_HELP: ActiveHelpCategoryContent = {
         This is a fake store.
       </P>
       <P className="text-left">
-        It uses the <a href="https://fakestoreapi.com/" target="_blank" className="underline">fake store API</a>.
+        It uses the <a href="https://fakestoreapi.com/" target="_blank" className="underline">fake store API</a>, which is great, but has some design restrictions due to the images (white background).
       </P>
       <P className="text-left">
         It serves as practice for building out e commerce platforms.

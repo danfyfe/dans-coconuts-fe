@@ -18,7 +18,7 @@ const Filter = ({ }) => {
                   <AccordionTrigger>
                     {filter}
                   </AccordionTrigger>
-                  <AccContClient items={items} />
+                  <AccContClient items={items} type="filter" />
                 </AccordionItem>
             )
           })
