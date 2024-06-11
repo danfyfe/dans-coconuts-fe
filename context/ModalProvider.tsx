@@ -4,17 +4,18 @@ import { Dispatch, SetStateAction } from "react";
 
 interface IModalContext {
   open: boolean;
-  // setOpen: Dispatch<SetStateAction<boolean>>
+  setOpen: Dispatch<SetStateAction<boolean>>
   toggleOpen: () => void;
 }
 
 export const ModalContext = createContext<IModalContext>({
   open: false,
+  setOpen: () => {},
   toggleOpen: () => {},
 });
 
 export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const toggleOpen = () => setOpen(!open);
 
@@ -24,7 +25,7 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   // }, [setOpen]);
 
   return (
-    <ModalContext.Provider value={{ open, toggleOpen }}>
+    <ModalContext.Provider value={{ open, toggleOpen, setOpen }}>
       {children}
     </ModalContext.Provider>
   )

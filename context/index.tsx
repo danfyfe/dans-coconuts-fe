@@ -9,6 +9,7 @@ import { ReactQueryProvider } from "./ReactQueryProvider"
 import { UserProvider } from "./UserProvider"
 import { getCoconuts } from "@/app/actions/coconuts"
 import { getUserData } from '@/app/actions/users';
+import { ModalProvider } from "./ModalProvider"
 
 const Providers = async ({ children }: { children: ReactNode }) => {
   const userResp = await getUserData();
@@ -18,21 +19,23 @@ const Providers = async ({ children }: { children: ReactNode }) => {
   // console.log('     loading?        ', user)
   return (
     <ReactQueryProvider>
-      <UserProvider userData={user}>
-        <SessionProvider>
-          <MenusProvider>
-            <HelpProvider>
-              <WeatherProvider>
-                <CoconutsProvider coconutsData={coconuts.success ? coconuts.coconuts : []}>
-                  <TaskManagementProvider>
-                    {children}
-                  </TaskManagementProvider>
-                </CoconutsProvider>
-              </WeatherProvider>
-            </HelpProvider>
-          </MenusProvider>
-        </SessionProvider>
-      </UserProvider>
+      <ModalProvider>
+        <UserProvider userData={user}>
+          <SessionProvider>
+            <MenusProvider>
+              <HelpProvider>
+                <WeatherProvider>
+                  <CoconutsProvider coconutsData={coconuts.success ? coconuts.coconuts : []}>
+                    <TaskManagementProvider>
+                      {children}
+                    </TaskManagementProvider>
+                  </CoconutsProvider>
+                </WeatherProvider>
+              </HelpProvider>
+            </MenusProvider>
+          </SessionProvider>
+        </UserProvider>
+      </ModalProvider>
     </ReactQueryProvider>
   )
 };
