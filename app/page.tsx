@@ -1,4 +1,5 @@
-import CoconutContainer from '@/components/coconuts/coconut-container';
+import Modal from '@/components/core/modal';
+import HomePageModal from '@/components/modals/modal-home';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,8 +10,9 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   return (
-    // <CoconutContainer />
-    <></>
+    <>
+      <HomePageModal />
+    </>
   )
 };
 

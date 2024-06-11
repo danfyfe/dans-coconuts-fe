@@ -33,6 +33,7 @@ const RootLayout = ({ children }: RootLayout) => (
 						{children}
 					</LandscapeContainer>
 				</main>
+				<div id="modal-root"></div>
 			</body>
 		</html>
 	</Providers>
