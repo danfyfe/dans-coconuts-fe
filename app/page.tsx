@@ -1,4 +1,4 @@
-import HomePageWrapper from '@/components/modals/modal-home';
+import HomePageModal from '@/components/modals/modal-home';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
@@ -10,12 +10,13 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const cookie = cookies().get('homepage-modal-opt-out');
-
-  if (cookie) return null;
-
   return (
     <>
-      <HomePageWrapper />
+    {
+      !!cookie ? null : (
+        <HomePageModal />
+      )
+    }
     </>
   )
 };
