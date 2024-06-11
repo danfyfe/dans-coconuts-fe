@@ -21,7 +21,7 @@ const ModalUtils = ({ type, setOpen, children }:
   };
 
   return (
-    <ContentContainer>
+    <ContentContainer className="lg:p-6">
       <Button
         asLink
         className="absolute text-2xl right-0 top-0 p-4"
