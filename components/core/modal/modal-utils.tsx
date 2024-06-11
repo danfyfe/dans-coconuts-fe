@@ -24,17 +24,17 @@ const ModalUtils = ({ type, setOpen, children }:
     <ContentContainer className="lg:p-6">
       <Button
         asLink
-        className="absolute text-2xl right-0 top-0 p-4"
+        className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
         onClick={() => setOpen ? setOpen(false) : {}}
       >
         <FaPlus className="rotate-45"/>
       </Button>
 
-      <div>
+      <div className="my-4">
         {children}
       </div>
     
-      <div className="mt-2 grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
+      <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
         <Button
         className=""
           onClick={handleSetCookie}
