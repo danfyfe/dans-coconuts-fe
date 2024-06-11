@@ -5,10 +5,11 @@ import { FaPlus } from "react-icons/fa";
 import withModal from "@/hoc/display/withModal";
 import ContentContainer from "@/components/core/containers/content-container";
 import Button from "@/components/core/utility/button";
+import { IModalType } from "@/context/TourProvider";
 
 const ModalUtils = ({ type, setOpen, children }:
   { 
-    type: string;
+    type: IModalType;
     // setOpen is supplied by withModal
     setOpen?: Dispatch<SetStateAction<boolean>>;
     children: ReactNode;

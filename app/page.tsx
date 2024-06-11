@@ -9,7 +9,7 @@ export const metadata: Metadata = {
  
 
 const HomePage = async () => {
-  const cookie = cookies().get('homepage-modal-opt-out');
+  const cookie = cookies().get('home-modal-opt-out');
   return (
     <>
     {

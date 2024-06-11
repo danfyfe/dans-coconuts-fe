@@ -4,12 +4,14 @@ import { createContext, useState } from "react";
 
 export type IActiveTour = 'home' | null;
 
-interface ICoconutProvider {
+export type IModalType = 'home';
+
+interface ITourProvider {
   activeTour: IActiveTour
   setActiveTour: (tour: IActiveTour) => void;
 }
 
-export const CoconutContext = createContext<ICoconutProvider>({
+export const TourContext = createContext<ITourProvider>({
   activeTour: null,
   setActiveTour: () => {},
 });
@@ -18,11 +20,11 @@ export const CoconutsProvider = ({ children }: { children: React.ReactNode }) =>
   const [activeTour, setActiveTour] = useState<IActiveTour>(null);
 
   return (
-    <CoconutContext.Provider
+    <TourContext.Provider
       value={{
         activeTour, setActiveTour
       }}>
       {children}
-    </CoconutContext.Provider>
+    </TourContext.Provider>
   )
 };
