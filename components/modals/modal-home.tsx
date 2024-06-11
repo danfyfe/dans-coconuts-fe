@@ -8,10 +8,8 @@ const HomePageModal = () => {
   return (
     <ModalUtils type="homepage">
       <H2>Welcome to Dan&apos;s Coconuts!</H2>
-      <P>Descriptive text</P>
-      <P>Descriptive text</P>
-      <P>Descriptive text</P>
-      <P>Descriptive text</P>
+      <P>Working on a guided website tour.</P>
+      <P>Check back soon!</P>
     </ModalUtils>
   )
 };
