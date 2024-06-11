@@ -14,7 +14,8 @@ const TourModalUtils = ({ type, setOpen, children }:
     setOpen?: Dispatch<SetStateAction<boolean>>;
     children: ReactNode;
   }) => {
-    const { setActiveTour } = useContext(TourContext);
+
+  const { setActiveTour } = useContext(TourContext);
 
   const handleSetCookie = () => {
     const cookieName = `${type}-modal-opt-out`;
