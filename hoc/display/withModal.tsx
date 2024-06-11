@@ -9,7 +9,7 @@ const withModal = <P extends object>(Component: ComponentType<P>) => {
     return (
       <>
         <Modal open={open} setOpen={setOpen}>
-          <Component {...props} />
+          <Component {...props} setOpen={setOpen} />
         </Modal>
       </>
     )

@@ -1,22 +1,14 @@
 'use client'
-
-import { ModalContext } from "@/context/ModalProvider";
-import { useContext } from "react";
 import ContentContainer from "../core/containers/content-container";
-import Modal from "../core/modal";
+import withModal from "@/hoc/display/withModal";
 
 const HomePageModal = () => {
-  const { open, setOpen } = useContext(ModalContext);
-  console.log('in homepage', open)
-  return (
-    <Modal open={open} setOpen={setOpen}>
-      MODAL
-      {/* <ContentContainer>
-        Content
-      </ContentContainer> */}
-    </Modal>
-  )
 
+  return (
+    <ContentContainer>
+      Content
+    </ContentContainer>
+  )
 };
 
-export default HomePageModal;
+export default withModal(HomePageModal);

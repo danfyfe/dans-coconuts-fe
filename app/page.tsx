@@ -1,6 +1,6 @@
-import Modal from '@/components/core/modal';
-import HomePageModal from '@/components/modals/modal-home';
+import HomePageWrapper from '@/components/modals/modal-home';
 import { Metadata } from 'next';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: "Dan's Coconuts",
@@ -9,9 +9,13 @@ export const metadata: Metadata = {
  
 
 const HomePage = async () => {
+  const cookie = cookies().get('homepage-modal-opt-out');
+
+  if (cookie) return null;
+
   return (
     <>
-      <HomePageModal />
+      <HomePageWrapper />
     </>
   )
 };
