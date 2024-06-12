@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 
 export type IActiveTour = 'home' | null;
 
@@ -7,7 +7,7 @@ export type IModalType = 'home';
 
 interface ITourProvider {
   activeTour: IActiveTour
-  setActiveTour: (tour: IActiveTour) => void;
+  setActiveTour: Dispatch<SetStateAction<IActiveTour>>;
 }
 
 export const TourContext = createContext<ITourProvider>({
