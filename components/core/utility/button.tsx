@@ -15,6 +15,7 @@ const Button = ({ type="button", children, className, inverted=false, onClick, a
           min-h-[3rem]
         ` : ``
         }
+        hover:font-bold
         font-roboto
         disabled:opacity-50
         ${inverted ? '' : ''}
