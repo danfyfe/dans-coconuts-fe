@@ -20,7 +20,9 @@ const HomeTour = () => {
     <>
       {
         activeTour === 'home' ? (
-          <TourTour />
+          <>
+            <TourTour />
+          </>
         ) : null
       }
     </>

@@ -17,7 +17,7 @@ const Highlight = () => {
       <div
         className="absolute border-2 border-white rounded-full"
         style={styles}
-      />
+      >hello!</div>
     </div>
   )
 };
