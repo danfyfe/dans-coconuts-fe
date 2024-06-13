@@ -2,8 +2,8 @@ import Tour from "@/components/core/modal/tour-modal";
 import { TourContext } from "@/context/TourProvider";
 import { ComponentType, useContext } from "react";
 
-const withModal = <P extends object>(Component: ComponentType<P>) => {
-  const ComponentWithModal = (props: P) => {
+const withTour = <P extends object>(Component: ComponentType<P>) => {
+  const ComponentWithTour = (props: P) => {
     const { activeTour, setActiveTour } = useContext(TourContext);
 
     return (
@@ -14,7 +14,7 @@ const withModal = <P extends object>(Component: ComponentType<P>) => {
       </>
     )
   }
-  return ComponentWithModal;
+  return ComponentWithTour;
 };
 
-export default withModal;
+export default withTour;

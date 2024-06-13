@@ -1,3 +1,4 @@
+import HomeTour from '@/components/home-tour';
 import HomePageModal from '@/components/modals/modal-home';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
@@ -17,6 +18,7 @@ const HomePage = async () => {
         <HomePageModal />
       )
     }
+    <HomeTour />
     </>
   )
 };

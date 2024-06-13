@@ -15,7 +15,7 @@ export const TourContext = createContext<ITourProvider>({
   setActiveTour: () => {},
 });
 
-export const CoconutsProvider = ({ children }: { children: React.ReactNode }) => {
+export const TourProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeTour, setActiveTour] = useState<IActiveTour>(null);
 
   return (
