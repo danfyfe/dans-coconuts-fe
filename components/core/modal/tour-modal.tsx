@@ -32,7 +32,7 @@ const Tour = ({ activeTour, setActiveTour, children }: ITourProps) => {
   return ReactDOM.createPortal(
     <div className="
       w-full h-full fixed top-0 left-0 flex
-      justify-center items-center bg-[rgba(0,0,0,0.5)]
+      justify-center items-center
       z-[8000]
     ">
       {children}

@@ -1,9 +1,7 @@
 'use client'
-
 import { TourContext } from "@/context/TourProvider";
 import withTour from "@/hoc/display/withTour";
 import { useContext } from "react";
-
 
 const Tour = () => {
   return (
@@ -17,7 +15,7 @@ const TourTour = withTour(Tour);
 
 const HomeTour = () => {
   const { activeTour } = useContext(TourContext);
-  console.log(activeTour === 'home')
+
   return (
     <>
       {
@@ -28,6 +26,5 @@ const HomeTour = () => {
     </>
   )
 };
-
 
 export default HomeTour;
