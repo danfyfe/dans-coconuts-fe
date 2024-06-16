@@ -3,7 +3,7 @@ import { createContext, Dispatch, SetStateAction, useState } from "react";
 
 export type IActiveTour = 'home' | null;
 
-export type IActiveTourElemId = 'nav-trigger' | null;
+export type IActiveTourElemId = 'nav-trigger' | 'weather-widget-btn' | null;
 
 export type IModalType = 'home';
 
