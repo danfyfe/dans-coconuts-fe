@@ -15,7 +15,7 @@ const TourModalUtils = ({ type, setOpen, children }:
     children: ReactNode;
   }) => {
 
-  const { setActiveTour } = useContext(TourContext);
+  const { setActiveTour, setHighlight } = useContext(TourContext);
 
   const handleSetCookie = () => {
     const cookieName = `${type}-modal-opt-out`;
@@ -25,6 +25,12 @@ const TourModalUtils = ({ type, setOpen, children }:
 
   const handleSetTour = () => {
     setActiveTour(type);
+    // set first highlight
+    setHighlight({
+      x: 90,
+      y: 5,
+      diameter: 100
+    })
     if (setOpen) setOpen(false);
   };
 

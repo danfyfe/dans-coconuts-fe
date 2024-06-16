@@ -2,12 +2,11 @@
 import { TourContext } from "@/context/TourProvider";
 import withTour from "@/hoc/display/withTour";
 import { useContext } from "react";
+import Highlight from "../tour/highlight";
 
 const Tour = () => {
   return (
-    <div>
-      TOUR
-    </div>
+    <Highlight />
   )
 };
 
