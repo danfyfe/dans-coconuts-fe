@@ -15,7 +15,7 @@ const TourModalUtils = ({ type, setOpen, children }:
     children: ReactNode;
   }) => {
 
-  const { setActiveTour, setHighlight } = useContext(TourContext);
+  const { setActiveTour, setActiveTourElemId } = useContext(TourContext);
 
   const handleSetCookie = () => {
     const cookieName = `${type}-modal-opt-out`;
@@ -25,12 +25,7 @@ const TourModalUtils = ({ type, setOpen, children }:
 
   const handleSetTour = () => {
     setActiveTour(type);
-    // set first highlight
-    setHighlight({
-      x: 90,
-      y: 5,
-      diameter: 100
-    })
+    setActiveTourElemId('nav-trigger');
     if (setOpen) setOpen(false);
   };
 
