@@ -12,6 +12,7 @@ You'll notice that a lot of this is a WIP. I am trying to focus on UI elements w
 1. Navigation: There is a basic navigation menu displayed by clicking the coconut in the top right of the display.
 2. Weather Widget: Clicking on the weather icon in the nav will open the weather widget. This widget displays data from the National Weather Service API, specifically in Miami Beach, FL. It displays time of day(day or night icon), a short forecast, and temperature in F. Clicking the Cloud or Sun icon will toggle the weather displayed to the user. The state of weather is saved as a cookie, to carry over between visits. The weather is controlled using the Context API and also carries over on page changes.
 3. Contact form: A simple form to send me an email and contains other contact links.
+4. Tours: There is architecture built out and one instance of a site tour. The current implementation can be seen on the Home Page.
 
 ### WIP functionality
 1. Help menus: Each feature will have a help menu with relevant information and walkthroughs. These menus can be toggled by clicking the '?' next to feature titles. The help system is built to be reusable where data is dynamically changed depending on the context.
