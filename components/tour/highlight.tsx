@@ -10,12 +10,15 @@ import P from "../core/typography/P";
 import H2 from "../core/typography/H2";
 import Button from "../core/utility/button";
 import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
+import Loading from "../core/loaders/loading";
 
-const TourHighlight = ({ type }: { type: IActiveTour }) => {
-  const { activeTourElemId, setActiveTourElemId, activeTourData } = useContext(TourContext);
+const TourHighlight = () => {
+  const { activeTourElemId, setActiveTourElemId, activeTourData, setActiveTour } = useContext(TourContext);
   const [elemStyles, setElemStyles] = useState({});
-  console.log(activeTourData)
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const step = activeTourData.type ? activeTourData.steps[activeStep] : null;
 
+  
   useEffect(() => {
     if (activeTourElemId) {
       const element = document.getElementById(activeTourElemId);
@@ -40,25 +43,56 @@ const TourHighlight = ({ type }: { type: IActiveTour }) => {
         className="absolute border-2 border-white rounded-full bg-transparent"
         style={elemStyles}
       >
-        <Popover defaultOpen={true}>
+        <Popover defaultOpen={true} modal={true}>
           <PopoverTrigger></PopoverTrigger>
-          <PopoverContent className="z-[8000]" sideOffset={50} align="end">
+          <PopoverContent
+            className="z-[8000]"
+            sideOffset={50} align="end"
+            onPointerDownOutside={(e) => e.preventDefault()}
+          >
             <div className="relative">
-              <H2 className="!text-left text-xl">
-                Main Navigation
-              </H2>
-              <P>Clicking this coconut opens the main navigation, which contains links to other pages.</P>
+              {
+                step ? (
+                  <>
+                    <H2 className="!text-left text-xl">
+                      {step.title}
+                    </H2>
+                    {
+                      step.copyElems.map((elem, index) => (
+                        <P key={`tour-step-copy-${index}`} className="mt-2">{elem}</P>
+                      ))
+                    }
+                    {
+                      step.nextElemId ? (
+                        <Button
+                          asLink
+                          className="block ml-auto underline mt-2"
+                          onClick={() => {
+                            setActiveTourElemId(step.nextElemId);
+                            setActiveStep(activeStep + 1);
+                          }}
+                        >
+                          Next
+                        </Button>
+                      ) : (
+                        <Button
+                          asLink
+                          className="block ml-auto underline mt-2"
+                          onClick={() => {
+                            setActiveStep(0);
+                            setActiveTourElemId(null);
+                            setActiveTour(null);
+                          }}
+                        >
+                          End Tour
+                        </Button>
+                      )
+                    }
+                    <EscapeToQuitDisclaimer />
+                  </>
+                ) : <Loading />
+              }
             </div>
-            <Button
-              asLink
-              className="block ml-auto underline mt-2"
-              onClick={() => {
-                setActiveTourElemId('weather-widget-btn')
-              }}
-            >
-              Next
-            </Button>
-            <EscapeToQuitDisclaimer />
           </PopoverContent>
         </Popover>
       </div>

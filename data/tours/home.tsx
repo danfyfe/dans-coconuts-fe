@@ -7,7 +7,7 @@ const HomeTourData: IActiveTourData = {
     copyElems: [
       <>Dan&apos;s Coconuts is a beach scene at its core.</>,
       <>Used as a kind of portfolio and learning space, it contains various exploratory projects.</>,
-      <>Take the home page tour for a basic a run through.</>,
+      <>Take the Home Page tour for a basic run through.</>,
       <>Or enjoy the beach, built entirely using CSS animations via Tailwind.</>
     ]
   },
