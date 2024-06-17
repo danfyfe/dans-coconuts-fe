@@ -6,6 +6,8 @@ import withModal from "@/hoc/display/withModal";
 import ContentContainer from "@/components/core/containers/content-container";
 import Button from "@/components/core/utility/button";
 import { IModalType, TourContext } from "@/context/TourProvider";
+import P from "../typography/P";
+import EscapeToQuitDisclaimer from "./escape-to-quit";
 
 const TourModalUtils = ({ type, setOpen, children }:
   { 
@@ -57,6 +59,7 @@ const TourModalUtils = ({ type, setOpen, children }:
           Start Tour
         </Button>
       </div>
+      <EscapeToQuitDisclaimer />
     </ContentContainer>
   )
 };

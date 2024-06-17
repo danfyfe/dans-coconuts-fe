@@ -9,6 +9,7 @@ import { PopoverTrigger } from "@radix-ui/react-popover";
 import P from "../core/typography/P";
 import H2 from "../core/typography/H2";
 import Button from "../core/utility/button";
+import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
 
 const Highlight = () => {
   const { highlight, activeTourElemId, setActiveTourElemId } = useContext(TourContext);
@@ -56,6 +57,7 @@ const Highlight = () => {
             >
               Next
             </Button>
+            <EscapeToQuitDisclaimer />
           </PopoverContent>
         </Popover>
       </div>
