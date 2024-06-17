@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, ReactNode, SetStateAction, useContext } from "react";
+import { Dispatch, ReactNode, SetStateAction, useContext, useEffect } from "react";
 import setCookie from "@/lib/setCookie";
 import { FaPlus } from "react-icons/fa";
 import withModal from "@/hoc/display/withModal";
@@ -8,6 +8,7 @@ import Button from "@/components/core/utility/button";
 import { IModalType, TourContext } from "@/context/TourProvider";
 import P from "../typography/P";
 import EscapeToQuitDisclaimer from "./escape-to-quit";
+import ActiveTourData from "@/data/tours";
 
 const TourModalUtils = ({ type, setOpen, children }:
   { 
@@ -17,7 +18,7 @@ const TourModalUtils = ({ type, setOpen, children }:
     children: ReactNode;
   }) => {
 
-  const { setActiveTour, setActiveTourElemId } = useContext(TourContext);
+  const { setActiveTour, setActiveTourElemId, activeTourData, setActiveTourData } = useContext(TourContext);
 
   const handleSetCookie = () => {
     const cookieName = `${type}-modal-opt-out`;
@@ -30,6 +31,11 @@ const TourModalUtils = ({ type, setOpen, children }:
     setActiveTourElemId('nav-trigger');
     if (setOpen) setOpen(false);
   };
+
+  useEffect(() => {
+    const tourData = ActiveTourData[type];
+    setActiveTourData(tourData);
+  }, [setActiveTourData, type]);
 
   return (
     <ContentContainer className="lg:p-6">

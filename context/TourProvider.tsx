@@ -1,5 +1,6 @@
 'use client'
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import ActiveTourData from "@/data/tours";
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export type IActiveTour = 'home' | null;
 
@@ -13,13 +14,32 @@ export type IHighlight = {
   diameter: number;
 } | null;
 
+export type IActiveTourData = {
+  type: string;
+  main: {
+    title: string;
+    copyElems: JSX.Element[];
+  };
+  steps: ({
+    title: string;
+    copyElems: JSX.Element[];
+    nextElemId: string;
+  } | {
+    title: string;
+    copyElems: JSX.Element[];
+    nextElemId: null;
+  })[];
+} | {}
+
 interface ITourProvider {
   activeTour: IActiveTour
   setActiveTour: Dispatch<SetStateAction<IActiveTour>>;
   highlight: IHighlight;
   setHighlight: Dispatch<SetStateAction<IHighlight>>;
-  activeTourElemId: IActiveTourElemId,
-  setActiveTourElemId:  Dispatch<SetStateAction<IActiveTourElemId>>
+  activeTourElemId: IActiveTourElemId;
+  setActiveTourElemId:  Dispatch<SetStateAction<IActiveTourElemId>>;
+  activeTourData: IActiveTourData;
+  setActiveTourData:  Dispatch<SetStateAction<IActiveTourData>>;
 }
 
 export const TourContext = createContext<ITourProvider>({
@@ -28,20 +48,25 @@ export const TourContext = createContext<ITourProvider>({
   highlight: null,
   setHighlight: () => {},
   activeTourElemId: null,
-  setActiveTourElemId: () => {}
+  setActiveTourElemId: () => {},
+  activeTourData: {},
+  setActiveTourData: () => {}
 });
 
 export const TourProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeTour, setActiveTour] = useState<IActiveTour>(null);
   const [highlight, setHighlight] = useState<IHighlight>(null);
   const [activeTourElemId, setActiveTourElemId] = useState<IActiveTourElemId>(null);
+  const [activeTourData, setActiveTourData] = useState<IActiveTourData>({});
+
 
   return (
     <TourContext.Provider
       value={{
         activeTour, setActiveTour,
         highlight, setHighlight,
-        activeTourElemId, setActiveTourElemId
+        activeTourElemId, setActiveTourElemId,
+        activeTourData, setActiveTourData
       }}>
       {children}
     </TourContext.Provider>

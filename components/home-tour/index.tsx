@@ -1,16 +1,15 @@
 'use client'
-import { TourContext } from "@/context/TourProvider";
+import { IActiveTour, TourContext } from "@/context/TourProvider";
 import withTour from "@/hoc/display/withTour";
 import { useContext } from "react";
-import Highlight from "../tour/highlight";
+import TourHighlight from "../tour/highlight";
 
-const Tour = () => {
+const Tour = withTour(({ type }: { type: IActiveTour }) => {
   return (
-    <Highlight />
+    <TourHighlight type={type} />
   )
-};
+});
 
-const TourTour = withTour(Tour);
 
 const HomeTour = () => {
   const { activeTour } = useContext(TourContext);
@@ -20,7 +19,7 @@ const HomeTour = () => {
       {
         activeTour === 'home' ? (
           <>
-            <TourTour />
+            <Tour type="home" />
           </>
         ) : null
       }

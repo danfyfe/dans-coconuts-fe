@@ -1,5 +1,5 @@
 'use client'
-import { TourContext } from "@/context/TourProvider";
+import { IActiveTour, TourContext } from "@/context/TourProvider";
 import { useContext, useEffect, useState } from "react";
 import {
   Popover,
@@ -11,9 +11,10 @@ import H2 from "../core/typography/H2";
 import Button from "../core/utility/button";
 import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
 
-const Highlight = () => {
-  const { highlight, activeTourElemId, setActiveTourElemId } = useContext(TourContext);
+const TourHighlight = ({ type }: { type: IActiveTour }) => {
+  const { activeTourElemId, setActiveTourElemId, activeTourData } = useContext(TourContext);
   const [elemStyles, setElemStyles] = useState({});
+  console.log(activeTourData)
 
   useEffect(() => {
     if (activeTourElemId) {
@@ -65,4 +66,4 @@ const Highlight = () => {
   )
 };
 
-export default Highlight;
+export default TourHighlight;
