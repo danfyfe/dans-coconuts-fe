@@ -22,14 +22,16 @@ export type IActiveTourData = {
   };
   steps: ({
     title: string;
-    copyElems: JSX.Element[];
-    nextElemId: string;
+    copyElems: ICopyElem[];
+    nextElemId: IActiveTourElemId;
   } | {
     title: string;
-    copyElems: JSX.Element[];
-    nextElemId: null;
+    copyElems: ICopyElem[];
+    nextElemId: IActiveTourElemId;
   })[];
-} | {}
+} | { type: null };
+
+export type ICopyElem = JSX.Element;
 
 interface ITourProvider {
   activeTour: IActiveTour
@@ -49,7 +51,7 @@ export const TourContext = createContext<ITourProvider>({
   setHighlight: () => {},
   activeTourElemId: null,
   setActiveTourElemId: () => {},
-  activeTourData: {},
+  activeTourData: { type: null },
   setActiveTourData: () => {}
 });
 
@@ -57,7 +59,7 @@ export const TourProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeTour, setActiveTour] = useState<IActiveTour>(null);
   const [highlight, setHighlight] = useState<IHighlight>(null);
   const [activeTourElemId, setActiveTourElemId] = useState<IActiveTourElemId>(null);
-  const [activeTourData, setActiveTourData] = useState<IActiveTourData>({});
+  const [activeTourData, setActiveTourData] = useState<IActiveTourData>({ type: null });
 
 
   return (

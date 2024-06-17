@@ -6,16 +6,15 @@ import withModal from "@/hoc/display/withModal";
 import ContentContainer from "@/components/core/containers/content-container";
 import Button from "@/components/core/utility/button";
 import { IModalType, TourContext } from "@/context/TourProvider";
-import P from "../typography/P";
 import EscapeToQuitDisclaimer from "./escape-to-quit";
 import ActiveTourData from "@/data/tours";
+import MainTourContent from "./main-tour-contents";
 
-const TourModalUtils = ({ type, setOpen, children }:
+const TourModalUtils = ({ type, setOpen }:
   { 
     type: IModalType;
     // setOpen is supplied by withModal
     setOpen?: Dispatch<SetStateAction<boolean>>;
-    children: ReactNode;
   }) => {
 
   const { setActiveTour, setActiveTourElemId, activeTourData, setActiveTourData } = useContext(TourContext);
@@ -47,10 +46,15 @@ const TourModalUtils = ({ type, setOpen, children }:
         <FaPlus className="rotate-45"/>
       </Button>
 
-      <div className="my-4">
-        {children}
-      </div>
-    
+      {
+        activeTourData.type && activeTourData.main ? (
+          <MainTourContent
+            title={activeTourData.main.title}
+            copyElems={activeTourData.main.copyElems}
+          />
+        ) : null
+      }
+
       <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
         <Button
         className=""

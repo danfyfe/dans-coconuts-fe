@@ -1,4 +1,6 @@
-const HomeTourData = {
+import { IActiveTourData } from "@/context/TourProvider";
+
+const HomeTourData: IActiveTourData = {
   type: 'home',
   main: {
     title: "Welcome to Dan's Coconuts!",
