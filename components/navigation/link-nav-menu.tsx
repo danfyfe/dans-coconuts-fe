@@ -162,7 +162,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
               </div>
             ) : (
               <NextLink
-                href={`/signin?referer=${pathname}`}
+                href={`/signin?referrer=${pathname}`}
                 prefetch
                 onClick={handleLinkClick}
                 className={`

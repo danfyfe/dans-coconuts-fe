@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 
 const getAuthUrl = ({ type, referrerPath }: IAuthForm) => {
   const urlNoReferer = type === 'signin' ? '/signup' : 'signin';
-  const urlWithReferer = `${type === 'signin' ? `/signup?referer=${referrerPath}` : `/signin?referer=${referrerPath}`}`;
+  const urlWithReferer = `${type === 'signin' ? `/signup?referrer=${referrerPath}` : `/signin?referrer=${referrerPath}`}`;
   return referrerPath ? urlWithReferer : urlNoReferer;
 }
 
@@ -129,7 +129,7 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
         </form>
         <P className="mt-4 text-center">
           {
-            type === 'signin' ? <><NextLink href={authUrl}>Need to create an account? Sign Up!</NextLink></> : <><NextLink href={authUrl}>Already have an account? Sign In!</NextLink></> 
+            type === 'signin' ? <><NextLink href={authUrl}>Need to create an account? <span className="underline">Sign Up!</span></NextLink></> : <><NextLink href={authUrl}>Already have an account? <span className="underline">Sign In!</span></NextLink></> 
           }
         </P>
         </>
