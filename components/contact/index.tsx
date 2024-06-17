@@ -7,7 +7,7 @@ import HR from "../core/utility/HR";
 
 const ContactInfo = () => {
   return (
-    <ContentContainer className="lg:w-2/5 text-lg">
+    <ContentContainer className="lg:w-2/5 text-lg overflow-auto">
       <H1 className="mb-4">Contact</H1>
       <ContactForm />
       <HR text="OR TRY THESE" />
