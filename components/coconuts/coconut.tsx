@@ -125,6 +125,7 @@ const Coconut = ({ coconut, index }: { coconut: ICoconut, index?: number }) => {
                   <P>Message:</P>
                   <P>{coconut.message.content}</P>
                 </div>
+                <P className="text-right text-xs mt-2">*This message display uses shadcn&apos;s Popover component. </P>
               </div>
             </PopoverContent>
           </Popover>

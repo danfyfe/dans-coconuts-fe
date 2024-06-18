@@ -28,7 +28,6 @@ export const COCONUTS_HELP: ActiveHelpCategoryContent = {
           <li>5: Send </li>
         </ul>
       </div>
-      <P className="text-left text-xs mt-2">*The message display uses shadcn&apos;s Popover component.</P>
       </>
     }
   }

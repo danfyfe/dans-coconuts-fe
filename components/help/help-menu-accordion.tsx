@@ -1,5 +1,6 @@
 import { TopicContent } from "@/context/HelpProvider";
 import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from "../core/utility/accordion";
+import P from "../core/typography/P";
 
 const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: TopicContent }) => {
   return (
@@ -21,6 +22,7 @@ const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: Top
         </Accordion>
       ) : null
     }
+    <P className="text-right text-xs mt-2">*This message display uses shadcn&apos;s Accordion component. </P>
     </>
   )
 };

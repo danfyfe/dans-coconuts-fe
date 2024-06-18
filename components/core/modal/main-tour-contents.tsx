@@ -5,7 +5,7 @@ import { ICopyElem } from "@/context/TourProvider";
 
 const MainTourContent = ({ title, copyElems }: { title: string; copyElems: ICopyElem[] }) => {
   return (
-    <div className="my-4">
+    <div className="mb-4">
       <H2 className="mb-2">{title}</H2>
       {
         copyElems.map((copy, index) => (

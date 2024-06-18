@@ -53,6 +53,7 @@ const AddCoconutForm = () => {
               <div className="flex">
                 <Button
                   className="block ml-auto mr-2 max-w-20 !p-0"
+                  disabled={!messageReceiver || !messageContent || !messageTitle}
                   onClick={(e) => {
                     try {
                       addCoconut({
