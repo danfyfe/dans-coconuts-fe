@@ -9,9 +9,7 @@ const HomeTourData: IActiveTourData = {
       <>Dan&apos;s Coconuts is a beach scene at its core.</>,
       <>Used as a kind of portfolio and learning space, it contains various exploratory projects.</>,
       <>Take the Home Page tour for a basic run through, then start exploring.</>,
-      <>Or enjoy the beach, built entirely using CSS animations via Tailwind.</>,
-      <HR key="home-page-tour-hr" className="mt-2" />,
-      <>* Note: Most pages have help functionality that can be accessed by clicking the &apos;?&apos; symbol next to headings.</>
+      <>Or enjoy the beach, built entirely using CSS animations via Tailwind.</>
     ]
   },
   steps: [

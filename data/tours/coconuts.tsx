@@ -8,9 +8,7 @@ const CoconutTourData: IActiveTourData = {
     copyElems: [
       <>This page allows you to send a message to another user.</>,
       <>Add a message, then click the coconut to view.</>,
-      <>The coconuts can also be moved and dropped.</>,
-      <HR key="home-page-tour-hr" className="mt-2" />,
-      <>* Note: Most pages have help functionality that can be accessed by clicking the &apos;?&apos; symbol next to headings.</>
+      <>The coconuts can also be moved and dropped.</>
     ]
   },
   steps: [

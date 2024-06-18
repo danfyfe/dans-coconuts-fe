@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import CoconutsPageModal from '@/components/modals/modal-coconuts';
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 }
  
 
-const CoconutsPage = async () => {
+const CoconutsPage = () => {
   const cookie = cookies().get('coconuts-modal-opt-out');
+
   return (
     <>
       {

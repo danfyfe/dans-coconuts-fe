@@ -11,6 +11,7 @@ import H2 from "../core/typography/H2";
 import Button from "../core/utility/button";
 import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
 import Loading from "../core/loaders/loading";
+import HR from "../core/utility/HR";
 
 const TourHighlight = () => {
   const { activeTourElemId, setActiveTourElemId, activeTourData, setActiveTour } = useContext(TourContext);
