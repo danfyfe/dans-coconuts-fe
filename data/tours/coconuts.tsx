@@ -4,7 +4,7 @@ import { IActiveTourData } from "@/context/TourProvider";
 const CoconutTourData: IActiveTourData = {
   type: 'coconuts',
   main: {
-    title: "Welcome to Coconuts!",
+    title: "Coconuts!",
     copyElems: [
       <>This page allows you to send a message to another user.</>,
       <>Add a message, then click the coconut to view.</>,
