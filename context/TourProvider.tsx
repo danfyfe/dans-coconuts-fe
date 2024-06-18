@@ -24,10 +24,12 @@ export type IActiveTourData = {
     title: string;
     copyElems: ICopyElem[];
     nextElemId: IActiveTourElemId;
+    prevElemId: IActiveTourElemId;
   } | {
     title: string;
     copyElems: ICopyElem[];
     nextElemId: IActiveTourElemId;
+    prevElemId: IActiveTourElemId;
   })[];
 } | { type: null };
 

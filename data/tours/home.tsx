@@ -22,7 +22,8 @@ const HomeTourData: IActiveTourData = {
         <>Signin and Signout are also available in this menu.</>,
         <>An account is needed to visit some of the other pages.</>
       ],
-      nextElemId: 'weather-widget-btn'
+      nextElemId: 'weather-widget-btn',
+      prevElemId: null
     },
     {
       title: 'Weather Widget',
@@ -31,7 +32,8 @@ const HomeTourData: IActiveTourData = {
         <>The Weather Widget uses the National Weather Service API to display the current weather in Miami Beach, FL.</>,
         <>It also holds the weather toggle, which switches from a sunny day to rain. Click the cloud icon to activate.</>
       ],
-      nextElemId: null
+      nextElemId: null,
+      prevElemId: 'nav-trigger'
     }
   ]
 };

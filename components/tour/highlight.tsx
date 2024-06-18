@@ -62,32 +62,48 @@ const TourHighlight = () => {
                         <P key={`tour-step-copy-${index}`} className="mt-2">{elem}</P>
                       ))
                     }
-                    {
-                      step.nextElemId ? (
-                        <Button
-                          asLink
-                          className="block ml-auto underline mt-2"
-                          onClick={() => {
-                            setActiveTourElemId(step.nextElemId);
-                            setActiveStep(activeStep + 1);
-                          }}
-                        >
-                          Continue
-                        </Button>
-                      ) : (
-                        <Button
-                          asLink
-                          className="block ml-auto underline mt-2"
-                          onClick={() => {
-                            setActiveStep(0);
-                            setActiveTourElemId(null);
-                            setActiveTour(null);
-                          }}
-                        >
-                          End Tour
-                        </Button>
-                      )
-                    }
+                    <div className="flex justify-end mt-2">
+                      {
+                        step.prevElemId ? (
+                          <Button
+                            asLink
+                            className="block underline mr-auto"
+                            onClick={() => {
+                              setActiveTourElemId(step.prevElemId);
+                              setActiveStep(activeStep - 1);
+                            }}
+                          >
+                            Back
+                          </Button>
+                        ) : null
+                      }
+                      {
+                        step.nextElemId ? (
+                          <Button
+                            asLink
+                            className="block underline"
+                            onClick={() => {
+                              setActiveTourElemId(step.nextElemId);
+                              setActiveStep(activeStep + 1);
+                            }}
+                          >
+                            Continue
+                          </Button>
+                        ) : (
+                          <Button
+                            asLink
+                            className="block underline"
+                            onClick={() => {
+                              setActiveStep(0);
+                              setActiveTourElemId(null);
+                              setActiveTour(null);
+                            }}
+                          >
+                            End Tour
+                          </Button>
+                        )
+                      }
+                    </div>
                     <EscapeToQuitDisclaimer />
                   </>
                 ) : <Loading />
