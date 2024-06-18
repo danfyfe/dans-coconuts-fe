@@ -72,7 +72,7 @@ const TourHighlight = () => {
                             setActiveStep(activeStep + 1);
                           }}
                         >
-                          Next
+                          Continue
                         </Button>
                       ) : (
                         <Button
