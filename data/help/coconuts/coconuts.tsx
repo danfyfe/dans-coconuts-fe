@@ -18,7 +18,7 @@ export const COCONUTS_HELP: ActiveHelpCategoryContent = {
       <P className="text-left">
         The coconut can be dragged and dropped around the beach. Its position will be saved for the next visit.
       </P>
-      <div className="text-left mt-2">
+      <div className="!text-left mt-2">
         <P>How to:</P>
         <ul>
           <li>1: Click the plus button on the coconuts page</li>

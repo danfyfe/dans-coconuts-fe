@@ -2,11 +2,14 @@
 import ActiveTourData from "@/data/tours";
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
-export type IActiveTour = 'home' | null;
+export type IActiveTour = 'home' | 'coconuts' | null;
 
-export type IActiveTourElemId = 'nav-trigger' | 'weather-widget-btn' | null;
+export type IActiveTourElemId =
+  'nav-trigger' | 'weather-widget-btn' | 
+  'add-coconut-btn'
+  | null;
 
-export type IModalType = 'home';
+export type IModalType = 'home' | 'coconuts';
 
 export type IHighlight = {
   x: number;

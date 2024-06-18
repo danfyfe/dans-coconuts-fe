@@ -5,10 +5,11 @@ import { FaPlus } from "react-icons/fa";
 import withModal from "@/hoc/display/withModal";
 import ContentContainer from "@/components/core/containers/content-container";
 import Button from "@/components/core/utility/button";
-import { IModalType, TourContext } from "@/context/TourProvider";
+import { IActiveTourElemId, IModalType, TourContext } from "@/context/TourProvider";
 import EscapeToQuitDisclaimer from "./escape-to-quit";
 import ActiveTourData from "@/data/tours";
 import MainTourContent from "./main-tour-contents";
+import StartingTourElems from "@/data/tours/starting-elems";
 
 const TourModalUtils = ({ type, setOpen }:
   { 
@@ -27,7 +28,8 @@ const TourModalUtils = ({ type, setOpen }:
 
   const handleSetTour = () => {
     setActiveTour(type);
-    setActiveTourElemId('nav-trigger');
+    const startingElem = StartingTourElems[type] as IActiveTourElemId;
+    setActiveTourElemId(startingElem);
     if (setOpen) setOpen(false);
   };
 
