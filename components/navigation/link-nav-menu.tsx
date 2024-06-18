@@ -51,48 +51,6 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
         </li>
         <li>
           <NextLink
-            href="/fake-store"
-            prefetch
-            onClick={handleLinkClick}
-            className={`
-              md:hover:underline
-              transition-all delay-75 ease-in-out
-              ${linkNavOpen ? 'visible' : 'invisible'}
-            `}
-          >
-            Fake Store (WIP)
-          </NextLink>
-        </li>
-        <li>
-          <NextLink
-            href="/coconuts"
-            prefetch
-            onClick={handleLinkClick}
-            className={`
-              md:hover:underline
-              transition-all delay-75 ease-in-out
-              ${linkNavOpen ? 'visible' : 'invisible'}
-            `}
-          >
-            Coconuts
-          </NextLink>
-        </li>
-        <li className="flex">
-          <NextLink
-            href="/task-management"
-            prefetch
-            onClick={handleLinkClick}
-            className={`
-              md:hover:underline text-lg
-              transition-all delay-75 ease-in-out
-              ${linkNavOpen ? 'visible' : 'invisible'}
-            `}
-          >
-            Task Management (WIP)
-          </NextLink>
-        </li>
-        <li>
-          <NextLink
             href="/github"
             prefetch
             onClick={handleLinkClick}
@@ -117,6 +75,48 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
             `}
           >
             Contact
+          </NextLink>
+        </li>
+        <li>
+          <NextLink
+            href="/coconuts"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Coconuts
+          </NextLink>
+        </li>
+        <li>
+          <NextLink
+            href="/fake-store"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline text-xl
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Fake Store (WIP)
+          </NextLink>
+        </li>
+        <li className="flex">
+          <NextLink
+            href="/task-management"
+            prefetch
+            onClick={handleLinkClick}
+            className={`
+              md:hover:underline text-lg
+              transition-all delay-75 ease-in-out
+              ${linkNavOpen ? 'visible' : 'invisible'}
+            `}
+          >
+            Task Management (WIP)
           </NextLink>
         </li>
         <hr className="my-2"/>
