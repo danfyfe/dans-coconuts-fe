@@ -41,44 +41,46 @@ const TourModalUtils = ({ type, setOpen }:
   }, [setActiveTourData, type]);
 
   return (
-    {
-      !!cookie ? (
-      <ContentContainer className="lg:p-6">
-        <Button
-          asLink
-          className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
-          onClick={() => setOpen ? setOpen(false) : {}}
-        >
-          <FaPlus className="rotate-45"/>
-        </Button>
+    <>
+      {
+        !!cookie ? (
+          <ContentContainer className="lg:p-6">
+            <Button
+              asLink
+              className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
+              onClick={() => setOpen ? setOpen(false) : {}}
+            >
+              <FaPlus className="rotate-45"/>
+            </Button>
 
-        {
-          activeTourData.type && activeTourData.main ? (
-            <MainTourContent
-              title={activeTourData.main.title}
-              copyElems={activeTourData.main.copyElems}
-            />
-          ) : null
-        }
+            {
+              activeTourData.type && activeTourData.main ? (
+                <MainTourContent
+                  title={activeTourData.main.title}
+                  copyElems={activeTourData.main.copyElems}
+                />
+              ) : null
+            }
 
-        <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
-          <Button
-          className=""
-            onClick={handleSetCookie}
-          >
-            Don&apos;t Show Me This Again
-          </Button>
-          <Button
-            className=""
-            onClick={handleSetTour}
-          >
-            Start Tour
-          </Button>
-        </div>
-        <EscapeToQuitDisclaimer />
-      </ContentContainer>
-      )  : null
-    }
+            <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
+              <Button
+              className=""
+                onClick={handleSetCookie}
+              >
+                Don&apos;t Show Me This Again
+              </Button>
+              <Button
+                className=""
+                onClick={handleSetTour}
+              >
+                Start Tour
+              </Button>
+            </div>
+            <EscapeToQuitDisclaimer />
+          </ContentContainer>
+        )  : null
+      }
+    </>
   )
 };
 
