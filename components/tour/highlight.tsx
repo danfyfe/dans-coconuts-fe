@@ -12,11 +12,14 @@ import Button from "../core/utility/button";
 import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
 import Loading from "../core/loaders/loading";
 import HR from "../core/utility/HR";
+import { useGetCookie } from "@/lib/hooks/useGetCookie";
 
-const TourHighlight = () => {
+const TourHighlight = ({ type }: IActiveTour) => {
   const { activeTourElemId, setActiveTourElemId, activeTourData, setActiveTour } = useContext(TourContext);
   const [elemStyles, setElemStyles] = useState({});
   const [activeStep, setActiveStep] = useState<number>(0);
+  const cookie = useGetCookie(`${type}-modal-opt-out`);
+
   const step = activeTourData.type ? activeTourData.steps[activeStep] : null;
 
   
@@ -39,81 +42,86 @@ const TourHighlight = () => {
   }, [activeTourElemId]);
 
   return (
-    <div className="fixed w-full h-full z-50 pointer-events-none">
-      <div
-        className="absolute border-2 border-white rounded-full bg-transparent"
-        style={elemStyles}
-      >
-        <Popover defaultOpen={true} modal={true}>
-          <PopoverTrigger></PopoverTrigger>
-          <PopoverContent
-            className="z-[8000]"
-            sideOffset={50} align="end"
-            onPointerDownOutside={(e) => e.preventDefault()}
-          >
-            <div className="relative">
-              {
-                step ? (
-                  <>
-                    <H2 className="!text-left text-xl">
-                      {step.title}
-                    </H2>
+    <>
+      {!!cookie ? (
+            <div className="fixed w-full h-full z-50 pointer-events-none">
+            <div
+              className="absolute border-2 border-white rounded-full bg-transparent"
+              style={elemStyles}
+            >
+              <Popover defaultOpen={true} modal={true}>
+                <PopoverTrigger></PopoverTrigger>
+                <PopoverContent
+                  className="z-[8000]"
+                  sideOffset={50} align="end"
+                  onPointerDownOutside={(e) => e.preventDefault()}
+                >
+                  <div className="relative">
                     {
-                      step.copyElems.map((elem, index) => (
-                        <P key={`tour-step-copy-${index}`} className="mt-2">{elem}</P>
-                      ))
+                      step ? (
+                        <>
+                          <H2 className="!text-left text-xl">
+                            {step.title}
+                          </H2>
+                          {
+                            step.copyElems.map((elem, index) => (
+                              <P key={`tour-step-copy-${index}`} className="mt-2">{elem}</P>
+                            ))
+                          }
+                          <div className="flex justify-end mt-2">
+                            {
+                              step.prevElemId ? (
+                                <Button
+                                  asLink
+                                  className="block underline mr-auto"
+                                  onClick={() => {
+                                    setActiveTourElemId(step.prevElemId);
+                                    setActiveStep(activeStep - 1);
+                                  }}
+                                >
+                                  Back
+                                </Button>
+                              ) : null
+                            }
+                            {
+                              step.nextElemId ? (
+                                <Button
+                                  asLink
+                                  className="block underline"
+                                  onClick={() => {
+                                    setActiveTourElemId(step.nextElemId);
+                                    setActiveStep(activeStep + 1);
+                                  }}
+                                >
+                                  Continue
+                                </Button>
+                              ) : (
+                                <Button
+                                  asLink
+                                  className="block underline"
+                                  onClick={() => {
+                                    setActiveStep(0);
+                                    setActiveTourElemId(null);
+                                    setActiveTour(null);
+                                  }}
+                                >
+                                  End Tour
+                                </Button>
+                              )
+                            }
+                          </div>
+                          <EscapeToQuitDisclaimer />
+                        </>
+                      ) : <Loading />
                     }
-                    <div className="flex justify-end mt-2">
-                      {
-                        step.prevElemId ? (
-                          <Button
-                            asLink
-                            className="block underline mr-auto"
-                            onClick={() => {
-                              setActiveTourElemId(step.prevElemId);
-                              setActiveStep(activeStep - 1);
-                            }}
-                          >
-                            Back
-                          </Button>
-                        ) : null
-                      }
-                      {
-                        step.nextElemId ? (
-                          <Button
-                            asLink
-                            className="block underline"
-                            onClick={() => {
-                              setActiveTourElemId(step.nextElemId);
-                              setActiveStep(activeStep + 1);
-                            }}
-                          >
-                            Continue
-                          </Button>
-                        ) : (
-                          <Button
-                            asLink
-                            className="block underline"
-                            onClick={() => {
-                              setActiveStep(0);
-                              setActiveTourElemId(null);
-                              setActiveTour(null);
-                            }}
-                          >
-                            End Tour
-                          </Button>
-                        )
-                      }
-                    </div>
-                    <EscapeToQuitDisclaimer />
-                  </>
-                ) : <Loading />
-              }
+                  </div>
+                </PopoverContent>
+              </Popover>
             </div>
-          </PopoverContent>
-        </Popover>
-      </div>
-    </div>
+          </div>
+      ) : null
+    }
+  </>
   )
 };
 

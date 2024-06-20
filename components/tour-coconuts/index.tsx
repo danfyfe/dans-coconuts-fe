@@ -4,9 +4,9 @@ import withTour from "@/hoc/display/withTour";
 import { useContext } from "react";
 import TourHighlight from "../tour/highlight";
 
-const Tour = withTour(() => {
+const Tour = withTour((type) => {
   return (
-    <TourHighlight />
+    <TourHighlight type={type}/>
   )
 });
 
