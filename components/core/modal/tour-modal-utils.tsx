@@ -10,6 +10,7 @@ import EscapeToQuitDisclaimer from "./escape-to-quit";
 import ActiveTourData from "@/data/tours";
 import MainTourContent from "./main-tour-contents";
 import StartingTourElems from "@/data/tours/starting-elems";
+import { useGetCookie } from "@/lib/hooks/useGetCookie";
 
 const TourModalUtils = ({ type, setOpen }:
   { 
@@ -17,7 +18,8 @@ const TourModalUtils = ({ type, setOpen }:
     // setOpen is supplied by withModal
     setOpen?: Dispatch<SetStateAction<boolean>>;
   }) => {
-
+  const cookie = useGetCookie(`${type}-modal-opt-out`);
+    
   const { setActiveTour, setActiveTourElemId, activeTourData, setActiveTourData } = useContext(TourContext);
 
   const handleSetCookie = () => {
@@ -39,40 +41,44 @@ const TourModalUtils = ({ type, setOpen }:
   }, [setActiveTourData, type]);
 
   return (
-    <ContentContainer className="lg:p-6">
-      <Button
-        asLink
-        className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
-        onClick={() => setOpen ? setOpen(false) : {}}
-      >
-        <FaPlus className="rotate-45"/>
-      </Button>
-
-      {
-        activeTourData.type && activeTourData.main ? (
-          <MainTourContent
-            title={activeTourData.main.title}
-            copyElems={activeTourData.main.copyElems}
-          />
-        ) : null
-      }
-
-      <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
+    {
+      !!cookie ? (
+      <ContentContainer className="lg:p-6">
         <Button
-        className=""
-          onClick={handleSetCookie}
+          asLink
+          className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
+          onClick={() => setOpen ? setOpen(false) : {}}
         >
-          Don&apos;t Show Me This Again
+          <FaPlus className="rotate-45"/>
         </Button>
-        <Button
+
+        {
+          activeTourData.type && activeTourData.main ? (
+            <MainTourContent
+              title={activeTourData.main.title}
+              copyElems={activeTourData.main.copyElems}
+            />
+          ) : null
+        }
+
+        <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
+          <Button
           className=""
-          onClick={handleSetTour}
-        >
-          Start Tour
-        </Button>
-      </div>
-      <EscapeToQuitDisclaimer />
-    </ContentContainer>
+            onClick={handleSetCookie}
+          >
+            Don&apos;t Show Me This Again
+          </Button>
+          <Button
+            className=""
+            onClick={handleSetTour}
+          >
+            Start Tour
+          </Button>
+        </div>
+        <EscapeToQuitDisclaimer />
+      </ContentContainer>
+      )  : null
+    }
   )
 };
 

@@ -15,14 +15,9 @@ export const metadata: Metadata = {
 
 const CoconutsPage = async () => {
   const cookie = await getCookie('coconuts-modal-opt-out')
-  // console.log('hellp?', cookie)
   return (
     <>
-      {
-       !!cookie ? null : (
-        <CoconutsPageModal />
-       ) 
-      }
+      <CoconutsPageModal />
       <CoconutsTour />
       <CoconutContainer />
       <AddCoconutForm />

@@ -13,12 +13,8 @@ const HomePage = async () => {
   const cookie = cookies().get('home-modal-opt-out');
   return (
     <>
-    {
-      !!cookie ? null : (
-        <HomePageModal />
-      )
-    }
-    <HomeTour />
+      <HomePageModal />
+      <HomeTour />
     </>
   )
 };
