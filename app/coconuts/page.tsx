@@ -4,7 +4,6 @@ import CoconutsPageModal from '@/components/modals/modal-coconuts';
 import AddCoconutForm from '@/components/coconuts/add-coconut-form';
 import CoconutContainer from '@/components/coconuts/coconut-container';
 import CoconutsTour from '@/components/tour-coconuts';
-import { getCookie } from '../actions/utils';
 
 
 export const metadata: Metadata = {
@@ -13,8 +12,7 @@ export const metadata: Metadata = {
 }
  
 
-const CoconutsPage = async () => {
-  const cookie = await getCookie('coconuts-modal-opt-out')
+const CoconutsPage = () => {
   return (
     <>
       <CoconutsPageModal />

@@ -1,5 +1,5 @@
 'use client'
-import { IActiveTour, TourContext } from "@/context/TourProvider";
+import { IActiveTourType, TourContext } from "@/context/TourProvider";
 import { useContext, useEffect, useState } from "react";
 import {
   Popover,
@@ -14,11 +14,11 @@ import Loading from "../core/loaders/loading";
 import HR from "../core/utility/HR";
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 
-const TourHighlight = ({ type }: IActiveTour) => {
-  const { activeTourElemId, setActiveTourElemId, activeTourData, setActiveTour } = useContext(TourContext);
+const TourHighlight = () => {
+  const { activeTour, activeTourElemId, setActiveTourElemId, activeTourData, setActiveTour } = useContext(TourContext);
   const [elemStyles, setElemStyles] = useState({});
   const [activeStep, setActiveStep] = useState<number>(0);
-  const cookie = useGetCookie(`${type}-modal-opt-out`);
+  const cookie = useGetCookie(`${activeTour}-modal-opt-out`);
 
   const step = activeTourData.type ? activeTourData.steps[activeStep] : null;
 

@@ -4,6 +4,8 @@ import { createContext, Dispatch, SetStateAction, useEffect, useState } from "re
 
 export type IActiveTour = 'home' | 'coconuts' | null;
 
+export type IActiveTourType = { type: IActiveTour };
+
 export type IActiveTourElemId =
   'nav-trigger' | 'weather-widget-btn' | 
   'add-coconut-btn'
