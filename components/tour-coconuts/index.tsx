@@ -13,7 +13,7 @@ const Tour = withTour(() => {
 
 const CoconutsTour = () => {
   const { activeTour } = useContext(TourContext);
-
+  console.log(activeTour)
   return (
     <>
       {

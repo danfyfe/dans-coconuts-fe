@@ -1,5 +1,5 @@
 'use client'
-import { IActiveTourType, TourContext } from "@/context/TourProvider";
+import { TourContext } from "@/context/TourProvider";
 import { useContext, useEffect, useState } from "react";
 import {
   Popover,
@@ -11,7 +11,6 @@ import H2 from "../core/typography/H2";
 import Button from "../core/utility/button";
 import EscapeToQuitDisclaimer from "../core/modal/escape-to-quit";
 import Loading from "../core/loaders/loading";
-import HR from "../core/utility/HR";
 import { useGetCookie } from "@/lib/hooks/useGetCookie";
 
 const TourHighlight = () => {
@@ -43,7 +42,7 @@ const TourHighlight = () => {
 
   return (
     <>
-      {!!cookie ? (
+      {!cookie ? (
             <div className="fixed w-full h-full z-50 pointer-events-none">
             <div
               className="absolute border-2 border-white rounded-full bg-transparent"
