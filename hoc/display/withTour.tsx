@@ -1,3 +1,5 @@
+'use client'
+export const dynamic = 'force-dynamic';
 import Tour from "@/components/core/modal/tour-modal";
 import { TourContext } from "@/context/TourProvider";
 import { ComponentType, useContext } from "react";
