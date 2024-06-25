@@ -7,7 +7,7 @@ const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: Top
     <>
     {
       titles.length > 0 && content ? (
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full text-left">
           {
             titles.map((title, index) => {
               const data = content?.[title];
