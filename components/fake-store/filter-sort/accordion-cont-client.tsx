@@ -22,7 +22,7 @@ const AccContClient = ({ items, type }: { items: IFakeStoreFilterValueTypes[]; t
     const filterParams = params?.getAll('filter');
     const sortParams = params?.getAll('filter');
     const filters = createParam('filter', filterParams);
-    console.log(filters)
+    // console.log(filters)
     // router.replace(`/fake-store?`)
     // add sort or filter to product listing
     // replace URL

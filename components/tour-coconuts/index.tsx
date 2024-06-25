@@ -1,5 +1,4 @@
 'use client'
-export const dynamic = 'force-dynamic';
 import { TourContext } from "@/context/TourProvider";
 import withTour from "@/hoc/display/withTour";
 import { useContext } from "react";

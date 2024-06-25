@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, ReactNode, SetStateAction, useContext, useEffect } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect } from "react";
 import setCookie from "@/lib/setCookie";
 import { FaPlus } from "react-icons/fa";
 import withModal from "@/hoc/display/withModal";
@@ -18,8 +18,6 @@ const TourModalUtils = ({ type, setOpen }:
     // setOpen is supplied by withModal
     setOpen?: Dispatch<SetStateAction<boolean>>;
   }) => {
-  const cookie = useGetCookie(`${type}-modal-opt-out`);
-    
   const { setActiveTour, setActiveTourElemId, activeTourData, setActiveTourData } = useContext(TourContext);
 
   const handleSetCookie = () => {

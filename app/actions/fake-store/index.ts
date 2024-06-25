@@ -4,7 +4,7 @@ import getErrorMessage from "@/lib/errors/getErrorMessage"
 import { NextResponse } from "next/server";
 
 export async function getProducts({ filter, sort }: { filter: IFakeStoreFilterValueTypes; sort: any }) {
-  console.log('FILTER:', filter)
+  // console.log('FILTER:', filter)
   try {
     const fakeProductResponse = await fetch(`${process.env.FAKE_STORE_API}/products`, {
       headers: {
