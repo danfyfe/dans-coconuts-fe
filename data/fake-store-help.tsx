@@ -21,7 +21,6 @@ export const FAKE_STORE_HELP: ActiveHelpCategoryContent = {
       <P className="text-left">
         WIP - details to come
       </P>
-      <P className="text-left text-xs mt-2">*This help menu display uses shadcn&apos;s Accordion component.</P>
       </>
     }
   }

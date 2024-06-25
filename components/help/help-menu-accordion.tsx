@@ -22,7 +22,7 @@ const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: Top
         </Accordion>
       ) : null
     }
-    <P className="text-right text-xs mt-2">*This message display uses shadcn&apos;s Accordion component. </P>
+    <P className="text-right text-xs mt-2">*This help menu display uses shadcn&apos;s Accordion component. </P>
     </>
   )
 };
