@@ -44,6 +44,7 @@ const TourModalUtils = ({ type, setOpen }:
         asLink
         className="absolute text-2xl right-0 top-0 p-4 lg:p-6"
         onClick={() => setOpen ? setOpen(false) : {}}
+        id={`${type}-close-modal`}
       >
         <FaPlus className="rotate-45"/>
       </Button>
@@ -59,13 +60,15 @@ const TourModalUtils = ({ type, setOpen }:
 
       <div className="grid w-full lg:grid-cols-2 lg:gap-10 gap-4">
         <Button
-        className=""
+          className=""
+          id={`${type}-dont-show-me-this-again-btn`}
           onClick={handleSetCookie}
         >
           Don&apos;t Show Me This Again
         </Button>
         <Button
           className=""
+          id={`${type}-start-tour-btn`}
           onClick={handleSetTour}
         >
           Start Tour
