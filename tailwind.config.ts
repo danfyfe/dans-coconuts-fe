@@ -217,7 +217,7 @@ const config = {
         'rain-drop': 'url("/images/forward-slash.svg")'
       },
       width: {
-        sun: '20vh'
+        sun: '20dvh'
       }
     },
   },
