@@ -100,6 +100,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
               md:hover:underline text-xl
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
+              hidden
             `}
           >
             Fake Store (WIP)
@@ -114,6 +115,7 @@ const LinkNavMenu = ({ user }: { user: IUser | null }) => {
               md:hover:underline text-lg
               transition-all delay-75 ease-in-out
               ${linkNavOpen ? 'visible' : 'invisible'}
+              hidden
             `}
           >
             Task Management (WIP)
