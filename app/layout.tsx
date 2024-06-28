@@ -2,7 +2,8 @@ import Providers from '@/context';
 import '../styles/globals.css';
 import Menus from '@/components/navigation';
 import LandscapeContainer from '@/components/core/containers/landscape-container';
-import { Roboto_Condensed } from 'next/font/google'
+import { Roboto_Condensed } from 'next/font/google';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 interface RootLayout {
 	children: React.ReactNode;
@@ -17,26 +18,28 @@ const roboto = Roboto_Condensed({
 
 const RootLayout = ({ children }: RootLayout) => (
 	<Providers>
-		<html lang="en" className={roboto.className}>
-			<body>
-				<main
-					id="main-content"
-					className="
-						relative overflow-hidden h-[100dvh]
-						scrollbar-thumb-coconut_brown
-						scrollbar-track-sand_day
-					"
-				>
-					<Menus />
-					{/* <CoconutDan /> */}
-					<LandscapeContainer>
-						{children}
-					</LandscapeContainer>
-				</main>
-				<div id="modal-root"></div>
-				<div id="tour-root"></div>
-			</body>
-		</html>
+		<AntdRegistry>
+			<html lang="en" className={roboto.className}>
+				<body>
+					<main
+						id="main-content"
+						className="
+							relative overflow-hidden h-[100dvh]
+							scrollbar-thumb-coconut_brown
+							scrollbar-track-sand_day
+						"
+					>
+						<Menus />
+						{/* <CoconutDan /> */}
+						<LandscapeContainer>
+							{children}
+						</LandscapeContainer>
+					</main>
+					<div id="modal-root"></div>
+					<div id="tour-root"></div>
+				</body>
+			</html>
+		</AntdRegistry>
 	</Providers>
 );
 
