@@ -39,7 +39,7 @@ const TourModalUtils = ({ type, setOpen }:
   }, [setActiveTourData, type]);
 
   return (
-    <ContentContainer className="lg:p-6">
+    <ContentContainer className="lg:p-6 overflow-auto max-h-none">
       <Button
         asLink
         className="absolute text-2xl right-0 top-0 p-4 lg:p-6"

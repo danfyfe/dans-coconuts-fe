@@ -33,6 +33,7 @@ const AddCoconutForm = () => {
                 indexName="dans-coconuts.Users"
                 label='user'
                 name="message-receiver"
+                required
                 placeholder='Start typing to search by username'
                 handleSelection={handleMessageReceiver}
               />
@@ -40,6 +41,7 @@ const AddCoconutForm = () => {
                 label="title"
                 name="message-title"
                 placeholder='Message title...'
+                required
                 onChange={handleMessageTitle}
                 value={messageTitle}
               />
@@ -47,6 +49,7 @@ const AddCoconutForm = () => {
                 label="message"
                 name="message"
                 placeholder="What do you want to say?"
+                required
                 onChange={handleMessageContent}
                 value={messageContent}
               ></TextArea>
