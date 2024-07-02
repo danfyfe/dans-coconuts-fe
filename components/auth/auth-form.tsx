@@ -82,6 +82,7 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
               required
               label="email"
               name="email"
+              type="email"
               id="auth-email"
               className='w-full'
               onChange={handleSetEmail}

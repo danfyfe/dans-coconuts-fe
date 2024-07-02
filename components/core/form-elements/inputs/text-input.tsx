@@ -1,16 +1,45 @@
+'use client'
 import { ITextInputProps } from "@/interfaces/content";
+import { ChangeEvent, useState } from "react";
+
 
 const TextInput = ({ type="text", name, className, value, onChange, label='', id, placeholder, required }: ITextInputProps) => {
+  const [error, setError] = useState<string>('');
+
+  const validate = (value: string): string => {
+    if (required && !value) {
+      return 'This field is required';
+    }
+    if (type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return 'Please enter a valid email address';
+      }
+    }
+    return '';
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const errorMessage = validate(value);
+    console.log('val: ', type)
+    setError(errorMessage);
+    if (onChange) onChange(e);
+  };
+
   return (
     <fieldset className={`${className ? className : ''}`}>
-      {
-        label ? (
-          <>
-            <legend className="font-roboto">{label}</legend>
-            <label className="hidden" htmlFor={id}>{label}</label>
-          </>
-        ) : null
-      }
+      <div className="relative">
+        {
+          label ? (
+            <>
+              <legend className="font-roboto">{label}</legend>
+              <label className="hidden" htmlFor={id}>{label}</label>
+            </>
+          ) : null
+        }
+        {error && <span className={`text-red-500 absolute top-0 right-0`}>{error}</span>}
+      </div>
       <input
         className={`
           rounded
@@ -27,7 +56,7 @@ const TextInput = ({ type="text", name, className, value, onChange, label='', id
         type={type}
         name={name}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
       />
     </fieldset>
   )
