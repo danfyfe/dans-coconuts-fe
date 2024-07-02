@@ -1,16 +1,37 @@
+'use client'
 import { ITextAreaProps } from "@/interfaces/content";
+import { ChangeEvent, useState } from "react";
 
-const TextArea = ({ type="text", name, className, value, onChange, label='', id, placeholder }: ITextAreaProps) => {
+const TextArea = ({ type="text", name, className, value, onChange, label='', id, placeholder, required }: ITextAreaProps) => {
+  const [error, setError] = useState<string>('');
+
+  const validate = (value: string): string => {
+    if (required && !value) {
+      return 'This field is required';
+    }
+    return '';
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = e.target;
+    const errorMessage = validate(value);
+    setError(errorMessage);
+    if (onChange) onChange(e);
+  };
+
   return (
     <fieldset className={`${className ? className : ''}`}>
-      {
-        label ? (
-          <>
-            <legend className="font-roboto">{label}</legend>
-            <label className="hidden" htmlFor={id}>{label}</label>
-          </>
-        ) : null
-      }
+      <div className="relative">
+        {
+          label ? (
+            <>
+              <legend className="font-roboto">{label}</legend>
+              <label className="hidden" htmlFor={id}>{label}</label>
+            </>
+          ) : null
+        }
+        {error && <span className={` text-red-700 absolute top-1/2 -translate-y-1/2 right-0 text-sm`}>{error}</span>}
+      </div>
       <textarea
         className={`
           rounded
@@ -25,7 +46,7 @@ const TextArea = ({ type="text", name, className, value, onChange, label='', id,
         aria-label={`${name}`}
         name={name}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
       ></textarea>
     </fieldset>
   )

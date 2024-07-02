@@ -73,6 +73,8 @@ const ContactForm = () => {
             label="Your email"
             placeholder="Your email"
             name="email"
+            required
+            type="email"
             id="contact-email-input"
             onChange={handleSetEmail}
           />
@@ -80,6 +82,7 @@ const ContactForm = () => {
             label="Subject"
             placeholder="Subject"
             name="subject"
+            required
             id="contact-subject-input"
             onChange={handleSetSubject}
           />
@@ -87,12 +90,14 @@ const ContactForm = () => {
             label="Message"
             placeholder="Message"
             name="message"
+            required
             id="contact-message-input"
             onChange={handleSetMessage}
           />
           <Button
             className="block ml-auto w-full md:w-auto"
             onClick={() => handleSubmit({ email, subject, message })}
+            disabled={!message || !email || !subject ? true : undefined}
           >
             Submit
           </Button>

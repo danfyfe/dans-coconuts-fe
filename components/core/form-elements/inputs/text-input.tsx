@@ -22,7 +22,6 @@ const TextInput = ({ type="text", name, className, value, onChange, label='', id
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     const errorMessage = validate(value);
-    console.log('val: ', type)
     setError(errorMessage);
     if (onChange) onChange(e);
   };
@@ -38,7 +37,7 @@ const TextInput = ({ type="text", name, className, value, onChange, label='', id
             </>
           ) : null
         }
-        {error && <span className={` text-red-700 absolute top-0 right-0 text-sm`}>{error}</span>}
+        {error && <span className={` text-red-700 absolute top-1/2 -translate-y-1/2 right-0 text-sm`}>{error}</span>}
       </div>
       <input
         className={`
