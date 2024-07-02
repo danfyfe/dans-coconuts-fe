@@ -6,6 +6,7 @@ import { ChangeEvent, useState } from "react";
 const TextInput = ({ type="text", name, className, value, onChange, label='', id, placeholder, required }: ITextInputProps) => {
   const [error, setError] = useState<string>('');
 
+  // TODO: make this a util for all inputs
   const validate = (value: string): string => {
     if (required && !value) {
       return 'This field is required';

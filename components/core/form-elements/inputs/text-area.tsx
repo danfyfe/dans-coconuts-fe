@@ -5,6 +5,7 @@ import { ChangeEvent, useState } from "react";
 const TextArea = ({ type="text", name, className, value, onChange, label='', id, placeholder, required }: ITextAreaProps) => {
   const [error, setError] = useState<string>('');
 
+  // TODO: make this a util for all inputs
   const validate = (value: string): string => {
     if (required && !value) {
       return 'This field is required';
