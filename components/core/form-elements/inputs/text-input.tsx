@@ -38,7 +38,7 @@ const TextInput = ({ type="text", name, className, value, onChange, label='', id
             </>
           ) : null
         }
-        {error && <span className={`text-red-500 absolute top-0 right-0`}>{error}</span>}
+        {error && <span className={` text-red-700 absolute top-0 right-0 text-sm`}>{error}</span>}
       </div>
       <input
         className={`

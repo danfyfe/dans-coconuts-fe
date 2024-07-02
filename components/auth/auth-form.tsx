@@ -92,6 +92,7 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
                 <TextInput
                   label="username"
                   name="username"
+                  required
                   id="auth-username"
                   className='w-full'
                   onChange={handleSetUsername}
@@ -111,6 +112,7 @@ const AuthForm = ({ type, referrerPath }: IAuthForm) => {
               type === 'signup' ? (
                 <Button
                   className="mt-2"
+                  disabled={!email || !password || !username ? true : undefined}
                   type="button"
                   onClick={() => handleSignUp({ email, password, username })}
                 >
