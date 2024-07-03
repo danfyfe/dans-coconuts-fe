@@ -22,6 +22,10 @@ describe('Content Container component', () => {
     expect(element).toBeDefined();
   });
 
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders children', () => {
     const textElement = component.getByText(elementText);
     expect(textElement).toBeDefined();

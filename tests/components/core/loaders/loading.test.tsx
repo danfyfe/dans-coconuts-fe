@@ -19,6 +19,10 @@ describe('Loading component', () => {
     expect(element).toBeDefined();
   });
 
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders a coconut image', () => {
     const image = element.getElementsByTagName('IMG')[0];
     const src = image.getAttribute('src');

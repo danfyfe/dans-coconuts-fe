@@ -21,6 +21,10 @@ describe('H4 component', () => {
     expect(element).toBeDefined();
   });
 
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders an h4 tag', () => {
     expect(element.tagName).toBe('H4');
   });

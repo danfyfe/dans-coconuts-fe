@@ -21,6 +21,10 @@ describe('H1 component', () => {
     expect(element).toBeDefined();
   });
 
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders an h1 tag', () => {
     expect(element.tagName).toBe('H1');
   });

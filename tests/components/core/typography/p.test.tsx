@@ -20,6 +20,10 @@ describe('P component', () => {
     expect(component).toBeDefined();
     expect(element).toBeDefined();
   });
+  
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
 
   it('renders an p tag', () => {
     expect(element.tagName).toBe('P');

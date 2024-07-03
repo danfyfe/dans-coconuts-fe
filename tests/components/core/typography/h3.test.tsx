@@ -21,6 +21,10 @@ describe('H3 component', () => {
     expect(element).toBeDefined();
   });
 
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders an h3 tag', () => {
     expect(element.tagName).toBe('H3');
   });
