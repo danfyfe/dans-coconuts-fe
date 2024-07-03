@@ -10,6 +10,7 @@ export default function Loading({ className }: { className?: string}) {
 					z-[1000]
 					${className ? className : ''}
 				`}
+					data-testid="loading-component"
 				>
 					<Image
 						priority
