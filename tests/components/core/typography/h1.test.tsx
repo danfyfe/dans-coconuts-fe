@@ -1,7 +1,7 @@
-import H3 from "@/components/core/typography/H3";
+import H1 from "@/components/core/typography/H1";
 import { render, RenderResult } from "@testing-library/react";
 
-describe('H3 component', () => {
+describe('H1 component', () => {
   let component: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement, HTMLElement>;
   let element: HTMLElement;
   const elementText = 'Heading'
@@ -9,9 +9,9 @@ describe('H3 component', () => {
 
   beforeEach(() => {
     component = render(
-      <H3 className={className}>
+      <H1 className={className}>
         {elementText}
-      </H3>
+      </H1>
     );
     element = component.getByText(elementText);
   });
@@ -21,8 +21,8 @@ describe('H3 component', () => {
     expect(element).toBeDefined();
   });
 
-  it('renders an h3 tag', () => {
-    expect(element.tagName).toBe('H3');
+  it('renders an h1 tag', () => {
+    expect(element.tagName).toBe('H1');
   });
 
   it('uses the passed in className', () => {
