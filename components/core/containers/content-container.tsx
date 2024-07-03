@@ -13,6 +13,7 @@ const ContentContainer = ({ children, className, id }: IContentContainerProps) =
     return(
         <section
             id={id}
+            data-testid={`${id}-test`}
             className={`
                 absolute
                 flex flex-col
