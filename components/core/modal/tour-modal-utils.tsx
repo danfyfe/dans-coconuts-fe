@@ -11,6 +11,12 @@ import ActiveTourData from "@/data/tours";
 import MainTourContent from "./main-tour-contents";
 import StartingTourElems from "@/data/tours/starting-elems";
 
+/**
+ * Tour Modal Utils
+ *  @description This modal contains the options for hiding the tour modal or starting the tour
+ *  It is controlled by the corresponding modal in "@/components/modals/[modal]" and the HOC withModal in "@/hoc/withModal"
+ */
+
 const TourModalUtils = ({ type, setOpen }:
   { 
     type: IModalType;

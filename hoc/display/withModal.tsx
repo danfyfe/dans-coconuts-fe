@@ -7,6 +7,12 @@ interface IModalProps extends Object {
   type: IActiveTour
 }
 
+/**
+ * withModal HOC
+ * @description - supplies the passed in component with modal functionality controlled by the Modal component in "@/components/core/modal"
+ * 
+ */
+
 const withModal = <P extends IModalProps>(Component: ComponentType<P>) => {
   const ComponentWithModal = (props: P) => {
     const { open, setOpen, setActiveModal } = useContext(ModalContext);

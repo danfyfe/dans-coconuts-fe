@@ -8,6 +8,12 @@ interface IModalProps {
   children: ReactNode;
 }
 
+/**
+ * Modal
+ *  @description - contains the logic for handling modal displays and creates a Portal to handle rendering.
+ *    If adding a new Modal usage, be sure to add the proper elements for the Portal to function.
+ */
+
 const Modal = ({ open, setOpen, children }: IModalProps) => {
   const [mounted, setMounted] = useState(false);
   
