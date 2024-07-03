@@ -42,8 +42,6 @@ export type ICopyElem = JSX.Element;
 interface ITourProvider {
   activeTour: IActiveTour
   setActiveTour: Dispatch<SetStateAction<IActiveTour>>;
-  highlight: IHighlight;
-  setHighlight: Dispatch<SetStateAction<IHighlight>>;
   activeTourElemId: IActiveTourElemId;
   setActiveTourElemId:  Dispatch<SetStateAction<IActiveTourElemId>>;
   activeTourData: IActiveTourData;
@@ -53,8 +51,6 @@ interface ITourProvider {
 export const TourContext = createContext<ITourProvider>({
   activeTour: null,
   setActiveTour: () => {},
-  highlight: null,
-  setHighlight: () => {},
   activeTourElemId: null,
   setActiveTourElemId: () => {},
   activeTourData: { type: null },
@@ -62,8 +58,13 @@ export const TourContext = createContext<ITourProvider>({
 });
 
 export const TourProvider = ({ children }: { children: React.ReactNode }) => {
+  /**
+   * @param activeTour - state that holds the named value of the active tour. this gets toggled to render the correct data
+   * @param activeTourElemId - the ID for the active tour element. the logic uses this to create the 'circled' effect on the element
+   * @param activeTourData - the data used for the active tour - this is hardcoded data that lives in "@/data/tours"
+   */
+
   const [activeTour, setActiveTour] = useState<IActiveTour>(null);
-  const [highlight, setHighlight] = useState<IHighlight>(null);
   const [activeTourElemId, setActiveTourElemId] = useState<IActiveTourElemId>(null);
   const [activeTourData, setActiveTourData] = useState<IActiveTourData>({ type: null });
 
@@ -72,7 +73,6 @@ export const TourProvider = ({ children }: { children: React.ReactNode }) => {
     <TourContext.Provider
       value={{
         activeTour, setActiveTour,
-        highlight, setHighlight,
         activeTourElemId, setActiveTourElemId,
         activeTourData, setActiveTourData
       }}>

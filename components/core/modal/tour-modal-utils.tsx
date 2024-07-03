@@ -10,7 +10,6 @@ import EscapeToQuitDisclaimer from "./escape-to-quit";
 import ActiveTourData from "@/data/tours";
 import MainTourContent from "./main-tour-contents";
 import StartingTourElems from "@/data/tours/starting-elems";
-import { useGetCookie } from "@/lib/hooks/useGetCookie";
 
 const TourModalUtils = ({ type, setOpen }:
   { 
