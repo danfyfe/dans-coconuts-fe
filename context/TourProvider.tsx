@@ -1,6 +1,5 @@
 'use client'
-import ActiveTourData from "@/data/tours";
-import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 
 export type IActiveTour = 'home' | 'coconuts' | null;
 
