@@ -8,8 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "tests": "jest --watch"
+    "jest-test": "jest",
+    "jest-tests": "jest --watch",
+    "nightwatch-tests": "npx nightwatch"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",

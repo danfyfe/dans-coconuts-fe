@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="0">
+
+  <testsuite name="nightwatch.github"
+    errors="0" failures="0" hostname="" id="" package="github" skipped="0"
+    tests="0" time="0.09500" timestamp="">
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
