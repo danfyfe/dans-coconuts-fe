@@ -7,7 +7,7 @@ import NextLink from "../core/utility/link";
 const GitHubContent = ({ children }: { children: ReactNode }) => (
   <ContentContainer className="" id="github-content-container">
     <H1 className="mb-4">GitHub Links</H1>
-    <P className="text-lg mb-1">Check out the repositories for this project</P>
+    <P className="text-lg mb-1">Check out my pinned repositories</P>
     <P className="text-sm mb-1 underline"><a href="https://github.com/danfyfe" target="_blank">Click here for the main profile page</a></P>
     <P className="my-2">
       Unfortunately, most past professional work experience and projects cannot be shared here, but I am happy to do a walkthrough.

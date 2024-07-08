@@ -1,4 +1,3 @@
-import CoconutContainer from "@/components/coconuts/coconut-container";
 import GitHubContent from "@/components/github/github-content";
 import GitHubRepos from "@/components/github/github-repos";
 import { Metadata } from 'next';
@@ -10,7 +9,6 @@ export const metadata: Metadata = {
 
 const GitHubPage = () => (
   <>
-    {/* <CoconutContainer /> */}
     <GitHubContent>
       <GitHubRepos />
     </GitHubContent>
