@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Run local tests
-        run: npm run test
+        run: npm run jest-test
 
       - name: Checkout Cypress repo
         uses: actions/checkout@v4
