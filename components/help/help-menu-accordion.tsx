@@ -13,8 +13,8 @@ const HelpMenuAccordion = ({ titles, content }: { titles: string[]; content: Top
               const data = content?.[title];
               return (
                 <AccordionItem key={`${title}-${index}`} value={`${title}-${index}`} className="no-underline">
-                  <AccordionTrigger>{content[title].title}</AccordionTrigger>
-                  <AccordionContent>{content[title].content}</AccordionContent>
+                  <AccordionTrigger>{data.title}</AccordionTrigger>
+                  <AccordionContent>{data.content}</AccordionContent>
                 </AccordionItem>
               )
             })

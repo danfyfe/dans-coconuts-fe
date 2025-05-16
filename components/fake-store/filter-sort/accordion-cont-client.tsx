@@ -15,13 +15,13 @@ const createParam = (type: 'filter' | 'sort', params: string[] | undefined) => {
 const AccContClient = ({ items, type }: { items: IFakeStoreFilterValueTypes[]; type: 'filter' | 'sort' }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const params = useSearchParams();
+  const params = useParams();
   
   const handleClick = (val: string) => {
-    const encodedVal = encodeURIComponent(val);
-    const filterParams = params?.getAll('filter');
-    const sortParams = params?.getAll('filter');
-    const filters = createParam('filter', filterParams);
+    console.log(params)
+    // const filterParams = params?.getAll('filter');
+    // const sortParams = params?.getAll('filter');
+    // const filters = createParam('filter', filterParams);
     // console.log(filters)
     // router.replace(`/fake-store?`)
     // add sort or filter to product listing
