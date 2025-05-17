@@ -17,16 +17,7 @@ const AccContClient = ({ items, type }: { items: IFakeStoreFilterValueTypes[]; t
   const pathname = usePathname();
   const params = useParams();
   
-  const handleClick = (val: string) => {
-    console.log(params)
-    // const filterParams = params?.getAll('filter');
-    // const sortParams = params?.getAll('filter');
-    // const filters = createParam('filter', filterParams);
-    // console.log(filters)
-    // router.replace(`/fake-store?`)
-    // add sort or filter to product listing
-    // replace URL
-  };
+  const handleClick = (val: string) => {}
 
   return (
     <>

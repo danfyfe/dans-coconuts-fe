@@ -8,7 +8,6 @@ const OrganizationsList = async ({ userSlug }: { userSlug: string }) => {
   // TODO: refacter logic out of component and make HOC
   const userResp = await getUserData();
   const user = userResp.success ? userResp.user! : null;
-  // console.log('USER: ', user)
   return (
     <ContentContainer className="md:py-5">
       <TaskManagementHeader />

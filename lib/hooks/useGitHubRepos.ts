@@ -24,7 +24,6 @@ const useGitHubRepos = () => {
       setError(error);
       const repos: GitHubRepo[] = gitHubRepos?.data?.user?.pinnedItems?.nodes;
       setRepos(repos);
-      // console.log(repos)
       setLoading(false);
     };
     fetchData();

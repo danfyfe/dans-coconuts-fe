@@ -7,22 +7,17 @@ const CoconutTrashCan = () => {
   const [isDraggingOver, setIsDraggingOver] = useState<boolean>(false);
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
-    // console.log('drag over')
     event.preventDefault();
     setIsDraggingOver(true);
   };
 
   const handleDragLeave = () => {
-    // console.log('drag leave')
     setIsDraggingOver(false);
   };
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    // console.log('dropped')
     event.preventDefault();
     setIsDraggingOver(false);
-    // Perform action when item is dropped onto the drop zone
-    // console.log("Item dropped onto drop zone!");
   };
 
   return (

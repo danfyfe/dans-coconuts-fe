@@ -43,7 +43,6 @@ export async function getUserByUsername(username: string) {
   const jsonRespData = await response.json();
   const { status } = response;
   const { message } = jsonRespData;
-  // console.log(jsonRespData)
   if (status === 200) {
     return NextResponse.json({ ...jsonRespData, status })
   }

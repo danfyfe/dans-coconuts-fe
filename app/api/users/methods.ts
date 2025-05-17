@@ -20,25 +20,6 @@ export const signUp = async ({ email, username, password }: ISignUpParams) => {
     password
   });
 
-  // const query = `
-  //   mutation CreateUser($input: NewUserInput) {
-  //     createUser(input: $input) {
-  //       username
-  //     }
-  //   }
-  // `;
-
-  // const body = JSON.stringify({ 
-  //   query,
-  //   variables: {
-  //     input: {
-  //       email,
-  //       username,
-  //       password
-  //     }
-  //   }
-  // });
-  // console.log('BODY: ', body)
 
   await fetch('/api/users/signup', {
     method: 'POST',

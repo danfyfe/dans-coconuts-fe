@@ -4,9 +4,7 @@ import { getUserByUsername, getUserData } from "@/app/actions/users";
 
 const Navigation = async () => {
   const userResp = await getUserData();
-  // const userByUsername = await getUserByUsername('danfyfe');
-  // const data = await userByUsername.json()
-  // console.log('user?', data)
+
   const user = userResp.success ? userResp.user! : null;
   return (
     <nav className={`

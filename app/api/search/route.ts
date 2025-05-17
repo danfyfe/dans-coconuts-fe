@@ -11,7 +11,6 @@ export async function GET(request: Request) {
     if (params && searchTerm) {
       const db = await connectMongoDB();
       const usersCollection = db?.connection.collection('Users');
-      // console.log(usersCollection)
       const searcher_aggregate = {
         $search: {
           index: "users",

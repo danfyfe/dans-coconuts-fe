@@ -15,7 +15,6 @@ export async function getCoconuts(username: string) {
     },);
     
     const coconuts = await coconutsCollection?.toArray();
-    // console.log('in get coconuts,', coconuts)
     revalidatePath('/coconuts');
     return NextResponse.json({
       success: true,
